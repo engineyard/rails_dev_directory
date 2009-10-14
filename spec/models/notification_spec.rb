@@ -16,7 +16,7 @@ describe Notification do
   end
 
   it "should create the recipient correctly for a user welcome" do
-    @user = Factory.build(:user)
+    @user = Factory.build(:test_user)
     @user.perishable_token = '123123'
     @user.stub!(:id).and_return(1)
     @notification = Notification.create_user_welcome(@user)
@@ -24,14 +24,14 @@ describe Notification do
   end
   
   it "should create the message if it's custom for user" do
-    @user = Factory.build(:user)
+    @user = Factory.build(:test_user)
     @user.stub!(:id).and_return(1)
     @notification = Notification.create_user_welcome(@user, "this", 'test')
     @notification.subject.should == 'this'
   end
   
   it "should create the message if it's custom for provider" do
-    @user = Factory.build(:user)
+    @user = Factory.build(:test_user)
     @user.stub!(:id).and_return(1)
     @notification = Notification.create_provider_welcome(@user, "this", 'test')
     @notification.subject.should == 'this'

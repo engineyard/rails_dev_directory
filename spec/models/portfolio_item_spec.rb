@@ -2,7 +2,7 @@ require File.expand_path(File.dirname(__FILE__) + '/../spec_helper')
 
 describe PortfolioItem do
   before do
-    @provider = Factory.create(:provider)
+    @provider = Factory.create(:test_provider)
   end
 
   it "should not be valid if it is the fourth item for a provider" do

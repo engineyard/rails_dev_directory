@@ -25,7 +25,7 @@ end
 
 describe Rfp, "where the budget is too big" do
   before(:each) do
-    @provider = Factory.create(:provider, :min_budget => 25000)
+    @provider = Factory.create(:test_provider, :min_budget => 25000)
     @rfp = Rfp.new(:budget => 5000)
     @rfp.providers << @provider
   end

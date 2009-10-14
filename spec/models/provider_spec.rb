@@ -27,8 +27,8 @@ describe Provider do
   
   describe "counter cache on recommendations" do
     it "should increment the recommendations on the provider counter cache" do
-      provider = Factory.create(:provider, :company_name => "Counter Slug")
-      provider.recommendations << Factory.create(:recommendation, :aasm_state => 'approved')
+      provider = Factory.create(:test_provider, :company_name => "Counter Slug")
+      provider.recommendations << Factory.create(:test_recommendation, :aasm_state => 'approved')
       provider.reload
       provider.recommendations_count.should == 1
     end
@@ -201,7 +201,7 @@ end
 
 describe Provider, "trying to register a reserved country / state name" do
   before do
-    @provider = Factory.build(:provider)
+    @provider = Factory.build(:test_provider)
   end
   
   it "should not allow me to register a country name" do
