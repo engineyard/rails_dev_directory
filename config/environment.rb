@@ -21,7 +21,7 @@ Rails::Initializer.run do |config|
   # config.gem "aws-s3", :lib => "aws/s3"
   config.gem "highline"
   config.gem "RedCloth", :lib => 'redcloth'
-  config.gem "authlogic"
+  config.gem "authlogic", :version => '2.1.2'
   config.gem "fastercsv"
 
   # Only load the plugins named here, in the order given (default is alphabetical).
