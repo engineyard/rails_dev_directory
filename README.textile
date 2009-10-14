@@ -1,4 +1,4 @@
-h1. EngineYard Rails Development Directory Database Web App
+h1. EngineYard Rails Development Directory Web Application
 
 h2. Bootstrapping
 
