@@ -1,0 +1,13 @@
+<%- if @message.blank? -%>
+<%= t('email.user_welcome.greeting', :name => @user.first_name) %>
+
+<%= t('email.user_welcome.message') %>
+
+<%= t('email.user_welcome.credentials') %>
+
+<%= edit_password_reset_url(@user.perishable_token)   %>
+
+<%= t('email.user_welcome.signoff') %>
+<%- else -%>
+<%= @message -%>
+<%- end -%>

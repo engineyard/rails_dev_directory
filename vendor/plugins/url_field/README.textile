@@ -1,0 +1,53 @@
+h1. URL field
+
+Sometimes you want to accept a URL field on one of your models. Take for example a Company model with a website field. You want the URL to always have "http://" but sometimes users enter http://, sometimes they dont.
+
+Your app shouldn't care. Enter the URL field plugin.
+
+This simple plugin allows you to enter either "http://www.example.com" or just "www.example.com" and in either case it will store "http://www.example.com"
+
+h2. Usage
+
+<pre><code>class Company < ActiveRecord::Base
+  url_field :website
+end
+
+@company = Company.new
+@company.website = "www.example.com"
+@company.save
+@company.website # => "http://www.example.com"
+</code></pre>
+
+Https? That works too (but one way only)
+<pre><code>@company.website = "https://www.example.com"
+@company.save
+@company.website # => "https://www.example.com"
+</code></pre>
+
+h2. Extra
+
+If you want access to the correctly formatted URL at any time (for example if you're passing it to URI.parse), you can call "cleaned_url_field"
+
+<pre><code>class Company < ActiveRecord::Base
+  url_field :website
+end
+
+@company = Company.new
+@company.website = "www.example.com"
+@company.cleaned_url_field # => "http://www.example.com"
+</code></pre>
+
+h2. Install
+
+Easy!
+
+<pre><code>./script plugin install git://github.com/paulca/url_field.git
+</code></pre>
+
+h2. About me
+
+I'm Paul Campbell. I'm an avid Ruby on Rails web developer. Follow my ramblings at "http://www.pabcas.com":http://www.pabcas.com
+
+Follow me on Twitter "http://twitter.com/paulca":http://twitter.com/paulca
+
+Copyright (c) 2009 Paul Campbell, released under the MIT license

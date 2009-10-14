@@ -1,0 +1,52 @@
+<h2><%= t('admin.dashboard.title') %></h2>
+
+<p><%= t('admin.dashboard.welcome') %></p>
+
+<hr />
+
+<table>
+  <tr>
+    <th>&nbsp;</th>
+    <th><%= t('audit.current') %></th>
+    <th><%= t('audit.all_time') %></th>
+    <th><%= t('audit.updates') %></th>
+    <th><%= t('audit.deleted') %></th>
+  </tr>
+
+  <tr>
+    <td><%= t('audit.providers') %></td>
+    <td>
+      <%= Provider.count %><br/>
+      <%= Provider.active.count %> <%= t('admin.dashboard.active')%>
+      <%= Provider.inactive.count %> <%= t('admin.dashboard.inactive') %>
+      <%= Provider.flagged.count %> <%= t('admin.dashboard.flagged') %>
+    </td>
+    <td><%= Provider.created.count %></td>
+    <td><%= Provider.updated.count %></td>
+    <td><%= Provider.destroyed.count %></td>
+  </tr>
+
+  <tr>
+    <td><%= t('audit.rfps') %></td>
+    <td><%= Rfp.count %></td>
+    <td><%= Rfp.created.count %></td>
+    <td><%= Rfp.updated.count %></td>
+    <td><%= Rfp.destroyed.count %></td>
+  </tr>
+
+  <tr>
+    <td><%= t('audit.requests') %></td>
+    <td><%= Request.count %></td>
+    <td><%= Request.created.count %></td>
+    <td><%= Request.updated.count %></td>
+    <td><%= Request.destroyed.count %></td>
+  </tr>
+
+  <tr>
+    <td><%= t('audit.recommendations') %></td>
+    <td><%= Recommendation.count %></td>
+    <td><%= Recommendation.created.count %></td>
+    <td><%= Recommendation.updated.count %></td>
+    <td><%= Recommendation.destroyed.count %></td>
+  </tr>
+</table>

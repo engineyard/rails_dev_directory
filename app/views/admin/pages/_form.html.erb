@@ -1,0 +1,14 @@
+<% form_for @page, :url => @page.new_record? ? admin_pages_path : admin_page_url(:id => @page.id) do |f| -%>
+  
+  <%= f.error_messages %>
+
+  <fieldset>
+    <%= f.label :title, t("page.title") %> <%= f.text_field :title %> <br />
+    <%= f.label :url, t("page.url") %> <%= f.text_field :url %> <em><%= t('page.maps_to') %></em> <br />
+    <%= f.label :keywords, t("page.keywords") %> <%= f.text_area :keywords, :class => "small-text" %> <br />
+    <%= f.label :description, t("page.description") %> <%= f.text_area :description, :class => "small-text" %> <br />
+    <%= f.label :content, "#{t("page.content")}<br/> <em>#{t('page.accepts_textile')}</em>" %> <%= f.text_area :content %> <br />
+  </fieldset>
+  
+  <%= f.submit t('forms.save') %>
+<% end -%>

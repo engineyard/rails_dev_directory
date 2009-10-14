@@ -1,0 +1,34 @@
+<fieldset>
+  <%= f.label :company_name, t("provider.company_name") %> <%= f.text_field :company_name %> <br />
+	<%= f.label :marketing_description, "#{t("provider.marketing_description")}<br/><em>#{t("provider.marketing_description_limit")}</em><br/><span class='charCount'><em class=\"number\">#{300 - (@provider.marketing_description ? @provider.marketing_description.size : 0)}</em> #{t('provider.remaining')}</span>" %> <%= f.text_area :marketing_description, :'data-count' => 300  %> <br />
+  <%= f.label :street_address, t("provider.street_address") %> <%= f.text_field :street_address %> <br />
+  <label></label><%= f.text_field :further_street_address %> <br />
+  <%= f.label :city, t("provider.city") %> <%= f.text_field :city %> <br />
+  <%= f.label :state_province, t("provider.state") %> <%= f.select :state_province, ([[t('provider.outside_us'), "NA"]] + State::NAMES), :include_blank => true %> <br />
+  <%= f.label :postal_code, t("provider.postal_code") %> <%= f.text_field :postal_code %> <br />
+  <%= f.label :country, t('provider.country') %> <%= f.localized_country_select :country, [:US, :CA, :FR, :DE,  :IE, :ES, :GB], :include_blank => t('provider.choose_country') %> <br />
+  <%= f.label :phone_number, t("provider.phone_number") %> <%= f.text_field :phone_number %> <br />
+  <%= f.label :email, t("provider.email") %> <%= f.text_field :email %> <br />
+  <%= f.label :company_url, t("provider.company_url") %> <%= f.text_field :company_url %> <br />
+  <%= f.label :logo, t('provider.logo') %><%= f.file_field :logo %><br/>
+  <%- if @provider.not.new_record? and @provider.logo_file_name.not.blank? -%>
+  <%= image_tag(@provider.logo.url(:thumb)) %>
+<%- end -%>
+</fieldset>
+
+<fieldset>
+  <%= f.label :company_size, t('provider.company_size') %> <%= f.select :company_size, Provider.options_for_company_size %><br/>
+  <%= f.label :hourly_rate, t("provider.hourly_rate") %> &#36;<%= f.text_field :hourly_rate, :class => 'number' %> <br />
+  <%= f.label :min_budget, t("provider.min_budget") %> &#36;<%= f.text_field :min_budget, :class => 'number' %><br />
+
+  <label><%= t('provider.services') %></label>
+  <ul>
+    <%- TechnologyType.checked.each do |technology_type| -%>
+      <li><%= check_box_tag "dummy_tech_types[]", technology_type.id, true, :disabled => true, :id => dom_id(technology_type), :class=>'hidden' %> <%= image_tag '/images/icon-check.png', :class=>"check" %><%= label_tag dom_id(technology_type), technology_type.name %></li>
+    <%- end -%>
+    <%- TechnologyType.ordered_not_checked.each do |technology_type| -%>
+      <li><%= check_box_tag "provider[technology_type_ids][]", technology_type.id, @provider.technology_types.include?(technology_type), :id => dom_id(technology_type) %><%= label_tag dom_id(technology_type), technology_type.name %></li>
+    <%- end -%>
+  </ul>
+  <br />
+</fieldset>

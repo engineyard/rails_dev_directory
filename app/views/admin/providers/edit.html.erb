@@ -1,0 +1,51 @@
+<h2><%= t('provider.edit') %></h2>
+
+<% form_for [:admin, @provider], :html => {:multipart => true} do |f| -%>
+  
+  <%= f.error_messages %>
+
+  <fieldset>
+    <%= f.label :user_id, t("provider.admin") %> <%= f.select :user_id, @provider.users_for_select %> <br />
+    
+    <%= f.label :company_name, t("provider.company_name") %> <%= f.text_field :company_name %> <br />
+    <%= f.label :slug, t("provider.slug") %> <%= f.text_field :slug %> <br />
+		<%= f.label :marketing_description, "#{t("provider.marketing_description")}<br/><em class=\"number\">#{300 - (@provider.marketing_description ? @provider.marketing_description.size : 0)}</em> #{t('provider.remaining')}" %> <%= f.text_area :marketing_description, :class => "count", :"data-count" => 300 %> <br />
+    <%= f.label :street_address, t("provider.street_address") %> <%= f.text_field :street_address %> <br />
+    <label></label><%= f.text_field :further_street_address %> <br />
+    <%= f.label :city, t("provider.city") %> <%= f.text_field :city %> <br />
+    <%= f.label :state_province, t("provider.state") %> <%= f.select :state_province, ([[t('provider.outside_us'), "NA"]] + State::NAMES), :include_blank => true %> <br />
+    <%= f.label :postal_code, t("provider.postal_code") %> <%= f.text_field :postal_code %> <br />
+    <%= f.label :country, t('provider.country') %> <%= f.localized_country_select :country, [:US, :CA, :FR, :DE,  :IE, :ES, :GB], :include_blank => t('provider.choose_country') %> <br />
+    <%= f.label :phone_number, t("provider.phone_number") %> <%= f.text_field :phone_number %> <br />
+    <%= f.label :email, t("provider.email") %> <%= f.text_field :email %> <br />
+    <%= f.label :company_url, t("provider.company_url") %> <%= f.text_field :company_url %> <br />
+    <%= f.label :logo, t('provider.logo') %><%= f.file_field :logo %><br/>
+    <%- if @provider.logo_file_name.not.blank? -%>
+      <%= image_tag(@provider.logo.url(:thumb))%><br/>
+    <%- end -%>
+    
+  </fieldset>
+  <fieldset>
+    
+    <%= f.label :company_size, t('provider.company_size') %> <%= f.select :company_size, Provider.options_for_company_size %><br/>
+    <%= f.label :hourly_rate, t("provider.hourly_rate") %> &#36;<%= f.text_field :hourly_rate, :class => 'number' %> <br />
+    <%= f.label :min_budget, t("provider.min_budget") %> &#36;<%= f.text_field :min_budget, :class => 'number' %> <br />
+    
+  </fieldset>
+  <fieldset>
+    
+    <%= f.label :aasm_state, t("provider.status") %> <%= f.select :aasm_state, Provider.states %> <br />
+    <%= f.label :recommendations_count, t("provider.recommendations_count") %> <%= f.text_field :recommendations_count, :class => "number" %> <br />
+    
+  </fieldset>
+  
+  <fieldset>
+    <h3><%= t('provider.services') %></h3>
+  
+    <%- TechnologyType.ordered.each do |technology_type| -%>
+      <%= label_tag dom_id(technology_type), technology_type.name %><%= check_box_tag "provider[technology_type_ids][]", technology_type.id, @provider.technology_types.include?(technology_type), :id => dom_id(technology_type) %><br/>
+    <%- end -%>
+
+  </fieldset>
+  <%= f.submit t('forms.save') %> or <%= link_to t('forms.cancel'), [:admin, @provider] %>
+<% end -%>

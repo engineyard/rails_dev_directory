@@ -1,0 +1,121 @@
+body {
+  background: #FEFEFE;
+  font-size: 85%;
+}
+.main {
+  margin-top: 0;
+	padding: 0;
+	min-width: 760px;
+	height: 500px;
+	background: url(/images/bg-sidebar.png) repeat-x left top;
+}
+.header {
+	background: #313131;
+	border-bottom: 1px solid #DDD;
+	margin-bottom: 0;
+	padding: 10px 40px 0px;
+}
+.dl10 {
+  min-height: 400px;
+	width: 110px;
+	float: left;
+	background: url(/images/bg-side-border.png) no-repeat right top;
+	padding: 40px 40px;
+}
+.dl10 li a {
+	color: #666;
+	display: block;
+}
+.dl10 li {
+	margin-right: 1em;
+	margin-bottom: 0.5em;
+}
+.dl10 a:hover, .dl10 li.here a {
+	text-decoration: none;
+	color: #333;
+}
+.dr20 {
+	float: right;
+}
+.dl10 ul, .dr20 ul {
+  list-style: none;
+  margin: 0 0 1.5em;
+}
+.fluid {
+  width: auto;
+  min-height: 400px;
+	margin-left: 190px;
+	padding-top: 30px;
+	padding-left: 40px;
+	padding-right: 40px;
+	padding-bottom: 40px;
+	background: #FEFEFE;
+}
+.fluid .content {
+  width: 100%;
+  float: left;
+}
+
+/* Type Styles */
+h1, h2, h3 {
+  font-family: Lucida Grande, Arial, Helvetica, sans-serif;
+}
+h2 {
+  font: 20px Georgia, Times New Roman, serif;
+  margin: 0 0 1em 0;
+  padding: 10px 20px;
+  background: #EDEDED;
+  text-align: left;
+}
+.small-text {
+  height: 3em;
+}
+.globalNav li {
+  margin-top: 0.5em;
+  margin-left: 1em;
+  padding: 0 0 0 1em;
+  border-left: 1px solid #FFF;
+}
+.globalNav li:first-child {
+  border-left: none;
+}
+.navigation h3 {
+  font: 1.3em Georgia, Times New Roman, serif;
+  padding: 0 0 0.5em;
+  margin-bottom: 0.5em;
+  border-bottom: 1px solid #CCC;
+}
+.block {
+  min-height: 300px;
+}
+
+/* Form styles */
+input.email {
+  width: 40em;
+}
+input[type="submit"], button {
+  color: #333;
+  background: #E9E9E9;
+  padding: 4px 20px;
+	border: 1px solid #999;
+	border-top-color: #CCC;
+	border-left-color: #CCC;
+}
+textarea#page_content {
+  width: 50em;
+}
+textarea.email {
+  width: 40em;
+  height: 25em;
+}
+#new_homepage label, .edit_homepage label {
+  width: auto;
+  text-align: left;
+}
+#new_homepage textarea, .edit_homepage textarea {
+  width: 100%;
+  height: 30em;
+}
+label {
+  width: 16em;
+}

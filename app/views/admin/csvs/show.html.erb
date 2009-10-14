@@ -1,0 +1,6 @@
+<h2><%= t('navigation.csvs') %></h2>
+
+<ul>
+  <li><%= link_to t('csvs.rfps'), admin_rfps_path(:format => "csv") %></li>
+  <li><%= link_to t('csvs.providers'), admin_providers_path(:format => "csv") %></li>
+</ul>

@@ -1,0 +1,119 @@
+<% 
+  # Title: <name> Developer Profile | Rails Developer in <city> <state> | Rails Development Directory
+  # Meta Description: View the Rails developer profile for <name>, located in <city>, <state>, <country>, providing <services offered>.
+ %>
+
+<%- content_for :title do -%><%= @provider.company_name %> <%= t('provider.developer_profile') %> | <%= t('provider.rails_developer_in') %> <%= [@provider.city, @provider.state_province].reject { |a| a.blank? or a == 'NA' }.join(', ') %> | <%- end %>
+<%- content_for :description do -%><meta name="description" content="<%= t('provider.developer_description', :name => @provider.company_name, :address => @provider.private_address.join(', '), :services_offered => (TechnologyType.checked + @provider.technology_types).collect{ |t| t.name }.join(', ')) %>"><%- end -%>
+
+
+
+<div class="providerHead">  
+  <%- if @provider.logo_file_name.not.blank? -%>
+    <%= image_tag(@provider.logo.url(:thumb)) %>
+  <%- end -%>
+  
+  <h2 class="narrow"><%= @provider.company_name %></h2>
+
+  <ul class="sidebar links">
+    <% if logged_in? and current_user.can_edit?(@provider) %>
+      <li><%= link_to t('company_profile.edit'), edit_my_provider_path %></li>
+      <li><%= link_to t('portfolio_item.manage'), my_portfolio_items_path %></li>
+      <li><%= link_to t('recommendation.manage'), my_recommendations_path %></li>
+    <%- else -%>
+      <li class="request"><%= link_to t('provider.request_rfp'), new_rfp_path(:provider_id => @provider.id), :onClick=>"pageTracker._trackEvent('Request', 'Create Proposal', 'Profile');" %></li>
+    <%- end -%>
+  </ul>
+</div>
+
+<div class="narrow">
+  <% if @provider.marketing_description.not.blank? %>
+  	<div class="description"><%= sanitize(simple_format(@provider.marketing_description)) %></div>
+  <% end %>
+  
+  <div class="block companyInfo">
+    <div class="column">
+      <h4><%= t('provider.location') %></h4>
+      <address>
+        <%= @provider.private_address.join(", ") %>
+      </address>
+
+    </div>
+    <div class="column">    
+      <h4><%= t('provider.company_size') %></h4>
+      <%= company_size(@provider) %>
+    </div>
+    <div class="clear"></div>
+  </div>
+  
+  <div class="block services">
+    <h4><%= t('provider.services') %></h4>
+    <%- if @provider.technology_types.empty? -%>
+      <%= t('provider.no_services') %>
+    <%- else -%>
+      <ul>
+        <%- @provider.technology_types.each do |technology_type| -%>
+          <li><%= technology_type.name %></li>
+        <%- end -%>
+      </ul>
+    <%- end -%>
+  </div>
+
+
+  <%- if @provider.portfolio_items.empty? -%>
+    <% # t('provider.no_portfolio_items') %>
+    <%- if logged_in? and current_user.can_edit?(@provider) -%>
+      <div class="block portfolio">
+        <h4><%= t('provider.portfolio_items_headline') %></h4>
+        <%= link_to t('provider.add_now'), new_my_portfolio_item_path %>
+      </div>
+    <%- end -%>
+  <%- else -%>
+    <div class="block portfolio">
+      <h4><%= t('provider.portfolio_items_headline') %></h4>
+      <dl>
+        <%- @provider.portfolio_items.each do |item| -%>
+          <dt><%= link_to item.name, item.url %></dt>
+          <dd><%= item.description %></dd>
+          <dd class="date"><%= t('portfolio_item.project_completed_in') + item.year_completed %></dd>
+        <%- end -%>
+      </dl>
+    </div>
+  <%- end -%>
+
+</div>
+
+<div class="sidebar">
+  
+  <!-- <% form_for :provider, :url => new_rfp_path, :html => {:method => :get} do |f| -%>
+      <%= hidden_field_tag "provider_id", @provider.id %>
+      <%= f.submit t('provider.send_rfp') %>
+    <% end -%> -->
+  
+  <h3><%= t('provider.endorsements_headline') %></h3>
+  
+  <%- if @provider.recommendations.approved.empty? -%>
+    <p><%= t('provider.no_recommendations') %></p>
+  <%- else -%>
+    <% @provider.recommendations.recent.approved.each do |recommendation| %>
+      <div>
+        <blockquote>&#8220;<%= h recommendation.endorsement %>&#8221;</blockquote>
+        <cite>
+          <% # This part needs to get cleaned up %>
+          <%=h recommendation.name %>, <%=h recommendation.position %> <%= t('recommendation.at') %> <%=h recommendation.company %><br />
+          <%= t('recommendation.hired') %> <%=h @provider.company_name %> <%= t('recommendation.in') %> <%=h recommendation.year_hired %>
+        </cite>
+      </div>
+    <%- end -%> 
+  <%- end -%>
+  
+  <%- if @provider.recommendations.approved.count > 3 -%>
+    <%= link_to t('provider.more_endorsements'), provider_recommendations_path(@provider), :id => 'more-endorsements' %>
+    | 
+  <%- end -%>
+  <% if logged_in? and current_user.provider == @provider %>
+    <%= link_to t('recommendation.ask_for_endorsement'), new_my_endorsement_request_path %>
+  <%- else -%>
+    <%= link_to t('provider.endorse'), new_provider_recommendation_path(@provider) %>
+  <%- end -%>
+</div>

@@ -1,0 +1,9 @@
+<h2><%= (@user.provider.not.nil?) ? t('user.edit_on', :provider => @user.provider.company_name) :  t('user.edit') %></h2>
+
+<%= render :partial => 'admin/users/form' %>
+
+<p>
+  <% form_for [:admin, @user], :html => {:method => :delete} do |f| -%>
+    <%= f.submit t('user.delete'), :class => "confirm" %>
+  <% end -%>
+</p>

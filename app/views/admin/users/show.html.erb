@@ -1,0 +1,23 @@
+<h2><%= t('navigation.users') %><%= " - #{@user.provider.company_name}" if @user.provider.not.nil? %> - <%= @user.name %></h2>
+
+<ul>
+  <li><%= link_to t('user.edit'), edit_admin_user_path(@user) %></li>
+  <li><%= link_to t('user.take_control'), take_control_admin_user_path(@user) %></li>
+  <%- if @user.provider -%>
+    <li><%= t('user.belongs_to') %> <%= link_to @user.provider.company_name, [:admin, @user.provider] %></li>
+  <%- end -%>
+</ul>
+
+<%- %w[login_count last_request_at last_login_at current_login_at last_login_ip current_login_ip].each do |stat| -%>
+<h4><%= t("user.#{stat}") %></h4>
+<p><%= @user.send(stat) %></p>
+<%- end -%>
+
+<% form_for @user, :url => resend_welcome_admin_user_path(@user)  do |f| -%>
+
+    <%= label_tag :subject, t("email.subject") %> <%= text_field_tag :subject, (@user.provider ? Notification.create_provider_welcome(@user).subject : Notification.create_user_welcome(@user).subject) , :class => 'email' %>
+    <br />
+    <%= label_tag :message, t("email.message") %><%= text_area_tag "message", (@user.provider ? Notification.create_provider_welcome(@user).body : Notification.create_user_welcome(@user).body), :class => 'email'  %>
+
+  <%= f.submit t('user.send_welcome_message') %>
+<% end -%>

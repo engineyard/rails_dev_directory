@@ -1,0 +1,27 @@
+<h2><%= t('navigation.providers') %></h2>
+
+<ul>
+  <li><%= link_to t('provider.add_new'), new_admin_provider_path %></li>
+</ul>
+
+<%- if @providers.empty? -%>
+  <p><%= t('provider.no_providers') %></p>
+<%- else -%>
+  <table>
+    <tr>
+      <th>&nbsp;</th>
+      <th><%= t('provider.company_name') %></th>
+      <th><%= t('provider.signed_up_on') %></th>
+      <th><%= t('provider.status') %></th>
+    </tr>
+    <%- @providers.each_with_index do |provider, index| -%>
+      <tr>
+        <td><%= "#{index + 1}." %></td>
+        <td><%= link_to provider.company_name, admin_provider_path(provider) %></td>
+        <td><%= provider.created_at_formatted %></td>
+        <td><%= provider.status %></td>
+      </tr>
+    <%- end -%>
+  </table>
+
+<%- end -%>

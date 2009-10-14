@@ -1,0 +1,45 @@
+<h2><%= t('provider.signup_headline') %></h2>
+
+<p class="description"><%= t('provider.signup_description') %></p>
+
+<%= @page_content.content if @page_content %>
+
+<hr />
+
+<% form_for setup_provider(@provider), :html => {:multipart => true} do |f| -%>
+
+  <%= f.error_messages %>
+
+    <h3><%= t('provider.administrator_password_headline') %></h3>
+
+    <p><%= t('provider.administrator_password_description')%></p>
+    
+    <%- f.fields_for :users do |uf| -%>
+      <fieldset>
+        <%= uf.label :first_name, t("user.first_name") %> <%= uf.text_field :first_name %> <br />
+        <%= uf.label :last_name, t("user.last_name") %> <%= uf.text_field :last_name %> <br />
+      </fieldset>
+
+        <%= uf.label :email, t("user.email") %> <%= uf.text_field :email %><br />
+        <%= uf.label :password, t("user.password") %> <%= uf.password_field :password %> <br />
+        <%= uf.label :password_confirmation, t("user.password_again") %> <%= uf.password_field :password_confirmation %>
+
+    <%- end -%>
+  
+    <h3><%= t('provider.company_details_headline') %></h3>
+    <p><% t('provider.company_details_descrpition') %></p>
+    
+    <%= render :partial => 'providers/form', :locals => {:f => f} %>
+  <fieldset>
+
+    <label><%= t('provider.terms_of_service') %></label>
+    <ul>
+      <li><%= f.check_box :terms_of_service %> <%= f.label :terms_of_service, t('provider.accept_terms_of_service')%></li>
+    </ul>
+  </fieldset>
+  
+  <%= recaptcha_tags(:ssl => true) %>
+
+  <%= f.submit t('forms.signup') %>
+
+<% end -%>

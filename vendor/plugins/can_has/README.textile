@@ -1,0 +1,97 @@
+h1. Can Has?
+
+Can Has? is a really really simple Rails plugins that adds a nice little helper method for checking a users permissions on a model. It allows you to write something like this:
+
+<pre><code>
+  @post = Post.create!(:title => 'My post', :content => 'Interesting stuff')
+  if user.can_read?(@post)
+    ...show it
+  else
+    ...don't show it
+  end
+</code></pre>
+
+The basic premise is that if a model belongs to a user, that user and anyone else can read it, but only that user can do anything else.
+
+
+h2. Installation
+
+Can has? is a Ruby on Rails plugin. Installation is as easy as:
+
+<pre><code>
+  ./script/plugin install git://github.com/paulca/can_has.git
+</code></pre>
+
+h2. Example
+
+<pre><code>
+class User < ActiveRecord::Base
+  can_has?
+end
+
+class Post
+  belongs_to :user
+end
+</code></pre>
+
+That's it! Now, by default, anyone will be able to view the post:
+
+<pre><code>
+  owner = User.first
+  post = owner.posts.first
+  owner.can_read?(post) # => true
+  
+  user = User.last
+  user.can_read?(post) # => true
+</code></pre>
+
+However, any other actions will return true for the owner and false for the user:
+
+<pre><code>
+  owner = User.first
+  post = owner.posts.first
+  owner.can_edit?(post) # => true
+  owner.can_delete?(post) # => true
+  
+  user = User.last
+  user.can_read?(post) # => true
+  user.can_edit?(post) # => false
+  user.can_delete?(post) # => false
+</code></pre>
+
+h2. Extending
+
+To extend the power of the can_* methods, just create them on the model that you want to check against:
+
+<pre><code>
+  class User < ActiveRecord::Base
+    can_has?
+    
+    def has_legs?
+      true
+    end
+  end
+  
+  class Bicyle < ActiveRecord::Base
+    belongs_to :user
+    
+    def can_ride?(user)
+      return true if user.has_legs?
+      return false
+    end
+  end
+  
+  @bicycle = Bicycle.create!
+  @user = User.first
+  
+  @user.can_ride?(@bicycle) # => true
+</code></pre>
+
+
+h2. About me
+
+I'm Paul Campbell. I'm a partner in Contrast ("http://www.contrast.ie":http://www.contrast.ie) and I work on Exceptional, a Ruby on Rails exception tracker ("http://getexceptional.com":http://getexceptional.com).
+
+Follow me on Twitter: http://www.twitter.com/paulca
+
+Copyright (c) 2009 Paul Campbell, released under the MIT license

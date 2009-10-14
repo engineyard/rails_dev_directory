@@ -1,0 +1,25 @@
+<h2><%= t('rfp.submission.thanks_for_submitting') %></h2>
+
+<p class="description"><%= t('rfp.submission.description') %></p>
+
+<p class="description"><%= t('rfp.submission.instructions') %></p>
+
+<%- if Rails.production? -%>
+<!-- Google Code for Submitted Proposal Conversion Page -->
+  <script type="text/javascript">
+    <!--
+    var google_conversion_id = 1062424386;
+    var google_conversion_language = "en_US";
+    var google_conversion_format = "1";
+    var google_conversion_color = "ffffff";
+    var google_conversion_label = "CZdOCKCUlAEQwp7N-gM";
+    //-->
+  </script>
+  <script type="text/javascript" src="http://www.googleadservices.com/pagead/conversion.js">
+  </script>
+  <noscript>
+    <div style="display:inline;">
+      <img height="1" width="1" style="border-style:none;" alt="" src="http://www.googleadservices.com/pagead/conversion/1062424386/?label=CZdOCKCUlAEQwp7N-gM&amp;guid=ON&amp;script=0"/>
+    </div>
+  </noscript>
+<%- end -%>

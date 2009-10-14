@@ -1,0 +1,30 @@
+body{font:75%/1.4em Arial, Helvetica, sans-serif;font-size-adjust:none;font-style:normal;font-variant:normal;}
+p{margin:0 0 1.5em;}
+p img{float:left;margin:0 1em 1em 0;padding:0;}
+p img.right{float:right;margin:0 0 1em 1em;}
+h1,h2{color:#333;font-family:Georgia, "Times New Roman", serif;letter-spacing:2px;word-spacing:.1em;}
+h3,h4,h5,h6{color:#333;font-family:Georgia, "Times New Roman", serif;}
+h1{font-size:2.2em;margin-bottom:.682em;}
+h2{font-size:1.9em;margin-bottom:.79em;}
+h3{font-size:1.7em;margin-bottom:.882em;}
+h4{font-size:1.4em;margin-bottom:1.071em;}
+h5,h6{font-size:1.3em;margin-bottom:1em;}
+li ul,li ol{margin:0 1.5em;}
+ul,ol{margin:0 1.5em 1.5em;}
+dl{margin:0 0 1.5em;}
+/*dl dd{margin-left:1.5em;}*/
+a{color:#035292;text-decoration:none;}
+a:hover{text-decoration:underline;}
+table{margin-bottom:1.5em;border-collapse:collapse;}
+tr,th,td{height:18px;margin:0;padding:0 1.5em 0 1em;}
+caption{text-align:center;font-family:Georgia, serif;}
+abbr,acronym{border-bottom:1px dotted #000;}
+/*address{margin-top:1.5em;font-style:italic;}*/
+del{color:#000;}
+blockquote{margin:1.5em 0;}
+pre,code{white-space:pre;margin:1.5em 0;}
+pre,code,tt{font:1em monospace;line-height:1.5;}
+tt{display:block;margin:1.5em 0;}
+hr{margin-bottom:1.5em;}
+/*dl dt,th,strong,dfn{font-weight:700;}*/
+tfoot,em,dfn{font-style:italic;}

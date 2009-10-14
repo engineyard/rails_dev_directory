@@ -1,0 +1,31 @@
+Babilu
+=======
+
+Babilu converts all your translations into JavaScript so you can use them on
+the client side. It mimicks the Ruby/Rails I18n API and works in pretty much the
+same way:
+
+//JavaScript
+I18n.defaultLocale // "en"
+I18n.locale // Whatever the locale has been set to on the server
+
+I18n.t('hello') // "Hello World"
+I18n.t('messages.invalid', {scope:['activerecord', 'errors']})  // "is invalid"
+I18n.t('activerecord.errors.template.header', {count:4, model:'pony'}) // "4 errors prohibited this pony from being saved"
+
+I18n.translations.en.ponies = {one: 'I have a pony', other: 'I have {{count}} ponies'};
+I18n.t('ponies', {count:5}) // "I have 5 ponies"
+
+The only difference is that because JavaScript doesn't have symbols we can't
+easily differentiate between keys and values in the "defaultValue" option. A workaround
+is used in which strings starting with ":" are considered to be keys and are used for
+looking up additional translations:
+
+I18n.t('doesntexist', {defaultValue:'humbaba'}) // "humbaba"
+I18n.t('doesntexist', {defaultValue:':hello'}) // "Hello world"
+I18n.t('doesntexist', {defaultValue:[':alsodoesntexist', 'The Sasqutch: Fact or Fiction?']}) // "The Sasquatch: Fact or Fiction?"
+
+This plugin depends on http://github.com/toretore/lucy
+
+
+Copyright (c) 2008 Tore Darell, released under the MIT license

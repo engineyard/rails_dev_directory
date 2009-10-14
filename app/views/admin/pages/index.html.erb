@@ -1,0 +1,28 @@
+<h2><%= t('navigation.pages') %></h2>
+
+<ul>
+  <li><%= link_to t('page.add_new'), new_admin_page_path %></li>
+</ul>
+
+<p><%= t('page.instructions') %></p>
+
+<p><%= t('page.seo_instructions') %></p>
+
+<%- if @pages.empty? -%>
+  <p><%= t('page.no_pages') %></p>
+<%- else -%>
+  <table>
+    <tr>
+      <th><%= t('page.title') %></th>
+      <th><%= t('page.url') %></th>
+      <th>&nbsp;</th>
+    </tr>
+    <% @pages.each do |page| %>      
+      <tr>
+        <td><%= link_to page.title, edit_admin_page_path(:id => page.id) %></td>
+        <td><%= link_to URI.unescape(page_path(page)), page_path(:id => page.id), :target => "_new" %></td>
+        <td><%= link_to t('general.delete'), admin_page_path(:id => page.id), :method => :delete, :confirm => t('general.confirm') %></td>
+      </tr>
+    <%- end -%>
+  </table>
+<%- end -%>

@@ -1,0 +1,11 @@
+<% form_for [:admin, @technology_type] do |f| -%>
+  
+  <%= f.error_messages %>
+
+  <fieldset>
+    <%= f.label :name, t("technology_type.name") %> <%= f.text_field :name %> <br />
+    <%= f.label :position, t("technology_type.position") %> <%= f.text_field :position %> <br />
+    <%= f.label :checked, t("technology_type.checked") %> <%= f.check_box :checked %> <br />
+  </fieldset>
+  <%= f.submit t('forms.save') %>
+<% end -%>

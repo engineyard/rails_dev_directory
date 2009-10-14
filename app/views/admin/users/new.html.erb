@@ -1,0 +1,3 @@
+<h2><%= (@user.provider.not.nil?) ? t('user.add_new_to', :provider => @user.provider.company_name) :  t('user.add_new') %></h2>
+
+<%= render :partial => 'admin/users/form' %>

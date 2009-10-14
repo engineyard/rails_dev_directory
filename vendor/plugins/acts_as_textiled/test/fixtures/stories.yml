@@ -1,0 +1,49 @@
+sandbox:
+  id: 1
+  author_id: 1
+  title: The Thrilling Freaky-Freaky Sandbox Hack
+  body: Holy cats, I'm proud to offer you this sensational hack today. For me, this is monumental, as it culminates a number of sundry microhacks from the past few years and gets us a step closer to realizing Try Ruby out in the broader kingdoms. This is the sort of thing that will make you want to post spangly angel GIFs in the comments.
+  description: _why announces __Sandbox__
+irb:
+  id: 2
+  author_id: 2
+  title: Simpler IRB
+  description: __Beautify__ your *IRb* prompt
+  body: |
+    Sick of that ugly irb prompt? Too much information.
+
+    $ irb
+    irb(main):001:0> "i dont care how deeply nested i yam".nil?   
+    => false
+    Check it. Stick this in your .irbrc:
+
+    IRB.conf[:PROMPT_MODE] = :SIMPLE
+    Now we get a prompt which is, well, simple:
+
+    $ irb
+    >> !!nil
+    => false
+    Less noise.
+textile:
+  id: 3
+  author_id: 2
+  title: I am a fan of Textile.
+  description: Chris explains why Textile is useful.
+  body: |
+    _Textile_ is useful because it makes text _slightly_ easier to *read*.
+
+    If only it were so *easy* to use in every programming language.  In Rails,
+    with the help of "acts_as_textiled":http://google.com/search?q=acts_as_textiled,
+    it's way easy.  Thanks in no small part to %{color:red}RedCloth%, of course.
+legalize:
+  id: 4
+  author_id: 2
+  title: This is a bunch of text about things.
+  body: |
+    Is Textile(TM) the wave of the future?  What about acts_as_textiled(C)?  It's
+    doubtful.  Why does Textile(TM) smell like _Python_?  Can we do anything to
+    fix that?  No?  Well, I guess there are worse smells - like Ruby.  jk.
+
+    But seriously, ice > water and water < rain.  But...nevermind.  1 x 1?  1.
+
+    "You're a good kid," he said.  "Keep it up."

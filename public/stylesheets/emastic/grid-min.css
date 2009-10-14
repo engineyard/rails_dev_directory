@@ -1,0 +1,66 @@
+.main{width:70em;text-align:left;margin:0 auto;}
+.clear{clear:both;}
+.dl1,.dl2,.dl5,.dl10,.dl15,.dl20,.dl25,.dl30,.dl35,.dl40,.dl45,.dl50,.dl55,.dl60,.dl65,.dl70,.dl75{float:left;display:inline;}
+.dr1,.dr2,.dr5,.dr10,.dr15,.dr20,.dr25,.dr30,.dr35,.dr40,.dr45,.dr50,.dr55,.dr60,.dr65,.dr70,.dr75{float:right;display:inline;}
+.dl1,.dr1{width:1em;}
+.dl2,.dr2{width:2em;}
+.dl5,.dr5{width:5em;}
+.dl10,.dr10{width:10em;}
+.dl15,.dr15{width:15em;}
+.dl20,.dr20{width:20em;}
+.dl25,.dr25{width:25em;}
+.dl30,.dr30{width:30em;}
+.dl35,.dr35{width:35em;}
+.dl40,.dr40{width:40em;}
+.dl45,.dr45{width:45em;}
+.dl50,.dr50{width:50em;}
+.dl55,.dr55{width:55em;}
+.dl60,.dr60{width:60em;}
+.dl65,.dr65{width:65em;}
+.dl70,.dr70{width:70em;}
+.dl75,.dr75{width:75em;}
+.ml5{margin-left:5em;}
+.ml10{margin-left:10em;}
+.ml15{margin-left:15em;}
+.ml20{margin-left:20em;}
+.ml25{margin-left:25em;}
+.ml30{margin-left:30em;}
+.ml35{margin-left:35em;}
+.ml40{margin-left:40em;}
+.ml45{margin-left:45em;}
+.ml50{margin-left:50em;}
+.ml55{margin-left:55em;}
+.ml60{margin-left:60em;}
+.ml65{margin-left:65em;}
+.ml70{margin-left:70em;}
+.ml75{margin-left:75em;}
+.mr5{margin-right:5em;}
+.mr10{margin-right:10em;}
+.mr15{margin-right:15em;}
+.mr20{margin-right:20em;}
+.mr25{margin-right:25em;}
+.mr30{margin-right:30em;}
+.mr35{margin-right:35em;}
+.mr40{margin-right:40em;}
+.mr45{margin-right:45em;}
+.mr50{margin-right:50em;}
+.mr55{margin-right:55em;}
+.mr60{margin-right:60em;}
+.mr65{margin-right:65em;}
+.mr70{margin-right:70em;}
+.mr75{margin-right:75em;}
+.mt1{margin-top:1em;}
+.mt5{margin-top:5em;}
+.mt10{margin-top:10em;}
+.mt20{margin-top:20em;}
+.mt30{margin-top:30em;}
+.mt40{margin-top:40em;}
+.mt50{margin-top:50em;}
+.fluid{width:auto;float:none;}
+div .fluid{padding:0 0 0 .1em;}
+.hp{width:100%;float:left;}
+.clearfix,.main{display:block;}
+.clearfix:after,.main:after{visibility:hidden;display:block;font-size:0;content:" ";clear:both;height:0;}
+/* IE5/MAC hack \*/
+* html .clearfix{ display: inline;  height: 1px;}
+/* close */

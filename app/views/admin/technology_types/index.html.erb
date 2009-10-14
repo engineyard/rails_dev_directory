@@ -1,0 +1,27 @@
+<h2><%= t('navigation.technology_types') %></h2>
+
+<ul>
+  <li><%= link_to t('technology_type.add_new'), new_admin_technology_type_path %></li>
+</ul>
+
+<% if @technology_types.empty? %>
+  <p><%= t('technology_type.no_types')%></p>
+<%- else -%>
+  <table border="0">
+    <tr>
+      <th><%= t('technology_type.name') %></th>
+      <th><%= t('technology_type.checked') %></th>
+      <th>&nbsp;</th>
+    </tr>
+    <% @technology_types.each do |technology_type| %>
+      <tr>
+        <td><%= technology_type.name %></td>
+        <td><%= technology_type.checked? ? t('general.yes') : t('general.no') %></td>
+        <td>
+          <%= link_to t('general.edit'), edit_admin_technology_type_path(technology_type) %>
+          <%= link_to t('general.delete'), [:admin, technology_type], :method => :delete, :confirm => "Are you sure?" %>
+        </td>
+      </tr>
+    <%- end -%>
+  </table>
+<%- end -%>

@@ -1,0 +1,22 @@
+.column {
+  width: 44%;
+}
+.clear {
+  height: 1px;
+  overflow: hidden;
+}
+
+.wizard {
+  white-space: nowrap;
+}
+.wizard li {
+  text-align: left;
+  width: 180px;
+  float: left;
+}
+hr {
+  clear: both;
+}
+.provider {
+  width: 653px;
+}

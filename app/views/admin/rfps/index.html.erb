@@ -1,0 +1,27 @@
+<h2><%= t('navigation.rfps') %></h2>
+
+<%- if @rfps.empty? -%>
+  <p><%= t('rfp.no_rfps') %></p>
+<%- else -%>
+  <p><%= @rfps.size == 1 ? t('rfp.rfp_count_singular') : t('rfp.rfp_count_plural', :count => @rfps.size ) %></p>
+  <table>
+    <tr>
+      <th><%= t('rfp.project_name') %></th>
+      <th><%= t('rfp.created_on') %></th>
+      <th><%= t('rfp.budget') %></th>
+      <th>&nbsp;</th>
+    </tr>
+
+    <%- @rfps.each do |rfp| -%>
+    <tr>
+      <td><%= link_to rfp.project_name, [:admin, rfp] %></td>
+      <td><%= rfp.created_at_formatted %></td>
+      <td><%= price rfp.budget %></td>
+      <td><%= link_to t('general.show'), [:admin, rfp] %></td>
+    </tr>
+    <%- end -%>
+  
+  </table>
+<%- end -%>
+
+<%= will_paginate %>

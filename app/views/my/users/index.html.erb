@@ -1,0 +1,39 @@
+<div class="dashboard">
+  <h3><%= t('company_profile.users.manage_headline') %></h3>
+
+  <!-- Uncomment to add a description -->
+  <!-- <p class="description"><%= t('company_profile.users.manage_description') %></p> -->
+
+  <%- if current_user.can_admin?(current_user.provider) -%>
+    <p><%= link_to t('company_profile.users.add_new'), new_my_user_path %></p>
+  <%- end -%>
+
+  <%- if @users.empty? -%>
+    <p><%= t('provider.no_users') %></p>
+  <%- else -%>
+    <table>
+      <thead>
+        <tr>
+          <th><%= t('user.email') %></th>
+          <th><%= t('user.name') %></th>
+          <th>&nbsp;</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @users.each do |user| %>
+          <tr>
+            <td><%= link_to user.email, [:my, user] %></td>
+            <td><%= user.name %> <%= "(#{t('provider.admin')})" if user == current_user.provider.user %></td>
+            <td>
+              <%- if logged_in? and current_user.can_edit?(user) -%>
+                <%= link_to t('general.edit'), edit_my_user_path(user) %>
+              <%- end -%>
+            </td>
+          </tr>
+        <%- end -%>
+      </tbody>
+    </table>
+  <%- end -%>
+
+  <%= will_paginate %>
+</div>

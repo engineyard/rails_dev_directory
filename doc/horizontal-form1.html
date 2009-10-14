@@ -1,0 +1,82 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<meta name="author" content="Vladimir Carrer">
+	<link rel="stylesheet" href="form.css" type="text/css">
+	<!--[if gt IE 5]>
+	<link rel="stylesheet" href="ie.css" type="text/css">
+	<![endif]-->
+	<style>
+	label{text-align:right; }
+	</style>
+	<title>Formy - horizontal form</title>
+</head>
+<body>
+<form  method="post" action="">
+<fieldset>
+<legend>Horizontal  form</legend>
+
+				<label for="Name">Name:</label>
+				<input tabindex="1" id="Name" type="text" name="Name" /><br />
+				
+				<label for="City">City:</label>
+				<input tabindex="2" id="City" type="text" name="City" /><br />
+	
+				<label for="Email">Email:</label>
+				<input tabindex="3" id="Email" type="text" name="Email" /><br />
+				
+				<label for="Message">Message:</label>
+				<textarea tabindex="4" id="Message" name="Message" rows="20" cols="20"></textarea><br />
+	
+
+	
+	<label for="Lorem">Message:</label>
+	<select tabindex="5" id="Lorem"  name="Lorem ipsum">
+		<option selected="selected" value="1">Lorem ipsum</option>
+		<option value="2">dolor sit amet</option>
+		<option value="3"> consectetuer adipiscing</option>
+		<option value="4">vitae diam</option>
+		<option value="5">Vestibulum ornare</option>
+	</select>
+	
+	
+	
+	<br>
+		<label for="Pellentesque">Pellentesque habitant:</label>
+	    <select tabindex="6" id="Pellentesque" size="1"  name="select">
+          <optgroup label="Lorem ipsum1">
+          <option selected="selected" value="1">Nunc urna nulla</option>
+          <option value="2">ultrices sit amet</option>
+          <option value="3">cursus faucibus</option>
+          <option value="4">tincidunt pellentesque</option>
+          <option value="5">ante</option>
+          </optgroup>
+          <optgroup label="Lorem ipsum2">
+          <option selected="selected" value="6">Nunc ac diam</option>
+          <option value="7">Donec orci risus</option>
+          <option value="8">malesuada quis</option>
+          <option value="9">vulputate eu</option>
+          <option value="10">lacinia in</option>
+          </optgroup>
+        </select>
+    <br />
+	<br />
+<label>Lorem ipsum1:</label>
+	<input tabindex="7" type="radio" name="radioSet" value="uno" />Uno<br />
+	<label>&nbsp;</label><input tabindex="8" type="radio" name="radioSet"  value="due" />Due<br />
+	<label>&nbsp;</label><input tabindex="9" type="radio" name="radioSet"  value="tre" />Tre<br />
+	<br />
+	<label>Lorem ipsum2:</label><input tabindex="10" type="checkbox" name="checkSet"  value="one" /> One<br />
+	<label>&nbsp;</label><input tabindex="11" type="checkbox" name="checkSet" value="two" /> Two<br />
+	<label>&nbsp;</label><input tabindex="12" type="checkbox" name="checkSet" value="three" /> Three<br />
+
+
+
+ 
+  <br>
+	<label>Submit form -></label><input tabindex="13" id="submit" type="submit" name="submit" value="Submit"  />
+</fieldset>
+			</form>
+			</body>
+</html>

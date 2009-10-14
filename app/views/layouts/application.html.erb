@@ -1,0 +1,94 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+  "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+    <!-- <%= "#{controller.controller_name}/#{controller.action_name}" %> -->
+  <head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <meta name="verify-v1" content="pKVc1U5A5PwMZedJQBomhabl0pj0fa5bhYHML+abQVo=" />
+    <title>
+      <% if @page_content and @page_content.title.not.empty? %>
+        <%= @page_content.title %> |
+      <%- else -%>
+        <%= yield :title %>
+      <%- end -%>
+      <%= t('general.site_title') %>
+    </title>
+    <%- if @page_content and @page_content.keywords.to_s.not.empty? -%>
+      <meta name="keywords" content="<%= @page_content.keywords %>">
+    <%- else -%>
+      <%= yield :keywords %>
+    <%- end -%>
+    <%- if @page_content and @page_content.description.to_s.not.empty? -%>
+      <meta name="description" content="<%= @page_content.description %>">
+    <%- else -%>
+      <%= yield :description %>
+    <%- end -%>
+    <%= stylesheet_link_tag "emastic/reset-min", "emastic/type-min", "formy/form.css", "common", "jquery", "jquery.tooltip", "application" %>
+    <%= javascript_include_tag :defaults, 'datepicker', 'jquery.bgiframe', 'jquery.dimensions', 'jquery.delegate', 'jquery.tooltip', 'jquery.delay', 'locales' %>
+    <!--[if IE]><%= stylesheet_link_tag 'emastic/ie-min' %><![endif]-->
+    <!--[if IE 7]><%= stylesheet_link_tag 'ie7' %><![endif]-->
+    <script type="text/javascript" charset="utf-8">
+      AUTH_TOKEN = '<%= u(form_authenticity_token) %>';
+    </script>
+  </head>
+  
+  <body>
+    <div class="header">
+      <div class="content">
+        <h1 class="siteTitle"><%= link_to t('general.site_title_logo'), root_path %></h1>
+        <ul class="globalNav">
+          <%- if logged_in? -%>
+            <li class="username"><%= t('user.welcome', :user => h(current_user.first_name_or_email))%></li>
+            <% if current_user.admin? %>
+              <li><%= link_to t('navigation.admin'), admin_dashboard_path %></li>
+            <%- end -%>
+            <li><%= link_to t('navigation.provider_directory'), provider_directory_path %></li>
+            <li><%= link_to t('general.sign_out'), logout_path %></li>
+          <%- else -%>
+            <li><%= link_to t('home.find_a_provider'), provider_directory_path %></li>
+            <li><%= link_to t('provider.signup'), new_provider_path, :rel => "nofollow", :onClick=>"pageTracker._trackEvent('Request', 'Create Account');" %></li>
+            <li><%= link_to t('provider.sign_in'), login_path, :rel => "nofollow" %></li>
+          <%- end -%>
+        </ul>
+      </div>
+    </div>
+    
+    <div class="shadow">
+    <div class="subnav">
+      <% if logged_in? and current_user.provider %>
+      <h2><%= t('dashboard.dashboard_for', :company => h(current_user.provider.company_name))%></h2>
+        <div class="navigation">
+          <ul>
+            <li><%= link_to t('navigation.dashboard'), my_dashboard_path %></li>
+            <li><%= link_to t('navigation.rfps'), my_requests_path %></li>
+            <li><%= link_to t('navigation.company'), current_user.provider %></li>
+            <li><%= link_to t('navigation.users'), my_users_path %></li>
+          </ul>
+        </div>
+      <%- end -%>
+    </div>
+    <div class="main">
+      <%= display_flash -%>
+      <%= yield %>
+
+      <div class="clear"></div>
+
+      </div>
+    </div>
+    <div class="footer">
+      <div class="content">
+        <ul class="nav">
+          <li><%= link_to t('general.contact_us'), '/pages/contact-us', :rel => "nofollow" %></li>
+          <li><%= link_to t('general.terms'), '/pages/terms-of-use', :rel => "nofollow" %></li>
+          <li><%= link_to t('home.full_listing'), providers_path %></li>
+          <li><%= link_to t('home.by_location'), by_location_providers_path %></li>
+        </ul>
+        <p class="attribution">
+          <%= t('general.copyright') %>
+        </p>
+      </div>
+    </div>
+    
+    <%= render :partial => 'shared/ga_tracker' %>
+  </body>
+</html>

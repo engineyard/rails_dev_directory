@@ -1,0 +1,32 @@
+<%- if @provider.nil? -%>
+  <h2><%= t('navigation.recommendations') %></h2>
+<%- else -%>
+  <h2><%= t('recommendation.recommendations_for', :company_name => @provider.company_name) %></h2>
+<%- end -%>
+
+<%- if @recommendations.empty? -%>
+  <p><%= t('recommendation.no_recommendations') %></p>
+<%- else -%>
+  <table>
+    <tr>
+      <th><%= t('recommendation.name') %></th>
+      <th><%= t('recommendation.sent_on') %></th>
+      <th><%= t('recommendation.recipient_company_name') %></th>
+      <th><%= t('recommendation.is_approved') %></th>
+      <th>&nbsp;</th>
+    </tr>
+
+    <%- @recommendations.each do |recommendation| -%>
+    <tr>
+      <td><%= link_to recommendation.name, [:admin, recommendation] %></td>
+      <td><%= recommendation.created_at_formatted %></td>
+      <td><%= recommendation.provider.company_name if recommendation.provider %></td>
+      <td><%= t("recommendation.states.#{recommendation.state}") -%></td>
+      <td><%= link_to t('general.show'), [:admin, recommendation] %></td>
+    </tr>
+    <%- end -%>
+  
+  </table>
+<%- end -%>
+
+<%= will_paginate %>

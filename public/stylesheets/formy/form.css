@@ -1,0 +1,12 @@
+fieldset,form,label,legend{border:0;font-weight:inherit;font-style:inherit;font-size:100%;font-family:inherit;vertical-align:baseline;margin:0;padding:0;}
+fieldset{border:1px solid #ccc;margin:0 0 1.5em;padding:1.4em;}
+legend{font-size:1.2em;background-color:#e3dfdf;color:#333;padding:0 .4em;}
+label{float:left;width:9em;display:block;clear:left;margin-right:1em;text-align:left;cursor:hand;color:#333;}
+textarea,input,select,label,button,optgroup{margin-top:5px;}
+input[type="checkbox"],input[type="radio"]{margin-bottom:7px;}
+textarea:focus,input[type="text"]:focus{border:2px solid #666;}
+input[type="checkbox"]{color:#000;}
+optgroup{background-color:#ccc;color:#000;}
+textarea,input[type="text"],input[type="password"]{border:1px solid #666;}
+select,input[type="radio"],option{background-color:#fff;color:#000;}
+input[type="submit"],button{background-color:#ccc;color:#333;}

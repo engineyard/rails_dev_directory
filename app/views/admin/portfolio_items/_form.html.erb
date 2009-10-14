@@ -1,0 +1,12 @@
+<% form_for [:admin, :provider, @portfolio_item] do |f| -%>
+  
+  <%= f.error_messages %>
+
+  <fieldset>
+    <%= f.label :name, t("portfolio_item.name") %> <%= f.text_field :name %> <br />
+    <%= f.label :url, t("portfolio_item.url") %> <%= f.text_field :url %> <br />
+    <%= f.label :year_completed, t("portfolio_item.year_completed") %> <%= f.select :year_completed, (2004..Time.now.year.to_i).entries.reverse %><br/>
+    <%= f.label :description, t("portfolio_item.description") %> <%= f.text_area :description %>
+  </fieldset>
+  <%= f.submit t('forms.save') %> <%= t('forms.or') %> <%= link_to t('forms.cancel'), [:admin, @portfolio_item.provider] %>
+<% end -%>

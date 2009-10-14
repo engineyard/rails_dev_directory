@@ -1,0 +1,10 @@
+<h2><%= t('user.set_new_password') %></h2>
+
+<% form_for @user, :url => password_reset_path(:id => params[:id]), :html => {:method => :put} do |f| -%>
+  <fieldset>
+    <%= f.label :password, t("user.password") %> <%= f.password_field :password %> <br />
+    <%= f.label :password_confirmation, t("user.password_again") %> <%= f.password_field :password_confirmation %> <br />
+    
+  </fieldset>
+  <%= f.submit t("user.save_new_password") %>
+<% end -%>

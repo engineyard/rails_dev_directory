@@ -1,0 +1,20 @@
+<h2><%= t('provider.directory_headline') %></h2>
+
+<p class="description"><%= t('provider.directory_description') %></p>
+
+<% form_tag search_providers_path, :method => :get, :id => "search-form" do -%>
+  <%= label_tag 'budget', t('provider.directory.budget') %> <%= text_field_tag 'budget' %>
+  
+  <span class="note"><%= t('provider.directory.note') %></span><br/>
+  
+  <%= label_tag 'location', t('provider.directory.location') %> <%= location_select %><br/>
+  <label><%= t('provider.directory.services') %></label>
+  <ul>
+    <li><%= image_tag '/images/icon-check.png', :class=>"check"%> <%= t('provider.directory.default_service') %></li>
+  <%- TechnologyType.ordered_not_checked.each do |technology_type| -%>
+    <li> <%= check_box_tag "technology_type_ids[]", technology_type.id, false, :id => dom_id(technology_type) %> <%= label_tag dom_id(technology_type), technology_type.name %></li>
+  <%- end -%>
+  </ul>
+  
+  <%= submit_tag t('provider.directory.find_providers') %>
+<% end -%>

@@ -1,0 +1,26 @@
+<div class="dashboard">
+  <h3><%= t('portfolio_item.headline') %></h3>
+  
+  <!-- <p class="description"><%= t('portfolio_item.list_description') %></p> -->
+
+  <p><%= (@portfolio_items.not.empty? and @portfolio_items.first.provider.has_enough_portfolio_items?) ? link_to(t('portfolio_item.add_new'), new_my_portfolio_item_path, :class => 'disabled') : link_to(t('portfolio_item.add_new'), new_my_portfolio_item_path) %></p>
+
+  <%- if @portfolio_items.empty? -%>
+    <p><%= t('portfolio_item.no_portfolio_items') %></p>
+  <%- else -%>
+    <table>
+      <tr>
+        <th><%= t('portfolio_item.name') %></th>
+        <th><%= t('portfolio_item.year_completed') %></th>
+        <th>&nbsp;</th>
+      </tr>
+    <% @portfolio_items.each do |item| %>
+    <tr>
+      <td><%= link_to item.name, [:my, item] %></td>
+      <td><%= item.year_completed %></td>
+      <td><%= link_to t('general.edit'), edit_my_portfolio_item_path(item) %></td>
+    </tr>
+    <%- end -%>
+    </table>
+  <%- end -%>
+</div>

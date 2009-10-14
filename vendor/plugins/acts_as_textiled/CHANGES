@@ -1,0 +1,13 @@
+= 0.3
+  - Fixed Model.textiled = false bug
+  - Refactored tests
+  - Changed api from @story.description_plain to @story.description(:plain) - kept old way, though
+
+= 0.2
+
+  * Fix issue with object.attribute_plain overwriting the original attribute [Thanks, James]
+  * Fix issue with attributes trying to work on nil values [Thanks again, James]
+
+= 0.1
+
+ * Initial import

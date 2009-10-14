@@ -1,0 +1,86 @@
+<h2><%= @provider.company_name %></h2>
+
+<% if @provider.marketing_description.not.blank? %>
+	<p><%= sanitize @provider.marketing_description %></p>
+<% end %>
+
+<div class="dr20">
+  <ul>
+    <li><%= link_to t('provider.edit'), edit_admin_provider_path(@provider) %></li>
+    <li><%= link_to t('provider.rfps'), admin_provider_requests_path(@provider) %></li>
+    <li><%= link_to t('provider.recommendations'), admin_provider_recommendations_path(@provider) %></li>
+  </ul>
+</div>
+
+
+<%- if @provider.logo_file_name.not.blank? -%>
+  <%= image_tag(@provider.logo.url(:thumb))%><br/>
+<%- end -%>
+
+<address class="block20">
+  <%= @provider.address.each { |l| h(l)} .join("<br/>") %>
+</address>
+
+<dl class="block20">
+  <dt><%= t('provider.status') %></dt>
+    <dd><%=h @provider.status %></dd>
+</dl>
+
+
+<h3 class="clear"><%= t('provider.users') %></h3>
+<ul>
+  <li><%= link_to t('user.add_new'), new_admin_provider_user_path(@provider) %></li>
+</ul>
+
+
+<%- if @provider.users.empty? -%>
+  <p><%= t('provider.no_users') %></p>
+<%- else -%>
+  <table>
+    <thead>
+      <tr>
+        <th><%= t('user.email') %></th>
+        <th><%= t('user.name') %></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @provider.users.each do |user| %>
+        <tr>
+          <td><%= link_to h(user.email), [:admin, user] %></td>
+          <td><%=h user.name %> <%= "(#{t('provider.admin')})" if user == @provider.user %></td>
+        </tr>
+      <%- end -%>
+    </tbody>
+  </table>
+<%- end -%>
+
+<h3 class="clear"><%= t('provider.portfolio_items') %></h3>
+<ul>
+  <li><%= @provider.has_enough_portfolio_items? ? link_to(t('portfolio_item.add_new'), new_admin_provider_portfolio_item_path(@provider), :class => 'disabled') : link_to(t('portfolio_item.add_new'), new_admin_provider_portfolio_item_path(@provider)) %></li>
+</ul>
+
+<%- if @provider.portfolio_items.empty? -%>
+  <p><%= t('provider.no_portfolio_items') %></p>
+<%- else -%>
+  <table>
+    <thead>
+      <tr>
+        <th><%= t('portfolio_item.name') %></th>
+        <th><%= t('portfolio_item.year_completed') %></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @provider.portfolio_items.each do |item| %>
+        <tr>
+          <td><%= link_to h(item.name), edit_admin_portfolio_item_path(item) %></td>
+          <td><%= h(item.year_completed) %></td>
+        </tr>
+      <%- end -%>
+    </tbody>
+  </table>
+<%- end -%>
+
+
+<% form_for [:admin, @provider], :html => { :method => :delete } do |f| -%>
+  <%= f.submit t('provider.delete'), :class => "confirm" %>
+<% end -%>

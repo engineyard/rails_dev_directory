@@ -1,0 +1,42 @@
+<h2><%= t('provider.directory_headline') %></h2>
+
+<p class="description"><%= t('provider.directory_results_description') %></p>
+
+<hr />
+
+<%- if @providers.empty? -%>
+  <p><%= t('provider.no_providers') %></p>
+<%- else -%>
+
+  <%- form_for :rfp, :url => new_rfp_path, :html => {:method => :get} do |f| -%>
+  
+    <table>
+      <tr>
+        <th><%= t('provider.company_name') %></th>
+        <th><%= t('provider.location') %></th>
+        <th><%= t('provider.confirmed') %> <%= link_to '[?]', '#', :id => "confirmed-explanation", :class => 'tooltip', :'title' => t('provider.confirmed_explanation') %></th>
+        <th><%= t('provider.endorsements')%></th>
+        <th><%= t('provider.action')%></th>
+      </tr>
+      <%- @providers.each do |provider| -%>
+        <tr>
+          <td><%= link_to provider.company_name, provider %></td>
+          <td><%= provider.private_address.join(', ') %></td>
+          <td><%= provider.active? ? t('provider.confirmed') : '' %></td>
+          <td><%= provider.recommendations.approved.size %></td>
+          <td><%= check_box_tag 'provider_ids[]', provider.id, false, :id => dom_id(provider) %></td>
+        </tr>
+      <%- end -%>
+    </table>
+    
+    <%= hidden_field_tag 'budget', params[:budget] %>
+    <% if params[:technology_type_ids] and params[:technology_type_ids].not.empty? %>
+      <% params[:technology_type_ids].each do |technology_type_id| %>
+        <%= hidden_field_tag 'technology_type_ids[]', technology_type_id %>
+      <%- end -%>
+    <%- end -%>
+
+    <%= f.submit t("general.next"), :id => 'next', :onClick=>"pageTracker._trackEvent('Request', 'Create Request', 'Search');" %>
+  <%- end -%>
+
+<%- end -%>

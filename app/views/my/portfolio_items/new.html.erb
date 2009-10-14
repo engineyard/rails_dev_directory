@@ -1,0 +1,5 @@
+<h2><%= t('portfolio_item.add_new_for', :provider => @portfolio_item.provider.company_name) %></h2>
+
+<% form_for [:my, @portfolio_item] do |f| -%>
+  <%= render :partial => 'my/portfolio_items/form', :locals => {:f => f} %>
+<% end %>

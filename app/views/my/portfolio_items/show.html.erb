@@ -1,0 +1,20 @@
+<h2><%= t('portfolio_item.show_portfolio_item') %>: <%= @portfolio_item.name %></h2>
+
+<hr />
+
+<h4><%= t('portfolio_item.url') %></h4>
+<p><%= link_to @portfolio_item.url, @portfolio_item.url %></p>
+
+<h4><%= t('portfolio_item.year_completed') %></h4>
+<p><%= @portfolio_item.year_completed %></p>
+
+<h4><%= t('portfolio_item.description') %></h4>
+<p><%= @portfolio_item.description %></p>
+
+
+
+<%- if logged_in? and current_user.can_edit?(@portfolio_item.provider) -%>
+<ul>
+  <li><%= link_to(t('portfolio_item.edit'), edit_my_portfolio_item_path(@portfolio_item)) %></li>
+</ul>
+<%- end -%>

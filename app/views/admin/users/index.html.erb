@@ -1,0 +1,26 @@
+<h2><%= t('navigation.users') %></h2>
+
+<ul>
+  <li><%= link_to t('user.add_new'), new_admin_user_path %></li>
+</ul>
+
+<%- if @users.empty? -%>
+  <p><%= t('user.no_users') %></p>
+<%- else -%>
+  <table>
+    <tr>
+      <th><%= t('user.email') %></th>
+      <th><%= t('user.name') %></th>
+      <th><%= t('user.admin') %></th>
+      <th>&nbsp;</th>
+    </tr>
+    <% @users.each do |user| %>      
+      <tr>
+        <td><%= link_to user.email, edit_admin_user_path(user) %></td>
+        <td><%= user.name %></td>
+        <td><%= user.admin? ? t('general.yes') : t('general.no') %></td>
+        <td><%= link_to t('general.delete'), [:admin, user], :method => :delete, :confirm => t('general.confirm') %></td>
+      </tr>
+    <%- end -%>
+  </table>
+<%- end -%>

@@ -1,0 +1,43 @@
+h1. EngineYard Pro-Jobs Database Web App
+
+h2. Bootstrapping
+
+To get set up, first up, create your MySQL database:
+
+<pre><code>rake db:create</code></pre>
+
+Then run the bootstrap task:
+
+<pre><code>rake bootstrap</code></pre>
+
+The bootstrap task will ask you for a username and password for a regular user that will have ownership of the provider that is created, as well as another user that will have admin rights.
+
+You'll also need to create a site_config.yml file in the config/ dir. You can start with the example:
+
+<pre><code>cp config/site_config.yml.example config/site_config.yml</code></pre>
+
+h2. Running the unit tests
+
+Create the test database...
+
+<pre><code>rake testing db:create</code></pre>
+
+... and populate it:
+
+<pre><code>rake db:test:clone</code></pre>
+
+Run the tests:
+
+<pre><code>rake spec</code></pre>
+
+or using ZenTest
+
+<pre><code>autospec</code></pre>
+
+h2. Running the cucumber acceptance tests
+
+<pre><code>cucumber features</code></pre>
+
+or add them to your ZenTests:
+
+<pre><code>AUTOFEATURE=true autospec</code></pre>

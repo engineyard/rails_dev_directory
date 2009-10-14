@@ -1,0 +1,25 @@
+<h2><%= t('rfp.rfps_for', :provider => @provider.company_name) %></h2>
+
+<%- if @requests.empty? -%>
+  <p><%= t('provider.no_rfps') %></p>
+<%- else -%>
+  <p><%= @requests.size == 1 ? t('request.request_count_singular') : t('request.request_count_plural', :count => @requests.size ) %></p>
+  <table>
+    <tr>
+      <th><%= t('rfp.project_name') %></th>
+      <th><%= t('rfp.budget') %></th>
+      <th>&nbsp;</th>
+    </tr>
+
+    <%- @requests.each do |request| -%>
+    <tr <%= request.unread? ? 'class="unread"' : nil %>>
+      <td><%= link_to request.rfp.project_name, [:admin, request.rfp] %></td>
+      <td><%= price request.rfp.budget %></td>
+      <td><%= link_to t('general.show'), [:admin, request.rfp] %></td>
+    </tr>
+    <%- end -%>
+  
+  </table>
+<%- end -%>
+
+<%= will_paginate %>

@@ -1,0 +1,15 @@
+config/initializers/paperclip.rb
+log/*.log
+log/*.pid
+tmp/**/*
+.DS_Store
+doc/api
+doc/app
+coverage
+db/*.sqlite3
+public/system
+config/development.sphinx.conf
+db/sphinx
+public/javascripts/common.js
+public/javascripts/locales.js
+config/site_config.yml

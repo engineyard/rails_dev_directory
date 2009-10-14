@@ -1,0 +1,10 @@
+#tooltip {
+	position: absolute;
+	z-index: 3000;
+	border: 1px solid #AAA;
+	background-color: #FFFFEE;
+	padding: 5px;
+	width: 200px;
+
+}
+#tooltip h3, #tooltip div { margin: 0; padding: 0; font-family: Lucida Grande, Verdana, sans-serif;}

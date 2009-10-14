@@ -1,0 +1,78 @@
+h1. Audit - a plugin for ActiveRecord that audits changes to ActiveRecord models
+
+At some stage in every Rails app's history, you want an audit trail. How many of this have been created in all time? How many of that have been deleted?
+
+This simple plugin does that, and that's all.
+
+h2. Install
+
+Easy!
+
+<pre><code>./script/plugin install git://github.com/paulca/audit.git
+</code></pre>
+
+h2. Setup
+
+You'll need to create the audits table with a migration. The indexes are for performance ... although eventually, this thing won't scale. Although you should do right by it for a good 30 million records or so.
+
+<pre><code>
+class CreateAudits < ActiveRecord::Migration
+  def self.up
+    create_table :audits do |t|
+      t.string :auditable_type
+      t.integer :auditable_id
+      t.string :action
+      t.integer :user_id
+
+      t.timestamps
+    end
+    
+    add_index :audits, [:auditable_type, :action], :name => "auditable_index"
+    add_index :audits, :user_id
+    add_index :audits, [:user_id, :auditable_type], :name => "auditable_user_index"
+    add_index :audits, [:auditable_type, :auditable_id], :name => "auditable_object"
+  end
+
+  def self.down
+    remove_index :audits, :name => :auditable_object
+    remove_index :audits, :name => :auditable_user_index
+    remove_index :audits, :user_id
+    remove_index :audits, :name => :auditable_index
+    drop_table :audits
+  end
+end
+</code></pre>
+
+h2. Usage
+
+<pre><code>class Post < ActiveRecord::Base
+  audit
+end
+
+@post = Post.new
+@post.save!
+@post.audits.created.count # => 1
+Post.created.count # => 1
+
+@post.title = "Hey, finger!"
+@post.save!
+@post.audits.updated.count # => 1
+Post.updated.count # => 1
+
+@post.destroy
+Post.destroyed.count # => 1
+</code></pre>
+
+That's all folks!
+
+h2. Bonus
+
+If you have a 'User' model and you define User.current_user, then that will be saved to the record to record the user who took the action.
+
+h2. About me
+
+I'm Paul Campbell. I'm an avid Ruby on Rails web developer. Follow my ramblings at "http://www.pabcas.com":http://www.pabcas.com
+
+Follow me on Twitter "http://twitter.com/paulca":http://twitter.com/paulca
+
+Copyright (c) 2009 Paul Campbell, released under the MIT license

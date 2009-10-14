@@ -1,0 +1,7 @@
+author: Chris Wanstrath (chris[at]ozmm[dot]org)
+summary: 
+homepage: http://errtheblog.com/post/14
+plugin: http://require.errtheblog.com/svn/acts_as_textiled
+license: MIT
+version: 0.3
+rails_version: 1.1+

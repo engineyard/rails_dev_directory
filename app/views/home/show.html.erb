@@ -1,0 +1,41 @@
+<%- content_for :keywords do -%><meta name="keywords" content="<%= @page.keywords if @page %>"><%- end -%>
+<%- content_for :description do -%><meta name="description" content="<%= @page.description if @page %>"><%- end -%>
+
+<div class="welcome">
+  <h1><%= t('home.welcome') %></h1>
+  <div><%= t('home.description') %></div>
+  <div class="clear"></div>
+</div>
+
+<div class="searchWizard">
+  <h3><%= t('provider.directory.description') %></h3>
+  <div class="provider search">
+    <% form_tag search_providers_path, :method => :get, :id => 'search-form' do -%>
+      <table>
+        <tr>
+          <td>
+            <%= label_tag 'budget', t('provider.directory.budget') %> <%= text_field_tag 'budget', '', :class => "number" %> <br />
+            <span class="note"><%= t('provider.directory.note') %></span>
+            <%= label_tag 'location', t('provider.directory.location') %>
+            <%= location_select %>
+
+            
+          </td>
+          <td>
+            <h4><%= t('provider.directory.services') %></h4>
+            <ul>
+              <li><%= image_tag '/images/icon-check.png', :class=>"check"%> <label><%= t('provider.directory.default_service') %></label></li>
+              <%- TechnologyType.ordered_not_checked.each do |technology_type| -%>
+                <li> <%= check_box_tag "technology_type_ids[]", technology_type.id, false, :id => dom_id(technology_type) %> <%= label_tag dom_id(technology_type), technology_type.name %></li>
+              <%- end -%>
+            </ul>
+          </td>
+        </tr>
+      </table>
+
+        <%= submit_tag t('provider.directory.find_providers') %>
+    <% end -%>
+  </div>
+</div>
+
+<%= @page.content if @page %>

@@ -1,0 +1,61 @@
+<h2><%= t('rfp.show_rfp') %>: <%= @rfp.project_name %></h2>
+
+<h3><%= t('rfp.providers') %></h3>
+<ul>
+  <%- @rfp.providers.each do |provider| -%>
+    <li><%= link_to provider.company_name, [:admin, provider] %></li>
+  <%- end -%>
+</ul>
+
+<dl>
+  <dt><%= t('rfp.project_name') %></dt>
+    <dd><%= @rfp.project_name %></dd>
+
+  <dt><%= t('rfp.submitted_by') %></dt>
+    <dd><%= @rfp.first_name %> <%= @rfp.last_name %> <%= mail_to @rfp.email %> <%= @rfp.phone_number %> <%= t('rfp.from') %> <%= @rfp.company_name %>, <%= @rfp.office_location %> <%= @rfp.postal_code %></dd>
+
+  <dt><%= t('rfp.details') %></dt>
+    <dd>
+      <%= t('rfp.nda_required') if @rfp.nda_required? %>
+    </dd>
+    <dd>
+      <%= @rfp.project_description %>
+    </dd>
+
+  <dt><%= t('rfp.platform_requirements')%></dt>
+    <dd><%= @rfp.platform_requirements %></dd>
+
+  <dt><%= t('rfp.budget') %></dt>
+    <dd><%= price @rfp.budget %></dd>
+
+  <dt><%= t('rfp.start_date') %></dt>
+    <dd><%= @rfp.start_date_formatted %></dd>
+
+  <dt><%= t('rfp.duration') %></dt>
+    <dd><%= @rfp.duration %></dd>
+
+  <dt><%= t('rfp.time_zone') %></dt>
+    <dd><%= @rfp.time_zone %></dd>
+
+  <dt><%= t('rfp.insurance_requirements') %></dt>
+    <dd><%= t('rfp.general_liability_insurance') %>: <%= yes_or_no(@rfp.general_liability_insurance)%></dd>
+    <dd><%= t('rfp.professional_liability_insurance') %>: <%= yes_or_no(@rfp.professional_liability_insurance) %></dd>
+    
+    <dt><%= t('rfp.services') %></dt>
+    <dd>
+      <ul>
+        <% @rfp.requested_services.each do |service| %>
+          <li><%= service.name %></li>
+        <%- end -%>
+      </ul>
+    </dd>
+    
+  <dt><%= t('rfp.additional_services') %></dt>
+  <dd><%= @rfp.additional_services %></dd>
+</dl>
+
+<p>
+  <% form_for [:admin, @rfp], :html => {:method => :delete} do |f| -%>
+    <%= f.submit t('rfp.delete'), :class => "confirm" %>
+  <% end -%>
+</p>

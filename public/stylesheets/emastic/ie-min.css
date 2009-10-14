@@ -1,0 +1,20 @@
+ol {margin-left:2em;}
+
+legend { margin-bottom: 1.4em; }
+
+/* Landing Page */
+.provider {
+  padding: 0 54px 2em;
+}
+.provider input[type="submit"] {
+  width: 14em;
+}
+.welcome {
+  padding-top: 2em;
+}
+.welcome h2 {
+  margin-top: 0;
+}
+.welcome img {
+  margin-top: 1em;
+}

@@ -1,0 +1,558 @@
+# Sample localization file for English. Add more files in this directory for other locales.
+# See http://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
+
+en:
+  general:
+    site_title: Rails Development Directory
+    site_title_logo: "<img src='/images/type-rdd.png' alt='Rails Development Directory' />"
+    site_title_admin: Rails Development Directory Admin
+    "yes": "Yes"
+    "no": "No"
+    access_denied: You don't have permission to do that
+    copyright: 'Created by <a href="http://www.engineyard.com"><img src="/images/logo-ey-horiz.png" alt="Engine Yard, Ruby on Rails Hosting" /></a>. Runs on <a href="http://www.engineyard.com/products/cloud">Engine Yard Cloud</a>.'
+    contact_us: 'Contact Us'
+    terms: 'Terms and Conditions'
+    
+    ago: '{{date}} ago'
+    
+    show: Show
+    edit: Edit
+    delete: Delete
+    confirm: Are you sure?
+    next: Fill out request
+    sign_out: Sign out
+    
+  signin:
+    failed: "Couldn't log you in as '{{user}}'"
+    
+  forms:
+    save: Save
+    or: or
+    cancel: Cancel
+    signup: Sign up
+    sign_in: Sign in
+    confirm: Are you sure?
+    
+  navigation:
+    dashboard: Dashboard
+    homepage: Homepage
+    provider_directory: Developer directory
+    providers: Developers
+    portfolio_items: Portfolio
+    company: Company
+    rfps: Requests
+    recommendations: Recommendations
+    users: Users
+    admin: Admin
+    pages: Pages
+    csvs: CSV exports
+    
+    #admin
+    general_admin: General
+    system_admin: System
+    technology_types: Services
+
+  dashboard:
+    dashboard_for: "{{company}} Admin"
+    rfps: Recent Requests for Proposals
+    all_rfps: See All Requests
+    recommendations: Recent Endorsements
+    all_recommendations: See All Endorsements
+    
+    show: Show
+    from: From
+    endorsement: Endorsement
+    
+  admin:
+    change_password: Change Password
+    dashboard:
+      title: Admin Dashboard
+      welcome: This is the administrator section of the Rails Development Directory
+      total_providers: "Total number of developers: {{providers_size}}"
+      active_providers: "active: {{active_providers_size}}"
+      inactive_providers: "inactive: {{inactive_providers_size}}"
+      flagged_providers: "flagged: {{flagged_providers_size}}"
+      active: active
+      inactive: inactive
+      flagged: flagged
+      
+      rfps_submitted: "Total number of requests submitted: {{rfps_size}}"
+      recommendations_submitted: "Total number of recommendations submitted: {{recommendations_size}}"
+      
+  home:
+    logo: /images/logo-rails.jpg
+    welcome: "Looking for a Rails Developer?"
+    description: "<p>If you’re a business searching for an established, professional Rails development firm to build your Ruby on Rails application, then you’ve come to the right place!</p><p>We know that finding a qualified Ruby on Rails developer can be a challenge. On the Rails Development Directory, we match your business with professional Rails developers who want to build your app. It only takes seconds to find qualified firms, so start searching now!</p>"
+    find_a_provider: Find a Rails Developer
+    full_listing: Full listing
+    by_location: Geographic listing
+    provider_signup: Rails Developer? Get Listed...
+    enter_budget: Please enter your budget
+    everywhere: Everywhere
+    
+  company_profile:
+    users:
+      add_new_headline: Add a new user
+      add_new_description: New users can access your account and check requests and endorsements.
+      edit_headline: "Edit user: {{user}}"
+      edit_description: Here you can change the user's details
+      manage_headline: Manage users
+      manage_description: Manage user access to your account.
+      created_successfully: "{{user}} was created and has been emailed a link to set up a password"
+      saved_successfully: "Details for {{user}} saved"
+      deleted_successfully: "User account for {{user}} was deleted"
+      add_new: Add a new user
+    edit: Edit company profile
+    edit_headline: Edit your company profile
+    edit_description: Keep your company information up to date.
+    
+    updated_successfully: Thanks for updating your profile
+
+  provider:
+    developer_profile: Developer Profile
+    rails_developer_in: Rails Developer in
+    developer_description: "View the Rails developer profile for {{name}}, located in {{address}}, providing {{services_offered}}"
+    
+    by_state: View list by country / state
+    outside_us: Outside United States
+    all_locations: All Locations
+    international: International
+    
+    validations:
+      user_email_cannot_be_different_domain: Please ensure that you use an email address on the same domain name as your company website
+      valid_url: Please enter a valid URL
+      reserved_name: is reserved. Please try another.
+    signup: Create an account
+    signup_headline: Get Better Referrals
+    signup_description: "It only takes a few minutes to create an account."
+    sign_in: Sign in to your account
+    
+    directory_headline: Find a Rails Developer
+    directory_description: "Give us a little information, and we'll show you Rails developers who best match your requirements."
+    directory_results_description: "Click on the developer's name to view their company profile. Check the box next to the names of the developers you want to submit a request to (you can only send requests to a maximum of 3 companies)."
+    visit_website: Visit this company's website
+    directory:
+      description: "Give us a little information about your project, and we'll show you Rails developers that best match your requirements."
+      find_providers: Find a developer
+      budget: "Your Budget ($US):"
+      note: "Please enter numbers only"
+      location: "Location:"
+      services: "Services Required:"
+      default_service: "Ruby on Rails Development"
+    
+    request_rfp: Fill out request
+    send_rfp: "Request a Proposal"
+    
+    endorse: Write an endorsement
+    endorsements_headline: Endorsements
+    no_recommendations: "No endorsements have been left yet. You need 3 customer endorsements in order to get ranked in the directory and to have your listing labeled &#8220;confirmed.&#8221;"
+    no_endorsement_requests: No requests for endorsement have been made.
+    request_endorsement: Ask a customer for an endorsement
+    sort_endorsements: Sort endorsements
+    done_sorting: Done Sorting
+    more_endorsements: "Read all endorsements"
+    confirmed: Confirmed
+    confirmed_explanation: "Confirmed means that these companies have verified the accuracy of their information in the directory, and had at least three customers endorse their work."
+    
+    portfolio_items: Portfolio items
+    no_portfolio_items: No portfolio items have been added to this developer profile yet.
+    add_now: You can add one now
+    portfolio_items_headline: Portfolio
+
+    recommendation_headline: Satisfied customer? Endorse this developer
+    recommendation_description: "Please let us know your experience with {{company}}"
+    
+    add_new: Add a new developer
+    edit: Edit developer
+    choose_country: Choose country...
+    rfps: See Requests
+    recommendations: See Recommendations
+    back_to_provider: "&larr; Back to {{provider}}"
+    delete: Delete this provider
+    
+    saved_successfully: Developer saved successfully
+    deleted_successfully: Developer deleted successfully
+    no_providers: We couldn't find any developers that match your search.
+    no_users: No users have been added to this developer yet.
+    no_rfps: No requests have been submitted to this developer yet.
+    
+    signed_up_on: Signed up on
+    admin: Account Admin
+    company_name: Company Name
+    slug: URL code / slug
+    marketing_description: Marketing Description
+    marketing_description_limit: Please limit to 300 characters
+    remaining: remaining
+    location: Location
+    street_address: Street Address
+    city: City
+    state: State
+    postal_code: Zip/Postal code
+    country: Country
+    phone_number: Phone
+    email: Company Email
+    company_url: Company Website
+    company_size: Number of Employees
+    logo: Company Logo
+    hourly_rate: Hourly Rate
+    min_budget: Minimum Budget
+    endorsements: Endorsements
+    status: Status
+    recommendations_count: Recommendations<br/><em>In case this goes out of sync</em>
+    users: Users
+    terms_of_service: Terms of Use
+    services: Services
+    no_services: No services have been selected yet
+    action: Send Request To
+    verified: Verified?
+    
+    accept_terms_of_service: 'I accept the <a target="_BLANK" href="/pages/provider-terms-of-use">Terms of Use</a>'
+    
+    administrator_password_headline: Please choose an administrator username and password
+    administrator_password_description: "The administrator can edit company details and add additional users to the account."
+    company_details_headline: Please enter some details about your company
+    company_details_description: "The more information that you provide about your company, the easier it will be for other businesses looking for your services to find you."
+
+  user:
+    add_new: Add a new user
+    add_new_to: Add a new user to {{provider}}
+    edit: Edit this user
+    edit_on: Edit user on {{provider}}
+    delete: Delete this user
+    take_control: Take control
+    resend_welcome: Resend welcome message
+    welcome: "Welcome, <strong>{{user}}</strong>"
+    remember_me: Remember me
+    belongs_to: Belongs to
+    
+    
+    login_count: Login count
+    last_request_at: Last request
+    last_login_at: Last login
+    current_login_at: Current login
+    last_login_ip: Last login IP
+    current_login_ip: Current login IP
+    
+    set_new_password: Set a new password
+    forgot_password: Forgot your password?
+    reset_password: Reset password
+    save_new_password: Save new password
+    reset_password_instructions: Please enter your email below to reset your password
+    send_new_password: Send
+    password_reset_sent: "Instructions to reset your password have been emailed to you. Please check your email."  
+    not_found: "No user was found with that email address"
+    account_not_located: "We're sorry, but we could not locate your account.  If you are having issues try copying and pasting the URL from your email into your browser or restarting the reset password process."
+    password_updated: "Password successfully updated"
+
+    change_password_for: "Change password for {{user}}"
+    
+    sign_out: Sign out
+    
+    saved_successfully: User saved successfully
+    deleted_successfully: User deleted successfully
+
+    send_welcome_message: Send welcome message
+    welcome_message_sent: Welcome message was sent
+    
+    first_name: First Name
+    last_name: Last Name
+    name: Name
+    email: Email
+    login: Username
+    password: Password
+    password_again: Retype Password
+    admin: Admin user?
+
+  portfolio_item:
+    add_new: Add a new project to your portfolio
+    add_new_to: Add a new project to the {{provider}} portfolio
+    add_new_for: Add a new project to the portfolio for {{provider}}
+    edit: Edit this portfolio project
+    edit_on: Edit porfolio project on {{provider}}
+    delete: Delete this portfolio project
+    no_portfolio_items: You haven't added any projects to your portfolio yet
+    manage: Manage portfolio
+
+    show_portfolio_item: Portfolio Project
+    headline: Portfolio
+    list_description: Here you can add up to three projects to your portfolio, for display on your company page.
+    project_completed_in: Project completed in&nbsp;
+    
+    validations:
+      too_many: Only three projects can be added to your portfolio
+
+    saved_successfully: Portfolio project saved successfully
+    deleted_successfully: Portfolio project deleted successfully
+    
+    name: Name
+    url: Website
+    year_completed: Year Completed
+    description: Description
+
+  endorsement_request:
+    headline: Endorsement Requests
+    recipients: Recipients
+    validations:
+      too_many_recipients: Should contain ten or fewer email addresses
+      invalid_recipients: Should contain a list of email addresses separated by commas
+    subject: Subject
+    email_addresses: Email Addresses
+    email_note: You can add up to 10 at a time (separated by commas).
+    email_format: "Use this format: First Last &lt;name@email.com&gt;"
+    message: Message
+    save: Submit Endorsement Request
+    
+    submission:
+      thanks_for_requesting: "Your request has been sent to the following recipients: "
+
+  rfp:
+    validations:
+      budget_too_low: is too low. At least one of the providers you selected has a higher minimum than your budget.
+    
+    rfps_for: Requests for {{provider}}
+    rfp_for: Requests for {{provider}}
+    no_rfps: No requests have been submitted yet
+    rfp_count_singular: 1 request has been submitted
+    rfp_count_plural: "{{count}} requests have been submitted"
+    show_rfp: Proposal Request
+    delete: Delete Request
+    providers: Submitted to these developers
+    
+    provider_required: Please choose at least one provider to submit a request to.
+    three_provider_max: Please choose a maximum of three providers to submit a request to.
+    
+    new_rfp_headline: Submit a Request
+    new_rfp_description: Fill out the form below to send an enquiry to the Rails developers you've selected.
+    
+    first_name: First Name
+    last_name: Last Name
+    company_name: Company Name
+    about_you: Tell us a bit about you
+    email: Email
+    phone_number: Phone
+    postal_code: ZIP / Post code
+    created_on: Sent on
+    
+    disclaimer: <strong>Disclaimer:</strong> Engine Yard does not represent the companies in this directory.
+    
+    about_your_project: Please tell us about your project
+    services: "Services Required:"
+    additional_services: "Additional Services:"
+    other: Other
+    project_name: Project Name
+    budget: Budget
+    start_date: Start date
+    duration: Duration
+    due_date: Due Date
+    time_zone: Office Time Zone
+    office_location: Office Location
+    insurance_requirements_headline: "Insurance Requirements:"
+    insurance_requirements_description: "Does your project require the developer to have insurance? If so, please check the types of insurance that you require."
+    general_liability: General Liability
+    professional_liability: Professional Liability
+    additional_services: Additional Services or Requirements
+    choose_providers: "You are sending this request to the following developers:"
+    
+    submission:
+      thanks_for_submitting: Thanks for submitting your request
+      description: Developers will get in touch with you shortly.
+      instructions: "If you have any questions or don't receive a timely response, please contact us at <a href='mailto:info@railsdevelopment.com'>info@railsdevelopment.com</a>"
+    
+    
+    terms_of_service: Terms of use
+    accept_terms_of_service: 'I accept the <a target="_BLANK" href="/pages/terms-of-use">Terms of Use</a>'
+    submit: Submit Request
+    
+    deleted_successfully: Request deleted successfully
+    
+    project_owner: Project Owner
+    submitted_by: Submitted By
+    submitted_on: Submitted On
+    details: Details
+    insurance_requirements: Insurance Requirements
+    
+    project_details: Project Details
+    project_name: Project Name
+    budget: Budget
+    nda_required: An NDA is required on this project
+    platform_requirements: Platform Requirements
+    due_date: Due Date
+    time_zone: Office Time Zone
+    general_liability_insurance: General Liability Insurance
+    professional_liability_insurance: Professional Liability Insurance
+    additional_services: Additional Services Required
+
+    reply: Reply to Request
+    send_email: Send in Email
+    add_address: Add to Address Book
+    add_calendar: Add to Calendar
+    download_csv: Download as CSV
+    download_txt: Download as Text
+    
+    delete_note: "It’s bad form to delete a valid request for a proposal without first responding and letting the project owner know that you’re not interested in, or unavaible to take on, the project. However, if you get a request that is clearly spam, or if you’ve already responded and want to clear the request from your view, you can delete the request:"
+    
+  technology_type:
+    add_new: Add a new Technology type
+    edit: Edit Technology type
+    checked: Check by default
+    name: Name
+    no_types: No types have been added yet
+    service_type: Service type
+    position: Position
+  
+  recommendation:
+    name: Your name
+    sent_on: Sent on
+    year_hired: Year you hired {{company}}
+    company: Your company at the time
+    position: Your position at the time
+    email: Your email
+    url: Company website
+    ask_for_endorsement: Ask a customer for an endorsement
+    endorsement: Write your endorsement
+    save: Submit endorsement
+    manage: Manage Endorsements
+
+    is_approved: Approved?
+    approved: Approved
+
+    approve: Approve
+    reject: Reject
+    rejection_message: Rejection message
+    approve_selected: Approve selected endorsements
+    
+    no_recommendations: No recommendations have been added yet
+    saved_successfully: Recommendation saved successfully
+    
+    states:
+      new: new
+      approved: approved
+      rejected: rejected
+
+    admin:
+      name: "Endorser&rsquo;s name"
+      year_hired: Year hired
+      company: "Endorser&rsquo;s company"
+      position: "Endorser&rsquo;s position"
+      email: "Endorser&rsquo;s email"
+      url: "Endorser&rsquo;s company website"
+      endorsement: Endorsement
+      delete: Delete this endorsement
+
+    deleted_successfully: Endorsement deleted successfully
+    thanks: Thanks for submitting your endorsement.
+
+    recipient_company_name: Recipient
+    show_recommendation: Recommendation for {{company_name}}
+    recommendations_for: Recommendations for {{company_name}}
+
+    endorsements_for: Endorsements for {{company}}
+    
+    at: at
+    hired: Hired
+    in: in
+    
+  request:
+    headline: Requests for Proposals
+    description: Here you can browse the requests that have been submitted to your company
+    no_requests: You have not yet received any Requests for Proposals
+    submitted_by: Submitted by
+    submitted_on: Submitted
+    deleted_successfully: Request deleted
+    
+    request_count_singular: 1 request has been submitted
+    request_count_plural: "{{count}} requests have been submitted"
+  
+  page:
+    add_new: Add a new page
+    edit: Edit page
+    no_pages: No pages added yet
+    
+    saved_successfully: Page saved
+    deleted_successfully: Page deleted
+    
+    title: Title
+    url: URL
+    maps_to: Maps to /pages/example
+    keywords: Keywords
+    description: Description
+    content: Content
+    accepts_textile: Accepts <a href="http://www.textism.com/tools/textile/">Textile</a>
+    
+    instructions: "You can use the pages function to change content on certain dynamic pages. If you set the URL of your page to 'home', you will be able to change the content in the content area of the homepage. If you set the URL to 'providers/new', you will be able to change the header of the provider signup page."
+    seo_instructions: "Additionally, you can change the keywords and description for any page in the entire system, by setting the URL of a page to the controller and action of that page. For example, to change the keywords and description of the Developer Directory index, you would create a page with a URL of 'providers/index'."
+  
+  homepage:
+    edit: Edit the homepage
+    content: Content
+    saved_successfully: Homepage saved successfully
+    view: View the homepage
+    redirected: 'If you want to edit the area on the bottom of the homepage, <a href="/admin/pages/new">Create a page</a> with a URL of "home"'
+    
+  audit:
+    current: Current total
+    all_time: All time total
+    deleted: Deleted
+    updates: Updates
+    item: Item
+    rfps: Requests
+    requests: Requests (eg. requestss to providers)
+    recommendations: Endorsements
+    providers: Providers
+    
+  csvs:
+    rfps: Export Requests
+    providers: Export Providers
+
+  country:
+    providers_in: "Rails Developers in {{country}}"
+    
+  state:
+    providers_in: "US Rails Developers in {{state}}"
+    
+  email:
+    subject: Subject
+    message: Message
+
+    rfp_notification: 
+      subject: "Request Submitted: {{project}}"
+      greeting: "Hi {{name}}"
+      introduction: A new request has been submitted. Click below to view the request.
+      thanks: Thanks.
+      signoff: The Rails Development Directory team
+
+    endorsement_request: 
+      greeting: "Hi {{name}}"
+      subject: 'Can you endorse {{company_name}}'
+      instructions: "To write your endorsement, go to:"
+      appendage: This was sent from the Rails Development Directory.
+    
+    endorsement_notification:
+      greeting: "Hi {{name}}"
+      subject: You've been endorsed in the Rails Development Directory
+      instructions: "{{name}} has endorsed you on the Rails Development Directory. To approve this endorsement, go to:"
+      appendage: This was sent from the Rails Development Directory
+
+    user_welcome: 
+      subject: 'Welcome to the Rails Development Directory'
+      greeting: "Hi {{name}}"
+      message: You've been set up with an account on the Rails Development Directory
+      credentials: "You can get started by clicking the link below"
+      email: "Email:"
+      password: "You can get started using the link below"
+      signoff: "Regards, The Engine Yard Team"
+
+    provider_welcome: 
+      subject: 'Welcome to the Rails Development Directory'
+      greeting: Hi {{name}},
+      message: Thanks for signing up to the Rails Development Directory
+      credentials: "You can log in at {{url}} and your details are below"
+      email: "Email:"
+      password: "Password:"
+      signoff: "Regards, The Engine Yard Team"
+
+    password_reset: 
+      subject: 'Welcome to the Rails Development Directory'
+      greeting: Hi {{name}},
+      instructions: You can reset your password using the link below
+      signoff: "Regards, The Engine Yard Team"
