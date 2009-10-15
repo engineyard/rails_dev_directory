@@ -4,7 +4,7 @@ email_name: "Example Directory"
 smtp_address: "example.com"
 smtp_domain: "example.com"
 smtp_port: '25'
-smtp_username: "example@example.com"
+smtp_user_name: "example@example.com"
 smtp_password: "example"
 
 tracking_code: |
