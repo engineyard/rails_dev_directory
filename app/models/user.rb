@@ -43,8 +43,6 @@ class User < ActiveRecord::Base
   
   def welcome_message(subject = nil, message = nil)
     if provider && provider.user == self
-      Notification.create_provider_welcome(self, subject, message)
-    else
       Notification.create_user_welcome(self, subject, message)
     end    
   end
@@ -54,7 +52,7 @@ class User < ActiveRecord::Base
   end
   
   def send_welcome_message?
-    return true if @send_welcome_message.nil?
+    return false if @send_welcome_message.nil?
     return @send_welcome_message if @send_welcome_message.is_a?(TrueClass) or @send_welcome_message.is_a?(FalseClass)
     @send_welcome_message.to_i > 0 ? true : false
   end

@@ -216,3 +216,18 @@ describe Provider, "trying to register a reserved country / state name" do
     @provider.should have(1).errors_on(:company_name)
   end
 end
+
+describe Provider, "receiving email on signup" do
+  it "should send the provider welcome" do
+    @provider = Provider.new({"city"=>"Dublin", "state_province"=>"", "further_street_address"=>"28 Malahide Road", "company_url"=>"rushedsunlight.com", "country"=>"IE", "company_name"=>"Rushed Sunlight", "company_size"=>"2", "postal_code"=>"Dublin 3", "hourly_rate"=>"", "marketing_description"=>"", "phone_number"=>"[FILTERED]", "street_address"=>"28 Malahide Road", "terms_of_service"=>"1", "users_attributes"=>{"0"=>{"password_confirmation"=>"[FILTERED]", "last_name"=>"CAmpbell", "password"=>"[FILTERED]", "email"=>"paul@rushedsunlight.com", "first_name"=>"Paul"}}, "min_budget"=>"0.0", "email"=>"paul@rushedsunlight.com"})
+    @provider.users.first.password = 'monkeys'
+    @provider.users.first.password_confirmation = 'monkeys'
+    
+    @provider.should be_valid
+    
+    Notification.should_not_receive(:create_user_welcome)
+    Notification.should_receive(:create_provider_welcome)
+    
+    @provider.save
+  end
+end
