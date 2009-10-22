@@ -1,0 +1,6 @@
+--- 
+  :address: smtp.gmail.com
+  :port: 587
+  :user_name: email@dress.com
+  :password: h@ckme
+  :authentication: :plain

@@ -1,0 +1,20 @@
+= SMTP_TLS + ActionMailer + Gmail
+
+Configure Rails To Use Gmail's SMTP
+
+Originally from http://blog.pomozov.info/posts/how-to-send-actionmailer-mails-to-gmailcom.html
+
+See "sample" directory for further instructions
+
+== Resources
+
+Blog post
+
+* http://www.rubyinside.com/how-to-use-gmails-smtp-server-with-rails-394.html
+
+* http://www.prestonlee.com/archives/63
+
+== Author
+
+* Marc Chung - marc [dot] chung [at] openrain [dot] com
+
