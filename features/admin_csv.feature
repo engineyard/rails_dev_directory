@@ -7,10 +7,10 @@ Feature: CSV Dumps
     Given a provider "Hyper tiny" with an RFP called "Help me"
       And a logged in admin user
     When I am on the admin dashboard
-      And I follow "navigation.csvs" translation
-      And I follow "csvs.rfps" translation
+      And I follow "CSV exports"
+      And I follow "Export Requests"
     Then I should see "Help me"
     When I am on the admin dashboard
-      And I follow "navigation.csvs" translation
-      And I follow "csvs.providers" translation
+      And I follow "CSV exports"
+      And I follow "Export Providers"
     Then I should see "Hyper tiny"

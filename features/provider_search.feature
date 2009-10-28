@@ -13,65 +13,64 @@ Feature: Provider directory
       And "Trulio" provides "AJAX"
       And an "inactive" provider "Boolio"
     When I am on the homepage
-      And I follow "home.find_a_provider" translation
+      And I follow "Find a Rails developer"
       And I fill in "budget" with "10000"
-      And I press "provider.directory.find_providers" translation
+      And I press "Find a developer"
     Then I should not see "Trulio"
 
 
-    When I follow "home.find_a_provider" translation
+    When I follow "Find a Rails developer"
       And I check "AJAX"
-      And I press "provider.directory.find_providers" translation
+      And I press "Find a developer"
     Then I should see "Trulio"
 
-    When I follow "home.find_a_provider" translation
+    When I follow "Find a Rails developer"
       And I check "Visual design"
-      And I press "provider.directory.find_providers" translation
+      And I press "Find a developer"
     Then I should not see "Trulio"
 
     When I am on the homepage
-      And I follow "home.find_a_provider" translation
+      And I follow "Find a Rails developer"
       And I fill in "budget" with "20000"
-      And I press "provider.directory.find_providers" translation
+      And I press "Find a developer"
     Then I should see "Trulio"
       And I should see "Boolio"
-    When I press "general.next" translation
-      Then I should see "rfp.provider_required" translation
+    When I press "Fill out request"
+      Then I should see "Please choose at least one provider to submit a request to."
     When I follow "Trulio"
     Then I should see "Trulio"
       And I should not see "Dublin Avenue"
       And I should not see "Dublin 3"
-    When I follow "provider.request_rfp" translation
-      And I fill in "rfp.first_name" translation with "Paul"
-      And I fill in "rfp.last_name" translation with "Campbell"
-      And I fill in "rfp.company_name" translation with "Joojoobangbang"
-      And I fill in "rfp.postal_code" translation with "90210"
-      And I fill in "rfp.email" translation with "paul@rslw.com"
-      And I fill in "rfp.phone_number" translation with "0879148162"
-      And I fill in "rfp.project_name" translation with "Super secret monster project"
+    When I follow "Fill out request"
+      And I fill in "First Name" with "Paul"
+      And I fill in "Last Name" with "Campbell"
+      And I fill in "Company Name" with "Joojoobangbang"
+      And I fill in "ZIP / Post code" with "90210"
+      And I fill in "Email" with "paul@rslw.com"
+      And I fill in "Phone" with "0879148162"
+      And I fill in "Project Name" with "Super secret monster project"
       And I select "$5k-$20k" from "rfp[budget]"
-      And I fill in "rfp.start_date" translation with "20 May 2010"
-      And I fill in "rfp.duration" translation with "2 weeks"
+      And I fill in "Start date" with "20 May 2010"
+      And I fill in "Duration" with "2 weeks"
       And I select "(GMT+00:00) Dublin" from "rfp[time_zone]"
-      And I fill in "rfp.office_location" translation with "Dublin"
+      And I fill in "Office Location" with "Dublin"
       And I check "rfp[general_liability_insurance]"
       And I check "rfp[professional_liability_insurance]"
     Then I should see "Ruby on Rails"
     When I check "Visual Design"
       And I check "UI"
-      And I press "rfp.submit" translation
+      And I press "Submit request"
     Then I should see "Terms of service must be accepted"
     When I check "rfp[terms_of_service]"
-      And I press "rfp.submit" translation
-    Then I should see "rfp.submission.thanks_for_submitting" translation
-      
+      And I press "Submit request"
+    Then I should see "Thanks for submitting your request"
   
   Scenario: Selecting multiple providers from within the directory and requesting an RFP
     Given an "active" provider "Brian Flanagan"
       And an "active" provider "Paul Campbell"
     When I am on the homepage
-      And I follow "home.find_a_provider" translation
-      And I press "provider.directory.find_providers" translation
+      And I follow "Find a Rails developer"
+      And I press "Find a developer"
     Then I should see "Brian Flanagan"
       And I should see "Paul Campbell"
     When I check the "Brian Flanagan" checkbox
@@ -87,16 +86,16 @@ Feature: Provider directory
       And "Hyper Tiny" is based in "NA, IE"
     When I am on the homepage
       And I select "All Locations" from "Location"
-      And I press "provider.directory.find_providers" translation
+      And I press "Find a developer"
     Then I should see "Hyper Tiny"
       And I should see "Hashrocket"
     When I am on the homepage
       And I select "Ireland" from "Location"
-      And I press "provider.directory.find_providers" translation
+      And I press "Find a developer"
     Then I should see "Hyper Tiny"
       And I should not see "Hashrocket"
     When I am on the homepage
       And I select "Florida" from "Location"
-      And I press "provider.directory.find_providers" translation
+      And I press "Find a developer"
     Then I should see "Hashrocket"
       And I should not see "Hyper Tiny"

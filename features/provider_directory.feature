@@ -12,7 +12,7 @@ Feature: Provider directory
       And "Trulio" provides "AJAX"
       And an "inactive" provider "Boolio"
     When I am on the homepage
-      And I follow "home.full_listing" translation
+      And I follow "Full listing"
     Then I should see "Trulio"
     Then I should see "Trulio"
     
@@ -24,7 +24,7 @@ Feature: Provider directory
       And an "active" provider "Nonsense"
       And "Nonsense" is based in "nowhere"
     When I am on the homepage
-      And I follow "home.by_location" translation
+      And I follow "Geographic listing"
     Then I should see "Ireland"
       And I should see "United States"
       And I should see "Florida"
@@ -32,6 +32,6 @@ Feature: Provider directory
       And I should not see "Hyper Tiny"
     When I follow "Florida"
       Then I should see "Hashrocket"
-    When I follow "home.by_location" translation
+    When I follow "Geographic listing"
       And I follow "Ireland"
     Then I should see "Hyper Tiny"

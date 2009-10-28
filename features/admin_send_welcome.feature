@@ -12,5 +12,5 @@ Feature: Sending a custom welcome to users
       And I follow "Billow"
       And I follow "test@test.com"
       And I fill in "message" with "It's a nice day"
-      And I press "user.send_welcome_message" translation
-    Then I should see "user.welcome_message_sent" translation
+      And I press "Send welcome message"
+    Then I should see "Welcome message was sent"

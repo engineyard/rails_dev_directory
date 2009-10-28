@@ -11,11 +11,11 @@ Feature: Request an Endorsement
       And I fill in "endorsement_request[recipients]" with "Brian Flanagan <btflanagan@gmail.com>, Walter Sobchak <wsobchak@sobchaksecurity.us>, Ezra Gustafson <ezra.gustafson@gmail.com>"
       And I fill in "endorsement_request[message]" with "Hi Friends and Loved Ones!"
       And I press "endorsement_request_submit"
-    Then I should see "endorsement_request.submission.thanks_for_requesting" translation
+    Then I should see "Your request has been sent to the following recipients:"
       And I should see "Brian Flanagan"
       And I should see "Walter Sobchak"
       And I should see "Ezra Gustafson"
-    When I follow "dashboard.all_recommendations" translation
+    When I follow "See All Endorsements"
     Then I should see "Brian Flanagan"
       And I should see "Walter Sobchak"
       And I should see "Ezra Gustafson"

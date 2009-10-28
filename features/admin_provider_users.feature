@@ -15,9 +15,9 @@ So that I can see the activity on the provider account and provide support if ne
       And I fill in "Password" with "mcguire"
       And I press "Save"
     Then I should see "Hashrocket"
-      And I should see "user.take_control" translation
+      And I should see "Take control"
       And I should see "Ciara McGuire"
-    When I follow "user.take_control" translation
+    When I follow "Take control"
     Then I should see "Ciara"
     
   Scenario: Editing a user on a provider
@@ -28,7 +28,7 @@ So that I can see the activity on the provider account and provide support if ne
     When I follow "Developers"
       And I follow "Crushtastic"
       And I follow "test@test.com"
-      And I follow "user.edit" translation
+      And I follow "Edit this user"
     When I fill in "First name" with "Joe"
       And I fill in "Last name" with "Arnold"
       And I press "Save"
@@ -43,6 +43,6 @@ So that I can see the activity on the provider account and provide support if ne
       And I follow "Developers"
       And I follow "Billow"
       And I follow "test@test.com"
-      And I follow "user.edit" translation
+      And I follow "Edit this user"
     When I press "Delete this user"
     Then I should see "User deleted successfully"

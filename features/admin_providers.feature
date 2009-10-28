@@ -12,8 +12,8 @@ So that I can edit database fields within the UI of the site
       And I fill in "Company email" with "paul@rslw.com"
       And I fill in "Company website" with "http://www.rslw.com"
       And I press "Save"
-    Then I should see the translation for "provider.edit"
-    
+    Then I should see "Edit developer"
+  
   Scenario: Editing a provider
     Given a provider "Pullover"
       And primary services "Ruby on Rails, AJAX"
@@ -33,11 +33,11 @@ So that I can edit database fields within the UI of the site
       And I check "Visual design"
       
       And I press "Save"
-    Then I should see the translation for "provider.saved_successfully"
+    Then I should see "Developer saved successfully"
       And I should see "flagged"
       And I should see "Paul Campbell (Account Admin)"
-			And I should see "Cheap, Fast, Reliable"
-    
+      And I should see "Cheap, Fast, Reliable"
+  
   Scenario: Viewing a provider
     Given a provider "Pullover"
       And a logged in admin user
@@ -45,7 +45,7 @@ So that I can edit database fields within the UI of the site
       And I follow "Developers"
       And I follow "Pullover"
     Then I should see "Pullover"
-    
+  
   Scenario: Seeing a list of providers
     Given a provider "Jimbo"
       And a logged in admin user

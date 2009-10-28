@@ -17,7 +17,7 @@ So that examine all submitted rfps independent of providers
       And I am on the admin dashboard
     When I follow "Requests"
       Then I should see "Unwieldy"
-      And I should see "rfp.rfp_count_singular" translation
+      And I should see "1 request has been submitted"
 
   Scenario: Viewing an rfp
     Given a provider "Tim Stafford" with an RFP called "Unwieldy"
@@ -26,7 +26,7 @@ So that examine all submitted rfps independent of providers
       And I follow "Requests"
       And I follow "Unwieldy"
     Then I should see "Unwieldy"
-			And I should see "Tim Stafford"
+      And I should see "Tim Stafford"
 
   Scenario: Deleting an RFP
     Given a provider "Tim Stafford" with an RFP called "Unwieldy"
@@ -35,4 +35,4 @@ So that examine all submitted rfps independent of providers
       And I follow "Requests"
       And I follow "Unwieldy"
       And I press "Delete Request"
-    Then I should see "rfp.deleted_successfully" translation
+    Then I should see "Request deleted successfully"

@@ -8,9 +8,9 @@ Feature: Managing recommendations on an account
       And "Hotpocket" has a new recommendation from "George Tenet"
       And I am on the homepage
     When I log in as "paul@oi.net" with password "testtest"
-      And I follow "dashboard.all_recommendations" translation
+      And I follow "See All Endorsements"
     Then I should see "George Tenet"
-      And I should see "recommendation.states.new" translation
+      And I should see "new"
     When I follow "George Tenet"
-      And I press "recommendation.approve" translation
-    Then I should see "recommendation.saved_successfully" translation
+      And I press "Approve"
+    Then I should see "Recommendation saved successfully"

@@ -13,5 +13,5 @@ Feature: Adding arbitrary content to areas of already existant pages
       Given a page "Provider signup" with url "providers/new"
         And page "Provider signup" has content "Oh, I LOVE that"
       When I am on the homepage
-        And I follow "provider.signup" translation
+        And I follow "Create an account"
       Then I should see "Oh, I LOVE that"

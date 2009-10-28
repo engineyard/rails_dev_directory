@@ -8,14 +8,14 @@ Feature: Manage Portfolio Items
         And I log in as "Olenska@chicka.net" with password "testtest"
         And I follow "Company"
         And I follow "You can add one now"
-      Then I should see "portfolio_item.year_completed" translation
+      Then I should see "Year Completed"
 
   Scenario: Create a portfolio item
     Given a provider "Hashrocket" belonging to "Olenska@chicka.net"
     When I am on the homepage
       And I log in as "Olenska@chicka.net" with password "testtest"
-      And I follow "navigation.company" translation
-      And I follow "portfolio_item.manage" translation
+      And I follow "Company"
+      And I follow "Manage portfolio"
       And I follow "Add a new project to your portfolio"
       And I fill in "Name" with "CF Martin"
       And I fill in "portfolio_item_url" with "http://www.cfmartin.com"
@@ -30,8 +30,8 @@ Feature: Manage Portfolio Items
       And a portfolio item "Fire and Grace" belonging to the "Hashrocket" provider
     When I am on the homepage
       And I log in as "Olenska@chicka.net" with password "testtest"
-      And I follow "navigation.company" translation
-      And I follow "portfolio_item.manage" translation
+      And I follow "Company"
+      And I follow "Manage portfolio"
       And I follow "Fire and Grace"
       And I follow "Edit this portfolio project"
       And I fill in "Name" with "Tim Stafford"
@@ -48,8 +48,8 @@ Feature: Manage Portfolio Items
       And a portfolio item "Fire and Grace" belonging to the "Hashrocket" provider
     When I am on the homepage
       And I log in as "Olenska@chicka.net" with password "testtest"
-      And I follow "navigation.company" translation
-      And I follow "portfolio_item.manage" translation
+      And I follow "Company"
+      And I follow "Manage portfolio"
       And I follow "Fire and Grace"
       And I follow "Edit this portfolio project"
     When I press "Delete this portfolio project"
@@ -63,8 +63,8 @@ Feature: Manage Portfolio Items
       And a portfolio item "Sounds True" belonging to the "Hashrocket" provider
     When I am on the homepage
       And I log in as "Olenska@chicka.net" with password "testtest"
-      And I follow "navigation.company" translation
-      And I follow "portfolio_item.manage" translation
+      And I follow "Company"
+      And I follow "Manage portfolio"
       And I follow "Add a new project to your portfolio"
     Then I should see the translation for "portfolio_item.validations.too_many"
       And I should not see "Add a new portfolio item for Hashrocket"

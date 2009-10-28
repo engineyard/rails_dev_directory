@@ -19,13 +19,12 @@ Feature: Recommending a provider
       And "Hashrocket" has an approved recommendation "Super cool" "1.day.ago"
       And "Hashrocket" has a new recommendation "Nice work" "1.day.ago"
     When I am on the homepage
-      And I follow "home.find_a_provider" translation
-      And I press "provider.directory.find_providers" translation
+      And I follow "Find a Rails Developer"
+      And I press "Find a developer"
       And I follow "Hashrocket"
-    Then I should see "provider.more_endorsements" translation
-      And I should see "provider.endorse" translation
-    When I follow "provider.endorse" translation
-      Then I should see "provider.recommendation_headline" translation
+    Then I should see "Read all endorsements"
+    When I follow "Write an endorsement"
+      Then I should see "Satisfied customer? Endorse this developer"
     When I fill in "recommendation[name]" with "Brian Flanagan"
       And I select "2007" from "recommendation[year_hired]"
       And I fill in "recommendation[company]" with "Coral Made"
@@ -34,7 +33,7 @@ Feature: Recommending a provider
       And I fill in "recommendation[position]" with "Vice President of Human Resources"
       And I fill in "recommendation[endorsement]" with "80% perfect"
       And I press "recommendation_submit"
-    Then I should see "recommendation.thanks" translation
+    Then I should see "Thanks for submitting your endorsement."
       And I should not see "80% perfect"
       And I should not see "Nice work"
     When I follow "more-endorsements"
@@ -50,10 +49,10 @@ Feature: Recommending a provider
       And "Hashrocket" has an approved recommendation "Deadly" "2.days.ago"
       And "Hashrocket" has an approved recommendation "OK" "1.day.ago"
     When I am on the homepage
-      And I follow "home.find_a_provider" translation
-      And I press "provider.directory.find_providers" translation
+      And I follow "Find a Rails Developer"
+      And I press "Find a developer"
       And I follow "Hashrocket"
-    Then I should see "provider.more_endorsements" translation
+    Then I should see "Read all endorsements"
     When I follow "more-endorsements"
     Then I should not see "Nice work"
       And I should not see "Very good"
@@ -69,16 +68,16 @@ Feature: Recommending a provider
     When I log in as "paul@test.com" with password "testtest"
     Then I should see "Nick Riviera"
     When I follow "Nick Riviera"
-      And I press "recommendation.approve" translation
-    Then I should see "recommendation.saved_successfully" translation
+      And I press "Approve"
+    Then I should see "Recommendation saved successfully"
 
   Scenario: Viewing provider endorsements
     Given a provider "Hotpocket" belonging to "paul@test.com"
       And "Hotpocket" has an approved recommendation "Vaguely competent service." "3.days.ago"
       And "Hotpocket" has a rejected recommendation "Literally crap. Totally awful. Barely even Ruby." "2.days.ago"
       And I am on the homepage
-    When I follow "home.find_a_provider" translation
-      And I press "provider.directory.find_providers" translation
+    When I follow "Find a Rails Developer"
+      And I press "Find a developer"
       And I follow "Hotpocket"
     Then I should see "Vaguely competent service"
       And I should not see "Literally crap."

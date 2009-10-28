@@ -40,7 +40,7 @@ Factory.define :portfolio_item do |portfolio_item|
   portfolio_item.name "Tautologistics"
   portfolio_item.url "http://tautologistics.com/"
   portfolio_item.description "6 week project and not a single casualty. Except the one, obviously."
-  portfolio_item.year_completed "2004"
+  Year Completed "2004"
 
   portfolio_item.association :provider, :factory => :provider
 end

@@ -11,7 +11,7 @@ Feature: Reading an Request
     When I follow "New site for French Laundry"
       Then I should see "New site for French Laundry"
       And I should see "interesting project"
-    When I follow "navigation.rfps" translation
+    When I follow "Requests"
       Then I should see "New site for French Laundry"
     When I follow "New site for French Laundry"
       Then I should see "New site for French Laundry"

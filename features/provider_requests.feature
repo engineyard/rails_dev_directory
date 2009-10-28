@@ -9,7 +9,7 @@ So that I can monitor the performance of the system
     When I am on the admin dashboard
       And I follow "Developers"
       And I follow "Jinglicious"
-      And I follow "provider.rfps" translation
+      And I follow "See Requests"
     Then I should see "Nice work finger"	
     Then I should not see "Through the window of a train"
     When I follow "Nice work finger"
@@ -21,7 +21,7 @@ So that I can monitor the performance of the system
     When I am on the admin dashboard
       And I follow "Developers"
       And I follow "Willy Wallow"
-      And I follow "provider.rfps" translation
+      And I follow "See Requests"
       And I follow "Spamtastic"
       And I press "Delete Request"
-    Then I should see "rfp.deleted_successfully" translation
+    Then I should see "Request deleted successfully"

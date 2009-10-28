@@ -14,7 +14,7 @@ Feature: Admin dashboard
   Scenario: Change password
     Given a logged in admin user
     When I am on the admin dashboard
-      And I follow "admin.change_password" translation
+      And I follow "Change Password"
       And I fill in "user_password" with "kablamo"
       And I press "Save"
-    Then I should see "user.saved_successfully" translation
+    Then I should see "User saved successfully"

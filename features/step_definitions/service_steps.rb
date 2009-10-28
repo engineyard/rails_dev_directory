@@ -1,21 +1,21 @@
 Given /^primary services "([^\"]*)"$/ do |types|
   types = types.split(',')
   types.each do |type|
-    Service.create!(:name => type)
+    Service.make(:name => type)
   end
 end
 
 Given /^secondary services "([^\"]*)"$/ do |types|
   types = types.split(',')
   types.each do |type|
-    Service.create!(:name => type)
+    Service.make(:name => type)
   end
 end
 
 Given /^pre checked services "([^\"]*)"$/ do |types|
   types = types.split(',')
   types.each do |type|
-    Service.create!(:name => type, :checked => true)
+    Service.make(:name => type, :checked => true)
   end
 end
 
