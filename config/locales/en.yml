@@ -395,6 +395,7 @@ en:
     add_new: Add a new Service
     edit: Edit Service
     checked: Check by default
+    category: Category
     name: Name
     no_services: No services have been added yet
     service_type: Service type

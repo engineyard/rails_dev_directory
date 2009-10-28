@@ -21,3 +21,7 @@ end
 Service.blueprint do
   name
 end
+
+ServiceCategory.blueprint do
+  name
+end
