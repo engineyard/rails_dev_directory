@@ -37,7 +37,7 @@ class Provider < ActiveRecord::Base
   
   has_many :provided_services, :dependent => :destroy
   has_many :services, :through => :provided_services
-  
+
   belongs_to :user
   
   accepts_nested_attributes_for :users

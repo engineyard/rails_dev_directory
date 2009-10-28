@@ -10,12 +10,14 @@
   <table border="0">
     <tr>
       <th><%= t('service.name') %></th>
+      <th><%= t('service.category') %></th>
       <th><%= t('service.checked') %></th>
       <th>&nbsp;</th>
     </tr>
     <% @services.each do |service| %>
       <tr>
         <td><%= service.name %></td>
+        <td><%= service.category.name %></td>
         <td><%= service.checked? ? t('general.yes') : t('general.no') %></td>
         <td>
           <%= link_to t('general.edit'), edit_admin_service_path(service) %>

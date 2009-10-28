@@ -19,7 +19,7 @@ User.blueprint do
 end
 
 Service.blueprint do
-  service_category { ServiceCategory.make }
+  category { ServiceCategory.make }
   name
 end
 

@@ -53,15 +53,22 @@
     </dl>
   </div>
   <%- end -%>
-  
+
   <div class="block services">
     <h4><%= t('provider.services') %></h4>
     <%- if @provider.services.empty? -%>
       <%= t('provider.no_services') %>
     <%- else -%>
       <ul>
-        <%- @provider.services.each do |service| -%>
-          <li><%= service.name %></li>
+        <% ServiceCategory.all.each do |category| %>
+          <li>
+            <h5><%= category.name %></h5>
+            <ul>
+              <%- @provider.services.for_category(category).each do |service| -%>
+                <li><%= service.name %></li>
+              <%- end -%>
+            </ul>
+          </li>
         <%- end -%>
       </ul>
     <%- end -%>
