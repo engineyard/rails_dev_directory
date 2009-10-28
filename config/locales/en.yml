@@ -446,7 +446,8 @@ en:
     show_recommendation: Recommendation for {{company_name}}
     recommendations_for: Recommendations for {{company_name}}
 
-    endorsements_for: Endorsements for {{company}}
+    endorsements_for: "Endorsements for {{company}}"
+    company_endorsements: "{{company}} Endorsements"
     
     at: at
     hired: Hired
