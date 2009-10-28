@@ -1,3 +1,4 @@
+config/database.yml
 config/initializers/paperclip.rb
 log/*.log
 log/*.pid
