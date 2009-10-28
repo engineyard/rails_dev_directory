@@ -8,8 +8,8 @@ Feature: Provider directory
     Given an "active" provider "Trulio"
       And "Trulio" has a new recommendation from "George Tenet"
       And "Trulio" has a minimum budget of "15000"
-      And pre checked technology types "Ruby on Rails"
-      And primary technology types "AJAX, Visual design, UI"
+      And pre checked services "Ruby on Rails"
+      And primary services "AJAX, Visual design, UI"
       And "Trulio" provides "AJAX"
       And an "inactive" provider "Boolio"
     When I am on the homepage

@@ -41,8 +41,8 @@
   <fieldset>
     <h3><%= t('provider.services') %></h3>
   
-    <%- TechnologyType.ordered.each do |technology_type| -%>
-      <%= label_tag dom_id(technology_type), technology_type.name %><%= check_box_tag "provider[technology_type_ids][]", technology_type.id, @provider.technology_types.include?(technology_type), :id => dom_id(technology_type) %><br/>
+    <%- Service.ordered.each do |service| -%>
+      <%= label_tag dom_id(service), service.name %><%= check_box_tag "provider[service_ids][]", service.id, @provider.services.include?(service), :id => dom_id(service) %><br/>
     <%- end -%>
 
   </fieldset>

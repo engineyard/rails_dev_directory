@@ -28,8 +28,8 @@ So that I can can receive Rails project referrals
 
   Scenario: Signing up and sloppily missing the TOS
     Given I am on the homepage
-      And primary technology types "Ruby on Rails, AJAX"
-      And secondary technology types "Visual design, UI"
+      And primary services "Ruby on Rails, AJAX"
+      And secondary services "Visual design, UI"
     When I follow "provider.signup" translation
       And I fill in the provider sign up form for "Pivotpaul Labs"
       And I fill in the "provider[marketing_description]" with "Some things are too hot to touch."
