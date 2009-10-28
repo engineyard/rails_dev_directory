@@ -1,3 +1,5 @@
+<%- content_for :title do -%><%= t('recommendation.company_endorsements', :company => @provider.company_name) %> | <%- end -%>
+
 <h2><%= t('recommendation.endorsements_for', :company => @provider.company_name) %></h2>
 
 <%- if @recommendations.empty? -%>
