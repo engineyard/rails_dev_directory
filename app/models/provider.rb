@@ -35,7 +35,7 @@ class Provider < ActiveRecord::Base
   has_many :portfolio_items, :order => "year_completed desc"
   
   has_many :provided_services, :dependent => :destroy
-  has_many :technology_types, :through => :provided_services
+  has_many :services, :through => :provided_services
   
   belongs_to :user
   
@@ -46,7 +46,7 @@ class Provider < ActiveRecord::Base
   before_create :set_first_user_provider
   after_create :set_first_user_as_owner
   after_create :send_owner_welcome
-  after_create :set_default_technology_types
+  after_create :set_default_services
   
   named_scope :active, :conditions => {:aasm_state => 'active'}, :order => :company_name
   named_scope :inactive, :conditions => {:aasm_state => 'inactive'}, :order => :company_name
@@ -77,10 +77,10 @@ class Provider < ActiveRecord::Base
     joins = nil
     group = nil
 
-    if params[:technology_type_ids].not.blank? and params[:technology_type_ids].is_a?(Array)
+    if params[:service_ids].not.blank? and params[:service_ids].is_a?(Array)
       joins = :provided_services
-      conditions[0] << " and provided_services.technology_type_id IN (?)"
-      conditions << params[:technology_type_ids].collect { |t| t.to_i }
+      conditions[0] << " and provided_services.service_id IN (?)"
+      conditions << params[:service_ids].collect { |t| t.to_i }
       group = "provider_id"
     end
     
@@ -225,9 +225,9 @@ private
     user.email if user
   end
   
-  def set_default_technology_types
-    TechnologyType.checked.each do |technology_type|
-      technology_types << technology_type
+  def set_default_services
+    Service.checked.each do |service|
+      services << service
     end
   end
   

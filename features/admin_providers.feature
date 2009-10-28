@@ -16,8 +16,8 @@ So that I can edit database fields within the UI of the site
     
   Scenario: Editing a provider
     Given a provider "Pullover"
-      And primary technology types "Ruby on Rails, AJAX"
-      And secondary technology types "Visual design, UI"
+      And primary services "Ruby on Rails, AJAX"
+      And secondary services "Visual design, UI"
       And a user "paul" belonging to the "Pullover" provider
       And a logged in admin user
     When I am on the admin dashboard

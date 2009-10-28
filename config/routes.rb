@@ -44,7 +44,7 @@ ActionController::Routing::Routes.draw do |map|
   map.change_password '/admin/change_password', :controller => 'admin/users', :action => 'change_password'
   map.namespace :admin do |admin|
     admin.resource :dashboard, :controller => 'dashboard'
-    admin.resources :technology_types
+    admin.resources :services
     admin.resources :users, :member => [:take_control, :resend_welcome]
     admin.resources :portfolio_items
     admin.resources :rfps

@@ -4,7 +4,7 @@
  %>
 
 <%- content_for :title do -%><%= @provider.company_name %> <%= t('provider.developer_profile') %> | <%= t('provider.rails_developer_in') %> <%= [@provider.city, @provider.state_province].reject { |a| a.blank? or a == 'NA' }.join(', ') %> | <%- end %>
-<%- content_for :description do -%><meta name="description" content="<%= t('provider.developer_description', :name => @provider.company_name, :address => @provider.private_address.join(', '), :services_offered => (TechnologyType.checked + @provider.technology_types).collect{ |t| t.name }.join(', ')) %>"><%- end -%>
+<%- content_for :description do -%><meta name="description" content="<%= t('provider.developer_description', :name => @provider.company_name, :address => @provider.private_address.join(', '), :services_offered => (Service.checked + @provider.services).collect{ |t| t.name }.join(', ')) %>"><%- end -%>
 
 
 
@@ -48,12 +48,12 @@
   
   <div class="block services">
     <h4><%= t('provider.services') %></h4>
-    <%- if @provider.technology_types.empty? -%>
+    <%- if @provider.services.empty? -%>
       <%= t('provider.no_services') %>
     <%- else -%>
       <ul>
-        <%- @provider.technology_types.each do |technology_type| -%>
-          <li><%= technology_type.name %></li>
+        <%- @provider.services.each do |service| -%>
+          <li><%= service.name %></li>
         <%- end -%>
       </ul>
     <%- end -%>

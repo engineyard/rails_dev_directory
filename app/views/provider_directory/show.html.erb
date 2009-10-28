@@ -11,8 +11,8 @@
   <label><%= t('provider.directory.services') %></label>
   <ul>
     <li><%= image_tag '/images/icon-check.png', :class=>"check"%> <%= t('provider.directory.default_service') %></li>
-  <%- TechnologyType.ordered_not_checked.each do |technology_type| -%>
-    <li> <%= check_box_tag "technology_type_ids[]", technology_type.id, false, :id => dom_id(technology_type) %> <%= label_tag dom_id(technology_type), technology_type.name %></li>
+  <%- Service.ordered_not_checked.each do |service| -%>
+    <li> <%= check_box_tag "service_ids[]", service.id, false, :id => dom_id(service) %> <%= label_tag dom_id(service), service.name %></li>
   <%- end -%>
   </ul>
   

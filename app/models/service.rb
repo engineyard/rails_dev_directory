@@ -1,4 +1,4 @@
-class TechnologyType < ActiveRecord::Base
+class Service < ActiveRecord::Base
   acts_as_list
   
   named_scope :checked, :conditions => {:checked => true}, :order => "position asc"

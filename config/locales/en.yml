@@ -50,7 +50,7 @@ en:
     #admin
     general_admin: General
     system_admin: System
-    technology_types: Services
+    services: Services
 
   dashboard:
     dashboard_for: "{{company}} Admin"
@@ -391,12 +391,12 @@ en:
     
     delete_note: "It’s bad form to delete a valid request for a proposal without first responding and letting the project owner know that you’re not interested in, or unavaible to take on, the project. However, if you get a request that is clearly spam, or if you’ve already responded and want to clear the request from your view, you can delete the request:"
     
-  technology_type:
-    add_new: Add a new Technology type
-    edit: Edit Technology type
+  service:
+    add_new: Add a new Service
+    edit: Edit Service
     checked: Check by default
     name: Name
-    no_types: No types have been added yet
+    no_services: No services have been added yet
     service_type: Service type
     position: Position
   

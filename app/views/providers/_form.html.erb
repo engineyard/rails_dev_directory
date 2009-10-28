@@ -23,11 +23,11 @@
 
   <label><%= t('provider.services') %></label>
   <ul>
-    <%- TechnologyType.checked.each do |technology_type| -%>
-      <li><%= check_box_tag "dummy_tech_types[]", technology_type.id, true, :disabled => true, :id => dom_id(technology_type), :class=>'hidden' %> <%= image_tag '/images/icon-check.png', :class=>"check" %><%= label_tag dom_id(technology_type), technology_type.name %></li>
+    <%- Service.checked.each do |service| -%>
+      <li><%= check_box_tag "dummy_tech_types[]", service.id, true, :disabled => true, :id => dom_id(service), :class=>'hidden' %> <%= image_tag '/images/icon-check.png', :class=>"check" %><%= label_tag dom_id(service), service.name %></li>
     <%- end -%>
-    <%- TechnologyType.ordered_not_checked.each do |technology_type| -%>
-      <li><%= check_box_tag "provider[technology_type_ids][]", technology_type.id, @provider.technology_types.include?(technology_type), :id => dom_id(technology_type) %><%= label_tag dom_id(technology_type), technology_type.name %></li>
+    <%- Service.ordered_not_checked.each do |service| -%>
+      <li><%= check_box_tag "provider[service_ids][]", service.id, @provider.services.include?(service), :id => dom_id(service) %><%= label_tag dom_id(service), service.name %></li>
     <%- end -%>
   </ul>
   <br />
