@@ -4,7 +4,8 @@ class My::DashboardController < ApplicationController
     if logged_in?
       @provider = current_user.provider if logged_in?
     else
-      @page = Page.find_by_url('home')
+      @page_url = 'home'
+      @page = Page.find_by_url(@page_url)
       render 'home/show'
     end
   end
