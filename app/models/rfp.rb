@@ -47,7 +47,7 @@ class Rfp < ActiveRecord::Base
 
 private
   def add_checked_requested_services
-    TechnologyType.checked.each do |tech_type|
+    Service.checked.each do |tech_type|
       requested_services << RequestedService.create!(:name => tech_type.name)
     end
   end

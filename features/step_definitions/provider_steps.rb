@@ -2,8 +2,8 @@ Given /^a provider "([^\"]*)"$/ do |provider_name|
   Factory.create(:provider,:company_name => provider_name, :city => "Dublin")
 end
 
-Given /^"([^\"]*)" provides "([^\"]*)"$/ do |provider_name, technology_name|
-  Provider.find_by_company_name(provider_name).technology_types << TechnologyType.find_by_name(technology_name)
+Given /^"([^\"]*)" provides "([^\"]*)"$/ do |provider_name, service_name|
+  Provider.find_by_company_name(provider_name).services << Service.find_by_name(service_name)
 end
 
 Given /^"([^\"]*)" has a minimum budget of "([^\"]*)"$/ do |provider_name, budget|

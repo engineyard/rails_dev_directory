@@ -1,6 +1,7 @@
 require 'factory_girl'
 require 'highline/import'
 require 'spec/factories'
+require 'spec/blueprints'
 class Bootstrapper
   class << self
     def bootstrap!
@@ -22,8 +23,11 @@ class Bootstrapper
         <li class="step3">Get 3 endorsements</li>
       </ol>])
       
-      Factory.create(:technology_type)
-      Factory.create(:technology_type, :name => "Visual Design", :checked => false)
+      
+      category = ServiceCategory.make(:name => "Programming")
+      
+      Service.make(:name => "Ruby on Rails", :checked => true, :service_category => category)
+      Service.make(:name => "PHP", :checked => false, :service_category => category)
       
     end
     

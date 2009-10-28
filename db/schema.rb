@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20091006142645) do
+ActiveRecord::Schema.define(:version => 20091028115010) do
 
   create_table "audits", :force => true do |t|
     t.string   "auditable_type"
@@ -60,7 +60,7 @@ ActiveRecord::Schema.define(:version => 20091006142645) do
   end
 
   create_table "provided_services", :force => true do |t|
-    t.integer  "technology_type_id"
+    t.integer  "service_id"
     t.integer  "provider_id"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -152,13 +152,22 @@ ActiveRecord::Schema.define(:version => 20091006142645) do
     t.string   "duration"
   end
 
-  create_table "technology_types", :force => true do |t|
+  create_table "service_categories", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "services", :force => true do |t|
     t.string   "name"
     t.integer  "position"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "checked",    :default => false, :null => false
+    t.boolean  "checked",             :default => false, :null => false
+    t.integer  "service_category_id"
   end
+
+  add_index "services", ["service_category_id"], :name => "index_services_on_service_category_id"
 
   create_table "users", :force => true do |t|
     t.string   "email",             :limit => 100

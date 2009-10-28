@@ -1,2 +1,0 @@
-module Admin::TechnologyTypesHelper
-end
