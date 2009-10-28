@@ -23,8 +23,11 @@ class Bootstrapper
         <li class="step3">Get 3 endorsements</li>
       </ol>])
       
-      Service.make
-      Service.make(:name => "Visual Design", :checked => false)
+      
+      category = ServiceCategory.make(:name => "Programming")
+      
+      Service.make(:name => "Ruby on Rails", :checked => true, :service_category => category)
+      Service.make(:name => "PHP", :checked => false, :service_category => category)
       
     end
     
