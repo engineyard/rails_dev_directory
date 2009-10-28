@@ -9,7 +9,6 @@ class Provider < ActiveRecord::Base
   validates_length_of :marketing_description, :maximum => 300, :allow_nil => true
   validate :name_is_not_a_reserved_country_name
   
-  
   audit
   has_attached_file :logo, :styles => { :medium => "300x300>", :thumb => "64x64>" }
   xss_terminate :sanitize => [:marketing_description]
