@@ -7,5 +7,7 @@ smtp_port: '25'
 smtp_user_name: "example@example.com"
 smtp_password: "example"
 
+shooter_api_key: "shooterapi.com api key"
+
 tracking_code: |
   <!-- Sample Tracking Code -->

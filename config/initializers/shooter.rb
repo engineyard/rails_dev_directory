@@ -1,0 +1,1 @@
+ExceptionNotifier.api_key = site_config[:shooter_api_key]
