@@ -196,6 +196,8 @@ en:
     logo: Company Logo
     hourly_rate: Hourly Rate
     min_budget: Minimum Budget
+    min_hours: Minimum Hours
+    max_hours: Maximum Hours
     endorsements: Endorsements
     status: Status
     recommendations_count: Recommendations<br/><em>In case this goes out of sync</em>
@@ -212,6 +214,8 @@ en:
     administrator_password_description: "The administrator can edit company details and add additional users to the account."
     company_details_headline: Please enter some details about your company
     company_details_description: "The more information that you provide about your company, the easier it will be for other businesses looking for your services to find you."
+
+    accepted_projects: Accepts projects
 
   user:
     add_new: Add a new user

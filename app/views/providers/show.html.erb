@@ -32,19 +32,27 @@
   <% end %>
   
   <div class="block companyInfo">
-    <div class="column">
-      <h4><%= t('provider.location') %></h4>
-      <address>
-        <%= @provider.private_address.join(", ") %>
-      </address>
-
-    </div>
-    <div class="column">    
-      <h4><%= t('provider.company_size') %></h4>
-      <%= company_size(@provider) %>
-    </div>
-    <div class="clear"></div>
+    <h4><%= t('provider.location') %></h4>
+    <address>
+      <%= @provider.private_address.join(", ") %>
+    </address>
   </div>
+  
+  <%- if @provider.min_hours or @provider.max_hours -%>
+  <div class="block">
+    <h4><%= t('provider.accepted_projects') %></h4>
+    <dl>
+      <%- if @provider.min_hours -%>
+      <dt><%= t('provider.min_hours') %></dt>
+      <dd><%= @provider.min_hours %></dd>
+      <%- end -%>
+      <%- if @provider.max_hours -%>
+      <dt><%= t('provider.max_hours') %></dt>
+      <dd><%= @provider.max_hours %></dd>
+      <%- end -%>
+    </dl>
+  </div>
+  <%- end -%>
   
   <div class="block services">
     <h4><%= t('provider.services') %></h4>

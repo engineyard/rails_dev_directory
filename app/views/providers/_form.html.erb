@@ -1,6 +1,6 @@
 <fieldset>
   <%= f.label :company_name, t("provider.company_name") %> <%= f.text_field :company_name %> <br />
-	<%= f.label :marketing_description, "#{t("provider.marketing_description")}<br/><em>#{t("provider.marketing_description_limit")}</em><br/><span class='charCount'><em class=\"number\">#{300 - (@provider.marketing_description ? @provider.marketing_description.size : 0)}</em> #{t('provider.remaining')}</span>" %> <%= f.text_area :marketing_description, :'data-count' => 300  %> <br />
+  <%= f.label :marketing_description, "#{t("provider.marketing_description")}<br/><em>#{t("provider.marketing_description_limit")}</em><br/><span class='charCount'><em class=\"number\">#{300 - (@provider.marketing_description ? @provider.marketing_description.size : 0)}</em> #{t('provider.remaining')}</span>" %> <%= f.text_area :marketing_description, :'data-count' => 300  %> <br />
   <%= f.label :street_address, t("provider.street_address") %> <%= f.text_field :street_address %> <br />
   <label></label><%= f.text_field :further_street_address %> <br />
   <%= f.label :city, t("provider.city") %> <%= f.text_field :city %> <br />
@@ -17,8 +17,15 @@
 </fieldset>
 
 <fieldset>
-  <%= f.label :hourly_rate, t("provider.hourly_rate") %> &#36;<%= f.text_field :hourly_rate, :class => 'number' %> <br />
-  <%= f.label :min_budget, t("provider.min_budget") %> &#36;<%= f.text_field :min_budget, :class => 'number' %><br />
+  <label><%= t('provider.accepted_projects') %></label>
+  <%= f.label :hourly_rate, t("provider.hourly_rate") %>
+  &#36;<%= f.text_field :hourly_rate, :class => 'number' %> <br />
+  <%= f.label :min_budget, t("provider.min_budget") %>
+  &#36;<%= f.text_field :min_budget, :class => 'number' %><br />
+  <%= f.label :min_hours, t("provider.min_hours") %>
+  <%= f.text_field :min_hours, :class => 'number' %><br />
+  <%= f.label :max_hours, t("provider.max_hours") %>
+  <%= f.text_field :max_hours, :class => 'number' %><br />
 
   <label><%= t('provider.services') %></label>
   <ul>

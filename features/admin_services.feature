@@ -11,7 +11,7 @@ Feature: Managing services
       And there are no services
     When I follow "Services"
     Then I should see "No services have been added yet"
-
+    
     When I follow "Add a New Service"
       And I fill in "Name" with "Java"
       And I check "service[checked]"
@@ -20,7 +20,6 @@ Feature: Managing services
     When I select "Programming Languages" from "Category"
       And I press "Save"
     Then I should see "Java"
-    
     
     When I follow "Edit"
       And I fill in "Name" with "Ruby on Rails"

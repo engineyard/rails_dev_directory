@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20091028115010) do
+ActiveRecord::Schema.define(:version => 20091028143542) do
 
   create_table "audits", :force => true do |t|
     t.string   "auditable_type"
@@ -88,6 +88,8 @@ ActiveRecord::Schema.define(:version => 20091028115010) do
     t.string   "company_url"
     t.text     "marketing_description"
     t.integer  "recommendations_count",                                 :default => 0
+    t.integer  "min_hours"
+    t.integer  "max_hours"
   end
 
   add_index "providers", ["slug"], :name => "index_providers_on_slug"

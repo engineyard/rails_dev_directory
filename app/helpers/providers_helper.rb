@@ -5,14 +5,6 @@ module ProvidersHelper
     end
   end
   
-  def company_size(provider)
-    mapping = {}
-    Provider.options_for_company_size.each do |item|
-      mapping[item.second] = item.first
-    end
-    return mapping[provider.company_size]
-  end
-  
   def price(number)
     return '-' if number.blank? or number == 0
     precision = number.to_i == number ? 0 : 2

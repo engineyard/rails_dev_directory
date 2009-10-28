@@ -8,6 +8,7 @@ class Provider < ActiveRecord::Base
   validates_acceptance_of :terms_of_service
   validates_length_of :marketing_description, :maximum => 300, :allow_nil => true
   validate :name_is_not_a_reserved_country_name
+  validates_numericality_of :min_budget, :min_hours, :max_hours, :allow_nil => true
   
   audit
   has_attached_file :logo, :styles => { :medium => "300x300>", :thumb => "64x64>" }
@@ -123,10 +124,6 @@ class Provider < ActiveRecord::Base
 
   def to_param
     slug
-  end
-  
-  def self.options_for_company_size
-    [["2-10", 2], ["11-30", 11], ["31-100", 31], ["100+", 100]]
   end
   
   def self.states
