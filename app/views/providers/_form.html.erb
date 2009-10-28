@@ -17,7 +17,6 @@
 </fieldset>
 
 <fieldset>
-  <%= f.label :company_size, t('provider.company_size') %> <%= f.select :company_size, Provider.options_for_company_size %><br/>
   <%= f.label :hourly_rate, t("provider.hourly_rate") %> &#36;<%= f.text_field :hourly_rate, :class => 'number' %> <br />
   <%= f.label :min_budget, t("provider.min_budget") %> &#36;<%= f.text_field :min_budget, :class => 'number' %><br />
 
