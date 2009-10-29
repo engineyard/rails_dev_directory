@@ -4,7 +4,7 @@ Feature: Provider directory
   I want to be able to request an RFP from a provider
   So that I can find the providers that I like
   
-  Scenario: Provider index and requesting an RFP
+  Background:
     Given an "active" provider "Trulio"
       And "Trulio" has a new recommendation from "George Tenet"
       And "Trulio" has a minimum budget of "15000"
@@ -12,23 +12,30 @@ Feature: Provider directory
       And primary services "AJAX, Visual design, UI"
       And "Trulio" provides "AJAX"
       And an "inactive" provider "Boolio"
+  
+  Scenario: Finding a developer by budget
     When I am on the homepage
       And I follow "Find a Rails developer"
       And I fill in "budget" with "10000"
       And I press "Find a developer"
     Then I should not see "Trulio"
-
-
     When I follow "Find a Rails developer"
-      And I check "AJAX"
+      And I fill in "budget" with "15000"
       And I press "Find a developer"
     Then I should see "Trulio"
 
+  Scenario: Finding a developer by skill set
+    When I am on the homepage
+      And I follow "Find a Rails developer"
+      And I check "AJAX"
+      And I press "Find a developer"
+    Then I should see "Trulio"
     When I follow "Find a Rails developer"
       And I check "Visual design"
       And I press "Find a developer"
     Then I should not see "Trulio"
 
+  Scenario:
     When I am on the homepage
       And I follow "Find a Rails developer"
       And I fill in "budget" with "20000"
