@@ -719,3 +719,5 @@ hr {
 /* Sorting Endorsements */
 div#sorting-endorsements { /*display:none;*/ }
 div#sorting-endorsements ul li strong { cursor: move; }
+
+div.service_category { padding-top: 2px; text-align:right; width: 16em;}

@@ -28,12 +28,10 @@
   <h3><%= t('provider.services') %></h3>
 
   <%- ServiceCategory.all.each do |category| -%>
-    <h4><%= category.name %></h4>
-    <ul>
-      <%- category.services.each do |service| -%>
-        <li><%= check_box_tag "provider[service_ids][]", service.id, @provider.services.include?(service), :id => dom_id(service) %><%= label_tag dom_id(service), service.name %></li>
-      <%- end -%>
-    </ul>
+    <div class="service_category"><%= category.name %></div>
+    <%- category.services.each do |service| -%>
+      <%= check_box_tag "provider[service_ids][]", service.id, @provider.services.include?(service), :id => dom_id(service) %><%= label_tag dom_id(service), service.name %><br />
+    <%- end -%>
   <%- end -%>
   <br />
 </fieldset>
