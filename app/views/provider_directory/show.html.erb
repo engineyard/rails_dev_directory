@@ -10,10 +10,23 @@
   <%= label_tag 'location', t('provider.directory.location') %> <%= location_select %><br/>
   <label><%= t('provider.directory.services') %></label>
   <ul>
-    <li><%= image_tag '/images/icon-check.png', :class=>"check"%> <%= t('provider.directory.default_service') %></li>
-  <%- Service.ordered_not_checked.each do |service| -%>
-    <li> <%= check_box_tag "service_ids[]", service.id, false, :id => dom_id(service) %> <%= label_tag dom_id(service), service.name %></li>
-  <%- end -%>
+    <li>
+      <%= image_tag '/images/icon-check.png', :class=>"check"%>
+      <%= t('provider.directory.default_service') %>
+    </li>
+    <%- @services.group_by(&:category).each do |category, services| -%>
+      <li>
+        <label><%= category.name %></label>
+        <ul>
+          <%- services.each do |service| -%>
+            <li>
+              <%= check_box_tag "service_ids[]", service.id, false, :id => dom_id(service) %>
+              <%= label_tag dom_id(service), service.name %>
+            </li>
+          <%- end -%>
+        </ul>
+      </li>
+    <%- end -%>
   </ul>
   
   <%= submit_tag t('provider.directory.find_providers') %>
