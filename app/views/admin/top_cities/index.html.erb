@@ -1,0 +1,11 @@
+<h2><%= t('navigation.top_cities') %></h2>
+
+<ul>
+  <li><%= link_to t('top_city.add_new'), new_admin_top_city_path %></li>
+</ul>
+
+<%- if @top_cities.empty? -%>
+  
+<%- else -%>
+  
+<%- end -%>

@@ -48,6 +48,7 @@ en:
     csvs: CSV exports
     
     #admin
+    top_cities: Top Cities
     general_admin: General
     system_admin: System
     services: Services
@@ -212,7 +213,7 @@ en:
     administrator_password_description: "The administrator can edit company details and add additional users to the account."
     company_details_headline: Please enter some details about your company
     company_details_description: "The more information that you provide about your company, the easier it will be for other businesses looking for your services to find you."
-
+  
   user:
     add_new: Add a new user
     add_new_to: Add a new user to {{provider}}
@@ -304,6 +305,9 @@ en:
     
     submission:
       thanks_for_requesting: "Your request has been sent to the following recipients: "
+    
+  top_city:
+    add_new: Add Top City
 
   rfp:
     validations:
