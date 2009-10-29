@@ -3,7 +3,11 @@
   <%= f.error_messages %>
 
   <fieldset>
-    <%= f.label :name, t("service_category.name") %> <%= f.text_field :name %> <br />
+    <%= f.label :name, t("service_category.name") %>
+    <%= f.text_field :name %> <br />
+    <%= f.label :proficiency, t("service_category.proficiency") %>
+    <%= f.text_field :proficiency %><br />
   </fieldset>
+
   <%= f.submit t('forms.save') %>
 <% end -%>

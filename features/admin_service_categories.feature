@@ -16,6 +16,7 @@ Feature: Managing service categories
       And I press "Save"
     Then I should see "Name can't be blank"
     When I fill in "Name" with "Programming"
+      And I check "Proficiency"
       And I press "Save"
     Then I should see "Programming"
     

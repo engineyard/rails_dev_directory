@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20091029120013) do
+ActiveRecord::Schema.define(:version => 20091029172840) do
 
   create_table "audits", :force => true do |t|
     t.string   "auditable_type"
@@ -159,6 +159,7 @@ ActiveRecord::Schema.define(:version => 20091029120013) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "position"
+    t.boolean  "proficiency"
   end
 
   create_table "services", :force => true do |t|
@@ -171,6 +172,12 @@ ActiveRecord::Schema.define(:version => 20091029120013) do
   end
 
   add_index "services", ["service_category_id"], :name => "index_services_on_service_category_id"
+
+  create_table "time_blocks", :force => true do |t|
+    t.integer "provider_id"
+    t.date    "start"
+    t.date    "end"
+  end
 
   create_table "users", :force => true do |t|
     t.string   "email",             :limit => 100
