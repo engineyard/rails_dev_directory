@@ -30,9 +30,9 @@
     </table>
     
     <%= hidden_field_tag 'budget', params[:budget] %>
-    <% if params[:technology_type_ids] and params[:technology_type_ids].not.empty? %>
-      <% params[:technology_type_ids].each do |technology_type_id| %>
-        <%= hidden_field_tag 'technology_type_ids[]', technology_type_id %>
+    <%- if params[:service_ids] -%>
+      <%- params[:service_ids].each do |service_id| -%>
+        <%= hidden_field_tag 'service_ids[]', service_id %>
       <%- end -%>
     <%- end -%>
 
