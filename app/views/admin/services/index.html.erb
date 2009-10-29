@@ -12,6 +12,7 @@
     <h3><%= category.name %></h3>
     <%= link_to t('.sort_list'), sort_admin_services_path, :class => 'toggle-sort' %>
     <div class="sort-list">
+      <br />
       <div class="sortable">
         <%- services.each do |service| -%>
           <div class="service" id="<%= dom_id(service) %>"><%= service.name %></div>

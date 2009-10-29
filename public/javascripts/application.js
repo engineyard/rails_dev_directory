@@ -111,15 +111,13 @@ $(document).ready(function(){
   }})
   
   $('a.toggle-sort').click(function(){
-    $(".sort-list:first").toggle()
-    $(".sortable-collection:first").toggle()
+    $(this)
+      .next('.sort-list').toggle()
+      .next('.sortable-collection').toggle()
 
-    if($(this).html() == I18n.t('general.done_sorting'))
-    {
+    if($(this).html() == I18n.t('general.done_sorting')) {
       $(this).html($(this).data('sort'))
-    }
-    else
-    {
+    } else {
       $(this).data('sort', $(this).html())
       $(this).html(I18n.t('general.done_sorting'))
     }
