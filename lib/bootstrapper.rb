@@ -26,9 +26,10 @@ class Bootstrapper
       
       category = ServiceCategory.make(:name => "Programming")
       
-      Service.make(:name => "Ruby on Rails", :checked => true, :service_category => category)
-      Service.make(:name => "PHP", :checked => false, :service_category => category)
+      Service.make(:name => "Ruby on Rails", :checked => true, :category => category)
+      Service.make(:name => "PHP", :checked => false, :category => category)
       
+      Recommendation.make(:provider => provider, :aasm_state => 'approved')
     end
     
     def provider
@@ -41,8 +42,12 @@ class Bootstrapper
     
     def user
       return @user if @user
-      email = ask("Enter your email:  ") { |q| q.echo = true }
-      password = ask("Enter your password:  ") { |q| q.echo = "*" }
+      default_email = 'test@example.com'
+      default_password = 'test'
+      email = ask("Enter your email[#{default_email}]: ") { |q| q.echo = true }
+      email = default_email if email.blank?
+      password = ask("Enter your password[#{default_password}]: ") { |q| q.echo = "*" }
+      password = default_password if password.blank?
       user = User.new(:email => email)
       user.password = password
       user.password_confirmation = password
