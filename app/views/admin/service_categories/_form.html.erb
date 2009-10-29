@@ -1,0 +1,9 @@
+<% form_for [:admin, @service_category] do |f| -%>
+  
+  <%= f.error_messages %>
+
+  <fieldset>
+    <%= f.label :name, t("service_category.name") %> <%= f.text_field :name %> <br />
+  </fieldset>
+  <%= f.submit t('forms.save') %>
+<% end -%>

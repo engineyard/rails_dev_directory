@@ -11,4 +11,11 @@ class Service < ActiveRecord::Base
   named_scope :for_category, lambda { |category|
     { :conditions => { :service_category_id => category.id } }
   }
+  
+  def self.order(ids)
+    update_all(
+      ['position = FIND_IN_SET(id, ?)', ids.join(',')],
+      { :id => ids }
+    )
+  end
 end

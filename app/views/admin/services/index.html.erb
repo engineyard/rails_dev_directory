@@ -1,29 +1,36 @@
 <h2><%= t('navigation.services') %></h2>
 
 <ul>
+  <li><%= link_to t('service_category.manage'), admin_service_categories_path %><li>
   <li><%= link_to t('service.add_new'), new_admin_service_path %></li>
 </ul>
 
 <% if @services.empty? %>
   <p><%= t('service.no_services')%></p>
 <%- else -%>
-  <table border="0">
-    <tr>
-      <th><%= t('service.name') %></th>
-      <th><%= t('service.category') %></th>
-      <th><%= t('service.checked') %></th>
-      <th>&nbsp;</th>
-    </tr>
-    <% @services.each do |service| %>
-      <tr>
-        <td><%= service.name %></td>
-        <td><%= service.category.name %></td>
-        <td><%= service.checked? ? t('general.yes') : t('general.no') %></td>
-        <td>
-          <%= link_to t('general.edit'), edit_admin_service_path(service) %>
-          <%= link_to t('general.delete'), [:admin, service], :method => :delete, :confirm => "Are you sure?" %>
-        </td>
-      </tr>
-    <%- end -%>
-  </table>
+  <%- @services.group_by(&:category).each do |category, services| %>
+    <h3><%= category.name %></h3>
+    <%= link_to t('.sort_list'), sort_admin_services_path, :class => 'toggle-sort' %>
+    <div class="sort-list">
+      <div class="sortable">
+        <%- services.each do |service| -%>
+          <div class="service" id="<%= dom_id(service) %>"><%= service.name %></div>
+        <%- end -%>
+      </div>
+    </div>
+    <div class="sortable-collection">
+      <table border="0">
+        <thead>
+          <tr>
+            <th><%= t('service.name') %></th>
+            <th><%= t('service.checked') %></th>
+            <th>&nbsp;</th>
+          </tr>
+        </thead>
+        <tbody>
+          <%= render :partial => 'service', :collection => services %>
+        </tbody>
+      </table>
+    </div>
+  <%- end -%>
 <%- end -%>

@@ -1,0 +1,8 @@
+<tr>
+  <td><%= service.name %></td>
+  <td><%= service.checked? ? t('general.yes') : t('general.no') %></td>
+  <td>
+    <%= link_to t('general.edit'), edit_admin_service_path(service) %>
+    <%= link_to t('general.delete'), [:admin, service], :method => :delete, :confirm => "Are you sure?" %>
+  </td>
+</tr>

@@ -8,7 +8,7 @@ class Admin::ServicesController < ApplicationController
   end
   
   def new
-    @service = Service.new(:position => Service.maximum(:position))
+    @service = Service.new
   end
   
   def create
@@ -37,5 +37,13 @@ class Admin::ServicesController < ApplicationController
     @service = Service.find(params[:id])
     @service.destroy
     redirect_to admin_services_url
+  end
+  
+  def sort
+    Service.order(params[:service])
+    index
+    respond_to do |wants|
+      wants.js { render :partial => 'service', :collection => @services }
+    end
   end
 end

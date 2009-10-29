@@ -36,7 +36,7 @@ class Provider < ActiveRecord::Base
   has_many :portfolio_items, :order => "year_completed desc"
   
   has_many :provided_services, :dependent => :destroy
-  has_many :services, :through => :provided_services
+  has_many :services, :through => :provided_services, :order => 'position asc'
 
   belongs_to :user
   

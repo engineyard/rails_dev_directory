@@ -104,7 +104,28 @@ $(document).ready(function(){
     }
   })
   
-  $("div#sorting-endorsements").hide()
+  $('.sortable').sortable({axis:'y', forcePlaceHolderSize: true, update:function(event, ui){
+    $.post(ui.item.parents('.sort-list').prev('a.toggle-sort').attr('href'), '_method=put&authenticity_token='+AUTH_TOKEN+'&'+$(this).sortable('serialize'), function(data){
+      ui.item.parents('.sort-list').next('.sortable-collection').find('tbody').html(data)
+    })
+  }})
+  
+  $('a.toggle-sort').click(function(){
+    $(".sort-list:first").toggle()
+    $(".sortable-collection:first").toggle()
+
+    if($(this).html() == I18n.t('general.done_sorting'))
+    {
+      $(this).html($(this).data('sort'))
+    }
+    else
+    {
+      $(this).data('sort', $(this).html())
+      $(this).html(I18n.t('general.done_sorting'))
+    }
+    
+    return false
+  })
 })
 
 var RecaptchaOptions = {

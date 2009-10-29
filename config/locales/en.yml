@@ -21,6 +21,7 @@ en:
     confirm: Are you sure?
     next: Fill out request
     sign_out: Sign out
+    done_sorting: Done Sorting
     
   signin:
     failed: "Couldn't log you in as '{{user}}'"
@@ -51,6 +52,7 @@ en:
     general_admin: General
     system_admin: System
     services: Services
+    service_categories: Service Categories
 
   dashboard:
     dashboard_for: "{{company}} Admin"
@@ -78,6 +80,12 @@ en:
       
       rfps_submitted: "Total number of requests submitted: {{rfps_size}}"
       recommendations_submitted: "Total number of recommendations submitted: {{recommendations_size}}"
+    services:
+      index:
+        sort_list: Sort Services
+    service_categories:
+      index:
+        sort_list: Sort Categories
       
   home:
     logo: /images/logo-rails.jpg
@@ -404,6 +412,14 @@ en:
     no_services: No services have been added yet
     service_type: Service type
     position: Position
+    manage: Manage Services
+  
+  service_category:
+    name: Name
+    edit: Edit Category
+    add_new: Add a new Category
+    manage: Manage Categories
+    no_categories: No categories have been added yet
   
   recommendation:
     name: Your name

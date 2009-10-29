@@ -3,6 +3,7 @@ require 'faker'
 require 'sham'
 
 Sham.name  { Faker::Name.name }
+Sham.url   { "http://#{Faker::Internet.domain_name}/" }
 Sham.email { Faker::Internet.email }
 Sham.title { Faker::Lorem.sentence }
 Sham.body  { Faker::Lorem.paragraph }
@@ -25,4 +26,14 @@ end
 
 ServiceCategory.blueprint do
   name
+end
+
+Recommendation.blueprint do
+  name
+  year_hired { Time.now.strftime('%Y') }
+  position { Sham.title }
+  company { Sham.name }
+  email
+  url
+  endorsement { Sham.body }
 end

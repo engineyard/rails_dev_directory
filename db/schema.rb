@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20091028143542) do
+ActiveRecord::Schema.define(:version => 20091029120013) do
 
   create_table "audits", :force => true do |t|
     t.string   "auditable_type"
@@ -158,6 +158,7 @@ ActiveRecord::Schema.define(:version => 20091028143542) do
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "position"
   end
 
   create_table "services", :force => true do |t|
