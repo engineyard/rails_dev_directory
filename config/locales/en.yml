@@ -475,7 +475,15 @@ en:
     title: Title
     url: URL
     maps_to: Maps to /pages/example
+    global_keywords: Use Global
+    custom_keywords: Use Custom
     keywords: Keywords
+    
+    robots: Robots
+    noindex: No-index
+    nofollow: No-follow
+    canonical: Canonical
+    
     description: Description
     content: Content
     accepts_textile: Accepts <a href="http://www.textism.com/tools/textile/">Textile</a>

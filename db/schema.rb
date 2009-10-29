@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20091028112016) do
+ActiveRecord::Schema.define(:version => 20091029102701) do
 
   create_table "audits", :force => true do |t|
     t.string   "auditable_type"
@@ -47,6 +47,11 @@ ActiveRecord::Schema.define(:version => 20091028112016) do
     t.text     "content"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "noindex"
+    t.boolean  "nofollow"
+    t.string   "canonical"
+    t.boolean  "enable_canonical"
+    t.boolean  "enable_keywords"
   end
 
   create_table "portfolio_items", :force => true do |t|
@@ -152,13 +157,22 @@ ActiveRecord::Schema.define(:version => 20091028112016) do
     t.string   "duration"
   end
 
+  create_table "service_categories", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "services", :force => true do |t|
     t.string   "name"
     t.integer  "position"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "checked",    :default => false, :null => false
+    t.boolean  "checked",             :default => false, :null => false
+    t.integer  "service_category_id"
   end
+
+  add_index "services", ["service_category_id"], :name => "index_services_on_service_category_id"
 
   create_table "users", :force => true do |t|
     t.string   "email",             :limit => 100

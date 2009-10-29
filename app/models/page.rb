@@ -29,6 +29,13 @@ class Page < ActiveRecord::Base
     end
   end
   
+  def robots
+    out = []
+    out << 'noindex' if noindex?
+    out << 'nofollow' if nofollow?
+    out.join(', ')
+  end
+  
   def to_param
     url
   end

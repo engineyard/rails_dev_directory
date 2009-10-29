@@ -3,12 +3,42 @@
   <%= f.error_messages %>
 
   <fieldset>
-    <%= f.label :title, t("page.title") %> <%= f.text_field :title %> <br />
     <%= f.label :url, t("page.url") %> <%= f.text_field :url %> <em><%= t('page.maps_to') %></em> <br />
-    <%= f.label :keywords, t("page.keywords") %> <%= f.text_area :keywords, :class => "small-text" %> <br />
-    <%= f.label :description, t("page.description") %> <%= f.text_area :description, :class => "small-text" %> <br />
-    <%= f.label :content, "#{t("page.content")}<br/> <em>#{t('page.accepts_textile')}</em>" %> <%= f.text_area :content %> <br />
   </fieldset>
+
+  <fieldset>
+    <%= f.label :title, t("page.title") %> <%= f.text_field :title %> <br />
+    <%= f.label :keywords, t("page.keywords") %>
+    
+    <%= f.radio_button :enable_keywords, false, :id => 'global-keywords' %>
+    <%= label_tag 'global-keywords', t('page.global_keywords'), :class => 'inline' %>
+    
+    <%= f.radio_button :enable_keywords, true, :id => 'custom-keywords' %>
+    <%= label_tag 'custom-keywords', t('page.custom_keywords'), :class => 'inline' %>
+
+    <%= f.text_field :keywords %> <br />
+    
+    <%= f.label :canonical, t('page.robots') %>
+    
+    <%= f.check_box :noindex %>
+    <%= f.label :noindex, t('page.noindex'), :class => 'inline' %>
+    
+    <%= f.check_box :nofollow %>
+    <%= f.label :nofollow, t('page.nofollow'), :class => 'inline' %>
+    
+    <%= f.check_box :enable_canonical %>
+    <%= f.label :enable_canonical, t('page.canonical'), :class => 'inline' %>
+    
+    <%= f.text_field :canonical %> <br />
+
+
+    <%= f.label :description, t("page.description") %> <%= f.text_area :description, :class => "small-text" %> <br />
+    </fieldset>
+    
+    <fieldset>
+      <%= f.label :content, "#{t("page.content")}<br/> <em>#{t('page.accepts_textile')}</em>" %> <%= f.text_area :content %> <br />
+    </fieldset>
+  
   
   <%= f.submit t('forms.save') %>
 <% end -%>

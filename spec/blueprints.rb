@@ -21,3 +21,7 @@ end
 Service.blueprint do
   name
 end
+
+Page.blueprint do
+  title Sham.name
+end

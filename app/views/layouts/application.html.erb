@@ -13,7 +13,7 @@
       <%= t('general.site_title') %>
     </title>
     <meta name="page" content="<%= @page_url || "#{controller.controller_name}/#{controller.action_name}" %>"/>
-    <%- if @page_content and @page_content.keywords.to_s.not.empty? -%>
+    <%- if @page_content and @page_content.enable_keywords? -%>
       <meta name="keywords" content="<%= @page_content.keywords %>">
     <%- else -%>
       <%= yield :keywords %>
@@ -23,8 +23,13 @@
     <%- else -%>
       <%= yield :description %>
     <%- end -%>
+    <%- if @page_content and @page_content.enable_canonical? -%>
+      <link href="<%= @page_content.canonical %>" rel="canonical" />
+    <%- end -%>
+    <%- if @page_content and @page_content.robots.not.blank? -%>
+      <meta name="robots" content="<%= @page_content.robots %>">
+    <%- end -%>
     
-    <link href="http://www.railsdevelopment.com" rel="canonical" />
     
     <%= stylesheet_link_tag "emastic/reset-min", "emastic/type-min", "formy/form.css", "common", "jquery", "jquery.tooltip", "application" %>
     <%= javascript_include_tag :defaults, 'datepicker', 'jquery.bgiframe', 'jquery.dimensions', 'jquery.delegate', 'jquery.tooltip', 'jquery.delay', 'locales' %>
