@@ -3,7 +3,7 @@ class Service < ActiveRecord::Base
   
   belongs_to :category, :class_name => 'ServiceCategory', :foreign_key => :service_category_id
   
-  acts_as_list
+  acts_as_list :scope => :service_category_id
   
   named_scope :checked, :conditions => {:checked => true}, :order => "position asc"
   named_scope :ordered, :order => "position asc"
