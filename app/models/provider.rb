@@ -75,6 +75,11 @@ class Provider < ActiveRecord::Base
       conditions << params[:budget].gsub(/[^0-9\.]/, '').to_i
     end
 
+    if params[:hourly_rate].not.blank?
+      conditions[0] << " and hourly_rate <= ?"
+      conditions << params[:hourly_rate].gsub(/[^0-9\.]/, '').to_i
+    end
+
     joins = nil
     group = nil
 

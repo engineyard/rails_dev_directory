@@ -10,6 +10,10 @@ Given /^"([^\"]*)" has a minimum budget of "([^\"]*)"$/ do |provider_name, budge
   Provider.find_by_company_name(provider_name).update_attribute(:min_budget, budget)
 end
 
+Given /^"([^\"]*)" has an hourly rate of "([^\"]*)"$/ do |provider_name, hourly_rate|
+  Provider.find_by_company_name(provider_name).update_attribute(:hourly_rate, hourly_rate)
+end
+
 When /^I fill in the provider sign up form for "([^\"]*)"$/ do |provider_name|
   fill_in("Email", :with => "paul@rslw.com")
   fill_in('provider[email]', :with => 'info@rslw.com')

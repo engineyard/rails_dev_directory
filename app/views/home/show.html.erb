@@ -14,12 +14,13 @@
       <table>
         <tr>
           <td>
-            <%= label_tag 'budget', t('provider.directory.budget') %> <%= text_field_tag 'budget', '', :class => "number" %> <br />
+            <%= label_tag 'budget', t('provider.directory.budget') %>
+            <%= text_field_tag 'budget', '', :class => "number" %> <br />
+            <%= label_tag 'hourly_rate', t('provider.hourly_rate') %>
+            <%= text_field_tag 'hourly_rate', '', :class => "number" %> <br />
             <span class="note"><%= t('provider.directory.note') %></span>
             <%= label_tag 'location', t('provider.directory.location') %>
             <%= location_select %>
-
-            
           </td>
           <td>
             <h4><%= t('provider.directory.services') %></h4>

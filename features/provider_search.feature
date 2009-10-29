@@ -8,6 +8,7 @@ Feature: Provider directory
     Given an "active" provider "Trulio"
       And "Trulio" has a new recommendation from "George Tenet"
       And "Trulio" has a minimum budget of "15000"
+      And "Trulio" has an hourly rate of "150"
       And pre checked services "Ruby on Rails"
       And primary services "AJAX, Visual design, UI"
       And "Trulio" provides "AJAX"
@@ -21,6 +22,17 @@ Feature: Provider directory
     Then I should not see "Trulio"
     When I follow "Find a Rails developer"
       And I fill in "budget" with "15000"
+      And I press "Find a developer"
+    Then I should see "Trulio"
+
+  Scenario: Finding a developer by hourly rate
+    When I am on the homepage
+      And I follow "Find a Rails developer"
+      And I fill in "Hourly Rate" with "140"
+      And I press "Find a developer"
+    Then I should not see "Trulio"
+    When I follow "Find a Rails developer"
+      And I fill in "Hourly Rate" with "160"
       And I press "Find a developer"
     Then I should see "Trulio"
 
