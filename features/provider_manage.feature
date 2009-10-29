@@ -2,6 +2,14 @@ As a Provider
 I want to be able manage my account
 So that I can make sure my profile is accurate and up-to-date
 
+  Background:
+    Given a service category "Stack"
+      And a service category "Programming Languages"
+      And the following services:
+      | category              | service |
+      | Programming Languages | Ruby    |
+      | Programming Languages | Python  |
+
   Scenario: Provider manages their account
     Given a provider "Kooky" belonging to "paul@dopo.com"
       And I am on the homepage
@@ -12,9 +20,14 @@ So that I can make sure my profile is accurate and up-to-date
     When I fill in "Street Address" with "Market Street"
       And I fill in "Minimum Hours" with "5"
       And I fill in "Maximum Hours" with "10"
+      And I check "Ruby"
       And I press "Save"
     Then I should see "Thanks for updating your profile"
       And I should see "Minimum Hours"
       And I should see "5"
       And I should see "Maximum Hours"
       And I should see "10"
+      And I should not see "Stack"
+      And I should see "Programming Languages"
+      And I should see "Ruby"
+      And I should not see "Python"

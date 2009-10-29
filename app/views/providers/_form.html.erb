@@ -14,12 +14,10 @@
   <%- if @provider.not.new_record? and @provider.logo_file_name.not.blank? -%>
   <%= image_tag(@provider.logo.url(:thumb)) %>
 <%- end -%>
-</fieldset>
 
-<fieldset>
-  <label><%= t('provider.accepted_projects') %></label>
+  <h3><%= t('provider.accepted_projects') %></h3>
   <%= f.label :hourly_rate, t("provider.hourly_rate") %>
-  &#36;<%= f.text_field :hourly_rate, :class => 'number' %> <br />
+  &#36;<%= f.text_field :hourly_rate, :class => 'number' %><br />
   <%= f.label :min_budget, t("provider.min_budget") %>
   &#36;<%= f.text_field :min_budget, :class => 'number' %><br />
   <%= f.label :min_hours, t("provider.min_hours") %>
@@ -27,14 +25,15 @@
   <%= f.label :max_hours, t("provider.max_hours") %>
   <%= f.text_field :max_hours, :class => 'number' %><br />
 
-  <label><%= t('provider.services') %></label>
-  <ul>
-    <%- Service.checked.each do |service| -%>
-      <li><%= check_box_tag "dummy_tech_types[]", service.id, true, :disabled => true, :id => dom_id(service), :class=>'hidden' %> <%= image_tag '/images/icon-check.png', :class=>"check" %><%= label_tag dom_id(service), service.name %></li>
-    <%- end -%>
-    <%- Service.ordered_not_checked.each do |service| -%>
-      <li><%= check_box_tag "provider[service_ids][]", service.id, @provider.services.include?(service), :id => dom_id(service) %><%= label_tag dom_id(service), service.name %></li>
-    <%- end -%>
-  </ul>
+  <h3><%= t('provider.services') %></h3>
+
+  <%- ServiceCategory.all.each do |category| -%>
+    <h4><%= category.name %></h4>
+    <ul>
+      <%- category.services.each do |service| -%>
+        <li><%= check_box_tag "provider[service_ids][]", service.id, @provider.services.include?(service), :id => dom_id(service) %><%= label_tag dom_id(service), service.name %></li>
+      <%- end -%>
+    </ul>
+  <%- end -%>
   <br />
 </fieldset>

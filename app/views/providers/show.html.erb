@@ -60,11 +60,11 @@
       <%= t('provider.no_services') %>
     <%- else -%>
       <ul>
-        <% ServiceCategory.all.each do |category| %>
+        <%- @provider.services.group_by(&:category).each do |category, services| -%>
           <li>
             <h5><%= category.name %></h5>
             <ul>
-              <%- @provider.services.for_category(category).each do |service| -%>
+              <%- services.each do |service| -%>
                 <li><%= service.name %></li>
               <%- end -%>
             </ul>
@@ -73,7 +73,6 @@
       </ul>
     <%- end -%>
   </div>
-
 
   <%- if @provider.portfolio_items.empty? -%>
     <% # t('provider.no_portfolio_items') %>
