@@ -69,7 +69,12 @@
             <h5><%= category.name %></h5>
             <ul>
               <%- services.each do |service| -%>
-                <li><%= service.name %></li>
+                <li>
+                  <%= service.name %>
+                  <%- if proficiency = @provider.provided_services.for_service(service).proficiency -%>
+                    (<%= t("service.proficiency_#{proficiency}") %>)
+                  <%- end -%>
+                </li>
               <%- end -%>
             </ul>
           </li>

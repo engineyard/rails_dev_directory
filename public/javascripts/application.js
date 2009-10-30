@@ -131,7 +131,7 @@ $(document).ready(function(){
     }
     $(this).click(function() {
       if ($(this).is(':checked')) {
-        $(this).nextAll('input[type="radio"], label').show()
+        $(this).nextAll('input[type="radio"], label:not(.testability)').show()
         $(this).prevAll('.delete_service').attr('disabled', 'disabled')
       } else {
         $(this).nextAll('input[type="radio"], label').hide()
