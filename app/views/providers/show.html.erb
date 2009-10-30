@@ -38,10 +38,14 @@
     </address>
   </div>
   
-  <%- if @provider.min_hours or @provider.max_hours -%>
+  <%- if @provider.min_hours or @provider.max_hours or @provider.hourly_rate -%>
   <div class="block">
     <h4><%= t('provider.accepted_projects') %></h4>
     <dl>
+      <%- if @provider.hourly_rate -%>
+      <dt><%= t('provider.hourly_rate') %></dt>
+      <dd><%= @provider.hourly_rate %></dd>
+      <%- end -%>
       <%- if @provider.min_hours -%>
       <dt><%= t('provider.min_hours') %></dt>
       <dd><%= @provider.min_hours %></dd>

@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20091029172840) do
+ActiveRecord::Schema.define(:version => 20091030121952) do
 
   create_table "audits", :force => true do |t|
     t.string   "auditable_type"
@@ -64,6 +64,7 @@ ActiveRecord::Schema.define(:version => 20091029172840) do
     t.integer  "provider_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "proficiency"
   end
 
   create_table "providers", :force => true do |t|
@@ -79,7 +80,7 @@ ActiveRecord::Schema.define(:version => 20091029172840) do
     t.string   "logo_file_name"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.decimal  "hourly_rate",            :precision => 10, :scale => 2
+    t.decimal  "hourly_rate",            :precision => 10, :scale => 2, :default => 0.0
     t.decimal  "min_budget",             :precision => 10, :scale => 2, :default => 0.0
     t.string   "aasm_state"
     t.string   "further_street_address"

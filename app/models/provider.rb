@@ -35,12 +35,17 @@ class Provider < ActiveRecord::Base
   has_many :endorsement_requests
   has_many :portfolio_items, :order => "year_completed desc"
   
-  has_many :provided_services, :dependent => :destroy
+  has_many :provided_services, :dependent => :destroy do
+    def for_service(service)
+      first(:conditions => { :service_id => service.id })
+    end
+  end
   has_many :services, :through => :provided_services, :order => 'position asc'
 
   belongs_to :user
   
   accepts_nested_attributes_for :users
+  accepts_nested_attributes_for :provided_services, :allow_destroy => true
   
   before_validation_on_create :save_slug
   before_validation :filter_carraige_returns

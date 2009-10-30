@@ -124,6 +124,21 @@ $(document).ready(function(){
     
     return false
   })
+  
+  $('input[type="checkbox"].service').map(function() {
+    if (!$(this).is(':checked')) {
+      $(this).nextAll('input[type="radio"], label').hide()
+    }
+    $(this).click(function() {
+      if ($(this).is(':checked')) {
+        $(this).nextAll('input[type="radio"], label').show()
+        $(this).prevAll('.delete_service').attr('disabled', 'disabled')
+      } else {
+        $(this).nextAll('input[type="radio"], label').hide()
+        $(this).prevAll('.delete_service').removeAttr('disabled')
+      }
+    })
+  })
 })
 
 var RecaptchaOptions = {

@@ -5,6 +5,7 @@ So that I can make sure my profile is accurate and up-to-date
   Background:
     Given a service category "Stack"
       And a service category "Programming Languages"
+      And the service category "Programming Languages" has proficiency
       And the following services:
       | category              | service |
       | Programming Languages | Ruby    |
@@ -22,14 +23,17 @@ So that I can make sure my profile is accurate and up-to-date
       And I fill in "Maximum Hours" with "10"
       And I fill in "Hourly rate" with "150"
       And I check "Ruby"
+      And I choose "Programming Languages Ruby Proficiency 1"
       And I press "Save"
     Then I should see "Thanks for updating your profile"
       And I should see "Minimum Hours"
       And I should see "5"
       And I should see "Maximum Hours"
       And I should see "10"
+      And I should see "Hourly Rate"
       And I should see "150"
       And I should not see "Stack"
       And I should see "Programming Languages"
       And I should see "Ruby"
+      And I should see "1"
       And I should not see "Python"

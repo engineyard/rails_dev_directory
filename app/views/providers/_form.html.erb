@@ -30,8 +30,34 @@
   <%- ServiceCategory.all.each do |category| -%>
     <div class="service_category"><%= category.name %></div>
     <%- category.services.each do |service| -%>
-      <%= check_box_tag "provider[service_ids][]", service.id, @provider.services.include?(service), :id => dom_id(service) %><%= label_tag dom_id(service), service.name %><br />
+      <div>
+        <%- provided_service = @provider.provided_services.for_service(service) -%>
+        <%- if provided_service -%>
+          <%= hidden_field_tag "provider[provided_services_attributes][#{service.id}][id]",
+                               provided_service.id %>
+          <%= hidden_field_tag "provider[provided_services_attributes][#{service.id}][_delete]",
+                               true,
+                               :disabled => true,
+                               :class => dom_class(service, :delete) %>
+        <%- end -%>
+        <%= label_tag dom_id(service), service.name %>
+        <%= check_box_tag "provider[provided_services_attributes][#{service.id}][service_id]",
+                          service.id,
+                          !!provided_service,
+                          :id => dom_id(service), :class => dom_class(service) %>
+        <%- if category.proficiency? -%>
+          <%- (1..3).each do |level| -%>
+            <%= radio_button_tag "provider[provided_services_attributes][#{service.id}][proficiency]",
+                                 level, (provided_service and provided_service.proficiency == level) %>
+            <%= label_tag "provider[provided_services_attributes][#{service.id}][proficiency][#{level}]",
+                          level %>
+            <%= label_tag "provider[provided_services_attributes][#{service.id}][proficiency][#{level}]",
+                          "#{category.name} #{service.name} Proficiency #{level}", :style => 'display: none' %>
+          <%- end -%>
+        <%- end -%>
+      </div>
     <%- end -%>
+    <br />
   <%- end -%>
   <br />
 </fieldset>

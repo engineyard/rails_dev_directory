@@ -420,6 +420,7 @@ en:
     add_new: Add a new Category
     manage: Manage Categories
     no_categories: No categories have been added yet
+    proficiency: Proficiency
   
   recommendation:
     name: Your name
