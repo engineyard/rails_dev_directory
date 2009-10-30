@@ -23,13 +23,14 @@ class Bootstrapper
         <li class="step3">Get 3 endorsements</li>
       </ol>])
       
+      category = ServiceCategory.make(:name => "Programming", :proficiency => true)
       
-      category = ServiceCategory.make(:name => "Programming")
-      
-      Service.make(:name => "Ruby on Rails", :checked => true, :category => category)
+      ruby = Service.make(:name => "Ruby on Rails", :checked => true, :category => category)
       Service.make(:name => "PHP", :checked => false, :category => category)
       
       Recommendation.make(:provider => provider, :aasm_state => 'approved')
+      
+      provider.services << ruby
     end
     
     def provider
