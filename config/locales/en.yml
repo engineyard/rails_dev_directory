@@ -22,6 +22,9 @@ en:
     next: Fill out request
     sign_out: Sign out
     
+    sort_list: Sort List
+    done_sorting: Done Sorting
+    
   signin:
     failed: "Couldn't log you in as '{{user}}'"
     

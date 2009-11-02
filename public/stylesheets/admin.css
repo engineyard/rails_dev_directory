@@ -120,3 +120,6 @@ label {
   width: 16em;
 }
 label.inline { display: inline; width: inherit; float: none;}
+
+ul.sortable { display: none; }
+ul.sortable li { cursor: move; }

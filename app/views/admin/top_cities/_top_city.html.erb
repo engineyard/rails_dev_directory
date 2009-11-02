@@ -1,0 +1,9 @@
+<tr>
+  <td> 
+    <%= top_city.city %>, <%= t("countries.#{top_city.country}") %>
+    (<%= link_to t('general.edit'), edit_admin_top_city_path(top_city) %>)
+  </td>
+  <td>
+    <%= link_to t('general.delete'), [:admin, top_city], :method => :delete, :confirm => t('general.confirm') %>
+  </td>
+</tr>

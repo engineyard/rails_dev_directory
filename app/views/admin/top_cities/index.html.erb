@@ -2,27 +2,26 @@
 
 <ul>
   <li><%= link_to t('top_city.add_new'), new_admin_top_city_path %></li>
+  <li><%= link_to t('general.sort_list'), sort_admin_top_cities_path, :class => 'sort' %></li>
+</ul>
+
+<ul class="sortable">
+  <%- @top_cities.each do |top_city| -%>
+    <li id="<%= dom_id(top_city) %>"><%= top_city.city %>, <%= t("countries.#{top_city.country}") %></li>
+  <%- end -%>
 </ul>
 
 <%- if @top_cities.empty? -%>
   <p><%= t('top_city.no_cities') %></p>
 <%- else -%>
-  <table>
+  <table class="sorted">
     <tr>
       <th><%= t('top_city.city') %></th>
       <th>&nbsp;</th>
     </tr>
-    
-    <%- @top_cities.each do |top_city| -%>
-      <tr>
-        <td>
-          <%= top_city.city %>, <%= t("countries.#{top_city.country}") %>
-          (<%= link_to t('general.edit'), edit_admin_top_city_path(top_city) %>)
-        </td>
-        <td>
-          <%= link_to t('general.delete'), [:admin, top_city], :method => :delete, :confirm => t('general.confirm') %>
-        </td>
-      </tr>
-    <%- end -%>
+    <tbody class="sorted-list">
+    <%= render :partial => 'top_city', :collection => @top_cities %>
+    </tbody>
+
   </table>
 <%- end -%>

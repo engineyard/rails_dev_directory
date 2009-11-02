@@ -57,7 +57,7 @@ ActionController::Routing::Routes.draw do |map|
     end
     admin.resources :pages
     admin.resource :csv
-    admin.resources :top_cities
+    admin.resources :top_cities, :collection => {:sort => :put}
   end
 
   # The priority is based upon order of creation: first created -> highest priority.
