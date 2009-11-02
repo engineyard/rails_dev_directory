@@ -25,3 +25,8 @@ end
 Page.blueprint do
   title Sham.name
 end
+
+TopCity.blueprint do
+  city "Dublin"
+  country "IE"
+end

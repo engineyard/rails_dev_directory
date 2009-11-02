@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20091029183006) do
+ActiveRecord::Schema.define(:version => 20091102185721) do
 
   create_table "audits", :force => true do |t|
     t.string   "auditable_type"
@@ -180,7 +180,11 @@ ActiveRecord::Schema.define(:version => 20091029183006) do
     t.integer  "position"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "state"
+    t.string   "slug"
   end
+
+  add_index "top_cities", ["slug"], :name => "index_top_cities_on_slug"
 
   create_table "users", :force => true do |t|
     t.string   "email",             :limit => 100

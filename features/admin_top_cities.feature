@@ -14,9 +14,11 @@ Feature: Admin Top Cities
     Then I should see "Dublin, Ireland"
     
     When I follow "Edit"
-      And I fill in "City" with "Galway"
+      And I fill in "City" with "Jacksonville"
+      And I select "Florida" from "State"
+      And I select "United States" from "Country"
       And I press "Save"
-    Then I should see "Galway, Ireland"
+    Then I should see "Jacksonville, Florida, United States"
     
     When I follow "Delete"
     Then I should not see "Galway, Ireland"

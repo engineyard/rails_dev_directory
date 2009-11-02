@@ -60,3 +60,10 @@ Given /^"([^\"]*)" is based in "([^\"]*)"$/ do |company_name, location|
     :state_province => location == "nowhere" ? "" : location.split(',').first.strip,
     :country => location == "nowhere" ? "" : location.split(',').last.strip)
 end
+
+Given /^"([^\"]*)" is located in "([^\"]*)"$/ do |company_name, city_state_country|
+  Provider.find_by_company_name(company_name).update_attributes(
+    :city => city_state_country == "nowhere" ? "" : city_state_country.split(',').first.strip,
+    :state_province => city_state_country == "nowhere" ? "" : city_state_country.split(',')[1].strip,
+    :country => city_state_country == "nowhere" ? "" : city_state_country.split(',').last.strip)
+end

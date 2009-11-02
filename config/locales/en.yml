@@ -93,6 +93,7 @@ en:
     provider_signup: Rails Developer? Get Listed...
     enter_budget: Please enter your budget
     everywhere: Everywhere
+    top_cities: Top Cities
     
   company_profile:
     users:
@@ -314,6 +315,7 @@ en:
     no_cities: No top cities have been set
     
     city: City
+    slug: URL Slug
 
   rfp:
     validations:

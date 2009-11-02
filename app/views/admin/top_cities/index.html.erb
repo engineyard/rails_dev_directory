@@ -7,7 +7,11 @@
 
 <ul class="sortable">
   <%- @top_cities.each do |top_city| -%>
-    <li id="<%= dom_id(top_city) %>"><%= top_city.city %>, <%= t("countries.#{top_city.country}") %></li>
+    <li id="<%= dom_id(top_city) %>">
+      <%= top_city.city %>,
+      <%= "#{State.by_code(top_city.state)}, " if top_city.state.not.blank? %>
+      <%= t("countries.#{top_city.country}") %>
+    </li>
   <%- end -%>
 </ul>
 
