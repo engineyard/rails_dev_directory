@@ -14,3 +14,4 @@ db/sphinx
 public/javascripts/common.js
 public/javascripts/locales.js
 config/site_config.yml
+webrat-*.html
