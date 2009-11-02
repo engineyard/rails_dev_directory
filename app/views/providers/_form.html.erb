@@ -27,38 +27,41 @@
 
   <h3><%= t('provider.services') %></h3>
 
-  <%- ServiceCategory.all.each do |category| -%>
+  <%- setup_services(@provider) -%>
+  <%- @provider.provided_services.group_by(&:category).each do |category, services| -%>
     <div class="service_category"><%= category.name %></div>
-    <%- category.services.each do |service| -%>
-      <div>
-        <%- provided_service = @provider.provided_services.for_service(service) -%>
-        <%- if provided_service -%>
-          <%= hidden_field_tag "provider[provided_services_attributes][#{service.id}][id]",
-                               provided_service.id %>
-          <%= hidden_field_tag "provider[provided_services_attributes][#{service.id}][_delete]",
-                               true,
-                               :disabled => true,
-                               :class => dom_class(service, :delete) %>
+    <%- services.each do |service| %>
+      <%- f.fields_for :provided_services, service do |ps| -%>
+        <%- if ps.object.category == category -%>
+          <div>
+            <%= ps.hidden_field :service_id %>
+            <%= ps.label :_delete, ps.object.name %>
+            <%-
+              # This is horrible, ideally we'd implement:
+              # accept_nested_attributes_for ... :allow_destroy => :keep
+              # offering the reverse of the _delete behaviour,
+              # in order to avoid having to delve around in params manually here.
+              checked = begin
+                params[:provider][:provided_services_attributes].find { |k, v|
+                  v[:service_id] == service.service_id.to_s
+                }[1][:_delete] == 'false'
+              rescue
+                false
+              end
+            -%>
+            <%= ps.check_box :_delete, { :checked => checked, :class => 'service' }, 'false', 'true' %>
+            <%- if category.proficiency? -%>
+              <%- (1..3).each do |level| -%>
+                <%= ps.radio_button :proficiency, level %>
+                <%= ps.label "proficiency_#{level}", t("service.proficiency_#{level}") %>
+                <%= ps.label "proficiency_#{level}",
+                             "#{category.name} #{ps.object.name} #{t("service.proficiency_#{level}")}",
+                             :class => 'testability' %>
+              <%- end -%>
+            <%- end -%>
+          </div>
         <%- end -%>
-        <%= label_tag dom_id(service), service.name %>
-        <%= check_box_tag "provider[provided_services_attributes][#{service.id}][service_id]",
-                          service.id,
-                          !!provided_service,
-                          :id => dom_id(service), :class => dom_class(service) %>
-        <%- if category.proficiency? -%>
-          <%- (1..3).each do |level| -%>
-            <%= radio_button_tag "provider[provided_services_attributes][#{service.id}][proficiency]",
-                                 level,
-                                 (provided_service and provided_service.proficiency == level) %>
-            <%= label_tag "provider[provided_services_attributes][#{service.id}][proficiency][#{level}]",
-                          t("service.proficiency_#{level}") %>
-            <%= label_tag "provider[provided_services_attributes][#{service.id}][proficiency][#{level}]",
-                          "#{category.name} #{service.name} #{t("service.proficiency_#{level}")}", :class => 'testability' %>
-          <%- end -%>
-        <%- end -%>
-      </div>
+      <%- end -%>
     <%- end -%>
-    <br />
   <%- end -%>
-  <br />
 </fieldset>

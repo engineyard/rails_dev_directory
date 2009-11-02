@@ -23,8 +23,9 @@ Feature: Recommending a provider
       And I press "Find a developer"
       And I follow "Hashrocket"
     Then I should see "Read all endorsements"
-    When I follow "Write an endorsement"
-      Then I should see "Satisfied customer? Endorse this developer"
+    Given "Hashrocket" have requested "Brian Flanagan <btf@coralmade.net>" submit an endorsement
+      And "btf@coralmade.net" follows the emailed endorsement link
+    Then I should see "Satisfied customer? Endorse this developer"
     When I fill in "recommendation[name]" with "Brian Flanagan"
       And I select "2007" from "recommendation[year_hired]"
       And I fill in "recommendation[company]" with "Coral Made"

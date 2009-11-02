@@ -12,6 +12,8 @@ module NavigationHelpers
       admin_dashboard_path
     when /the homepage/
       root_path
+    when /the new endorsement page for "(.+)"/
+      new_provider_recommendation_path(Provider.find_by_slug($1))
     
     # Add more mappings here.
     # Here is a more fancy example:

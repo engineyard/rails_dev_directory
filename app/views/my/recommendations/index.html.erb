@@ -49,8 +49,8 @@
     <% @endorsement_requests.each do |endorsement| %>
     <tr>
       <td>
-      <% endorsement.emails.each do |recipient| -%>
-        <%=h recipient %><br />
+      <% endorsement.recipients.each do |recipient| -%>
+        <%=h recipient.email %><br />
       <% end -%>
       </td>
       <td><%= endorsement.message %></td>

@@ -45,8 +45,9 @@ class Provider < ActiveRecord::Base
   belongs_to :user
   
   accepts_nested_attributes_for :users
-  accepts_nested_attributes_for :provided_services, :allow_destroy => true
-  
+  accepts_nested_attributes_for :provided_services,
+                                :allow_destroy => true
+
   before_validation_on_create :save_slug
   before_validation :filter_carraige_returns
   before_create :set_first_user_provider

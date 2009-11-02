@@ -5,7 +5,7 @@
 <% form_tag search_providers_path, :method => :get, :id => "search-form" do -%>
   <%= label_tag 'budget', t('provider.directory.budget') %>
   <%= text_field_tag 'budget' %>
-  
+  <br />
   <%= label_tag 'hourly_rate', t('provider.hourly_rate') %>
   <%= text_field_tag 'hourly_rate', '', :class => "number" %>
   

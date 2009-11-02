@@ -5,6 +5,15 @@ module ProvidersHelper
     end
   end
   
+  def setup_services(provider)
+    service_ids = provider.provided_services.map(&:service_id)
+    Service.each do |service|
+      unless service_ids.include?(service.id)
+        provider.provided_services.build(:service_id => service.id)
+      end
+    end
+  end
+  
   def price(number)
     return '-' if number.blank? or number == 0
     precision = number.to_i == number ? 0 : 2

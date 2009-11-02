@@ -477,6 +477,10 @@ en:
     hired: Hired
     in: in
     
+    validations:
+      use_the_key: Please follow the URL you received in the endorsement request email to add an endorsement.
+      use_the_recipient_email: Please enter the email address that received the request.
+    
   request:
     headline: Requests for Proposals
     description: Here you can browse the requests that have been submitted to your company

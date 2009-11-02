@@ -25,7 +25,7 @@ ActionController::Routing::Routes.draw do |map|
     provider.resources :portfolio_items
   end  
   map.resources :rfps
-  map.resources :pages, :requirements => { :id => /.*/}
+  map.resources :pages, :requirements => { :id => /.*/ }
   
   # Provider admin routes
   map.my '/my', :controller => 'my/dashboard', :action => 'show'

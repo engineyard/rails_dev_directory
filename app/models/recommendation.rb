@@ -1,7 +1,9 @@
 class Recommendation < ActiveRecord::Base
   include AASM
   
-  validates_presence_of :name, :year_hired, :position, :company, :email, :url, :endorsement
+  validates_presence_of :name, :year_hired, :position, :company, :email, :url,
+                        :endorsement, :endorsement_request_recipient_id
+  validate_on_create :endorser_email_matches_email_recipient
   
   aasm_initial_state :new
   
@@ -22,6 +24,7 @@ class Recommendation < ActiveRecord::Base
   format_dates :timestamps
   
   belongs_to :provider
+  belongs_to :endorsement_request_recipient
   
   after_save :activate_provider
   after_save :update_provider_counter_cache
@@ -44,6 +47,13 @@ class Recommendation < ActiveRecord::Base
   end
   
 private
+  def endorser_email_matches_email_recipient
+    parsed_email = TMail::Address.parse(endorsement_request_recipient.email).address rescue ''
+    if parsed_email != self.email
+      errors.add(:email, I18n.t('recommendation.validations.use_the_recipient_email'))
+    end
+  end
+
   def deliver_notification
     Notification.deliver_endorsement_notification(self) if provider and provider.email
   end

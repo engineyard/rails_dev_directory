@@ -2,7 +2,7 @@
 
 <%= t('email.endorsement_request.instructions') %>
 
-<%= new_provider_recommendation_url(@provider) %>
+<%= new_provider_recommendation_url(@provider, :key => @recipient.validation_token) %>
 
 --------------------------------------------------
 <%= t('email.endorsement_request.appendage') %>

@@ -28,8 +28,14 @@ So that I can can receive Rails project referrals
 
   Scenario: Signing up and sloppily missing the TOS
     Given I am on the homepage
-      And primary services "Ruby on Rails, AJAX"
-      And secondary services "Visual design, UI"
+      And a service category "Programming"
+      And a service category "Design"
+      And the following services:
+      | category    | service       |
+      | Programming | Ruby on Rails |
+      | Programming | AJAX         |
+      | Design      | Visual design |
+      | Design      | UI            |
     When I follow "Create an account"
       And I fill in the provider sign up form for "Pivotpaul Labs"
       And I fill in the "provider[marketing_description]" with "Some things are too hot to touch."
@@ -39,7 +45,6 @@ So that I can can receive Rails project referrals
       And I press "Sign up"
     Then I should see "Terms of Use"
     When I check "provider[terms_of_service]"
-      And I fill in the provider sign up form for "Pivotpaul Labs"
       And I press "Sign up"
     Then I should see "Pivotpaul Labs Admin"
     When I follow "Company"
