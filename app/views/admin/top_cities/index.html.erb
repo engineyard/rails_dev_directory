@@ -5,7 +5,24 @@
 </ul>
 
 <%- if @top_cities.empty? -%>
-  
+  <p><%= t('top_city.no_cities') %></p>
 <%- else -%>
-  
+  <table>
+    <tr>
+      <th><%= t('top_city.city') %></th>
+      <th>&nbsp;</th>
+    </tr>
+    
+    <%- @top_cities.each do |top_city| -%>
+      <tr>
+        <td>
+          <%= top_city.city %>, <%= t("countries.#{top_city.country}") %>
+          (<%= link_to t('general.edit'), edit_admin_top_city_path(top_city) %>)
+        </td>
+        <td>
+          <%= link_to t('general.delete'), [:admin, top_city], :method => :delete, :confirm => t('general.confirm') %>
+        </td>
+      </tr>
+    <%- end -%>
+  </table>
 <%- end -%>

@@ -308,6 +308,9 @@ en:
     
   top_city:
     add_new: Add Top City
+    no_cities: No top cities have been set
+    
+    city: City
 
   rfp:
     validations:
