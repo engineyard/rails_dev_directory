@@ -4,6 +4,7 @@ class Recommendation < ActiveRecord::Base
   validates_presence_of :name, :year_hired, :position, :company, :email, :url,
                         :endorsement, :endorsement_request_recipient_id
   validate_on_create :endorser_email_matches_email_recipient
+  validate_on_create :project_date_after_provider_signup
   
   aasm_initial_state :new
   
@@ -51,6 +52,12 @@ private
     parsed_email = TMail::Address.parse(endorsement_request_recipient.email).address rescue ''
     if parsed_email != self.email
       errors.add(:email, I18n.t('recommendation.validations.use_the_recipient_email'))
+    end
+  end
+
+  def project_date_after_provider_signup
+    if self.year_hired.to_i < provider.created_at.strftime('%Y').to_i
+      errors.add(:year_hired, I18n.t('recommendation.validations.before_provider_joined'))
     end
   end
 

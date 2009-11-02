@@ -480,6 +480,7 @@ en:
     validations:
       use_the_key: Please follow the URL you received in the endorsement request email to add an endorsement.
       use_the_recipient_email: Please enter the email address that received the request.
+      before_provider_joined: Should be after the developer registered with us.
     
   request:
     headline: Requests for Proposals
