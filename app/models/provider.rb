@@ -214,7 +214,7 @@ private
   end
   
   def send_owner_welcome
-    Notification.create_provider_welcome(user) if user
+    Notification.deliver_provider_welcome(user) if user
   end
   
   def owner_name
