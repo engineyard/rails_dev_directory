@@ -16,16 +16,16 @@ class Notification < ActionMailer::Base
     body :message => endorsement_request.message, :provider => endorsement_request.provider, :recipient => recipient
   end
   
-  def endorsement_notification(recommendation)
+  def endorsement_notification(endorsement)
     setup_email
-    from "#{recommendation.name} <#{recommendation.email}>"
-    reply_to recommendation.email
+    from "#{endorsement.name} <#{endorsement.email}>"
+    reply_to endorsement.email
     subject t('email.endorsement_notification.subject')
-    recipients recommendation.provider.email
+    recipients endorsement.provider.email
     body(
-      :recommendation => recommendation,
-      :provider => recommendation.provider,
-      :name => (recommendation.provider and recommendation.provider.user ? recommendation.provider.user.first_name_or_email : '')
+      :endorsement => endorsement,
+      :provider => endorsement.provider,
+      :name => (endorsement.provider and endorsement.provider.user ? endorsement.provider.user.first_name_or_email : '')
         )
   end
 

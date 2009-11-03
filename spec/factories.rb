@@ -74,7 +74,7 @@ Factory.define :admin_user, :class => User do |user|
   user.admin true
 end
 
-Factory.define(:recommendation) do |r|
+Factory.define(:endorsement) do |r|
   r.name "John"
   r.email "john@john.net"
   r.position "animal wrangler"

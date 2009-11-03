@@ -38,7 +38,7 @@ class Admin::ProvidersController < ApplicationController
     @provider.aasm_state = params[:provider][:aasm_state]
     @provider.slug = params[:provider][:slug]
     @provider.user_id = params[:provider][:user_id]
-    @provider.recommendations_count = params[:provider][:recommendations_count]
+    @provider.endorsements_count = params[:provider][:endorsements_count]
     if @provider.update_attributes(params[:provider])
       flash[:notice] = t('provider.saved_successfully')
       redirect_to [:admin, @provider]

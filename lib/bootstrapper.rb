@@ -28,7 +28,7 @@ class Bootstrapper
       ruby = Service.make(:name => "Ruby on Rails", :checked => true, :category => category)
       Service.make(:name => "PHP", :checked => false, :category => category)
       
-      Recommendation.make(:provider => provider, :aasm_state => 'approved')
+      Endorsement.make(:provider => provider, :aasm_state => 'approved')
       
       provider.services << ruby
     end

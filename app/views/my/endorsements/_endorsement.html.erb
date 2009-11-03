@@ -1,0 +1,10 @@
+<tr>
+  <td>
+    <%= check_box_tag "endorsements[#{endorsement.id}][approved]", true, endorsement.state == 'approved' %>
+    <%= hidden_field_tag "endorsement_ids[]", endorsement.id %>
+  </td>
+  <td><%= link_to endorsement.name, [:my, endorsement] %></td>
+  <td><%= mail_to endorsement.email %></td>
+  <td><%= endorsement.year_hired %></td>
+  <td><%= endorsement.state %></td>
+</tr>

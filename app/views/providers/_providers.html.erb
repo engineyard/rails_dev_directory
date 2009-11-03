@@ -13,7 +13,7 @@
           <td><%= link_to provider.company_name, provider %></td>
           <td><%= provider.private_address.join(', ') %></td>
           <td><%= provider.active? ? t('provider.confirmed') : '' %></td>
-          <td><%= provider.recommendations.approved.size %></td>
+          <td><%= provider.endorsements.approved.size %></td>
         </tr>
       <%- end -%>
     </table>

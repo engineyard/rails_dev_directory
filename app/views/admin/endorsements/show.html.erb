@@ -1,0 +1,33 @@
+<h2><%= t('endorsement.show_endorsement', :company_name => (@endorsement.provider ? @endorsement.provider.company_name : '...')) %></h2>
+
+<dl>
+  <dt><%= t('endorsement.admin.name') %></dt>
+    <dd><%= @endorsement.name %></dd>
+
+  <dt><%= t('endorsement.admin.position') %></dt>
+    <dd><%= @endorsement.position %></dd>
+
+  <dt><%= t('endorsement.admin.company') %></dt>
+    <dd><%= @endorsement.company %></dd>
+
+  <dt><%= t('endorsement.admin.url')%></dt>
+    <dd><%= link_to @endorsement.url, @endorsement.url %></dd>
+
+  <dt><%= t('endorsement.admin.year_hired') %></dt>
+    <dd><%= @endorsement.year_hired %></dd>
+
+  <dt><%= t('endorsement.admin.email') %></dt>
+    <dd><%= mail_to @endorsement.email %></dd>
+
+  <dt><%= t('endorsement.admin.endorsement') %></dt>
+    <dd><%= @endorsement.endorsement %></dd>
+
+  <dt><%= t('endorsement.is_approved') %></dt>
+    <dd><%= t("endorsement.states.#{@endorsement.state}") %></dd>
+</dl>
+
+<p>
+  <% form_for [:admin, @endorsement], :html => {:method => :delete} do |f| -%>
+    <%= f.submit t('endorsement.admin.delete'), :class => "confirm" %>
+  <% end -%>
+</p>

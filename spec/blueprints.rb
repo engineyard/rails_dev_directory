@@ -36,7 +36,7 @@ Provider.blueprint do
   city
 end
 
-Recommendation.blueprint do
+Endorsement.blueprint do
   name
   year_hired { Time.now.strftime('%Y') }
   position { Sham.title }

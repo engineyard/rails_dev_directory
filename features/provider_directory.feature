@@ -5,7 +5,7 @@ Feature: Provider directory
   
   Scenario: Provider index and requesting an RFP
     Given an "active" provider "Trulio"
-      And "Trulio" has a new recommendation from "George Tenet"
+      And "Trulio" has a new endorsement from "George Tenet"
       And "Trulio" has a minimum budget of "15000"
       And pre checked services "Ruby on Rails"
       And primary services "AJAX, Visual design, UI"

@@ -26,12 +26,12 @@ class Provider < ActiveRecord::Base
   
   url_field :company_url
   
-  attr_protected :aasm_state, :slug, :user_id, :recommendations_count
+  attr_protected :aasm_state, :slug, :user_id, :endorsements_count
   
   has_many :users, :dependent => :destroy
   has_many :requests, :dependent => :destroy, :order => 'created_at desc'
   has_many :rfps, :through => :requests
-  has_many :recommendations, :order => "sort_order asc"
+  has_many :endorsements, :order => "sort_order asc"
   has_many :endorsement_requests
   has_many :portfolio_items, :order => "year_completed desc"
   
@@ -122,7 +122,7 @@ class Provider < ActiveRecord::Base
       end
     end
 
-    all(:joins => joins, :group => group, :conditions => conditions, :order => "aasm_state asc, if(recommendations_count >= 3,recommendations_count,0) desc, RAND()", :limit => 10)
+    all(:joins => joins, :group => group, :conditions => conditions, :order => "aasm_state asc, if(endorsements_count >= 3,endorsements_count,0) desc, RAND()", :limit => 10)
   end
   
   def self.locations_for_select
@@ -185,8 +185,8 @@ class Provider < ActiveRecord::Base
     "%.2f" % min_budget
   end
 
-  def check_recommendations_and_activate
-    activate! if recommendations.approved.size >= 3
+  def check_endorsements_and_activate
+    activate! if endorsements.approved.size >= 3
   end
 
   def has_enough_portfolio_items?

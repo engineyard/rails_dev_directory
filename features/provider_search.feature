@@ -6,7 +6,7 @@ Feature: Provider directory
   
   Background:
     Given an "active" provider "Trulio"
-      And "Trulio" has a new recommendation from "George Tenet"
+      And "Trulio" has a new endorsement from "George Tenet"
       And "Trulio" has a minimum budget of "15000"
       And "Trulio" has an hourly rate of "150"
       And pre checked services "Ruby on Rails"

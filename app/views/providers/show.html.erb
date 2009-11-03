@@ -19,7 +19,7 @@
     <% if logged_in? and current_user.can_edit?(@provider) %>
       <li><%= link_to t('company_profile.edit'), edit_my_provider_path %></li>
       <li><%= link_to t('portfolio_item.manage'), my_portfolio_items_path %></li>
-      <li><%= link_to t('recommendation.manage'), my_recommendations_path %></li>
+      <li><%= link_to t('endorsement.manage'), my_endorsements_path %></li>
     <%- else -%>
       <li class="request"><%= link_to t('provider.request_rfp'), new_rfp_path(:provider_id => @provider.id), :onClick=>"pageTracker._trackEvent('Request', 'Create Proposal', 'Profile');" %></li>
     <%- end -%>
@@ -116,28 +116,28 @@
   
   <h3><%= t('provider.endorsements_headline') %></h3>
   
-  <%- if @provider.recommendations.approved.empty? -%>
-    <p><%= t('provider.no_recommendations') %></p>
+  <%- if @provider.endorsements.approved.empty? -%>
+    <p><%= t('provider.no_endorsements') %></p>
   <%- else -%>
-    <% @provider.recommendations.recent.approved.each do |recommendation| %>
+    <% @provider.endorsements.recent.approved.each do |endorsement| %>
       <div>
-        <blockquote>&#8220;<%= h recommendation.endorsement %>&#8221;</blockquote>
+        <blockquote>&#8220;<%= h endorsement.endorsement %>&#8221;</blockquote>
         <cite>
           <% # This part needs to get cleaned up %>
-          <%=h recommendation.name %>, <%=h recommendation.position %> <%= t('recommendation.at') %> <%=h recommendation.company %><br />
-          <%= t('recommendation.hired') %> <%=h @provider.company_name %> <%= t('recommendation.in') %> <%=h recommendation.year_hired %>
+          <%=h endorsement.name %>, <%=h endorsement.position %> <%= t('endorsement.at') %> <%=h endorsement.company %><br />
+          <%= t('endorsement.hired') %> <%=h @provider.company_name %> <%= t('endorsement.in') %> <%=h endorsement.year_hired %>
         </cite>
       </div>
     <%- end -%> 
   <%- end -%>
   
-  <%- if @provider.recommendations.approved.count > 3 -%>
-    <%= link_to t('provider.more_endorsements'), provider_recommendations_path(@provider), :id => 'more-endorsements' %>
+  <%- if @provider.endorsements.approved.count > 3 -%>
+    <%= link_to t('provider.more_endorsements'), provider_endorsements_path(@provider), :id => 'more-endorsements' %>
     | 
   <%- end -%>
   <% if logged_in? and current_user.provider == @provider %>
-    <%= link_to t('recommendation.ask_for_endorsement'), new_my_endorsement_request_path %>
+    <%= link_to t('endorsement.ask_for_endorsement'), new_my_endorsement_request_path %>
   <%- else -%>
-    <%= link_to t('provider.endorse'), new_provider_recommendation_path(@provider) %>
+    <%= link_to t('provider.endorse'), new_provider_endorsement_path(@provider) %>
   <%- end -%>
 </div>

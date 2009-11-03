@@ -1,0 +1,24 @@
+<h2><%= t('provider.endorsement_headline') %></h2>
+
+<p class="description"><%= t('provider.endorsement_description', :company => @provider.company_name) %></p>
+
+<hr />
+
+<% form_for [@provider, @endorsement] do |f| -%>
+  <%= f.error_messages %>
+
+    <%= hidden_field_tag :key, params[:key] %>
+    <%= f.hidden_field :endorsement_request_recipient_id, :value => @recipient.id %>
+
+    <%= f.label :name, t("endorsement.name") %> <%= f.text_field :name %> <br />
+    <%= f.label :year_hired, t("endorsement.year_hired", :company => @provider.company_name) %> <%= f.select :year_hired, (2004..Time.now.year.to_i).entries.reverse %><br/>
+    <%= f.label :company, t("endorsement.company") %> <%= f.text_field :company %> <br />
+    <%= f.label :url, t("endorsement.url") %> <%= f.text_field :url %> <br />
+    <%= f.label :position, t("endorsement.position") %> <%= f.text_field :position %> <br />
+    <%= f.label :email, t("endorsement.email") %> <%= f.text_field :email %> <br />
+    <%= f.label :endorsement, t("endorsement.endorsement") %><%= f.text_area :endorsement %> <br />
+
+    <%= recaptcha_tags %>
+
+  <%= f.submit t('endorsement.save') %>
+<%- end -%>

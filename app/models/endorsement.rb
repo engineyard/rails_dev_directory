@@ -1,10 +1,9 @@
-class Recommendation < ActiveRecord::Base
+class Endorsement < ActiveRecord::Base
   include AASM
   
   validates_presence_of :name, :year_hired, :position, :company, :email, :url,
                         :endorsement, :endorsement_request_recipient_id
   validate_on_create :endorser_email_matches_email_recipient
-  validate_on_create :project_date_after_provider_signup
   
   aasm_initial_state :new
   
@@ -36,11 +35,11 @@ class Recommendation < ActiveRecord::Base
   named_scope :approved, :conditions => {:aasm_state => 'approved'}
 
   def activate_provider
-    provider.check_recommendations_and_activate if provider and provider.status == 'inactive'
+    provider.check_endorsements_and_activate if provider and provider.status == 'inactive'
   end
   
   def update_provider_counter_cache
-    self.provider.update_attribute(:recommendations_count, provider.recommendations.approved.count) if provider
+    self.provider.update_attribute(:endorsements_count, provider.endorsements.approved.count) if provider
   end
   
   def state
@@ -51,13 +50,7 @@ private
   def endorser_email_matches_email_recipient
     parsed_email = TMail::Address.parse(endorsement_request_recipient.email).address rescue ''
     if parsed_email != self.email
-      errors.add(:email, I18n.t('recommendation.validations.use_the_recipient_email'))
-    end
-  end
-
-  def project_date_after_provider_signup
-    if self.year_hired.to_i < provider.created_at.strftime('%Y').to_i
-      errors.add(:year_hired, I18n.t('recommendation.validations.before_provider_joined'))
+      errors.add(:email, I18n.t('endorsement.validations.use_the_recipient_email'))
     end
   end
 
