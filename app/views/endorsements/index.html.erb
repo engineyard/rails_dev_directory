@@ -1,16 +1,16 @@
-<h2><%= t('recommendation.endorsements_for', :company => @provider.company_name) %></h2>
+<h2><%= t('endorsement.endorsements_for', :company => @provider.company_name) %></h2>
 
-<%- if @recommendations.empty? -%>
-  <p><%= t('provider.no_recommendations')%></p>
+<%- if @endorsements.empty? -%>
+  <p><%= t('provider.no_endorsements')%></p>
 <%- else -%>
   <div class="allEndorsements">
-    <% @recommendations.each do |recommendation| %>
-      <p><%=h recommendation.name %></p>
-      <blockquote>&#8220;<%= recommendation.endorsement %>&#8221;</blockquote>
+    <% @endorsements.each do |endorsement| %>
+      <p><%=h endorsement.name %></p>
+      <blockquote>&#8220;<%= endorsement.endorsement %>&#8221;</blockquote>
       <cite>
         <% # This part needs to get cleaned up %>
-        <%=h recommendation.position %> <%= t('recommendation.at') %> <%=h recommendation.company %>. 
-        <%= t('recommendation.hired') %> <%=h @provider.company_name %> <%= t('recommendation.in') %> <%=h recommendation.year_hired %>.
+        <%=h endorsement.position %> <%= t('endorsement.at') %> <%=h endorsement.company %>. 
+        <%= t('endorsement.hired') %> <%=h @provider.company_name %> <%= t('endorsement.in') %> <%=h endorsement.year_hired %>.
       </cite>
     <%- end -%>
   </div>

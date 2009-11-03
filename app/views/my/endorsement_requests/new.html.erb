@@ -3,7 +3,8 @@
 <% form_for [:my, @endorsement_request] do |f| -%>
   <%= f.error_messages %>
   <fieldset>
-    <%= f.label :recipients, t("endorsement_request.email_addresses") %><%= f.text_area :recipients %><br />
+    <%= f.label :recipient_addresses, t("endorsement_request.email_addresses") %>
+    <%= f.text_area :recipient_addresses %><br />
     <p>
       <%= t("endorsement_request.email_note") %>
       <%= t("endorsement_request.email_format") %>

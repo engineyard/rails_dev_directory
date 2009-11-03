@@ -10,7 +10,7 @@ class My::EndorsementRequestsController < ApplicationController
     @endorsement_request = EndorsementRequest.new(params[:endorsement_request])
     @endorsement_request.provider = current_user.provider
     if @endorsement_request.save
-      flash[:notice] = I18n.t('endorsement_request.submission.thanks_for_requesting') + @endorsement_request.emails.to_sentence
+      flash[:notice] = I18n.t('endorsement_request.submission.thanks_for_requesting') + @endorsement_request.recipients.map(&:email).to_sentence
       redirect_to my_dashboard_path
     else
       render :new

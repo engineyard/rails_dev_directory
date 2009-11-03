@@ -1,33 +1,33 @@
-<h2><%= t('recommendation.show_recommendation', :company_name => (@recommendation.provider ? @recommendation.provider.company_name : '...')) %></h2>
+<h2><%= t('endorsement.show_endorsement', :company_name => (@endorsement.provider ? @endorsement.provider.company_name : '...')) %></h2>
 
 <dl>
-  <dt><%= t('recommendation.admin.name') %></dt>
-    <dd><%= @recommendation.name %></dd>
+  <dt><%= t('endorsement.admin.name') %></dt>
+    <dd><%= @endorsement.name %></dd>
 
-  <dt><%= t('recommendation.admin.position') %></dt>
-    <dd><%= @recommendation.position %></dd>
+  <dt><%= t('endorsement.admin.position') %></dt>
+    <dd><%= @endorsement.position %></dd>
 
-  <dt><%= t('recommendation.admin.company') %></dt>
-    <dd><%= @recommendation.company %></dd>
+  <dt><%= t('endorsement.admin.company') %></dt>
+    <dd><%= @endorsement.company %></dd>
 
-  <dt><%= t('recommendation.admin.url')%></dt>
-    <dd><%= link_to @recommendation.url, @recommendation.url %></dd>
+  <dt><%= t('endorsement.admin.url')%></dt>
+    <dd><%= link_to @endorsement.url, @endorsement.url %></dd>
 
-  <dt><%= t('recommendation.admin.year_hired') %></dt>
-    <dd><%= @recommendation.year_hired %></dd>
+  <dt><%= t('endorsement.admin.year_hired') %></dt>
+    <dd><%= @endorsement.year_hired %></dd>
 
-  <dt><%= t('recommendation.admin.email') %></dt>
-    <dd><%= mail_to @recommendation.email %></dd>
+  <dt><%= t('endorsement.admin.email') %></dt>
+    <dd><%= mail_to @endorsement.email %></dd>
 
-  <dt><%= t('recommendation.admin.endorsement') %></dt>
-    <dd><%= @recommendation.endorsement %></dd>
+  <dt><%= t('endorsement.admin.endorsement') %></dt>
+    <dd><%= @endorsement.endorsement %></dd>
 
-  <dt><%= t('recommendation.is_approved') %></dt>
-    <dd><%= t("recommendation.states.#{@recommendation.state}") %></dd>
+  <dt><%= t('endorsement.is_approved') %></dt>
+    <dd><%= t("endorsement.states.#{@endorsement.state}") %></dd>
 </dl>
 
 <p>
-  <% form_for [:admin, @recommendation], :html => {:method => :delete} do |f| -%>
-    <%= f.submit t('recommendation.admin.delete'), :class => "confirm" %>
+  <% form_for [:admin, @endorsement], :html => {:method => :delete} do |f| -%>
+    <%= f.submit t('endorsement.admin.delete'), :class => "confirm" %>
   <% end -%>
 </p>

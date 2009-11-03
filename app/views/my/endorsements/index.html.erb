@@ -1,38 +1,38 @@
 <div class="dashboard">
-  <h3><%= t('recommendation.endorsements_for', :company => @provider.company_name) %></h3>
+  <h3><%= t('endorsement.endorsements_for', :company => @provider.company_name) %></h3>
   <p>
     <%= link_to t('provider.request_endorsement'), new_my_endorsement_request_path %> |
     <%= link_to t('provider.sort_endorsements'), '#', :class => 'sort-endorsements' %>
   </p>
 
-  <%- if @recommendations.blank? -%>
-    <p><%= t('provider.no_recommendations')%></p>
+  <%- if @endorsements.blank? -%>
+    <p><%= t('provider.no_endorsements')%></p>
   <%- else -%>
   
     <div id="sorting-endorsements">
         <ul>
-          <%- @recommendations.each do |recommendation| -%>
-            <li class="sortable" id="<%= dom_id(recommendation) %>">
-              <strong><%= recommendation.name %></strong> <em><%= truncate(recommendation.endorsement) %></em></li>
+          <%- @endorsements.each do |endorsement| -%>
+            <li class="sortable" id="<%= dom_id(endorsement) %>">
+              <strong><%= endorsement.name %></strong> <em><%= truncate(endorsement.endorsement) %></em></li>
           <%- end -%>
         </ul>
         
     </div>
     <div id="non-sorting-endorsements">
-      <%- form_tag update_all_my_recommendations_path do -%>
-        <table class="recommendations">
+      <%- form_tag update_all_my_endorsements_path do -%>
+        <table class="endorsements">
           <tr>
-            <th><%= t('recommendation.is_approved') %></th>
-            <th><%= t('recommendation.admin.name') %></th>
-            <th><%= t('recommendation.admin.email') %></th>
-            <th><%= t('recommendation.admin.year_hired') %></th>
+            <th><%= t('endorsement.is_approved') %></th>
+            <th><%= t('endorsement.admin.name') %></th>
+            <th><%= t('endorsement.admin.email') %></th>
+            <th><%= t('endorsement.admin.year_hired') %></th>
             <th>&nbsp;</th>
           </tr>
-        <tbody id="recommendations-collection">
-          <%= render :partial => "recommendation", :collection => @recommendations %>
+        <tbody id="endorsements-collection">
+          <%= render :partial => "endorsement", :collection => @endorsements %>
         </tbody>
         </table>
-        <%= submit_tag t('recommendation.approve_selected') %>
+        <%= submit_tag t('endorsement.approve_selected') %>
       <%- end -%>
     </div>
   <%- end -%>
@@ -41,7 +41,7 @@
   <%- if @endorsement_requests.empty? -%>
     <p><%= t('provider.no_endorsement_requests')%></p>
   <%- else -%>
-    <table class="recommendations">
+    <table class="endorsements">
       <tr>
         <th><%= t('endorsement_request.recipients') %></th>
         <th><%= t('endorsement_request.message') %></th>
@@ -49,8 +49,8 @@
     <% @endorsement_requests.each do |endorsement| %>
     <tr>
       <td>
-      <% endorsement.emails.each do |recipient| -%>
-        <%=h recipient %><br />
+      <% endorsement.recipients.each do |recipient| -%>
+        <%=h recipient.email %><br />
       <% end -%>
       </td>
       <td><%= endorsement.message %></td>

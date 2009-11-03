@@ -9,6 +9,6 @@ class Admin::DashboardController < ApplicationController
     @inactive_providers = Provider.inactive.find(:all)
     @flagged_providers = Provider.flagged.find(:all)
     @rfps = Rfp.find(:all)
-    @recommendations = Recommendation.find(:all)
+    @endorsements = Endorsement.find(:all)
   end
 end

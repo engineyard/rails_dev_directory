@@ -1,2 +1,2 @@
-module RecommendationsHelper
+module EndorsementsHelper
 end

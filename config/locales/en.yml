@@ -41,7 +41,7 @@ en:
     portfolio_items: Portfolio
     company: Company
     rfps: Requests
-    recommendations: Recommendations
+    endorsements: Endorsements
     users: Users
     admin: Admin
     pages: Pages
@@ -56,8 +56,8 @@ en:
     dashboard_for: "{{company}} Admin"
     rfps: Recent Requests for Proposals
     all_rfps: See All Requests
-    recommendations: Recent Endorsements
-    all_recommendations: See All Endorsements
+    endorsements: Recent Endorsements
+    all_endorsements: See All Endorsements
     
     show: Show
     from: From
@@ -77,7 +77,7 @@ en:
       flagged: flagged
       
       rfps_submitted: "Total number of requests submitted: {{rfps_size}}"
-      recommendations_submitted: "Total number of recommendations submitted: {{recommendations_size}}"
+      endorsements_submitted: "Total number of endorsements submitted: {{endorsements_size}}"
       
   home:
     logo: /images/logo-rails.jpg
@@ -145,7 +145,7 @@ en:
     
     endorse: Write an endorsement
     endorsements_headline: Endorsements
-    no_recommendations: "No endorsements have been left yet. You need 3 customer endorsements in order to get ranked in the directory and to have your listing labeled &#8220;confirmed.&#8221;"
+    no_endorsements: "No endorsements have been left yet. You need 3 customer endorsements in order to get ranked in the directory and to have your listing labeled &#8220;confirmed.&#8221;"
     no_endorsement_requests: No requests for endorsement have been made.
     request_endorsement: Ask a customer for an endorsement
     sort_endorsements: Sort endorsements
@@ -159,14 +159,14 @@ en:
     add_now: You can add one now
     portfolio_items_headline: Portfolio
 
-    recommendation_headline: Satisfied customer? Endorse this developer
-    recommendation_description: "Please let us know your experience with {{company}}"
+    endorsement_headline: Satisfied customer? Endorse this developer
+    endorsement_description: "Please let us know your experience with {{company}}"
     
     add_new: Add a new developer
     edit: Edit developer
     choose_country: Choose country...
     rfps: See Requests
-    recommendations: See Recommendations
+    endorsements: See Endorsements
     back_to_provider: "&larr; Back to {{provider}}"
     delete: Delete this provider
     
@@ -198,7 +198,7 @@ en:
     min_budget: Minimum Budget
     endorsements: Endorsements
     status: Status
-    recommendations_count: Recommendations<br/><em>In case this goes out of sync</em>
+    endorsements_count: Endorsements<br/><em>In case this goes out of sync</em>
     users: Users
     terms_of_service: Terms of Use
     services: Services
@@ -400,7 +400,7 @@ en:
     service_type: Service type
     position: Position
   
-  recommendation:
+  endorsement:
     name: Your name
     sent_on: Sent on
     year_hired: Year you hired {{company}}
@@ -421,8 +421,8 @@ en:
     rejection_message: Rejection message
     approve_selected: Approve selected endorsements
     
-    no_recommendations: No recommendations have been added yet
-    saved_successfully: Recommendation saved successfully
+    no_endorsements: No endorsements have been added yet
+    saved_successfully: Endorsement saved successfully
     
     states:
       new: new
@@ -443,14 +443,18 @@ en:
     thanks: Thanks for submitting your endorsement.
 
     recipient_company_name: Recipient
-    show_recommendation: Recommendation for {{company_name}}
-    recommendations_for: Recommendations for {{company_name}}
+    show_endorsement: Endorsement for {{company_name}}
+    endorsements_for: Endorsements for {{company_name}}
 
     endorsements_for: Endorsements for {{company}}
     
     at: at
     hired: Hired
     in: in
+    
+    validations:
+      use_the_key: Please follow the URL you received in the endorsement request email to add an endorsement.
+      use_the_recipient_email: Please enter the email address that received the request.
     
   request:
     headline: Requests for Proposals
@@ -497,7 +501,7 @@ en:
     item: Item
     rfps: Requests
     requests: Requests (eg. requestss to providers)
-    recommendations: Endorsements
+    endorsements: Endorsements
     providers: Providers
     
   csvs:

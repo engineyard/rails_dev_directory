@@ -21,7 +21,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resource :home, :controller => 'home'
   map.resource :provider_directory, :as => :developer_directory, :controller => "provider_directory"
   map.resources :providers, :as => :developers, :shallow => true, :collection => {:search => :get, :by_location => :get} do |provider|
-    provider.resources :recommendations
+    provider.resources :endorsements
     provider.resources :portfolio_items
   end  
   map.resources :rfps
@@ -35,7 +35,7 @@ ActionController::Routing::Routes.draw do |map|
     me.resources :portfolio_items
     me.resources :endorsement_requests
     me.resources :users
-    me.resources :recommendations, :collection => {:sort => :put, :update_all => :put}
+    me.resources :endorsements, :collection => {:sort => :put, :update_all => :put}
     me.resources :requests
   end
   
@@ -48,12 +48,12 @@ ActionController::Routing::Routes.draw do |map|
     admin.resources :users, :member => [:take_control, :resend_welcome]
     admin.resources :portfolio_items
     admin.resources :rfps
-    admin.resources :recommendations
+    admin.resources :endorsements
     admin.resources :providers do |provider|
       provider.resources :users
       provider.resources :portfolio_items
       provider.resources :requests
-      provider.resources :recommendations
+      provider.resources :endorsements
     end
     admin.resources :pages
     admin.resource :csv

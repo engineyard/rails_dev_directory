@@ -1,51 +1,51 @@
 <div class="dashboard">
-  <h3><%= t('recommendation.show_recommendation', :company_name => @provider.company_name) %></h3>
+  <h3><%= t('endorsement.show_endorsement', :company_name => @provider.company_name) %></h3>
 
   <div class="wideForm">
-  <%- if ["new", "rejected"].include?(@recommendation.state) -%>
-    <%- form_for [:my, @recommendation] do |f| -%>
+  <%- if ["new", "rejected"].include?(@endorsement.state) -%>
+    <%- form_for [:my, @endorsement] do |f| -%>
         <%= hidden_field_tag "state", "approved" %>
-        <%= f.submit t('recommendation.approve') %>
-        <%= t('forms.or') if @recommendation.state == 'new' %> 
+        <%= f.submit t('endorsement.approve') %>
+        <%= t('forms.or') if @endorsement.state == 'new' %> 
     <% end -%>
   <%- end -%>
   
-  <%- if ["new", "approved"].include?(@recommendation.state) -%>
-    <%- form_for [:my, @recommendation] do |f| -%>
+  <%- if ["new", "approved"].include?(@endorsement.state) -%>
+    <%- form_for [:my, @endorsement] do |f| -%>
 
       <%= hidden_field_tag "state", "rejected" %>
-      <%= f.submit t('recommendation.reject') %>
+      <%= f.submit t('endorsement.reject') %>
 
     <% end -%>
   <%- end -%>
   </div>
   
-  <!-- <%= t("recommendation.states.#{@recommendation.aasm_state}") %> -->
+  <!-- <%= t("endorsement.states.#{@endorsement.aasm_state}") %> -->
   <div class="block">
     <div class="column">
-      <h4><%= t("recommendation.admin.name") %></h4>
-      <p><%= @recommendation.name %></p>
+      <h4><%= t("endorsement.admin.name") %></h4>
+      <p><%= @endorsement.name %></p>
 
-      <h4><%= t("recommendation.admin.email") %></h4>
-      <p><%= mail_to @recommendation.email, @recommendation.email %></p>
+      <h4><%= t("endorsement.admin.email") %></h4>
+      <p><%= mail_to @endorsement.email, @endorsement.email %></p>
 
-      <h4><%= t("recommendation.admin.position") %></h4>
-      <p><%= @recommendation.position %></p>
+      <h4><%= t("endorsement.admin.position") %></h4>
+      <p><%= @endorsement.position %></p>
     </div>
     <div class="column">
 
-      <h4><%= t("recommendation.admin.company") %></h4>
-      <p><%= @recommendation.company %></p>
+      <h4><%= t("endorsement.admin.company") %></h4>
+      <p><%= @endorsement.company %></p>
 
-      <h4><%= t("recommendation.admin.url") %></h4>
-      <p><%= link_to @recommendation.url, @recommendation.url %></p>
+      <h4><%= t("endorsement.admin.url") %></h4>
+      <p><%= link_to @endorsement.url, @endorsement.url %></p>
 
-      <h4><%= t("recommendation.admin.year_hired") %></h4>
-      <p><%= @recommendation.year_hired %></p>
+      <h4><%= t("endorsement.admin.year_hired") %></h4>
+      <p><%= @endorsement.year_hired %></p>
     </div>
     
-    <h4><%= t("recommendation.admin.endorsement") %></h4>
-    <p>&#8220;<%= @recommendation.endorsement %>&#8221;</p>
+    <h4><%= t("endorsement.admin.endorsement") %></h4>
+    <p>&#8220;<%= @endorsement.endorsement %>&#8221;</p>
     
   </div>
 </div>

@@ -1,57 +1,37 @@
-# given a provider "horace" with a new recommendation from "adrian"
-# given a provider "horace" with an approved recommendation from "adrian"
-# given a provider "horace" with a rejected recommendation from "adrian"
+# given a provider "horace" with a new endorsement from "adrian"
+# given a provider "horace" with an approved endorsement from "adrian"
+# given a provider "horace" with a rejected endorsement from "adrian"
 
-# given "horace" as a new recommendation from "adrian"
-# given "horace" as an approved recommendation from "adrian"
-# given "horace" as a rejected recommendation from "adrian"
+# given "horace" as a new endorsement from "adrian"
+# given "horace" as an approved endorsement from "adrian"
+# given "horace" as a rejected endorsement from "adrian"
 
-# given "horace" as a new recommendation "crappy service" "3.days.ago"
-# given "horace" as an approved recommendation "crappy service" "3.days.ago"
-# given "horace" as a rejected recommendation "crappy service" "3.days.ago"
+# given "horace" as a new endorsement "crappy service" "3.days.ago"
+# given "horace" as an approved endorsement "crappy service" "3.days.ago"
+# given "horace" as a rejected endorsement "crappy service" "3.days.ago"
 
 
-Given /^a provider "([^\"]*)" with a new recommendation from "([^\"]*)"$/ do |provider_name, the_name_of_the_guy_that_left_the_recommendation|
-  recommendation = Factory.build(:recommendation, :aasm_state => 'new', :name => the_name_of_the_guy_that_left_the_recommendation, :provider => Factory.create(:provider, :company_name => provider_name))
-  recommendation.save!
+Given /^a provider "([^\"]*)" with an? (new|approved|rejected) endorsement from "([^\"]*)"$/ do |provider_name, endorsement_state, endorser_name|
+  provider = Provider.make(:company_name => provider_name)
+  Endorsement.make(:aasm_state => endorsement_state, :provider => provider, :name => endorser_name)
 end
 
-Given /^a provider "([^\"]*)" with an approved recommendation from "([^\"]*)"$/ do |provider_name, the_name_of_the_guy_that_left_the_recommendation|
-  recommendation = Factory.build(:recommendation, :aasm_state => 'approved', :name => the_name_of_the_guy_that_left_the_recommendation, :provider => Factory.create(:provider, :company_name => provider_name))
-  recommendation.save!
-end
-
-Given /^a provider "([^\"]*)" with a rejected recommendation from "([^\"]*)"$/ do |provider_name, the_name_of_the_guy_that_left_the_recommendation|
-  recommendation = Factory.build(:recommendation, :aasm_state => 'rejected', :name => the_name_of_the_guy_that_left_the_recommendation, :provider => Factory.create(:provider, :company_name => provider_name))
-  recommendation.save!
-end
-
-Given /^"([^\"]*)" has a new recommendation from "([^\"]*)"$/ do |provider_name, the_name_of_the_guy_that_left_the_recommendation|
+Given /^"([^\"]*)" has an? (new|approved|rejected) endorsement from "([^\"]*)"$/ do |provider_name, endorsement_state, endorser_name|
   provider = Provider.find_by_company_name(provider_name)
-  provider.recommendations << Factory.create(:recommendation, :aasm_state => 'new', :name => the_name_of_the_guy_that_left_the_recommendation, :provider => provider)
+  Endorsement.make(:aasm_state => endorsement_state, :provider => provider, :name => endorser_name)
 end
 
-Given /^"([^\"]*)" has a approved recommendation from "([^\"]*)"$/ do |provider_name, the_name_of_the_guy_that_left_the_recommendation|
+Given /^"([^\"]*)" has an? (new|approved|rejected) endorsement "([^\"]*)" "([^\"]*)"$/ do |provider_name, endorsement_state, endorsement, time|
   provider = Provider.find_by_company_name(provider_name)
-  provider.recommendations << Factory.create(:recommendation, :aasm_state => 'approved', :name => the_name_of_the_guy_that_left_the_recommendation, :provider => provider)
+  Endorsement.make(:aasm_state => endorsement_state, :provider => provider, :endorsement => endorsement, :created_at => eval(time))
 end
 
-Given /^"([^\"]*)" has a rejected recommendation from "([^\"]*)"$/ do |provider_name, the_name_of_the_guy_that_left_the_recommendation|
+Given /^"([^\"]*)" have requested "([^\"]*)" submit an endorsement$/ do |provider_name, endorser_email|
   provider = Provider.find_by_company_name(provider_name)
-  provider.recommendations << Factory.create(:recommendation, :aasm_state => 'rejected', :name => the_name_of_the_guy_that_left_the_recommendation, :provider => provider)
+  EndorsementRequest.make(:provider => provider, :recipient_addresses => endorser_email)
 end
 
-Given /^"([^\"]*)" has a new recommendation "([^\"]*)" "([^\"]*)"$/ do |provider_name, recommendation, time|
-  provider = Provider.find_by_company_name(provider_name)
-  provider.recommendations << Factory.create(:recommendation, :aasm_state => 'new', :endorsement => recommendation, :created_at => eval(time), :provider => provider)
-end
-
-Given /^"([^\"]*)" has an approved recommendation "([^\"]*)" "([^\"]*)"$/ do |provider_name, recommendation, time|
-  provider = Provider.find_by_company_name(provider_name)
-  provider.recommendations << Factory.create(:recommendation, :aasm_state => 'approved', :endorsement => recommendation, :created_at => eval(time), :provider => provider)
-end
-
-Given /^"([^\"]*)" has a rejected recommendation "([^\"]*)" "([^\"]*)"$/ do |provider_name, recommendation, time|
-  provider = Provider.find_by_company_name(provider_name)
-  provider.recommendations << Factory.create(:recommendation, :aasm_state => 'rejected', :endorsement => recommendation, :created_at => eval(time), :provider => provider)
+When /^"([^\"]*)" follows the emailed endorsement link$/ do |endorser_email|
+  open_email(endorser_email)
+  click_first_link_in_email
 end
