@@ -1,48 +1,48 @@
-class My::RecommendationsController < ApplicationController
+class My::EndorsementsController < ApplicationController
   
   before_filter :require_user
   
   def index
     @provider = current_user.provider
     @endorsement_requests = @provider.endorsement_requests.all
-    @recommendations = @provider.recommendations
+    @endorsements = @provider.endorsements
   end
   
   def sort
-    params[:recommendation].each_with_index do |recommendation_id, index|
-      current_user.provider.recommendations.find(recommendation_id).update_attribute(:sort_order, index)
+    params[:endorsement].each_with_index do |endorsement_id, index|
+      current_user.provider.endorsements.find(endorsement_id).update_attribute(:sort_order, index)
     end
     index
     respond_to do |wants|
-      wants.js { render :partial => 'recommendation', :collection => @recommendations }
+      wants.js { render :partial => 'endorsement', :collection => @endorsements }
     end
   end
 
   def show
     @provider = current_user.provider
-    @recommendation = Recommendation.find(params[:id])
+    @endorsement = Endorsement.find(params[:id])
   end
   
   def update
-    @recommendation = current_user.provider.recommendations.find(params[:id])
+    @endorsement = current_user.provider.endorsements.find(params[:id])
     @provider = current_user.provider
     
-    @recommendation.aasm_state = params[:state]
-    if @recommendation.save
-      flash[:notice] = t('recommendation.saved_successfully')
+    @endorsement.aasm_state = params[:state]
+    if @endorsement.save
+      flash[:notice] = t('endorsement.saved_successfully')
     end
-    redirect_to [:my, @recommendation]
+    redirect_to [:my, @endorsement]
   end
   
   def update_all
-    @recommendations = current_user.provider.recommendations.find(params[:recommendation_ids])
-    @recommendations.each do |recommendation|
-      if params[:recommendations][recommendation.id.to_s] and params[:recommendations][recommendation.id.to_s][:approved]
-        recommendation.approve!
+    @endorsements = current_user.provider.endorsements.find(params[:endorsement_ids])
+    @endorsements.each do |endorsement|
+      if params[:endorsements][endorsement.id.to_s] and params[:endorsements][endorsement.id.to_s][:approved]
+        endorsement.approve!
       else
-        recommendation.reject!
+        endorsement.reject!
       end
     end
-    redirect_to my_recommendations_path
+    redirect_to my_endorsements_path
   end
 end

@@ -1,11 +1,11 @@
 <%- if @provider.nil? -%>
-  <h2><%= t('navigation.recommendations') %></h2>
+  <h2><%= t('navigation.endorsements') %></h2>
 <%- else -%>
-  <h2><%= t('recommendation.recommendations_for', :company_name => @provider.company_name) %></h2>
+  <h2><%= t('endorsement.endorsements_for', :company_name => @provider.company_name) %></h2>
 <%- end -%>
 
-<%- if @recommendations.empty? -%>
-  <p><%= t('recommendation.no_recommendations') %></p>
+<%- if @endorsements.empty? -%>
+  <p><%= t('endorsement.no_endorsements') %></p>
 <%- else -%>
   <table>
     <tr>
@@ -16,13 +16,13 @@
       <th>&nbsp;</th>
     </tr>
 
-    <%- @recommendations.each do |recommendation| -%>
+    <%- @endorsements.each do |endorsement| -%>
     <tr>
-      <td><%= link_to recommendation.name, [:admin, recommendation] %></td>
-      <td><%= recommendation.created_at_formatted %></td>
-      <td><%= recommendation.provider.company_name if recommendation.provider %></td>
-      <td><%= t("recommendation.states.#{recommendation.state}") -%></td>
-      <td><%= link_to t('general.show'), [:admin, recommendation] %></td>
+      <td><%= link_to endorsement.name, [:admin, endorsement] %></td>
+      <td><%= endorsement.created_at_formatted %></td>
+      <td><%= endorsement.provider.company_name if endorsement.provider %></td>
+      <td><%= t("endorsement.states.#{endorsement.state}") -%></td>
+      <td><%= link_to t('general.show'), [:admin, endorsement] %></td>
     </tr>
     <%- end -%>
   
