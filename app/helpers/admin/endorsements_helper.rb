@@ -1,2 +1,2 @@
-module Admin::EndorsementsHelper
+module Admin::RecommendationsHelper
 end
