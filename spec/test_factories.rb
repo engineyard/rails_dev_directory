@@ -52,7 +52,7 @@ end
 
 Factory.define :test_endorsement_request, :class => EndorsementRequest do |endorsement_request|
   endorsement_request.message "Hold yer horses, big shot."
-  endorsement_request.recipients "Kate Rusby <krusby@yorkshire.co.uk"
+  endorsement_request.endorser_addresses "Kate Rusby <krusby@yorkshire.co.uk"
 
   endorsement_request.association :provider, :factory => :test_provider
 end
@@ -63,7 +63,7 @@ Factory.define :test_endorsement, :class => Endorsement do |endorsement|
   endorsement.year_hired "2007"
   endorsement.position "Grand Pooh-bah"
   endorsement.email "btflanagan@gmail.com"
-  endorsement.endorsement "A++++!! Would use again!"
+  endorsement.message "A++++!! Would use again!"
   endorsement.url "http://www.brianflanagan.org"
 end
 

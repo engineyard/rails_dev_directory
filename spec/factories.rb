@@ -81,7 +81,7 @@ Factory.define(:endorsement) do |r|
   r.year_hired "2008"
   r.company "Johnso"
   r.url "jobso.com"
-  r.endorsement "Neat"
+  r.message "Neat"
 end
 
 Factory.define :portfolio_item do |portfolio_item|

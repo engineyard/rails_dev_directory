@@ -2,7 +2,7 @@ class Endorsement < ActiveRecord::Base
   include AASM
   
   validates_presence_of :name, :year_hired, :position, :company, :email, :url,
-                        :endorsement, :endorsement_request_recipient_id
+                        :endorsement, :endorser_id
   validate_on_create :endorser_email_matches_email_recipient
   
   aasm_initial_state :new
@@ -24,7 +24,7 @@ class Endorsement < ActiveRecord::Base
   format_dates :timestamps
   
   belongs_to :provider
-  belongs_to :endorsement_request_recipient
+  belongs_to :endorser
   
   after_save :activate_provider
   after_save :update_provider_counter_cache
@@ -48,9 +48,9 @@ class Endorsement < ActiveRecord::Base
   
 private
   def endorser_email_matches_email_recipient
-    parsed_email = TMail::Address.parse(endorsement_request_recipient.email).address rescue ''
+    parsed_email = TMail::Address.parse(endorser.email).address rescue ''
     if parsed_email != self.email
-      errors.add(:email, I18n.t('endorsement.validations.use_the_recipient_email'))
+      errors.add(:email, I18n.t('endorsement.validations.use_the_endorser_email'))
     end
   end
 

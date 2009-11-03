@@ -1,4 +1,4 @@
-class EndorsementRequestRecipient < ActiveRecord::Base
+class Endorser < ActiveRecord::Base
   validates_presence_of :email
   validate_on_create :valid_email_address
   
@@ -21,9 +21,9 @@ class EndorsementRequestRecipient < ActiveRecord::Base
   def valid_email_address
     begin
       parsed_address = TMail::Address.parse(self.email)
-      errors.add(:email, I18n.t('endorsement_request_recipient.validations.invalid_email') ) unless parsed_address.address =~ /^[^@]*@[^\.]*\..*$/
+      errors.add(:email, I18n.t('endorser.validations.invalid_email') ) unless parsed_address.address =~ /^[^@]*@[^\.]*\..*$/
     rescue TMail::SyntaxError
-      errors.add(:email, I18n.t('endorsement_request_recipient.validations.invalid_email') )
+      errors.add(:email, I18n.t('endorser.validations.invalid_email') )
     end
   end
   

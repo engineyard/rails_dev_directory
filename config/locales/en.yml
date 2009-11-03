@@ -303,10 +303,10 @@ en:
 
   endorsement_request:
     headline: Endorsement Requests
-    recipients: Recipients
+    endorsers: Recipients
     validations:
-      too_many_recipients: Should contain ten or fewer email addresses
-      invalid_recipients: Should contain a list of email addresses separated by commas
+      too_many_endorsers: Should contain ten or fewer email addresses
+      invalid_endorsers: Should contain a list of email addresses separated by commas
     subject: Subject
     email_addresses: Email Addresses
     email_note: You can add up to 10 at a time (separated by commas).
@@ -467,7 +467,7 @@ en:
     deleted_successfully: Endorsement deleted successfully
     thanks: Thanks for submitting your endorsement.
 
-    recipient_company_name: Recipient
+    endorser_company_name: Recipient
     show_endorsement: Endorsement for {{company_name}}
     endorsements_for: Endorsements for {{company_name}}
 
@@ -479,7 +479,7 @@ en:
     
     validations:
       use_the_key: Please follow the URL you received in the endorsement request email to add an endorsement.
-      use_the_recipient_email: Please enter the email address that received the request.
+      use_the_endorser_email: Please enter the email address that received the request.
       before_provider_joined: Should be after the developer registered with us.
     
   request:

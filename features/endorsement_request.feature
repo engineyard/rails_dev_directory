@@ -8,7 +8,7 @@ Feature: Request an Endorsement
       And I log in as "Olenska@chicka.net" with password "testtest"
       Then I should see "Ask a customer for an endorsement"
     When I follow "Ask a customer for an endorsement"
-      And I fill in "endorsement_request[recipient_addresses]" with "Brian Flanagan <btflanagan@gmail.com>, Walter Sobchak <wsobchak@sobchaksecurity.us>, Ezra Gustafson <ezra.gustafson@gmail.com>"
+      And I fill in "endorsement_request[endorser_addresses]" with "Brian Flanagan <btflanagan@gmail.com>, Walter Sobchak <wsobchak@sobchaksecurity.us>, Ezra Gustafson <ezra.gustafson@gmail.com>"
       And I fill in "endorsement_request[message]" with "Hi Friends and Loved Ones!"
       And I press "endorsement_request_submit"
     Then I should see "Your request has been sent to the following recipients:"

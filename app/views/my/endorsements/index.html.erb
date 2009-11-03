@@ -43,14 +43,14 @@
   <%- else -%>
     <table class="endorsements">
       <tr>
-        <th><%= t('endorsement_request.recipients') %></th>
+        <th><%= t('endorsement_request.endorsers') %></th>
         <th><%= t('endorsement_request.message') %></th>
       </tr>
     <% @endorsement_requests.each do |endorsement| %>
     <tr>
       <td>
-      <% endorsement.recipients.each do |recipient| -%>
-        <%=h recipient.email %><br />
+      <% endorsement.endorsers.each do |endorser| -%>
+        <%=h endorser.email %><br />
       <% end -%>
       </td>
       <td><%= endorsement.message %></td>

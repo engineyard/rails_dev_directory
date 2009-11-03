@@ -7,13 +7,13 @@ class Notification < ActionMailer::Base
     body :request => request
   end
 
-  def endorsement_request(endorsement_request, recipient)
+  def endorsement_request(endorsement_request, endorser)
     setup_email
     from "#{endorsement_request.provider.company_name} <sso@engineyard.com>"
     reply_to endorsement_request.provider.email
     subject t('email.endorsement_request.subject', :company_name => endorsement_request.provider.company_name)
-    recipients recipient.email
-    body :message => endorsement_request.message, :provider => endorsement_request.provider, :recipient => recipient
+    recipients endorser.email
+    body :message => endorsement_request.message, :provider => endorsement_request.provider, :endorser => endorser
   end
   
   def endorsement_notification(endorsement)

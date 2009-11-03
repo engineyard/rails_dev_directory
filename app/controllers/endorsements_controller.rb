@@ -1,7 +1,7 @@
 class EndorsementsController < ApplicationController
   
   before_filter :find_provider
-  before_filter :validate_recipient, :only => [:new, :create]
+  before_filter :validate_endorser, :only => [:new, :create]
   
   def index
     @endorsements = @provider.endorsements.approved.paginate(:page => params[:page])
@@ -29,9 +29,9 @@ class EndorsementsController < ApplicationController
     @provider = Provider.find(params[:provider_id])
   end
   
-  def validate_recipient
-    @recipient = EndorsementRequestRecipient.find_by_validation_token(params[:key])
-    unless @recipient and @recipient.endorsement_request.provider.slug == params[:provider_id]
+  def validate_endorser
+    @endorser = Endorser.find_by_validation_token(params[:key])
+    unless @endorser and @endorser.endorsement_request.provider.slug == params[:provider_id]
       flash[:error] = I18n.t('endorsement.validations.use_the_key')
       redirect_to @provider
     end

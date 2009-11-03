@@ -13,12 +13,12 @@ describe EndorsementRequest do
   end
   
   it "should accept emails as a string and convert them to an array" do
-    @endorsement_request.recipients = @valid_emails
+    @endorsement_request.endorsers = @valid_emails
     @endorsement_request.emails.should == ["paul@rslw.com", "btflanagan@gmail.com", "trice@ibma.org"]
   end
 
   it "should accept complex emails as a string and convert them to an array" do
-    @endorsement_request.recipients = @complex_emails
+    @endorsement_request.endorsers = @complex_emails
     @endorsement_request.emails.should == ["Paul Campbell <paul@rslw.com>", "btflanagan@gmail.com", "Tony Rice <trice@ibma.org>"]
   end
   
@@ -27,27 +27,27 @@ describe EndorsementRequest do
   end
   
   it "should be valid with valid emails" do
-    @endorsement_request.recipients = @valid_emails
+    @endorsement_request.endorsers = @valid_emails
     @endorsement_request.should be_valid
   end
 
   it "should be valid with valid complex emails" do
-    @endorsement_request.recipients = @complex_emails
+    @endorsement_request.endorsers = @complex_emails
     @endorsement_request.should be_valid
   end
 
   it "should be invalid with greater than ten valid emails" do
-    @endorsement_request.recipients = @too_many_emails
+    @endorsement_request.endorsers = @too_many_emails
     @endorsement_request.should_not be_valid
   end
   
   it "should be invalid with invalid emails" do
-    @endorsement_request.recipients = "paul, brian"
+    @endorsement_request.endorsers = "paul, brian"
     @endorsement_request.should_not be_valid
   end
 
   it "should be invalid with some invalid emails" do
-    @endorsement_request.recipients = "paul, brian@gmail.com"
+    @endorsement_request.endorsers = "paul, brian@gmail.com"
     @endorsement_request.should_not be_valid
   end
   
@@ -55,7 +55,7 @@ describe EndorsementRequest do
     Notification.should_receive(:deliver_endorsement_request).with(@endorsement_request, "paul@rslw.com")
     Notification.should_receive(:deliver_endorsement_request).with(@endorsement_request, "btflanagan@gmail.com")
     Notification.should_receive(:deliver_endorsement_request).with(@endorsement_request, "trice@ibma.org")
-    @endorsement_request.recipients = @valid_emails
+    @endorsement_request.endorsers = @valid_emails
     @endorsement_request.save!
   end
 
@@ -63,7 +63,7 @@ describe EndorsementRequest do
     Notification.should_receive(:deliver_endorsement_request).with(@endorsement_request, "Paul Campbell <paul@rslw.com>")
     Notification.should_receive(:deliver_endorsement_request).with(@endorsement_request, "btflanagan@gmail.com")
     Notification.should_receive(:deliver_endorsement_request).with(@endorsement_request, "Tony Rice <trice@ibma.org>")
-    @endorsement_request.recipients = @complex_emails
+    @endorsement_request.endorsers = @complex_emails
     @endorsement_request.save!
   end
 end

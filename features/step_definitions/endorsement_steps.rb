@@ -28,7 +28,7 @@ end
 
 Given /^"([^\"]*)" have requested "([^\"]*)" submit an endorsement$/ do |provider_name, endorser_email|
   provider = Provider.find_by_company_name(provider_name)
-  EndorsementRequest.make(:provider => provider, :recipient_addresses => endorser_email)
+  EndorsementRequest.make(:provider => provider, :endorser_addresses => endorser_email)
 end
 
 When /^"([^\"]*)" follows the emailed endorsement link$/ do |endorser_email|
