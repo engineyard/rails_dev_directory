@@ -41,4 +41,5 @@ class Admin::PagesController < ApplicationController
     flash[:notice] = t('page.deleted_successfully')
     redirect_to admin_pages_path
   end
+
 end
