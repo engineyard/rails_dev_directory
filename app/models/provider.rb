@@ -34,6 +34,7 @@ class Provider < ActiveRecord::Base
   has_many :endorsements, :order => "sort_order asc"
   has_many :endorsement_requests
   has_many :portfolio_items, :order => "year_completed desc"
+  has_many :quiz_results, :order => 'created_at desc'
   
   has_many :provided_services, :dependent => :destroy do
     def for_service(service)
@@ -185,8 +186,8 @@ class Provider < ActiveRecord::Base
     "%.2f" % min_budget
   end
 
-  def check_endorsements_and_activate
-    activate! if endorsements.approved.size >= 3
+  def check_quiz_scores_and_activate
+    activate! if quizzes.passed.any?
   end
 
   def has_enough_portfolio_items?

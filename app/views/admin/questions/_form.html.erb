@@ -11,7 +11,7 @@
 
     <%- index = 1 -%>
     <%- f.fields_for :answers do |a| -%>
-      <%= a.label :text, "Answer #{index}" %> <br/>
+      <%= a.label :text, "Answer #{index}" %>
       <%= a.text_area :text %> <br/>
       <%= a.label :correct, "Answer #{index} is correct" %> <%= a.check_box :correct %> <br/>
       <%- index += 1 -%>

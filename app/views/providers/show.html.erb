@@ -140,4 +140,13 @@
   <%- else -%>
     <%= link_to t('provider.endorse'), new_provider_endorsement_path(@provider) %>
   <%- end -%>
+  
+  <h3><%= t('provider.quiz_results_headline') %></h3>
+  
+  <%- if @provider.quiz_results.passed.empty? -%>
+    <p><%= t('provider.no_quiz_passes') %></p>
+  <%- end -%>
+  <%- if logged_in? and current_user.provider == @provider -%>
+    <%= link_to t('quiz.take_quiz'), new_my_quiz_result_path %>
+  <%- end -%>
 </div>

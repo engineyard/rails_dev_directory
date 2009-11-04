@@ -60,3 +60,11 @@ end
 Quiz.blueprint do
   name
 end
+
+Question.blueprint do
+  text { Sham.content }
+end
+
+Answer.blueprint do
+  text { Sham.content }
+end

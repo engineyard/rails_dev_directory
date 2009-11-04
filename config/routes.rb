@@ -37,6 +37,8 @@ ActionController::Routing::Routes.draw do |map|
     me.resources :users
     me.resources :endorsements, :collection => {:sort => :put, :update_all => :put}
     me.resources :requests
+    me.resources :quiz_results
+    me.resources :quiz_result_answers, :as => :answers
   end
   
   # Admin routes

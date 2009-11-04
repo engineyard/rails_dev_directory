@@ -34,8 +34,9 @@ Given /^a user "([^\"]*)" belonging to the "([^\"]*)" provider$/ do |username, p
   user.save!
 end
 
-Given /^a provider "([^\"]*)" belonging to "([^\"]*)"$/ do |provider, email|
+Given /^a(?:n (active|inactive))? provider "([^\"]*)" belonging to "([^\"]*)"$/ do |state, provider, email|
   provider = Factory.create(:provider, :company_name => provider)
+  provider.update_attribute(:aasm_state, state) if state
   user = Factory.create(:user, :email => email)
   provider.update_attribute(:user, user)
   user.update_attribute(:provider, provider)
@@ -63,4 +64,9 @@ Given /^"([^\"]*)" is based in "([^\"]*)"$/ do |company_name, location|
   Provider.find_by_company_name(company_name).update_attributes(
     :state_province => location == "nowhere" ? "" : location.split(',').first.strip,
     :country => location == "nowhere" ? "" : location.split(',').last.strip)
+end
+
+Then /^the provider "([^\"]*)" should be (active|inactive)$/ do |provider_name, state|
+  provider = Provider.find_by_company_name(provider_name)
+  provider.aasm_state.should eql(state)
 end

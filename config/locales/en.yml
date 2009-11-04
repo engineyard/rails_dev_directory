@@ -154,14 +154,17 @@ en:
     
     endorse: Write an endorsement
     endorsements_headline: Endorsements
-    no_endorsements: "No endorsements have been left yet. You need 3 customer endorsements in order to get ranked in the directory and to have your listing labeled &#8220;confirmed.&#8221;"
+    no_endorsements: No endorsements have been left yet.
     no_endorsement_requests: No requests for endorsement have been made.
     request_endorsement: Ask a customer for an endorsement
     sort_endorsements: Sort endorsements
     done_sorting: Done Sorting
     more_endorsements: "Read all endorsements"
     confirmed: Confirmed
-    confirmed_explanation: "Confirmed means that these companies have verified the accuracy of their information in the directory, and had at least three customers endorse their work."
+    confirmed_explanation: "Confirmed means that these companies have verified the accuracy of their information in the directory, and has passed at least one quiz."
+    
+    quiz_results_headline: Quiz results
+    no_quiz_passes: No quizzes have been passed yet. You need to pass at least one quiz to have your listing marked as confirmed.
     
     portfolio_items: Portfolio items
     no_portfolio_items: No portfolio items have been added to this developer profile yet.
@@ -595,6 +598,7 @@ en:
     saved_successfully: Quiz saved
     manage: Manage Quizzes
     no_quizzes: No Quizzes have been added yet.
+    take_quiz: Take a Quiz.
 
   question:
     edit: Edit Question
@@ -605,3 +609,13 @@ en:
     text: Question
     saved_successfully: Question saved
     no_correct_answer: No answer marked as correct
+  
+  quiz_result:
+    next: Next
+    quiz: Quiz
+    passed: You have passed the quiz.
+    failed: You have failed the quiz.
+    try_again: Try again.
+
+  quiz_result_answer:
+    no_answer: Please answer the question.

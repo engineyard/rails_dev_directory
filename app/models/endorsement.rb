@@ -26,7 +26,6 @@ class Endorsement < ActiveRecord::Base
   belongs_to :provider
   belongs_to :endorser
   
-  after_save :activate_provider
   after_save :update_provider_counter_cache
   after_create :deliver_notification
   after_destroy :update_provider_counter_cache
@@ -34,10 +33,6 @@ class Endorsement < ActiveRecord::Base
   named_scope :recent, :order => "created_at desc", :limit => 3
   named_scope :approved, :conditions => {:aasm_state => 'approved'}
 
-  def activate_provider
-    provider.check_endorsements_and_activate if provider and provider.status == 'inactive'
-  end
-  
   def update_provider_counter_cache
     self.provider.update_attribute(:endorsements_count, provider.endorsements.approved.count) if provider
   end
