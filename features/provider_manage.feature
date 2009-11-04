@@ -37,3 +37,8 @@ So that I can make sure my profile is accurate and up-to-date
       And I should see "Ruby"
       And I should see "Intermediate"
       And I should not see "Python"
+    When I follow "Edit company profile"
+    Then the "Ruby" checkbox should be checked
+      And the "Programming Languages Ruby Intermediate" checkbox should be checked
+      And the "Python" checkbox should not be checked
+      

@@ -42,9 +42,10 @@
               # offering the reverse of the _delete behaviour,
               # in order to avoid having to delve around in params manually here.
               checked = begin
-                params[:provider][:provided_services_attributes].find { |k, v|
-                  v[:service_id] == service.service_id.to_s
-                }[1][:_delete] == 'false'
+                ps.object.not.new_record? or
+                  params[:provider][:provided_services_attributes].find { |k, v|
+                    v[:service_id] == service.service_id.to_s
+                  }[1][:_delete] == 'false'
               rescue
                 false
               end
