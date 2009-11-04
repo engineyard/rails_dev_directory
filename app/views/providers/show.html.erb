@@ -44,7 +44,7 @@
     <dl>
       <%- if @provider.hourly_rate > 0 -%>
       <dt><%= t('provider.hourly_rate') %></dt>
-      <dd><%= @provider.hourly_rate %></dd>
+      <dd>&#36;<%= @provider.hourly_rate_formatted %></dd>
       <%- end -%>
       <%- if @provider.min_hours -%>
       <dt><%= t('provider.min_hours') %></dt>
