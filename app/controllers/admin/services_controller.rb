@@ -41,7 +41,7 @@ class Admin::ServicesController < ApplicationController
   
   def sort
     Service.order(params[:service])
-    index
+    @services = Service.ordered.find(params[:service])
     respond_to do |wants|
       wants.js { render :partial => 'service', :collection => @services }
     end
