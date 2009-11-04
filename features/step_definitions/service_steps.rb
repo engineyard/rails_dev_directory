@@ -1,5 +1,5 @@
 Given /^primary services "([^\"]*)"$/ do |types|
-  types = types.split(',')
+  types = types.split(',').map(&:strip)
   types.each do |type|
     Service.create!(:name => type)
   end

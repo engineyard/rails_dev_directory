@@ -78,10 +78,10 @@ class Provider < ActiveRecord::Base
     group = nil
 
     if params[:service_ids].not.blank? and params[:service_ids].is_a?(Array)
-      joins = :provided_services
-      conditions[0] << " and provided_services.service_id IN (?)"
-      conditions << params[:service_ids].collect { |t| t.to_i }
-      group = "provider_id"
+      params[:service_ids].each do |id|
+        conditions[0] << " and EXISTS (select * from provided_services where service_id = ? and provider_id = providers.id)"
+        conditions << id.to_i
+      end
     end
     
     if params[:location].not.blank?
