@@ -226,7 +226,7 @@ describe Provider, "receiving email on signup" do
     @provider.should be_valid
     
     Notification.should_not_receive(:create_user_welcome)
-    Notification.should_receive(:create_provider_welcome)
+    Notification.should_receive(:deliver_provider_welcome)
     
     @provider.save
   end
