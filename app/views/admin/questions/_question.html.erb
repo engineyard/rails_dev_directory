@@ -1,0 +1,7 @@
+<tr>
+  <td><%= question.text %></td>
+  <td>
+    <%= link_to t('general.edit'), edit_admin_question_path(question) %>
+    <%= link_to t('general.delete'), [:admin, question], :method => :delete, :confirm => "Are you sure?" %>
+  </td>
+</tr>

@@ -9,7 +9,15 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20091103135702) do
+ActiveRecord::Schema.define(:version => 20091103144906) do
+
+  create_table "answers", :force => true do |t|
+    t.integer  "question_id"
+    t.string   "text"
+    t.boolean  "correct"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "audits", :force => true do |t|
     t.string   "auditable_type"
@@ -118,6 +126,19 @@ ActiveRecord::Schema.define(:version => 20091103135702) do
   end
 
   add_index "providers", ["slug"], :name => "index_providers_on_slug"
+
+  create_table "questions", :force => true do |t|
+    t.integer  "quiz_id"
+    t.text     "text"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "quizzes", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "requested_services", :force => true do |t|
     t.integer  "rfp_id"

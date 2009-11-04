@@ -50,6 +50,10 @@ ActionController::Routing::Routes.draw do |map|
     admin.resources :portfolio_items
     admin.resources :rfps
     admin.resources :endorsements
+    admin.resources :quizzes
+    admin.resources :questions do |questions|
+      questions.resources :answers
+    end
     admin.resources :providers do |provider|
       provider.resources :users
       provider.resources :portfolio_items

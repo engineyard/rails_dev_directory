@@ -47,6 +47,7 @@ en:
     admin: Admin
     pages: Pages
     csvs: CSV exports
+    quizzes: Quizzes
     
     #admin
     general_admin: General
@@ -586,3 +587,21 @@ en:
       greeting: Hi {{name}},
       instructions: You can reset your password using the link below
       signoff: "Regards, The Engine Yard Team"
+
+  quiz:
+    name: Name
+    add_new: Add a new Quiz
+    deleted_successfully: Quiz deleted
+    saved_successfully: Quiz saved
+    manage: Manage Quizzes
+    no_quizzes: No Quizzes have been added yet.
+
+  question:
+    edit: Edit Question
+    manage: Manage Questions
+    quiz: Quiz
+    add_new: Add a new Question
+    no_questions: No Questions have been added yet.
+    text: Question
+    saved_successfully: Question saved
+    no_correct_answer: No answer marked as correct

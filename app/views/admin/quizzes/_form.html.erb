@@ -1,0 +1,11 @@
+<% form_for [:admin, @quiz] do |f| -%>
+  
+  <%= f.error_messages %>
+
+  <fieldset>
+    <%= f.label :name, t("quiz.name") %>
+    <%= f.text_field :name %> <br />
+  </fieldset>
+
+  <%= f.submit t('forms.save') %>
+<% end -%>

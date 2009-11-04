@@ -1,0 +1,25 @@
+<h2><%= t('navigation.quizzes') %></h2>
+
+<ul>
+  <li><%= link_to t('quiz.manage'), admin_quizzes_path %><li>
+  <li><%= link_to t('question.add_new'), new_admin_question_path %></li>
+</ul>
+
+<% if @questions.empty? %>
+  <p><%= t('question.no_questions')%></p>
+<%- else -%>
+  <%- @questions.group_by(&:quiz).each do |quiz, questions| %>
+    <h3><%= quiz.name %></h3>
+    <table border="0">
+      <thead>
+        <tr>
+          <th><%= t('question.text') %></th>
+          <th>&nbsp;</th>
+        </tr>
+      </thead>
+      <tbody>
+        <%= render :partial => 'question', :collection => questions %>
+      </tbody>
+    </table>
+  <%- end -%>
+<%- end -%>

@@ -1,0 +1,2 @@
+module Admin::QuizzesHelper
+end

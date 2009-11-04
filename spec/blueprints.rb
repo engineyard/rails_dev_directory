@@ -56,3 +56,7 @@ end
 Endorser.blueprint do
   email
 end
+
+Quiz.blueprint do
+  name
+end
