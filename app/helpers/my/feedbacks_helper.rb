@@ -1,0 +1,2 @@
+module My::FeedbacksHelper
+end

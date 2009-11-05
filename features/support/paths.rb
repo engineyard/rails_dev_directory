@@ -14,6 +14,8 @@ module NavigationHelpers
       root_path
     when /the new endorsement page for "(.+)"/
       new_provider_endorsement_path(Provider.find_by_slug($1))
+    when /the profile page for "(.+)"/
+      provider_path(Provider.find_by_slug($1))
     
     # Add more mappings here.
     # Here is a more fancy example:

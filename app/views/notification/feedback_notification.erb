@@ -1,0 +1,7 @@
+<%= @feedback.name %> <%= @feedback.email %>
+
+<%= t('email.feedback_notification.instructions', :name => @feedback.name,
+                                                  :company => @feedback.company,
+                                                  :project => @feedback.project) %>
+
+<%= edit_my_feedback_url(@feedback) %>

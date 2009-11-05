@@ -1,0 +1,24 @@
+<h2><%= t('provider.feedback_headline')%></h2>
+
+<p class="description"><%= t('provider.feedback_description', :company => @provider.company_name) %></p>
+
+<hr />
+
+<% form_for [@provider, @feedback] do |f| -%>
+  <%= f.error_messages %>
+
+  <%= hidden_field_tag :provider_id, @provider.id %>
+
+  <%= f.label :name, t("feedback.name") %> <%= f.text_field :name %> <br />
+  <%= f.label :year_hired, t("feedback.year_hired", :company => @provider.company_name) %>
+  <%= f.select :year_hired, (@provider.created_at.year.to_i .. Time.now.year.to_i).entries.reverse %><br/>
+  <%= f.label :company, t("feedback.company") %> <%= f.text_field :company %> <br />
+  <%= f.label :position, t("feedback.position") %> <%= f.text_field :position %> <br />
+  <%= f.label :email, t("feedback.email") %> <%= f.text_field :email %> <br />
+  <%= f.label :project, t("feedback.project") %> <%= f.text_field :project %> <br />
+  <%= f.label :message, t("feedback.message") %><%= f.text_area :message %> <br />
+
+  <%= recaptcha_tags %>
+
+  <%= f.submit t('feedback.save') %>
+<%- end -%>

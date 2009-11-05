@@ -1,0 +1,17 @@
+<h2><%= t('provider.feedback_headline') %></h3>
+
+<%- form_for [:my, @feedback] do |f| -%>
+  <%= t('feedback.details', :name => @feedback.name,
+                            :email => @feedback.email,
+                            :company => @feedback.company,
+                            :project => @feedback.project,
+                            :year => @feedback.year_hired) %>
+  <p><%= t('feedback.do_you_accept') %></p>
+
+  <%= radio_button_tag :accept, 'yes' %>
+  <%= label_tag :accept_yes, t('feedback.accept') %>
+  <%= radio_button_tag :accept, 'no' %>
+  <%= label_tag :accept_no, t('feedback.reject') %>
+
+  <%= f.submit t('general.save') %>
+<%- end -%>

@@ -3,6 +3,7 @@ require 'faker'
 require 'sham'
 
 Sham.name  { Faker::Name.name }
+Sham.company { Faker::Company.name }
 Sham.url   { "http://#{Faker::Internet.domain_name}/" }
 Sham.email { Faker::Internet.email }
 Sham.title { Faker::Lorem.sentence }
@@ -14,6 +15,7 @@ Sham.code { Faker::Lorem.words.first }
 Sham.price { (1..100).to_a.rand }
 Sham.password { Faker::Company.bs }
 Sham.city { Faker::Address.city }
+Sham.position { ['CEO', 'Developer', 'Manager'].rand }
 
 User.blueprint do
   name
@@ -40,7 +42,7 @@ Endorsement.blueprint do
   name
   year_hired { Time.now.strftime('%Y') }
   position { Sham.title }
-  company { Sham.name }
+  company
   endorser_email = Sham.email
   email { endorser_email }
   url
@@ -67,4 +69,13 @@ end
 
 Answer.blueprint do
   text { Sham.content }
+end
+
+Feedback.blueprint do
+  name
+  email
+  company
+  position
+  message
+  year_hired { Time.now.strftime('%Y') }
 end

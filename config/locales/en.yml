@@ -22,6 +22,7 @@ en:
     next: Fill out request
     sign_out: Sign out
     done_sorting: Done Sorting
+    save: Save
     
   signin:
     failed: "Couldn't log you in as '{{user}}'"
@@ -173,6 +174,11 @@ en:
 
     endorsement_headline: Satisfied customer? Endorse this developer
     endorsement_description: "Please let us know your experience with {{company}}"
+    
+    feedback: Leave feedback
+    feedback_headline: Feedback
+    no_feedback: No feedback has been left yet.
+    feedback_description: Please let us know your experience with {{company}}
     
     add_new: Add a new developer
     edit: Edit developer
@@ -560,12 +566,16 @@ en:
       subject: 'Can you endorse {{company_name}}'
       instructions: "To write your endorsement, go to:"
       appendage: This was sent from the Rails Development Directory.
-    
+
     endorsement_notification:
       greeting: "Hi {{name}}"
       subject: You've been endorsed in the Rails Development Directory
       instructions: "{{name}} has endorsed you on the Rails Development Directory. To approve this endorsement, go to:"
       appendage: This was sent from the Rails Development Directory
+
+    feedback_notification:
+      subject: You've received feedback in the Rails Development Directory
+      instructions: "{{name}} from {{company}} has left feedback on the project {{project}}. To accept this feedback, go to:"
 
     user_welcome: 
       subject: 'Welcome to the Rails Development Directory'
@@ -609,7 +619,7 @@ en:
     text: Question
     saved_successfully: Question saved
     no_correct_answer: No answer marked as correct
-  
+
   quiz_result:
     next: Next
     quiz: Quiz
@@ -619,3 +629,24 @@ en:
 
   quiz_result_answer:
     no_answer: Please answer the question.
+
+  feedback:
+    hired: Hired
+    at: at
+    in: in
+    name: Your name
+    sent_on: Sent on
+    year_hired: "Year you hired {{company}}"
+    company: Your company at the time
+    position: Your position at the time
+    email: Your email
+    project: Project
+    message: Message
+    save: Leave feedback
+    saved_succesfully: "Feedback saved. {{company}} will be notified that you have submitted feedback."
+    details: "{{name}} <{{email}}> from {{company}} has left feedback about the {{project}} project completed in {{year}}."
+    do_you_accept: Are you willing to accept this feedback?
+    accept: Accept
+    reject: Decline
+    validations:
+      prior_to_joining: "Feedback can only be accepted for projects completed after {{company}} joined the Rails Developer Directory"

@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20091104144127) do
+ActiveRecord::Schema.define(:version => 20091105132805) do
 
   create_table "answers", :force => true do |t|
     t.integer  "question_id"
@@ -63,6 +63,20 @@ ActiveRecord::Schema.define(:version => 20091104144127) do
     t.integer "endorsement_request_id"
     t.string  "email"
     t.string  "validation_token"
+  end
+
+  create_table "feedbacks", :force => true do |t|
+    t.string   "name"
+    t.string   "email"
+    t.string   "company"
+    t.string   "position"
+    t.string   "year_hired"
+    t.string   "project"
+    t.text     "message"
+    t.string   "aasm_state"
+    t.integer  "provider_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "homepages", :force => true do |t|

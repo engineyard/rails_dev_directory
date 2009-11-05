@@ -33,6 +33,7 @@ class Provider < ActiveRecord::Base
   has_many :rfps, :through => :requests
   has_many :endorsements, :order => "sort_order asc"
   has_many :endorsement_requests
+  has_many :feedbacks
   has_many :portfolio_items, :order => "year_completed desc"
   has_many :quiz_results, :order => 'created_at desc'
   has_many :uncompleted_quizzes, :class_name => 'Quiz',

@@ -22,6 +22,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resource :provider_directory, :as => :developer_directory, :controller => "provider_directory"
   map.resources :providers, :as => :developers, :shallow => true, :collection => {:search => :get, :by_location => :get} do |provider|
     provider.resources :endorsements
+    provider.resources :feedbacks, :only => [:new, :create]
     provider.resources :portfolio_items
   end  
   map.resources :rfps
@@ -36,6 +37,7 @@ ActionController::Routing::Routes.draw do |map|
     me.resources :endorsement_requests
     me.resources :users
     me.resources :endorsements, :collection => {:sort => :put, :update_all => :put}
+    me.resources :feedbacks, :only => [:edit, :update]
     me.resources :requests
     me.resources :quiz_results
     me.resources :quiz_result_answers, :as => :answers

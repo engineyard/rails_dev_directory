@@ -2,6 +2,10 @@ Given /^a provider "([^\"]*)"$/ do |provider_name|
   Factory.create(:provider,:company_name => provider_name, :city => "Dublin")
 end
 
+Given /^the provider "([^\"]*)" has the email address "([^\"]*)"$/ do |provider_name, email|
+  Provider.find_by_company_name(provider_name).update_attribute(:email, email)
+end
+
 Given /^"([^\"]*)" provides "([^\"]*)"$/ do |provider_name, service_name|
   Provider.find_by_company_name(provider_name).services << Service.find_by_name(service_name)
 end

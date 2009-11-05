@@ -28,7 +28,15 @@ class Notification < ActionMailer::Base
       :name => (endorsement.provider and endorsement.provider.user ? endorsement.provider.user.first_name_or_email : '')
         )
   end
-
+  
+  def feedback_notification(feedback)
+    setup_email
+    from "Feedback <sso@engineyard.com>"
+    subject t('email.feedback.subject', :from => feedback)
+    recipients feedback.provider.email
+    body :feedback => feedback
+  end
+  
   def user_welcome(user, subj = nil, message = nil)
     setup_email
     subject (subj.blank? ? t('email.user_welcome.subject') : subj)
