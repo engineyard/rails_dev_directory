@@ -23,7 +23,7 @@ So that I can can receive Rails project referrals
       And I fill in the "Company website" with "oleopry.com"
       And I press "Sign up"
     Then I should see "Pivotpaul Labs Admin"
-    When I follow "Company"
+    When I follow "Profile"
     Then I should see "The human mind can only stand so much."
 
   Scenario: Signing up and sloppily missing the TOS
@@ -47,6 +47,6 @@ So that I can can receive Rails project referrals
     When I check "provider[terms_of_service]"
       And I press "Sign up"
     Then I should see "Pivotpaul Labs Admin"
-    When I follow "Company"
+    When I follow "Profile"
     Then I should see "Ruby on Rails"
       And I should see "Some things are too hot to touch."

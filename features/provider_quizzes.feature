@@ -17,13 +17,13 @@ So that my listing will show as confirmed
   Scenario: Provider has no quiz results
     Given I am on the homepage
       And I log in as "paul@rslw.com" with password "testtest"
-    When I follow "Company"
+    When I follow "Profile"
     Then I should see "No quizzes have been passed yet."
 
   Scenario: Provider fails a quiz
     Given I am on the homepage
       And I log in as "paul@rslw.com" with password "testtest"
-    When I follow "Company"
+    When I follow "Profile"
       And I follow "Take a quiz"
       And I select "ActiveRecord callbacks" from "Quiz"
       And I press "Next"
@@ -45,7 +45,7 @@ So that my listing will show as confirmed
   Scenario: Provider passes a quiz
     Given I am on the homepage
       And I log in as "paul@rslw.com" with password "testtest"
-    When I follow "Company"
+    When I follow "Profile"
       And I follow "Take a quiz"
       And I select "ActiveRecord callbacks" from "Quiz"
       And I press "Next"
@@ -58,6 +58,6 @@ So that my listing will show as confirmed
     Then I should see "You have passed the quiz"
       And I should not see "Try again"
       And the provider "HyperTiny" should be active
-    When I follow "Company"
+    When I follow "Profile"
       And I follow "Take a quiz"
     Then I should see "There are currently no quizzes available"

@@ -6,7 +6,7 @@ Feature: Manage Portfolio Items
     Given a provider "Hashrocket" belonging to "Olenska@chicka.net"
       When I am on the homepage
         And I log in as "Olenska@chicka.net" with password "testtest"
-        And I follow "Company"
+        And I follow "Profile"
         And I follow "You can add one now"
       Then I should see "Year Completed"
 
@@ -14,7 +14,7 @@ Feature: Manage Portfolio Items
     Given a provider "Hashrocket" belonging to "Olenska@chicka.net"
     When I am on the homepage
       And I log in as "Olenska@chicka.net" with password "testtest"
-      And I follow "Company"
+      And I follow "Profile"
       And I follow "Manage portfolio"
       And I follow "Add a new project to your portfolio"
       And I fill in "Name" with "CF Martin"
@@ -30,7 +30,7 @@ Feature: Manage Portfolio Items
       And a portfolio item "Fire and Grace" belonging to the "Hashrocket" provider
     When I am on the homepage
       And I log in as "Olenska@chicka.net" with password "testtest"
-      And I follow "Company"
+      And I follow "Profile"
       And I follow "Manage portfolio"
       And I follow "Fire and Grace"
       And I follow "Edit this portfolio project"
@@ -48,7 +48,7 @@ Feature: Manage Portfolio Items
       And a portfolio item "Fire and Grace" belonging to the "Hashrocket" provider
     When I am on the homepage
       And I log in as "Olenska@chicka.net" with password "testtest"
-      And I follow "Company"
+      And I follow "Profile"
       And I follow "Manage portfolio"
       And I follow "Fire and Grace"
       And I follow "Edit this portfolio project"
@@ -63,7 +63,7 @@ Feature: Manage Portfolio Items
       And a portfolio item "Sounds True" belonging to the "Hashrocket" provider
     When I am on the homepage
       And I log in as "Olenska@chicka.net" with password "testtest"
-      And I follow "Company"
+      And I follow "Profile"
       And I follow "Manage portfolio"
       And I follow "Add a new project to your portfolio"
     Then I should see the translation for "portfolio_item.validations.too_many"
