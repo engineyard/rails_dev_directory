@@ -12,6 +12,7 @@ Feature: Provider directory
       And pre checked services "Ruby on Rails"
       And primary services "AJAX, Visual design, UI"
       And "Trulio" provides "AJAX"
+      And "Trulio" provides "UI"
       And an "inactive" provider "Boolio"
   
   Scenario: Finding a developer by budget
@@ -42,6 +43,18 @@ Feature: Provider directory
       And I check "AJAX"
       And I press "Find a developer"
     Then I should see "Trulio"
+    When I am on the homepage
+      And I follow "Find a Rails developer"
+      And I check "AJAX"
+      And I check "UI"
+      And I press "Find a developer"
+    Then I should see "Trulio"
+    When I am on the homepage
+      And I follow "Find a Rails developer"
+      And I check "AJAX"
+      And I check "Visual design"
+      And I press "Find a developer"
+    Then I should not see "Trulio"
     When I follow "Find a Rails developer"
       And I check "Visual design"
       And I press "Find a developer"

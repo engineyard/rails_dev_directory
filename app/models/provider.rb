@@ -91,10 +91,8 @@ class Provider < ActiveRecord::Base
     group = nil
 
     if params[:service_ids].not.blank? and params[:service_ids].is_a?(Array)
-      joins = :provided_services
-      conditions[0] << " and provided_services.service_id IN (?)"
+      conditions[0] << " and (select count(*) from provided_services where provider_id = providers.id and service_id IN (?)) = #{params[:service_ids].size}"
       conditions << params[:service_ids].collect { |t| t.to_i }
-      group = "provider_id"
     end
     
     if params[:location].not.blank?
