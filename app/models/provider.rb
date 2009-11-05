@@ -35,6 +35,8 @@ class Provider < ActiveRecord::Base
   has_many :endorsement_requests
   has_many :portfolio_items, :order => "year_completed desc"
   has_many :quiz_results, :order => 'created_at desc'
+  has_many :uncompleted_quizzes, :class_name => 'Quiz',
+           :finder_sql => 'NOT EXISTS (SELECT * FROM quiz_results WHERE quiz_results.quiz_id = quizzes.id AND quiz_results.provider_id = #{self.id} AND quiz_results.passed = 1)'
   
   has_many :provided_services, :dependent => :destroy do
     def for_service(service)

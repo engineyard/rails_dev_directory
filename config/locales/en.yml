@@ -597,7 +597,7 @@ en:
     deleted_successfully: Quiz deleted
     saved_successfully: Quiz saved
     manage: Manage Quizzes
-    no_quizzes: No Quizzes have been added yet.
+    no_quizzes: There are currently no quizzes available for you to take.
     take_quiz: Take a Quiz.
 
   question:

@@ -3,7 +3,7 @@ class My::QuizResultsController < ApplicationController
   before_filter :require_user
   
   def new
-    @quizzes = Quiz.all(:order => 'name')
+    @quizzes = current_user.provider.uncompleted_quizzes.all(:order => 'name')
     @quiz_result = QuizResult.new
   end
 

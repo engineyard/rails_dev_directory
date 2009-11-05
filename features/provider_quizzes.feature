@@ -58,3 +58,6 @@ So that my listing will show as confirmed
     Then I should see "You have passed the quiz"
       And I should not see "Try again"
       And the provider "HyperTiny" should be active
+    When I follow "Company"
+      And I follow "Take a quiz"
+    Then I should see "There are currently no quizzes available"
