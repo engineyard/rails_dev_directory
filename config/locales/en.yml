@@ -164,6 +164,8 @@ en:
     confirmed: Confirmed
     confirmed_explanation: "Confirmed means that these companies have verified the accuracy of their information in the directory, and has passed at least one quiz."
     
+    request_a_reference: Request a reference
+    
     quiz_results_headline: Quiz results
     no_quiz_passes: No quizzes have been passed yet. You need to pass at least one quiz to have your listing marked as confirmed.
     
@@ -563,7 +565,7 @@ en:
 
     endorsement_request: 
       greeting: "Hi {{name}}"
-      subject: 'Can you endorse {{company_name}}'
+      subject: "Can you endorse {{company_name}}?"
       instructions: "To write your endorsement, go to:"
       appendage: This was sent from the Rails Development Directory.
 
@@ -572,6 +574,17 @@ en:
       subject: You've been endorsed in the Rails Development Directory
       instructions: "{{name}} has endorsed you on the Rails Development Directory. To approve this endorsement, go to:"
       appendage: This was sent from the Rails Development Directory
+
+    reference_request:
+      subject: "Can you provide a reference for {{company_name}}?"
+      lead_in: "{{name}} <{{email}}> has asked that you provide a reference for {{company_name}}:"
+      instructions: "To provide a reference, go to:"
+      appendage: This was sent from the Rails Development Directory.
+
+    reference:
+      subject: "You've received a reference for {{company_name}}"
+      lead_in: "{{name}} <{{email}}> has provided the following reference for {{company_name}}:"
+      appendage: This was sent from the Rails Development Directory.
 
     feedback_notification:
       subject: You've received feedback in the Rails Development Directory
@@ -650,3 +663,17 @@ en:
     reject: Decline
     validations:
       prior_to_joining: "Feedback can only be accepted for projects completed after {{company}} joined the Rails Developer Directory"
+
+  reference_request:
+    name: Name
+    email: Email
+    message: Message
+    save: Request reference
+    thanks: "Your reference request has been sent to {{name}}"
+
+  reference:
+    message: Message
+    save: Send reference
+    thanks: Thanks for submitting your reference.
+    requested_a_reference_for: requested a reference for
+    already_responded: You have already submitted a reference for this request.

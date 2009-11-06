@@ -1,0 +1,12 @@
+<%- form_for [@reference_request.endorsement, @reference_request] do |f| -%>
+  <%= f.error_messages %>
+
+  <%= f.hidden_field :endorsement_id %>
+  <fieldset>
+    <%= f.label :name, t('reference_request.name') %> <%= f.text_field :name %> <br/>
+    <%= f.label :email, t('reference_request.email') %> <%= f.text_field :email %> <br/>
+    <%= f.label :message, t('reference_request.message') %> <%= f.text_area :message %> <br/>
+  </fieldset>
+  
+  <%= f.submit t('reference_request.save') %>
+<%- end -%>

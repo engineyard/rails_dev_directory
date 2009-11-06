@@ -1,0 +1,18 @@
+<p><%= @reference_request.name %> &lt;<%= @reference_request.email %>&gt;
+<%= t('reference.requested_a_reference_for') %>
+<%= @reference_request.endorsement.provider.company_name %>:</p>
+
+<p><%= @reference_request.message %></p>
+
+<%- form_for [@reference_request.endorsement.provider, @reference] do |f| -%>
+  <%= f.error_messages %>
+  
+  <%= hidden_field_tag :key, params[:key] %>
+  
+  <fieldset>
+    <%= f.hidden_field :reference_request_id %>
+    <%= f.label :message, t('reference.message') %> <%= f.text_area :message %> <br/>
+  </fieldset>
+  
+  <%= f.submit t('reference.save') %>
+<%- end -%>

@@ -16,9 +16,13 @@ Given /^a provider "([^\"]*)" with an? (new|approved|rejected) endorsement from 
   Endorsement.make(:aasm_state => endorsement_state, :provider => provider, :name => endorser_name)
 end
 
-Given /^"([^\"]*)" has an? (new|approved|rejected) endorsement from "([^\"]*)"$/ do |provider_name, endorsement_state, endorser_name|
+Given /^"([^\"]*)" has an? (new|approved|rejected) endorsement from "([^\"]*)"$/ do |provider_name, endorsement_state, endorser|
   provider = Provider.find_by_company_name(provider_name)
-  Endorsement.make(:aasm_state => endorsement_state, :provider => provider, :name => endorser_name)
+  if endorser =~ /@/
+    Endorsement.make(:aasm_state => endorsement_state, :provider => provider, :email => endorser)
+  else
+    Endorsement.make(:aasm_state => endorsement_state, :provider => provider, :name => endorser)
+  end
 end
 
 Given /^"([^\"]*)" has an? (new|approved|rejected) endorsement "([^\"]*)" "([^\"]*)"$/ do |provider_name, endorsement_state, endorsement, time|

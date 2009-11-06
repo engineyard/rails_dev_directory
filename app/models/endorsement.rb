@@ -25,6 +25,7 @@ class Endorsement < ActiveRecord::Base
   
   belongs_to :provider
   belongs_to :endorser
+  has_many :reference_requests
   
   after_save :update_provider_counter_cache
   after_create :deliver_notification

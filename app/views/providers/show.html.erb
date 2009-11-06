@@ -129,6 +129,8 @@
           <%= t('endorsement.hired') %> <%=h @provider.company_name %>
           <%= t('endorsement.in') %> <%=h endorsement.year_hired %>
         </cite>
+        <%= link_to t('provider.request_a_reference'),
+                    new_endorsement_reference_request_path(endorsement) %>
       </div>
     <%- end -%> 
   <%- end -%>
