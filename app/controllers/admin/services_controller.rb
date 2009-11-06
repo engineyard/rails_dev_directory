@@ -4,7 +4,7 @@ class Admin::ServicesController < ApplicationController
   layout 'admin'
   
   def index
-    @services = Service.ordered
+    @services = Service.all
   end
   
   def new
@@ -41,7 +41,7 @@ class Admin::ServicesController < ApplicationController
   
   def sort
     Service.order(params[:service])
-    @services = Service.ordered.find(params[:service])
+    @services = Service.find(params[:service])
     respond_to do |wants|
       wants.js { render :partial => 'service', :collection => @services }
     end

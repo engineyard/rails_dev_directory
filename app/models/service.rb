@@ -5,9 +5,10 @@ class Service < ActiveRecord::Base
   
   acts_as_list :scope => :service_category_id
   
-  named_scope :checked, :conditions => {:checked => true}, :order => "position asc"
-  named_scope :ordered, :order => "position asc"
-  named_scope :ordered_not_checked, :order => "position asc", :conditions => {:checked => false}
+  default_scope :order => 'position asc'
+  
+  named_scope :checked, :conditions => { :checked => true }
+  named_scope :not_checked, :conditions => { :checked => false }
   named_scope :for_category, lambda { |category|
     { :conditions => { :service_category_id => category.id } }
   }

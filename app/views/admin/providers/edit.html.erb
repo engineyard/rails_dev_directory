@@ -41,7 +41,7 @@
   <fieldset>
     <h3><%= t('provider.services') %></h3>
   
-    <%- Service.ordered.each do |service| -%>
+    <%- Service.all.each do |service| -%>
       <%= label_tag dom_id(service), service.name %><%= check_box_tag "provider[service_ids][]", service.id, @provider.services.include?(service), :id => dom_id(service) %><br/>
     <%- end -%>
 

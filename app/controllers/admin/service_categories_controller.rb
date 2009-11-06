@@ -1,10 +1,10 @@
 class Admin::ServiceCategoriesController < ApplicationController
-  
+
   before_filter :admin_required
   layout 'admin'
   
   def index
-    @service_categories = ServiceCategory.ordered
+    @service_categories = ServiceCategory.all
   end
   
   def new
@@ -41,10 +41,10 @@ class Admin::ServiceCategoriesController < ApplicationController
   
   def sort
     ServiceCategory.order(params[:service_category])
-    @service_categories = ServiceCategory.ordered.find(params[:service_category])
+    @service_categories = ServiceCategory.find(params[:service_category])
     respond_to do |wants|
       wants.js { render :partial => 'service_category', :collection => @service_categories }
     end
   end
-  
+
 end
