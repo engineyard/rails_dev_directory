@@ -10,9 +10,7 @@ Feature: Managing services
       And I am on the admin dashboard
       And there are no services
     When I follow "Services"
-    Then I should see "No services have been added yet"
-    
-    When I follow "Add a New Service"
+      And I follow "Add a New Service"
       And I fill in "Name" with "Java"
       And I check "service[checked]"
       And I press "Save"
