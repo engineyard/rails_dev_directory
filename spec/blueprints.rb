@@ -10,6 +10,7 @@ Sham.title { Faker::Lorem.sentence }
 Sham.body  { Faker::Lorem.paragraph }
 Sham.message { Faker::Lorem.paragraph }
 Sham.content { Faker::Lorem.paragraph }
+Sham.project { Faker::Company.bs }
 Sham.date { Time.now }
 Sham.code { Faker::Lorem.words.first }
 Sham.price { (1..100).to_a.rand }
@@ -76,6 +77,7 @@ Feedback.blueprint do
   email
   company
   position
-  message
+  project
   year_hired { Time.now.strftime('%Y') }
+  message
 end
