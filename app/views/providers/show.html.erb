@@ -139,8 +139,6 @@
   <%- end -%>
   <% if logged_in? and current_user.provider == @provider %>
     <%= link_to t('endorsement.ask_for_endorsement'), new_my_endorsement_request_path %>
-  <%- else -%>
-    <%= link_to t('provider.endorse'), new_provider_endorsement_path(@provider) %>
   <%- end -%>
   
   <h3><%= t('provider.feedback_headline') %></h3>
