@@ -4,7 +4,7 @@ class Admin::ServicesController < ApplicationController
   layout 'admin'
   
   def index
-    @services = Service.all
+    @service_categories = ServiceCategory.all
   end
   
   def new

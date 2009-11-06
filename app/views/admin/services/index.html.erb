@@ -5,16 +5,16 @@
   <li><%= link_to t('service.add_new'), new_admin_service_path %></li>
 </ul>
 
-<% if @services.empty? %>
+<% if @service_categories.empty? %>
   <p><%= t('service.no_services')%></p>
 <%- else -%>
-  <%- @services.group_by(&:category).each do |category, services| %>
+  <%- @service_categories.each do |category| %>
     <h3><%= category.name %></h3>
     <%= link_to t('.sort_list'), sort_admin_services_path, :class => 'toggle-sort' %>
     <div class="sort-list">
       <br />
       <div class="sortable">
-        <%- services.each do |service| -%>
+        <%- category.services.each do |service| -%>
           <div class="service" id="<%= dom_id(service) %>"><%= service.name %></div>
         <%- end -%>
       </div>
@@ -29,7 +29,7 @@
           </tr>
         </thead>
         <tbody>
-          <%= render :partial => 'service', :collection => services %>
+          <%= render :partial => 'service', :collection => category.services %>
         </tbody>
       </table>
     </div>
