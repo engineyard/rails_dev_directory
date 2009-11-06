@@ -1,5 +1,6 @@
 class Service < ActiveRecord::Base
   validates_presence_of :name, :service_category_id
+  validates_uniqueness_of :name, :scope => :service_category_id
   
   belongs_to :category, :class_name => 'ServiceCategory', :foreign_key => :service_category_id
   

@@ -10,7 +10,8 @@
 <%- else -%>
   <%- @service_categories.each do |category| %>
     <h3><%= category.name %></h3>
-    <%= link_to t('.sort_list'), sort_admin_services_path, :class => 'toggle-sort' %>
+    <%= link_to t('.sort_list'), sort_admin_services_path, :class => 'toggle-sort' %> |
+    <%= link_to t('service.add_new'), new_admin_service_path(:service_category_id => category.id) %>
     <div class="sort-list">
       <br />
       <div class="sortable">

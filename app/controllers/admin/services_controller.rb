@@ -8,7 +8,7 @@ class Admin::ServicesController < ApplicationController
   end
   
   def new
-    @service = Service.new
+    @service = Service.new(:service_category_id => params[:service_category_id])
   end
   
   def create
