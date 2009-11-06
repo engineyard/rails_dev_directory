@@ -44,11 +44,10 @@ Endorsement.blueprint do
   year_hired { Time.now.strftime('%Y') }
   position { Sham.title }
   company
-  endorser_email = Sham.email
-  email { endorser_email }
+  email
   url
   endorsement { Sham.body }
-  endorser { Endorser.make(:email => endorser_email) }
+  endorser { Endorser.make(:email => email) }
 end
 
 EndorsementRequest.blueprint do
