@@ -2,7 +2,7 @@ development:
   # Mysql Settings
   adapter: mysql
   encoding: utf8
-  database: pro_jobs_development
+  database: freelancers_development
   username: root
   password:
   pool: 5
@@ -11,7 +11,7 @@ test: &TEST
   # Mysql Settings
   adapter: mysql
   encoding: utf8
-  database: pro_jobs_test
+  database: freelancers_test
   username: root
   password:
   pool: 5
@@ -20,7 +20,7 @@ staging:
   # Mysql Settings
   adapter: mysql
   encoding: utf8
-  database: pro_jobs_staging
+  database: freelancers_staging
   username: root
   password:
   pool: 5
@@ -29,7 +29,7 @@ production:
   # Mysql Settings
   encoding: utf8
   adapter: mysql
-  database: pro_jobs_production
+  database: freelancers_production
   username: root
   password:
   pool: 5
