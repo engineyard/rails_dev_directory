@@ -10,8 +10,8 @@
 <%- else -%>
   <%= link_to t('.sort_list'), sort_admin_service_categories_path, :class => 'toggle-sort' %>
   <div class="sort-list">
+    <br/>
     <div class="sortable">
-      <br />
       <%- @service_categories.each do |category| -%>
         <div class="category" id="<%= dom_id(category) %>"><%= category.name %></div>
       <%- end -%>
