@@ -7,7 +7,7 @@ So that I can edit database fields within the UI of the site
       And I am on the admin dashboard
       And I follow "Developers"
       And I follow "Add a new developer"
-    When I fill in "Company name" with "Pullover"
+    When I fill in "Name" with "Pullover"
       And I fill in "City" with "Dublin"
       And I fill in "Company email" with "paul@rslw.com"
       And I fill in "Company website" with "http://www.rslw.com"
@@ -24,7 +24,7 @@ So that I can edit database fields within the UI of the site
       And I follow "Developers"
       And I follow "Pullover"
       And I follow "Edit developer"
-    When I fill in "Company name" with "Gown"
+    When I fill in "Name" with "Gown"
       And I fill in "Street address" with "Market street"
       And I fill in "provider[marketing_description]" with "Cheap, Fast, Reliable"
       And I select "flagged" from "Status"

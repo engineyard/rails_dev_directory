@@ -199,7 +199,7 @@ en:
     
     signed_up_on: Signed up on
     admin: Account Admin
-    company_name: Company Name
+    company_name: Name
     slug: URL code / slug
     marketing_description: Marketing Description
     marketing_description_limit: Please limit to 300 characters
@@ -351,7 +351,7 @@ en:
     
     first_name: First Name
     last_name: Last Name
-    company_name: Company Name
+    company_name: Name
     about_you: Tell us a bit about you
     email: Email
     phone_number: Phone

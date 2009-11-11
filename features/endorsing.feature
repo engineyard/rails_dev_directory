@@ -50,8 +50,8 @@ Feature: Recommending a provider
       And "Hashrocket" has an approved endorsement "Deadly" "2.days.ago"
       And "Hashrocket" has an approved endorsement "OK" "1.day.ago"
     When I am on the homepage
-      And I follow "Find a Rails Developer"
-      And I press "Find a developer"
+      And I follow "Find a Rails Freelancer"
+      And I press "Find a freelancer"
       And I follow "Hashrocket"
     Then I should see "Read all endorsements"
     When I follow "more-endorsements"
@@ -77,8 +77,8 @@ Feature: Recommending a provider
       And "Hotpocket" has an approved endorsement "Vaguely competent service." "3.days.ago"
       And "Hotpocket" has a rejected endorsement "Literally crap. Totally awful. Barely even Ruby." "2.days.ago"
       And I am on the homepage
-    When I follow "Find a Rails Developer"
-      And I press "Find a developer"
+    When I follow "Find a Rails Freelancer"
+      And I press "Find a freelancer"
       And I follow "Hotpocket"
     Then I should see "Vaguely competent service"
       And I should not see "Literally crap."
