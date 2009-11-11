@@ -45,6 +45,7 @@ en:
     rfps: Requests
     endorsements: Endorsements
     users: Users
+    my_account: My Account
     admin: Admin
     pages: Pages
     csvs: CSV exports

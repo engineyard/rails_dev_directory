@@ -38,7 +38,8 @@ ActionController::Routing::Routes.draw do |map|
     me.resource :provider, :as => :developer
     me.resources :portfolio_items
     me.resources :endorsement_requests
-    me.resources :users
+    me.resource :user
+    me.account 'account', :controller => 'users', :action => 'edit'
     me.resources :endorsements, :collection => {:sort => :put, :update_all => :put}
     me.resources :feedbacks, :only => [:edit, :update]
     me.resources :requests
