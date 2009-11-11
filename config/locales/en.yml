@@ -3,7 +3,7 @@
 
 en:
   general:
-    site_title: Rails Development Directory
+    site_title: Rails Freelancers Directory
     site_title_logo: "<img src='/images/type-rdd.png' alt='Rails Development Directory' />"
     site_title_admin: Rails Development Directory Admin
     "yes": "Yes"
@@ -662,6 +662,8 @@ en:
     saved_succesfully: "Feedback saved. {{company}} will be notified that you have submitted feedback."
     details: "{{name}} <{{email}}> from {{company}} has left feedback about the {{project}} project completed in {{year}}."
     do_you_accept: Are you willing to accept this feedback?
+    accepted: Thanks for accepting your feedback
+    rejected: Feedback was rejected
     accept: Accept
     reject: Decline
     validations:

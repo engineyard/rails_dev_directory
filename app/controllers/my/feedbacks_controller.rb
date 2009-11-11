@@ -11,7 +11,7 @@ class My::FeedbacksController < ApplicationController
       flash[:notice] = t('feedback.accepted')
       @feedback.accept!
     else
-      flash[:notice] = t('feedback.reject')
+      flash[:notice] = t('feedback.rejected')
       @feedback.reject!
     end
 
