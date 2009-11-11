@@ -57,7 +57,7 @@ class Notification < ActionMailer::Base
   def feedback_notification(feedback)
     setup_email
     from "Feedback <sso@engineyard.com>"
-    subject t('email.feedback.subject', :from => feedback)
+    subject t('email.feedback_notification.subject', :from => feedback)
     recipients feedback.provider.email
     body :feedback => feedback
   end

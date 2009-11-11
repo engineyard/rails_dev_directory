@@ -30,4 +30,4 @@
 #   end
 # end
 
-ActionMailer::Base.delivery_method = :sendmail
+ActionMailer::Base.delivery_method = :sendmail if Rails.env == "production"

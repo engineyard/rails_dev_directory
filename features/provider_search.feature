@@ -76,7 +76,7 @@ Feature: Provider directory
     When I follow "Fill out request"
       And I fill in "First Name" with "Paul"
       And I fill in "Last Name" with "Campbell"
-      And I fill in "Company Name" with "Joojoobangbang"
+      And I fill in "Name" with "Joojoobangbang"
       And I fill in "ZIP / Post code" with "90210"
       And I fill in "Email" with "paul@rslw.com"
       And I fill in "Phone" with "0879148162"
