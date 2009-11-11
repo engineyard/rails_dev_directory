@@ -1,7 +1,9 @@
 <tr>
-  <td><%= quiz.name %></td>
   <td>
-    <%= link_to t('general.edit'), edit_admin_quiz_path(quiz), :title => "#{t('general.edit')} #{quiz.name}" %>
+    <%= quiz.name %>
+    (<%= link_to t('general.edit'), edit_admin_quiz_path(quiz), :title => "#{t('general.edit')} #{quiz.name}" %>)
+  </td>
+  <td>
     <%= link_to t('general.delete'), [:admin, quiz], :method => :delete, :confirm => "Are you sure?" %>
   </td>
 </tr>

@@ -1,17 +1,23 @@
-<h3><%= @quiz_result_answer.quiz_result.quiz.name %></h3>
+<%- if @quiz_result_answer -%>
 
-<p><%= @quiz_result_answer.question.text %></p>
+  <h3><%= @quiz_result_answer.quiz_result.quiz.name %></h3>
 
-<%- form_for [:my, @quiz_result_answer] do |f| -%>
-  <%= f.hidden_field :quiz_result_id %>
-  <%= f.hidden_field :question_id %>
+  <p><%= @quiz_result_answer.question.text %></p>
 
-  <%= f.error_messages %>
+  <%- form_for [:my, @quiz_result_answer] do |f| -%>
+    <%= f.hidden_field :quiz_result_id %>
+    <%= f.hidden_field :question_id %>
 
-  <%- @quiz_result_answer.question.answers.each do |answer| -%>
-    <%= f.radio_button :answer_id, answer.id %>
-    <%= f.label "answer_id_#{answer.id}", answer.text %> <br/>
-  <%- end -%>
+    <%= f.error_messages %>
+
+    <%- @quiz_result_answer.question.answers.each do |answer| -%>
+      <%= f.radio_button :answer_id, answer.id %>
+      <%= f.label "answer_id_#{answer.id}", answer.text %> <br/>
+    <%- end -%>
   
-  <%= f.submit t('quiz_result.next') %>
+    <%= f.submit t('quiz_result.next') %>
+  <%- end -%>
+
+<%- else -%>
+  <p><%= t('quiz.no_questions') %></p>
 <%- end -%>

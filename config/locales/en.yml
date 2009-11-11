@@ -617,12 +617,14 @@ en:
 
   quiz:
     name: Name
+    edit: Edit Quiz
     add_new: Add a new Quiz
     deleted_successfully: Quiz deleted
     saved_successfully: Quiz saved
     manage: Manage Quizzes
     no_quizzes: There are currently no quizzes available for you to take.
     take_quiz: Take a Quiz.
+    no_questions: No Questions have been added to this quiz.
 
   question:
     edit: Edit Question

@@ -7,5 +7,5 @@
     <%= f.text_field :name %> <br />
   </fieldset>
 
-  <%= f.submit t('forms.save') %>
+  <%= f.submit t('forms.save') %> <%= t('forms.or') %> <%= link_to t('forms.cancel'), admin_quizzes_path %>
 <% end -%>
