@@ -19,8 +19,8 @@ Feature: Recommending a provider
       And "Hashrocket" has an approved endorsement "Super cool" "1.day.ago"
       And "Hashrocket" has a new endorsement "Nice work" "1.day.ago"
     When I am on the homepage
-      And I follow "Find a Rails Developer"
-      And I press "Find a developer"
+      And I follow "Find a Rails Freelancer"
+      And I press "Find a freelancer"
       And I follow "Hashrocket"
     Then I should see "Read all endorsements"
     Given "Hashrocket" have requested "Brian Flanagan <btf@coralmade.net>" submit an endorsement

@@ -15,56 +15,56 @@ Feature: Provider directory
       And "Trulio" provides "UI"
       And an "inactive" provider "Boolio"
   
-  Scenario: Finding a developer by budget
+  Scenario: Finding a freelancer by budget
     When I am on the homepage
-      And I follow "Find a Rails developer"
+      And I follow "Find a Rails freelancer"
       And I fill in "budget" with "10000"
-      And I press "Find a developer"
+      And I press "Find a freelancer"
     Then I should not see "Trulio"
-    When I follow "Find a Rails developer"
+    When I follow "Find a Rails freelancer"
       And I fill in "budget" with "15000"
-      And I press "Find a developer"
+      And I press "Find a freelancer"
     Then I should see "Trulio"
 
-  Scenario: Finding a developer by hourly rate
+  Scenario: Finding a freelancer by hourly rate
     When I am on the homepage
-      And I follow "Find a Rails developer"
+      And I follow "Find a Rails freelancer"
       And I fill in "Hourly Rate" with "140"
-      And I press "Find a developer"
+      And I press "Find a freelancer"
     Then I should not see "Trulio"
-    When I follow "Find a Rails developer"
+    When I follow "Find a Rails freelancer"
       And I fill in "Hourly Rate" with "160"
-      And I press "Find a developer"
+      And I press "Find a freelancer"
     Then I should see "Trulio"
 
-  Scenario: Finding a developer by skill set
+  Scenario: Finding a freelancer by skill set
     When I am on the homepage
-      And I follow "Find a Rails developer"
+      And I follow "Find a Rails freelancer"
       And I check "AJAX"
-      And I press "Find a developer"
+      And I press "Find a freelancer"
     Then I should see "Trulio"
     When I am on the homepage
-      And I follow "Find a Rails developer"
+      And I follow "Find a Rails freelancer"
       And I check "AJAX"
       And I check "UI"
-      And I press "Find a developer"
+      And I press "Find a freelancer"
     Then I should see "Trulio"
     When I am on the homepage
-      And I follow "Find a Rails developer"
+      And I follow "Find a Rails freelancer"
       And I check "AJAX"
       And I check "Visual design"
-      And I press "Find a developer"
+      And I press "Find a freelancer"
     Then I should not see "Trulio"
-    When I follow "Find a Rails developer"
+    When I follow "Find a Rails freelancer"
       And I check "Visual design"
-      And I press "Find a developer"
+      And I press "Find a freelancer"
     Then I should not see "Trulio"
 
   Scenario:
     When I am on the homepage
-      And I follow "Find a Rails developer"
+      And I follow "Find a Rails freelancer"
       And I fill in "budget" with "20000"
-      And I press "Find a developer"
+      And I press "Find a freelancer"
     Then I should see "Trulio"
       And I should see "Boolio"
     When I press "Fill out request"
@@ -101,8 +101,8 @@ Feature: Provider directory
     Given an "active" provider "Brian Flanagan"
       And an "active" provider "Paul Campbell"
     When I am on the homepage
-      And I follow "Find a Rails developer"
-      And I press "Find a developer"
+      And I follow "Find a Rails freelancer"
+      And I press "Find a freelancer"
     Then I should see "Brian Flanagan"
       And I should see "Paul Campbell"
     When I check the "Brian Flanagan" checkbox
@@ -118,16 +118,16 @@ Feature: Provider directory
       And "Hyper Tiny" is based in "NA, IE"
     When I am on the homepage
       And I select "All Locations" from "Location"
-      And I press "Find a developer"
+      And I press "Find a freelancer"
     Then I should see "Hyper Tiny"
       And I should see "Hashrocket"
     When I am on the homepage
       And I select "Ireland" from "Location"
-      And I press "Find a developer"
+      And I press "Find a freelancer"
     Then I should see "Hyper Tiny"
       And I should not see "Hashrocket"
     When I am on the homepage
       And I select "Florida" from "Location"
-      And I press "Find a developer"
+      And I press "Find a freelancer"
     Then I should see "Hashrocket"
       And I should not see "Hyper Tiny"
