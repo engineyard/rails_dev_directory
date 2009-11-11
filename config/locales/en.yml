@@ -73,7 +73,7 @@ en:
     dashboard:
       title: Admin Dashboard
       welcome: This is the administrator section of the Rails Development Directory
-      total_providers: "Total number of developers: {{providers_size}}"
+      total_providers: "Total number of freelancers: {{providers_size}}"
       active_providers: "active: {{active_providers_size}}"
       inactive_providers: "inactive: {{inactive_providers_size}}"
       flagged_providers: "flagged: {{flagged_providers_size}}"
@@ -92,12 +92,12 @@ en:
       
   home:
     logo: /images/logo-rails.jpg
-    welcome: "Looking for a Rails Developer?"
+    welcome: "Looking for a Rails Freelancer?"
     description: "<p>If you’re a business searching for an established, professional Rails development firm to build your Ruby on Rails application, then you’ve come to the right place!</p><p>We know that finding a qualified Ruby on Rails developer can be a challenge. On the Rails Development Directory, we match your business with professional Rails developers who want to build your app. It only takes seconds to find qualified firms, so start searching now!</p>"
-    find_a_provider: Find a Rails Developer
+    find_a_provider: Find a Rails Freelancer
     full_listing: Full listing
     by_location: Geographic listing
-    provider_signup: Rails Developer? Get Listed...
+    provider_signup: Rails Freelancer? Get Listed...
     enter_budget: Please enter your budget
     everywhere: Everywhere
     
@@ -120,9 +120,9 @@ en:
     updated_successfully: Thanks for updating your profile
 
   provider:
-    developer_profile: Developer Profile
-    rails_developer_in: Rails Developer in
-    developer_description: "View the Rails developer profile for {{name}}, located in {{address}}, providing {{services_offered}}"
+    developer_profile: Freelancer Profile
+    rails_developer_in: Rails Freelancer in
+    developer_description: "View the Rails freelancer profile for {{name}}, located in {{address}}, providing {{services_offered}}"
     
     by_state: View list by country / state
     outside_us: Outside United States
@@ -138,13 +138,13 @@ en:
     signup_description: "It only takes a few minutes to create an account."
     sign_in: Sign in to your account
     
-    directory_headline: Find a Rails Developer
-    directory_description: "Give us a little information, and we'll show you Rails developers who best match your requirements."
-    directory_results_description: "Click on the developer's name to view their company profile. Check the box next to the names of the developers you want to submit a request to (you can only send requests to a maximum of 3 companies)."
+    directory_headline: Find a Rails Freelancer
+    directory_description: "Give us a little information, and we'll show you Rails freelancers who best match your requirements."
+    directory_results_description: "Click on the developer's name to view their profile. Check the box next to the names of the developers you want to submit a request to (you can only send requests to a maximum of 3 companies)."
     visit_website: Visit this company's website
     directory:
-      description: "Give us a little information about your project, and we'll show you Rails developers that best match your requirements."
-      find_providers: Find a developer
+      description: "Give us a little information about your project, and we'll show you Rails freelancers that best match your requirements."
+      find_providers: Find a freelancer
       budget: "Your Budget ($US):"
       note: "Please enter numbers only"
       location: "Location:"
@@ -171,7 +171,7 @@ en:
     no_quiz_passes: No quizzes have been passed yet. You need to pass at least one quiz to have your listing marked as confirmed.
     
     portfolio_items: Portfolio items
-    no_portfolio_items: No portfolio items have been added to this developer profile yet.
+    no_portfolio_items: No portfolio items have been added to this freelancer profile yet.
     add_now: You can add one now
     portfolio_items_headline: Portfolio
 
@@ -193,7 +193,7 @@ en:
     
     saved_successfully: Developer saved successfully
     deleted_successfully: Developer deleted successfully
-    no_providers: We couldn't find any developers that match your search.
+    no_providers: We couldn't find any freelancers that match your search.
     no_users: No users have been added to this developer yet.
     no_rfps: No requests have been submitted to this developer yet.
     
