@@ -1,7 +1,7 @@
 /* Basic Layout */
 body {
   font-size: 84%;
-  background: url(/images/bg-header.png) repeat-x left top;
+  background: #F3F3F3;
 }
 .content, .shadow, .subnav, .footer {
   width: 960px;
@@ -42,6 +42,8 @@ dd.date {
 .header {
   padding: 20px 0 12px;
   margin-bottom: 0;
+  background: #2F3738;
+  height: 48px;
 }
 .header h1 {
   font-size: 1.3em;
@@ -75,12 +77,10 @@ li.username {
 }
 /* Content Page */
 .shadow {
-  background: url(/images/bg-body-shadow.png) no-repeat top center;
   padding: 7px;
   margin: 0 auto;
 }
 .subnav {
-  background: #59D8E5;
   margin: 0 auto;
   min-height: 2.3em;
 }
@@ -135,27 +135,19 @@ li.username {
   line-height: 1.3em;
 }
 .searchWizard {
-  background: #EEE url(/images/bg-search.png) repeat-x;
+  background: #FFF;
   padding: 20px;
   margin: 0 -40px;
-  border-top: 1px solid #BBC1C2;
-  border-bottom: 1px solid #BBC1C2;
+  border: 10px solid #9EDBF7;
 }
 .searchWizard h3 {
-  font-size: 1.35em;
-  float: left;
-  width: 190px;
-  text-align: center;
+  font: 1.35em Lucida Grande, Verdana, sans-serif;
   margin: 0;
-  padding: 0 10px 100px 0;
-  background: url(/images/img-arrow.png) no-repeat bottom right;
+  padding: 0 0 20px;
+  color: #007BC8;
+  border-bottom: 1px solid #007BC8;
 }
 .search {
-  text-align: center;
-  width: 660px;
-  padding: 0 52px 2em;
-  margin-left: 205px;
-  border: 1px solid #999;
 }
 .provider h3 {
   font-size: 1.7em;
@@ -198,8 +190,7 @@ li.username {
   max-width: 64px;
 }
 .provider.search {
-  background: #FEFEDC;
-  padding: 10px 20px 20px;
+  padding: 10px 0 0;
 }
 .provider.search h3 {
   font: 1em Lucida Grande, Verdana, sans-serif;
@@ -265,13 +256,14 @@ li .check {
 }
 .provider.search table {
   margin: 0;
+  border-bottom: 1px solid #DBDBDB;
 }
 .provider.search table td:hover, .provider.search table tr:hover {
   background: none;
 }
 .provider.search form td {
   border: none;
-  padding: 0 0 0 35px
+  padding: 0 0 20px 35px
 }
 .provider.search form td:first-child {
   padding-left: 0;
@@ -459,7 +451,6 @@ li.document {
   height: 5em;
   line-height: 1em;
   margin: 0 auto 2em;
-  background: #FFF url(/images/bg-body-shadow-foot.png) no-repeat center bottom;
 }
 .footer .content {
   width: 940px;
@@ -467,11 +458,11 @@ li.document {
   border-top: 1px solid #C9CfD0;
 }
 .footer a {
-  color: #008C98;
-  border-bottom: 1px dotted #008C98;
+  color: #A83C44;
+  border-bottom: 1px dotted #A83C44;
 }
 .footer a:hover {
-  color: #000;
+  color: #A83C44;
   border: none;
 }
 .footer ul {
@@ -670,11 +661,10 @@ hr {
 /* Feature Developer Block */
 .feature {
   margin-bottom: 1em;
-  border: 1px solid #16BDDE;
-  background: url(/images/bg-feature-top.png) no-repeat left top;
+  border: 1px solid #949494;
+  background: #F2FAFE;
 }
 .feature .content {
-  background: url(/images/bg-feature-bottom.png) no-repeat left bottom;
   padding: 10px 10px 10px 20px;
   width: auto;
   letter-spacing: -0.5px;
@@ -719,8 +709,3 @@ hr {
 /* Sorting Endorsements */
 div#sorting-endorsements { /*display:none;*/ }
 div#sorting-endorsements ul li strong { cursor: move; }
-
-div.service_category { padding-top: 2px; text-align:right; width: 16em;}
-input[type=radio] + label { float: none; width: auto; text-align: left; display: inline; }
-
-.services h5 { display: inline; }
