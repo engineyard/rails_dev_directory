@@ -121,6 +121,23 @@ ActiveRecord::Schema.define(:version => 20091103093719) do
 
   add_index "providers", ["slug"], :name => "index_providers_on_slug"
 
+  create_table "recommendations", :force => true do |t|
+    t.string   "name"
+    t.string   "company"
+    t.string   "email"
+    t.string   "url"
+    t.integer  "provider_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "year_hired"
+    t.string   "position"
+    t.text     "endorsement"
+    t.string   "aasm_state"
+    t.integer  "sort_order"
+  end
+
+  add_index "recommendations", ["aasm_state"], :name => "index_recommendations_on_aasm_state"
+
   create_table "requested_services", :force => true do |t|
     t.integer  "rfp_id"
     t.string   "name"
