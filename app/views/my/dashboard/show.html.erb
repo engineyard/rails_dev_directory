@@ -30,24 +30,24 @@
     </div>
   
     <div>
-      <h3><%= t('dashboard.recommendations') %></h3>
+      <h3><%= t('dashboard.endorsements') %></h3>
       
       <ul class="utility">
-        <li><%= link_to t('dashboard.all_recommendations'), my_recommendations_path %></li>
+        <li><%= link_to t('dashboard.all_endorsements'), my_endorsements_path %></li>
       </ul>
       
       <p><%= link_to t('provider.request_endorsement'), new_my_endorsement_request_path %></p>
-      <%- if @provider.recommendations.recent.empty? -%>
-        <p><%= t('provider.no_recommendations')%></p>
+      <%- if @provider.endorsements.recent.empty? -%>
+        <p><%= t('provider.no_endorsements')%></p>
       <%- else -%>
-        <table class="recommendations">
+        <table class="endorsements">
           <tr>
-            <th><%= t('recommendation.admin.name') %></th>
-            <th><%= t('recommendation.admin.email') %></th>
-            <th><%= t('recommendation.admin.year_hired') %></th>
+            <th><%= t('endorsement.admin.name') %></th>
+            <th><%= t('endorsement.admin.email') %></th>
+            <th><%= t('endorsement.admin.year_hired') %></th>
             <th>&nbsp;</th>
           </tr>
-        <% @provider.recommendations.recent.each do |rec| %>
+        <% @provider.endorsements.recent.each do |rec| %>
         <tr>
           <td><%= link_to h(rec.name), [:my, rec] %></td>
           <td><%= mail_to h(rec.email) %></td>

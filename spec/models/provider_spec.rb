@@ -25,23 +25,23 @@ describe Provider do
 ]
   end
   
-  describe "counter cache on recommendations" do
-    it "should increment the recommendations on the provider counter cache" do
+  describe "counter cache on endorsements" do
+    it "should increment the endorsements on the provider counter cache" do
       provider = Factory.create(:test_provider, :company_name => "Counter Slug")
-      provider.recommendations << Factory.create(:test_recommendation, :aasm_state => 'approved')
+      provider.endorsements << Factory.create(:test_endorsement, :aasm_state => 'approved')
       provider.reload
-      provider.recommendations_count.should == 1
+      provider.endorsements_count.should == 1
     end
   end
   
   describe "searching" do
     it "should search on budget" do
-      Provider.should_receive(:all).with(:joins => nil, :group => nil, :conditions => ["aasm_state != 'flagged' and min_budget <= ?", 20000], :order => "aasm_state asc, if(recommendations_count >= 3,recommendations_count,0) desc, RAND()", :limit => 10)
+      Provider.should_receive(:all).with(:joins => nil, :group => nil, :conditions => ["aasm_state != 'flagged' and min_budget <= ?", 20000], :order => "aasm_state asc, if(endorsements_count >= 3,endorsements_count,0) desc, RAND()", :limit => 10)
       Provider.search({:budget => "20000"})
     end
     
     it "should search on budget with weird formatting" do
-      Provider.should_receive(:all).with(:joins => nil, :group => nil, :conditions => ["aasm_state != 'flagged' and min_budget <= ?", 20000], :order => "aasm_state asc, if(recommendations_count >= 3,recommendations_count,0) desc, RAND()", :limit => 10)
+      Provider.should_receive(:all).with(:joins => nil, :group => nil, :conditions => ["aasm_state != 'flagged' and min_budget <= ?", 20000], :order => "aasm_state asc, if(endorsements_count >= 3,endorsements_count,0) desc, RAND()", :limit => 10)
       Provider.search({:budget => "20,000"})
     end
     
@@ -51,27 +51,27 @@ describe Provider do
     end
     
     it "should search on country" do
-      Provider.should_receive(:all).with(:joins => nil, :group => nil, :conditions => ["aasm_state != 'flagged' and country = ?", 'IE'], :order => "aasm_state asc, if(recommendations_count >= 3,recommendations_count,0) desc, RAND()", :limit => 10)
+      Provider.should_receive(:all).with(:joins => nil, :group => nil, :conditions => ["aasm_state != 'flagged' and country = ?", 'IE'], :order => "aasm_state asc, if(endorsements_count >= 3,endorsements_count,0) desc, RAND()", :limit => 10)
       Provider.search({:location => 'IE'})
     end
     
     it "should search on state" do
-      Provider.should_receive(:all).with(:joins => nil, :group => nil, :conditions => ["aasm_state != 'flagged' and state_province = ?", 'FL'], :order => "aasm_state asc, if(recommendations_count >= 3,recommendations_count,0) desc, RAND()", :limit => 10)
+      Provider.should_receive(:all).with(:joins => nil, :group => nil, :conditions => ["aasm_state != 'flagged' and state_province = ?", 'FL'], :order => "aasm_state asc, if(endorsements_count >= 3,endorsements_count,0) desc, RAND()", :limit => 10)
       Provider.search({:location => 'US-FL'})
     end
     
     it "should search on many countries" do
-      Provider.should_receive(:all).with(:joins => nil, :group => nil, :conditions => ["aasm_state != 'flagged' and country IN (?)", ['IE', 'US']], :order => "aasm_state asc, if(recommendations_count >= 3,recommendations_count,0) desc, RAND()", :limit => 10)
+      Provider.should_receive(:all).with(:joins => nil, :group => nil, :conditions => ["aasm_state != 'flagged' and country IN (?)", ['IE', 'US']], :order => "aasm_state asc, if(endorsements_count >= 3,endorsements_count,0) desc, RAND()", :limit => 10)
       Provider.search({:countries => ['IE', 'US']})
     end
     
     it "should search on many states" do
-      Provider.should_receive(:all).with(:joins => nil, :group => nil, :conditions => ["aasm_state != 'flagged' and state_province IN (?)", ['FL', 'NY']], :order => "aasm_state asc, if(recommendations_count >= 3,recommendations_count,0) desc, RAND()", :limit => 10)
+      Provider.should_receive(:all).with(:joins => nil, :group => nil, :conditions => ["aasm_state != 'flagged' and state_province IN (?)", ['FL', 'NY']], :order => "aasm_state asc, if(endorsements_count >= 3,endorsements_count,0) desc, RAND()", :limit => 10)
       Provider.search({:states => ['FL', 'NY']})
     end
     
     it "should search on many states and many countries" do
-      Provider.should_receive(:all).with(:joins => nil, :group => nil, :conditions => ["aasm_state != 'flagged' and country IN (?) and if(country = 'US', state_province IN (?), ?)", ['IE', 'US'], ['FL', 'NY'], true], :order => "aasm_state asc, if(recommendations_count >= 3,recommendations_count,0) desc, RAND()", :limit => 10)
+      Provider.should_receive(:all).with(:joins => nil, :group => nil, :conditions => ["aasm_state != 'flagged' and country IN (?) and if(country = 'US', state_province IN (?), ?)", ['IE', 'US'], ['FL', 'NY'], true], :order => "aasm_state asc, if(endorsements_count >= 3,endorsements_count,0) desc, RAND()", :limit => 10)
       Provider.search({:countries => ['IE', 'US'], :states => ['FL', 'NY']})
     end
   end

@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20091102185721) do
+ActiveRecord::Schema.define(:version => 20091103093719) do
 
   create_table "audits", :force => true do |t|
     t.string   "auditable_type"
@@ -25,6 +25,12 @@ ActiveRecord::Schema.define(:version => 20091102185721) do
   add_index "audits", ["user_id", "auditable_type"], :name => "auditable_user_index"
   add_index "audits", ["user_id"], :name => "index_audits_on_user_id"
 
+  create_table "endorsement_request_recipients", :force => true do |t|
+    t.integer "endorsement_request_id"
+    t.string  "email"
+    t.string  "validation_token"
+  end
+
   create_table "endorsement_requests", :force => true do |t|
     t.integer  "provider_id"
     t.text     "message"
@@ -32,6 +38,24 @@ ActiveRecord::Schema.define(:version => 20091102185721) do
     t.datetime "updated_at"
     t.text     "recipients"
   end
+
+  create_table "endorsements", :force => true do |t|
+    t.string   "name"
+    t.string   "company"
+    t.string   "email"
+    t.string   "url"
+    t.integer  "provider_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "year_hired"
+    t.string   "position"
+    t.text     "endorsement"
+    t.string   "aasm_state"
+    t.integer  "sort_order"
+    t.integer  "endorsement_request_recipient_id"
+  end
+
+  add_index "endorsements", ["aasm_state"], :name => "index_recommendations_on_aasm_state"
 
   create_table "homepages", :force => true do |t|
     t.text     "content"
@@ -92,27 +116,10 @@ ActiveRecord::Schema.define(:version => 20091102185721) do
     t.string   "slug"
     t.string   "company_url"
     t.text     "marketing_description"
-    t.integer  "recommendations_count",                                 :default => 0
+    t.integer  "endorsements_count",                                    :default => 0
   end
 
   add_index "providers", ["slug"], :name => "index_providers_on_slug"
-
-  create_table "recommendations", :force => true do |t|
-    t.string   "name"
-    t.string   "company"
-    t.string   "email"
-    t.string   "url"
-    t.integer  "provider_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string   "year_hired"
-    t.string   "position"
-    t.text     "endorsement"
-    t.string   "aasm_state"
-    t.integer  "sort_order"
-  end
-
-  add_index "recommendations", ["aasm_state"], :name => "index_recommendations_on_aasm_state"
 
   create_table "requested_services", :force => true do |t|
     t.integer  "rfp_id"

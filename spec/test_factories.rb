@@ -57,14 +57,14 @@ Factory.define :test_endorsement_request, :class => EndorsementRequest do |endor
   endorsement_request.association :provider, :factory => :test_provider
 end
 
-Factory.define :test_recommendation, :class => Recommendation do |recommendation|
-  recommendation.name "Brian"
-  recommendation.company "dufilmmakers"
-  recommendation.year_hired "2007"
-  recommendation.position "Grand Pooh-bah"
-  recommendation.email "btflanagan@gmail.com"
-  recommendation.endorsement "A++++!! Would use again!"
-  recommendation.url "http://www.brianflanagan.org"
+Factory.define :test_endorsement, :class => Endorsement do |endorsement|
+  endorsement.name "Brian"
+  endorsement.company "dufilmmakers"
+  endorsement.year_hired "2007"
+  endorsement.position "Grand Pooh-bah"
+  endorsement.email "btflanagan@gmail.com"
+  endorsement.endorsement "A++++!! Would use again!"
+  endorsement.url "http://www.brianflanagan.org"
 end
 
 Factory.define :test_user, :class => User do |user|

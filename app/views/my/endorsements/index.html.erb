@@ -1,0 +1,61 @@
+<div class="dashboard">
+  <h3><%= t('endorsement.endorsements_for', :company => @provider.company_name) %></h3>
+  <p>
+    <%= link_to t('provider.request_endorsement'), new_my_endorsement_request_path %> |
+    <%= link_to t('provider.sort_endorsements'), '#', :class => 'sort-endorsements' %>
+  </p>
+
+  <%- if @endorsements.blank? -%>
+    <p><%= t('provider.no_endorsements')%></p>
+  <%- else -%>
+  
+    <div id="sorting-endorsements">
+        <ul>
+          <%- @endorsements.each do |endorsement| -%>
+            <li class="sortable" id="<%= dom_id(endorsement) %>">
+              <strong><%= endorsement.name %></strong> <em><%= truncate(endorsement.endorsement) %></em></li>
+          <%- end -%>
+        </ul>
+        
+    </div>
+    <div id="non-sorting-endorsements">
+      <%- form_tag update_all_my_endorsements_path do -%>
+        <table class="endorsements">
+          <tr>
+            <th><%= t('endorsement.is_approved') %></th>
+            <th><%= t('endorsement.admin.name') %></th>
+            <th><%= t('endorsement.admin.email') %></th>
+            <th><%= t('endorsement.admin.year_hired') %></th>
+            <th>&nbsp;</th>
+          </tr>
+        <tbody id="endorsements-collection">
+          <%= render :partial => "endorsement", :collection => @endorsements %>
+        </tbody>
+        </table>
+        <%= submit_tag t('endorsement.approve_selected') %>
+      <%- end -%>
+    </div>
+  <%- end -%>
+
+  <h3><%= t('endorsement_request.headline') %></h3>
+  <%- if @endorsement_requests.empty? -%>
+    <p><%= t('provider.no_endorsement_requests')%></p>
+  <%- else -%>
+    <table class="endorsements">
+      <tr>
+        <th><%= t('endorsement_request.recipients') %></th>
+        <th><%= t('endorsement_request.message') %></th>
+      </tr>
+    <% @endorsement_requests.each do |endorsement| %>
+    <tr>
+      <td>
+      <% endorsement.recipients.each do |recipient| -%>
+        <%=h recipient.email %><br />
+      <% end -%>
+      </td>
+      <td><%= endorsement.message %></td>
+    </tr>
+    <%- end -%>
+    </table>
+  <%- end -%>
+</div>

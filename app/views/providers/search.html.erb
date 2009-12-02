@@ -23,16 +23,16 @@
           <td><%= link_to provider.company_name, provider %></td>
           <td><%= provider.private_address.join(', ') %></td>
           <td><%= provider.active? ? t('provider.confirmed') : '' %></td>
-          <td><%= provider.recommendations.approved.size %></td>
+          <td><%= provider.endorsements.approved.size %></td>
           <td><%= check_box_tag 'provider_ids[]', provider.id, false, :id => dom_id(provider) %></td>
         </tr>
       <%- end -%>
     </table>
     
     <%= hidden_field_tag 'budget', params[:budget] %>
-    <% if params[:technology_type_ids] and params[:technology_type_ids].not.empty? %>
-      <% params[:technology_type_ids].each do |technology_type_id| %>
-        <%= hidden_field_tag 'technology_type_ids[]', technology_type_id %>
+    <%- if params[:service_ids] -%>
+      <%- params[:service_ids].each do |service_id| -%>
+        <%= hidden_field_tag 'service_ids[]', service_id %>
       <%- end -%>
     <%- end -%>
 

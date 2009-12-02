@@ -1,37 +1,35 @@
 class EndorsementRequest < ActiveRecord::Base
-  validates_presence_of :recipients, :message
-  validate_on_create :recipients_divisible_and_valid
+  validates_presence_of :message
+  validate_on_create :recipient_count
+  
+  attr_reader :recipient_addresses
   
   after_save :send_requests
 
+  has_many :recipients, :class_name => 'EndorsementRequestRecipient'
+
   belongs_to :provider
   
-  xss_terminate :except => [:recipients]
+  xss_terminate :except => [:recipient_addresses]
   
-  def emails
-    emails = []
-    emails = recipients.split(%r{,\s*}) if recipients.not.blank?
-    emails
+  def recipient_addresses=(addresses = '')
+    @recipient_addresses = []
+    addresses.split(%r{,\s*}).each do |email|
+      recipients.build(:email => email)
+      @recipient_addresses << email
+    end
   end
 
   def send_requests
-    self.emails.each do |address|
-      Notification.deliver_endorsement_request(self,address)
+    recipients.each do |recipient|
+      recipient.send_request
     end
   end
 
 private
-  
-  def recipients_divisible_and_valid
-    errors.add(:recipients, I18n.t('endorsement_request.validations.too_many_recipients') ) if self.emails.length > 10
-    self.emails.each do |str|
-      begin
-        email = TMail::Address.parse(str)
-      rescue TMail::SyntaxError
-        errors.add(:recipients, I18n.t('endorsement_request.validations.invalid_recipients') )
-      else
-        errors.add(:recipients, I18n.t('endorsement_request.validations.invalid_recipients') ) unless email.address =~ /^[^@]*@[^\.]*\..*$/
-      end
-    end
+
+  def recipient_count
+    errors.add(:recipients, I18n.t('endorsement_request.validations.no_recipients') ) if recipients.size == 0
+    errors.add(:recipients, I18n.t('endorsement_request.validations.too_many_recipients') ) if recipients.size > 10
   end
 end
