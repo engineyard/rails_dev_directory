@@ -14,33 +14,41 @@
       <table>
         <tr>
           <td>
-            <%= label_tag 'budget', t('provider.directory.budget') %>
-            <%= text_field_tag 'budget', '', :class => "number" %> <br />
-            <%= label_tag 'hourly_rate', t('provider.hourly_rate') %>
-            <%= text_field_tag 'hourly_rate', '', :class => "number" %> <br />
-            <span class="note"><%= t('provider.directory.note') %></span>
-            <%= label_tag 'location', t('provider.directory.location') %>
-            <%= location_select %>
+            <%= label_tag 'budget', t('provider.directory.budget') %><br />
+            <%= text_field_tag 'budget', '', :class => "number" %>
           </td>
           <td>
-            <h4><%= t('provider.directory.services') %></h4>
+            <%= label_tag 'hourly_rate', t('provider.hourly_rate') %><br />
+            <%= text_field_tag 'hourly_rate', '', :class => "number" %><br />
+          </td>
+          <td>
+            <%= label_tag 'location', t('provider.directory.location') %><br />
+            <%= location_select %>
+          </td>
+        </tr>
+      </table>
+      <h4>Filter by services and skills</h4>
+      <table class="filters">
+        <tr>
+          <td>
+            <h4><%= t('provider.directory.services') %>:</h4>
             <ul>
-              <li><%= image_tag '/images/icon-check.png', :class=>"check"%> <label><%= t('provider.directory.default_service') %></label></li>
-              <%- @services.group_by(&:category).each do |category, services| -%>
-                <li>
-                  <%= category.name %>
-                  <ul>
-                    <%- services.each do |service| -%>
-                      <li>
-                        <%= check_box_tag "service_ids[]", service.id, false, :id => dom_id(service) %>
-                        <%= label_tag dom_id(service), service.name %>
-                      </li>
-                    <%- end -%>
-                  </ul>
-                </li>
-              <%- end -%>
+              <li><label><%= image_tag '/images/icon-check.png', :class=>"check"%> <%= t('provider.directory.default_service') %></label></li>
             </ul>
           </td>
+          <%- @services.group_by(&:category).each do |category, services| -%>
+            <td>
+              <h4><%= category.name %>:</h4>
+              <ul>
+                <%- services.each do |service| -%>
+                  <li>
+                    <%= check_box_tag "service_ids[]", service.id, false, :id => dom_id(service) %>
+                    <%= label_tag dom_id(service), service.name %>
+                  </li>
+                <%- end -%>
+              </ul>
+            </td>
+          <%- end -%>
         </tr>
       </table>
 

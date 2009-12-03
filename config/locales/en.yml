@@ -139,16 +139,15 @@ en:
     sign_in: Sign in to your account
     
     directory_headline: Find a Rails Freelancer
-    directory_description: "Give us a little information, and we'll show you Rails freelancers who best match your requirements."
+    directory_description: "Start Your Search for a Rails Freelancer Now"
     directory_results_description: "Click on the developer's name to view their profile. Check the box next to the names of the developers you want to submit a request to (you can only send requests to a maximum of 3 companies)."
     visit_website: Visit this company's website
     directory:
-      description: "Give us a little information about your project, and we'll show you Rails freelancers that best match your requirements."
+      description: "Start Your Search for a Rails Freelancer Now"
       find_providers: Find a freelancer
       budget: "Your Budget ($US):"
-      note: "Please enter numbers only"
       location: "Location:"
-      services: "Services Required:"
+      services: "Services Required"
       default_service: "Ruby on Rails Development"
     
     request_rfp: Fill out request

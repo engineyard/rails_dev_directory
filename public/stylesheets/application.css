@@ -115,7 +115,6 @@ li.username {
   min-height: 500px;
 }
 .welcome {
-  text-align: center;
   font-size: 1.1em;
   margin: 0em 0 3em;
   padding: 0 40px;
@@ -125,6 +124,7 @@ li.username {
   margin: 0 30px 0 50px;
 }
 .welcome h1 {
+  color: #B22022;
   font-size: 2.4em;
   line-height: 1.1em;
   padding-top: 0.2em;
@@ -143,7 +143,7 @@ li.username {
 .searchWizard h3 {
   font: 1.35em Lucida Grande, Verdana, sans-serif;
   margin: 0;
-  padding: 0 0 20px;
+  padding: 0 0 5px;
   color: #007BC8;
   border-bottom: 1px solid #007BC8;
 }
@@ -197,17 +197,28 @@ li.username {
   text-align: left;
   color: #333;
   border-bottom: 1px solid #DEDEDE;
-  padding-bottom: 1em;
+  padding-bottom: 0;
   margin-bottom: 0;
 }
 .provider.search h4 {
+  font-size: 0.9em;
+  display: inline-block;
+  padding: 5px 15px;
+  border: 1px solid #DDD;
+  margin: 0;
+}
+.provider.search table h4 {
+  font-size: 1em;
+  display: block;
+  padding: 0;
+  border: none;
   color: #000;
 }
 .provider.search form {
   text-align: left;
 }
 .provider.search label {
-  color: #666;
+  color: #000;
   width: auto;
   margin-right: 0;
   display: inline;
@@ -216,7 +227,7 @@ li.username {
   display: inline;
   margin-left: 0.5em;
   width: 12.5em;
-  background: #FFFFF3;
+  background: #FFF;
 }
 .provider.search input[type="text"]:focus {
   background: #FFF;
@@ -226,12 +237,9 @@ li.username {
   margin-bottom: 0.2em;
 }
 .provider.search ul {
-  width: 530px;
 }
 .provider.search li {
   display: block;
-  float: left;
-  width: 40%;
   margin-right: 2%;
   min-height: 20px;
   white-space: nowrap;
@@ -240,6 +248,9 @@ li .check {
   position: relative;
   top: -2px;
   margin: 0 0.3em -5px 0;
+}
+.provider.search li label {
+  color: #666;
 }
 .provider.search input[type="submit"] {
   font-size: 1.4em;
@@ -256,29 +267,31 @@ li .check {
 }
 .provider.search table {
   margin: 0;
+}
+.provider.search table.filters {
+  border-top: 1px solid #DBDBDB;
   border-bottom: 1px solid #DBDBDB;
+}
+.provider.search table.filters td {
+  padding-top: 1.5em;
 }
 .provider.search table td:hover, .provider.search table tr:hover {
   background: none;
 }
 .provider.search form td {
   border: none;
-  padding: 0 0 20px 35px
+  padding: 0 0 20px 35px;
 }
 .provider.search form td:first-child {
   padding-left: 0;
-}
-.provider.search form td:first-child label {
-  display: block;
-  clear: both;
-  text-align: left;
-  float: none;
-  color: #000;
 }
 .provider.search form input[type="text"] {
   margin-left: 0;
   margin-top: 0.5em;
   width: 12em;
+}
+.provider.search form select {
+  min-width: 14em;
 }
 .links {
   margin: 2em 0 0 0;
@@ -641,7 +654,7 @@ hr {
 /* Three Column Styles */
 .threeColumn {
   clear: both;
-  padding-top: 1.5em;
+  padding-top: 0;
   margin: 0 -40px;
 }
 .threeColumn .col1, .threeColumn .col2, .threeColumn .col3 {

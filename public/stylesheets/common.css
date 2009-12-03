@@ -171,7 +171,7 @@ textarea:focus, input[type="text"]:focus, input[type="password"]:focus {
 textarea, input[type="text"], input[type="password"] {
 	color: #333;
   padding: 3px 1px;
-  border: 1px solid #999;
+  border: 1px solid #BDBDBD;
   width: 20em;
 }
 input.number {
