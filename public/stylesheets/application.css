@@ -37,6 +37,12 @@ dd.date {
   margin-bottom: 1em;
   color: #666;
 }
+.panel h3 {
+  font: 0.8em Lucida Grande, Verdana, sans-serif;
+  text-transform: uppercase;
+  border-bottom: 1px solid #CACACA;
+  padding-bottom: 6px;
+}
 
 /* Header */
 .header {
@@ -76,6 +82,18 @@ li.username {
   margin-right: 1em;
 }
 /* Content Page */
+.panel {
+  background: #FFF;
+  padding: 0 50px;
+  margin: 0 -50px;
+  border: 1px solid #E4E4E4;
+}
+.panel h2 {
+  text-align: left;
+}
+.panel h2.name {
+  font: 2em Lucida Grande, Verdana, sans-serif;
+}
 .shadow {
   padding: 7px;
   margin: 0 auto;
@@ -147,8 +165,6 @@ li.username {
   color: #007BC8;
   border-bottom: 1px solid #007BC8;
 }
-.search {
-}
 .provider h3 {
   font-size: 1.7em;
   color: #333;
@@ -169,26 +185,6 @@ li.username {
   text-decoration: none;
   border: none;
 }
-.providerHead {
-  border-bottom: 2px solid #59D8E5;
-  margin-bottom: 1.2em;
-  height: 8em;
-}
-.providerHead .narrow {
-  width: auto
-}
-.providerHead h2 {
-  margin-top: 1em;
-  font-size: 2.5em;
-  text-align: left;
-}
-.providerHead img {
-  margin: 2em 1em 0 0;
-  float: left;
-  position: relative;
-  max-height: 64px;
-  max-width: 64px;
-}
 .provider.search {
   padding: 10px 0 0;
 }
@@ -205,6 +201,7 @@ li.username {
   display: inline-block;
   padding: 5px 15px;
   border: 1px solid #DDD;
+  border-bottom: none;
   margin: 0;
 }
 .provider.search table h4 {
@@ -304,15 +301,6 @@ li .check {
   float: right;
   margin: 0.4em 0 0 0;
 }
-.links li.request a {
-  color: #FFF;
-  display: block;
-  padding: 0.5em 1em;
-  background: #2E95A3 url(/images/bg-btn2.png) repeat-x left top;
-  border: 1px solid #2E95A3;
-  -moz-border-radius: 4px;
-  -webkit-border-radius: 4px;
-}
 .narrow {
   float: left;
   width: 510px;
@@ -321,7 +309,6 @@ li .check {
   clear: both;
   margin-top: 1.5em;
   padding-top: 1.5em;
-  border-top: 1px solid #9FBCBF;
 }
 .block:first-child {
   border-top: none;
@@ -348,7 +335,7 @@ li .check {
 }
 .sidebar h3 {
   padding: 0 0 0.5em;
-  border-bottom: 1px solid #A1BDC0;
+  border-bottom: 1px solid #CACACA;
 }
 .sidebar a {
   font-size: 0.95em;
@@ -511,10 +498,19 @@ li.document {
 /* Table Styles */
 table {
   font-size: 0.9em;
+  border-collapse: separate;
 }
-th {
-  background: #FFF none;
+thead th {
+  font-size: 0.9em;
+  font-weight: normal;
+  text-transform: uppercase;
+  border-bottom: 1px solid #CACACA;
+  padding: 0;
+}
+tbody th {
+  background: #F5FAFF none;
   text-transform: capitalize;
+  padding: 10px 0 8px;
 }
 td {
   padding: 0.2em;

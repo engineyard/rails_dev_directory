@@ -204,6 +204,7 @@ en:
     marketing_description_limit: Please limit to 300 characters
     remaining: remaining
     location: Location
+    about: About this Developer
     street_address: Street Address
     city: City
     state: State
@@ -225,6 +226,7 @@ en:
     terms_of_service: Terms of Use
     services: Services and Skills
     no_services: No services have been selected yet
+    experience: Experience
     action: Send Request To
     verified: Verified?
     

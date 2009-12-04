@@ -229,24 +229,8 @@ table {
   -moz-border-radius-top: 6px;
   -webkit-border-radius-top: 6px;
 }
-tr:hover {
-  background: #F8F9F9;
-}
 th, table td {
-  padding: 0.5em;
   line-height: 1.2em;
-}
-th {
-  border-bottom: 2px solid #67797B;
-}
-td {
-  border-bottom: 1px solid #DBDBDB;
-}
-td, th {
-  border-left: 1px solid #DBDBDB;
-}
-th:first-child, td:first-child {
-  border-left: none;
 }
 
 /* Table Layout Styles */
@@ -287,6 +271,15 @@ table.layout tr:hover {
 }
 .disabled:hover {
   cursor: default;
+}
+.button {
+  background: #EBECEE;
+  padding: 4px 20px;
+  border: 1px solid #BCBCBC;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+  border-radius: 4px;
+  color: #333;
 }
 /* System Messages */
 div.flash, .errorExplanation, .error, .notice { 
