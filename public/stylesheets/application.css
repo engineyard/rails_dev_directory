@@ -4,7 +4,7 @@ body {
   background: #F3F3F3;
 }
 .content, .shadow, .subnav, .footer {
-  width: 960px;
+  width: 1100px;
 }
 .content {
   margin: 0 auto;
@@ -49,7 +49,7 @@ dd.date {
 .header {
   padding: 20px 0 12px;
   margin-bottom: 0;
-  background: #2F3738;
+  background: #2F3738 url(/images/sprite-layout.png) repeat-x;
   height: 48px;
 }
 .header h1 {
@@ -71,8 +71,6 @@ dd.date {
 }
 .globalNav a {
   padding: 0.2em 1em 0.3em;
-  -moz-border-radius: 1em;
-  -webkit-border-radius: 0.8em;
 }
 .globalNav a:hover {
   text-decoration: none;
@@ -187,7 +185,7 @@ li.username {
   border: none;
 }
 .provider.search {
-  padding: 10px 0 0;
+  padding: 0;
 }
 .provider.search h3 {
   font: 1em Lucida Grande, Verdana, sans-serif;
@@ -218,17 +216,8 @@ li.username {
 .provider.search label {
   color: #000;
   width: auto;
-  margin-right: 0;
+  margin: 0;
   display: inline;
-}
-.provider.search input[type="text"] {
-  display: inline;
-  margin-left: 0.5em;
-  width: 12.5em;
-  background: #FFF;
-}
-.provider.search input[type="text"]:focus {
-  background: #FFF;
 }
 .provider.search p, .provider.search ul, .provider.search li {
   margin-left: 0;
@@ -280,10 +269,15 @@ li .check {
 .provider.search form td:first-child {
   padding-left: 0;
 }
-.provider.search form input[type="text"] {
+
+.provider.search input[type="text"] {
+  display: inline;
   margin-left: 0;
   margin-top: 0.5em;
-  width: 12em;
+  width: 15em;
+}
+.provider.search input[type="text"]:focus {
+  background: #FFF;
 }
 .provider.search form select {
   min-width: 14em;
@@ -692,6 +686,77 @@ hr {
   margin: 1em 0 0 0;
 }
 
+/* Feature Developer Grid */
+.featuredevtitle {
+}
+.featuredevs {
+  border: 1px solid #949494;
+  background: #CCC;
+  padding: 10px;
+  margin: 0 -40px;
+}
+.featuredevs .content {
+  width: auto;
+  background: #FFF;
+  padding: 40px;
+}
+.featuredevs table {
+  border-collapse: collapse;
+  margin: 0;
+}
+.featuredevs table td {
+  width: 275px;
+  border: 1px solid #DDD;
+  padding: 30px;
+}
+.featuredevs table tr:first-child td {
+  border-top: 0;
+  padding-top: 10px;
+}
+.featuredevs table tr:last-child td {
+  border-bottom: 0;
+  padding-bottom: 10px;
+}
+.featuredevs table td:first-child { 
+  border-left: none;
+  padding-left: 0;
+}
+.featuredevs table td:last-child {
+  border-right: none;
+  padding-right: 0;
+}
+.featuredevs img {
+  padding: 1px;
+  margin-right: 15px;
+  border: 1px solid #B6B9BA;
+  float: left;
+}
+.featuredevs h4 {
+  color: #930;
+  font-size: 1.2em;
+  margin-top: 0;
+}
+.featuredevs ul {
+  margin: 10px 0 0 100px;
+  font-size: 0.9em;
+}
+.featuredevs li {
+  padding: 0px 0 3px 20px;
+  margin-top: 5px;
+  display: list-item;
+}
+.location {
+  background: url(/images/sprite-graphics.png) no-repeat 0px -266px; 
+}
+.travel {
+  background: url(/images/sprite-graphics.png) no-repeat 0px -311px;
+}
+.language {
+  background: url(/images/sprite-graphics.png) no-repeat 0px -356px;
+}
+.schedule {
+  background: url(/images/sprite-graphics.png) no-repeat 0px -402px;
+}
 
 .provider.search ul.location { width: 100px;}
 .provider.search ul.location li { float: none; }
