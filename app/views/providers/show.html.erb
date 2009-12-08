@@ -109,6 +109,7 @@
         <li><%= link_to t('portfolio_item.manage'), my_portfolio_items_path %></li>
         <li><%= link_to t('endorsement.manage'), my_endorsements_path %></li>
       <%- else -%>
+        <li class="request"><%= link_to 'Save As Favorite', '', :class=>'button' %></li>
         <li class="request"><%= link_to t('provider.request_rfp'), new_rfp_path(:provider_id => @provider.id), :onClick=>"pageTracker._trackEvent('Request', 'Create Proposal', 'Profile');", :class=>'button' %></li>
       <%- end -%>
     </ul>
