@@ -1,6 +1,11 @@
 <fieldset>
   <%= f.label :company_name, t("provider.company_name") %> <%= f.text_field :company_name %> <br />
   <%= f.label :marketing_description, "#{t("provider.marketing_description")}<br/><em>#{t("provider.marketing_description_limit")}</em><br/><span class='charCount'><em class=\"number\">#{300 - (@provider.marketing_description ? @provider.marketing_description.size : 0)}</em> #{t('provider.remaining')}</span>" %> <%= f.text_area :marketing_description, :'data-count' => 300  %> <br />
+  
+  <div class="info">
+    <h5>Business Address</h5>
+    <p>Your business location is needed to allow potential customers to search for you by your location.</p>
+  </div>
   <%= f.label :street_address, t("provider.street_address") %> <%= f.text_field :street_address %> <br />
   <label></label><%= f.text_field :further_street_address %> <br />
   <%= f.label :city, t("provider.city") %> <%= f.text_field :city %> <br />
@@ -30,25 +35,33 @@
   <%- setup_services(@provider) -%>
   <%- @provider.provided_services.group_by(&:category).each do |category, services| -%>
     <div class="service_category"><%= category.name %></div>
+    <ul>
     <%- services.each do |service| %>
       <%- f.fields_for :provided_services, service do |ps| -%>
         <%- if ps.object.category == category -%>
-          <div>
-            <%= ps.hidden_field :service_id %>
-            <%= ps.label :_delete, ps.object.name %>
+          <li>
             <%= ps.check_box :_delete, { :class => 'service' }, 'false', 'true' %>
+            <%= ps.hidden_field :service_id %>
+            
+            <%= ps.label :_delete, ps.object.name %>
+            
             <%- if category.proficiency? -%>
+              <ul>
               <%- (1..3).each do |level| -%>
+                <li>
                 <%= ps.radio_button :proficiency, level %>
                 <%= ps.label "proficiency_#{level}", t("service.proficiency_#{level}") %>
                 <%= ps.label "proficiency_#{level}",
                              "#{category.name} #{ps.object.name} #{t("service.proficiency_#{level}")}",
                              :class => 'testability' %>
+                </li>
               <%- end -%>
+              </ul>
             <%- end -%>
-          </div>
+          </li>
         <%- end -%>
       <%- end -%>
     <%- end -%>
+    </ul>
   <%- end -%>
 </fieldset>

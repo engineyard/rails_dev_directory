@@ -78,7 +78,7 @@ h2 {
   margin: 0.7em 0 0;
 }
 h3 {
-  font-size: 1.2em;
+  font: 1.2em Lucida Grande, Verdana, sans-serif;
 	padding-top: 1.5em;
 }
 h4 {
@@ -131,7 +131,6 @@ form h3 {
   border-bottom: 1px solid #DEDEDE;
 }
 textarea, input, select, label, button, optgroup {
-  margin-top: 10px;
 	font-size: 1em;
 }
 optgroup {
@@ -146,13 +145,11 @@ option {
   text-transform: none;
 }
 label {
-  padding-top: 2px;
-  text-align:right;
-  width: 16em;
-}
-input[value="Save"], input[id="user_submit"], input[value="Sign up"], input[id="rfp_submit"], 
-input[id="endorsement_request_submit"], input[value="Find providers"], input[value="Find Rails developers"], form ul, form p, .edit_provider img {
-	margin-left: 17em;
+  margin-top: 10px;
+  clear: both;
+  display: block;
+  width: auto; 
+  float: none;
 }
 input[type="checkbox"] {
   margin: 13px 0 0;
@@ -164,7 +161,7 @@ input[type="submit"], button {
 input[type="submit"]:hover, button:hover {
   cursor: pointer;
 }
-input[value="Save"], input[value="Delete this user"], #recommendation_submit, form ul {
+input[value="Save"], input[value="Delete this user"], #recommendation_submit {
 	margin-left: 17em;
 }
 input#next {
@@ -197,15 +194,37 @@ form ul {
   margin-top: 1em;
   margin-bottom: 0;
 }
-form ul input[type="checkbox"] {
-  margin: 0 0.5em 1px 0;
+form ul input[type="checkbox"], form ul input[type="radio"] {
+  margin: 13px 0.5em 1px 0;
+  float: left;
 }
 form li {
   display: block;
+  clear: both;
   margin-bottom: 0.7em;
 }
 form li label {
   color: #666;
+  clear: none;
+  float: left;
+  width: auto;
+}
+form li ul {
+  font-size: 0.8em;
+  margin-top: 0;
+  margin-left: 140px;
+}
+form li li {
+  display: inline-block;
+  margin: 0;
+}
+form li li label {
+  margin-right: 15px;
+  padding: 0;
+  border: none;
+}
+.testability {
+  display: none;
 }
 form br {
   margin: -1em 0;
@@ -342,7 +361,7 @@ div.notice {
 }
 .over-limit { color: #CC0000; }
 #recaptcha_widget_div {
-  margin: 1.5em 0 0.5em 17em;
+  margin: 1.5em 0 0.5em 0;
 }
 #recaptcha_widget_div table {
   width: auto;

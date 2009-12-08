@@ -188,7 +188,6 @@ li.username {
   padding: 0;
 }
 .provider.search h3 {
-  font: 1em Lucida Grande, Verdana, sans-serif;
   text-align: left;
   color: #333;
   border-bottom: 1px solid #DEDEDE;
@@ -269,7 +268,6 @@ li .check {
 .provider.search form td:first-child {
   padding-left: 0;
 }
-
 .provider.search input[type="text"] {
   display: inline;
   margin-left: 0;
@@ -296,6 +294,13 @@ li .check {
 .narrow {
   float: left;
   width: 510px;
+}
+.box {
+  width: 640px;
+  background: #FFF;
+  border: 10px solid #9EDBF7;
+  padding: 30px;
+  margin-left: -50px;
 }
 .block {
   clear: both;
@@ -324,6 +329,7 @@ li .check {
 .sidebar {
   width: 300px;
   float: right;
+  margin-bottom: 40px;
 }
 .sidebar h3 {
   padding: 0 0 0.5em;
@@ -593,6 +599,26 @@ textarea {
 }
 .sidebar input {
   margin-left: 0;
+}
+
+.info {
+  font-size: 0.9em;
+  position: absolute;
+  margin-left: 680px;
+  width: 300px;
+  padding: 20px;
+  background: #E8E8E8;
+}
+.info h5 {
+ font: 1em Lucida Grande, Verdana, sans-serif;
+ margin-bottom: 0.4em;
+}
+.info p {
+  color: #666;
+  margin: 0;
+}
+.info p + p {
+  margin-top: 8em;
 }
 
 /* Homepage Form */
