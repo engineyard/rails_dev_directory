@@ -134,6 +134,17 @@ textarea, input, select, label, button, optgroup {
   margin-top: 10px;
 	font-size: 1em;
 }
+optgroup {
+  background: none;
+  border-top: 1px solid #DDD;
+  font-style:normal;
+  padding-top: 10px;
+  color: #999;
+  text-transform: uppercase;
+}
+option {
+  text-transform: none;
+}
 label {
   padding-top: 2px;
   text-align:right;

@@ -4,7 +4,7 @@
 en:
   general:
     site_title: Rails Freelancers Directory
-    site_title_logo: "<img src='/images/type-rdd.png' alt='Rails Development Directory' />"
+    site_title_logo: "Rails Freelancers Directory"
     site_title_admin: Rails Development Directory Admin
     "yes": "Yes"
     "no": "No"
@@ -93,7 +93,7 @@ en:
   home:
     logo: /images/logo-rails.jpg
     welcome: "Looking for a Rails Freelancer?"
-    description: "<p>If you’re a business searching for an established, professional Rails development firm to build your Ruby on Rails application, then you’ve come to the right place!</p><p>We know that finding a qualified Ruby on Rails developer can be a challenge. On the Rails Development Directory, we match your business with professional Rails developers who want to build your app. It only takes seconds to find qualified firms, so start searching now!</p>"
+    description: "<p>We know that finding a qualified Ruby on Rails developer can be a challenge. On the Rails Developer Directory, we match your business with professional Rails developers who want to build your app. It only takes seconds to find qualified firms, so start searching now!</p>"
     find_a_provider: Find a Rails Freelancer
     full_listing: Full listing
     by_location: Geographic listing
