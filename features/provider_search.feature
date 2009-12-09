@@ -125,6 +125,7 @@ Feature: Provider directory
     When I select "Ireland" from "Location"
       And I press "Find a Freelancer"
     Then I should see "Hyper Tiny"
+      And the "Location" field should contain "IE"
       And I should not see "Hashrocket"
     When I select "Florida" from "Location"
       And I press "Find a Freelancer"

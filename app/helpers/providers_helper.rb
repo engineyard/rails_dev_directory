@@ -55,7 +55,8 @@ module ProvidersHelper
             [State.by_code(p.state_province), "US-#{p.state_province}"]
             end],
           [t('provider.international'), Provider.locations_for_select]
-            ]
+            ],
+            params[:location]
         )
   end
 end
