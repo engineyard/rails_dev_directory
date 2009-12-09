@@ -1,0 +1,1 @@
+default: --format rerun --out rerun.txt --format pretty <%= File.file?('rerun.txt') and !File.read('rerun.txt').empty? ? File.read('rerun.txt') : features %>

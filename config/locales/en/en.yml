@@ -144,7 +144,7 @@ en:
     visit_website: Visit this company's website
     directory:
       description: "Start Your Search for a Rails Freelancer Now"
-      find_providers: Find a freelancer
+      find_providers: Find a Freelancer
       budget: "Your Budget ($US):"
       location: "Location:"
       services: "Services Required"
