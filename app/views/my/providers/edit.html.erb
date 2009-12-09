@@ -16,6 +16,42 @@
   
   <%= render :partial => 'providers/form', :locals => {:f => f} %>
   
+  <h3><%= t('provider.services') %></h3>
+
+  <%- setup_services(@provider) -%>
+  <%- @provider.provided_services.group_by(&:category).each do |category, services| -%>
+    <div class="service_category"><%= category.name %></div>
+    <ul>
+    <%- services.each do |service| %>
+      <%- f.fields_for :provided_services, service do |ps| -%>
+        <%- if ps.object.category == category -%>
+          <li>
+            <%= ps.check_box :_delete, { :class => 'service' }, 'false', 'true' %>
+            <%= ps.hidden_field :service_id %>
+            
+            <%= ps.label :_delete, ps.object.name %>
+            
+            <%- if category.proficiency? -%>
+              <ul>
+              <%- (1..3).each do |level| -%>
+                <li>
+                <%= ps.radio_button :proficiency, level %>
+                <%= ps.label "proficiency_#{level}", t("service.proficiency_#{level}") %>
+                <%= ps.label "proficiency_#{level}",
+                             "#{category.name} #{ps.object.name} #{t("service.proficiency_#{level}")}",
+                             :class => 'testability' %>
+                </li>
+              <%- end -%>
+              </ul>
+            <%- end -%>
+          </li>
+        <%- end -%>
+      <%- end -%>
+    <%- end -%>
+    </ul>
+  <%- end -%>
+  
+  
   <%= f.submit t('forms.save') %> <%= t('forms.or')%> <%= link_to t('forms.cancel'), @provider %>
 
 <% end -%>
