@@ -250,12 +250,6 @@ ActiveRecord::Schema.define(:version => 20091106150556) do
 
   add_index "services", ["service_category_id"], :name => "index_services_on_service_category_id"
 
-  create_table "time_blocks", :force => true do |t|
-    t.integer "provider_id"
-    t.date    "start"
-    t.date    "end"
-  end
-
   create_table "users", :force => true do |t|
     t.string   "email",             :limit => 100
     t.datetime "created_at"

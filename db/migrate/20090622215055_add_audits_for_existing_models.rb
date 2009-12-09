@@ -1,4 +1,7 @@
 class AddAuditsForExistingModels < ActiveRecord::Migration
+  
+  class Recommendation < ActiveRecord::Base; end
+
   def self.up
     Provider.all.each do |p|
       Audit.create(:auditable => p, :action => 'create', :created_at => p.created_at, :updated_at => p.created_at)
