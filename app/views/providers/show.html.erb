@@ -7,22 +7,38 @@
   <%- content_for :title do -%><%= @provider.company_name %> <%= t('provider.developer_profile') %> | <%= t('provider.rails_developer_in') %> <%= [@provider.city, @provider.state_province].reject { |a| a.blank? or a == 'NA' }.join(', ') %> | <%- end %>
   <%- content_for :description do -%><meta name="description" content="<%= t('provider.developer_description', :name => @provider.company_name, :address => @provider.private_address.join(', '), :services_offered => (Service.checked + @provider.services).collect{ |t| t.name }.join(', ')) %>"><%- end -%>
 
+  <div class="providerHead">
+    <div class="narrow">
+      <%- if @provider.logo_file_name.not.blank? -%>
+        <%= image_tag(@provider.logo.url(:thumb)) %>
+      <%- end -%>
+      <h2 class="name"><%= @provider.company_name %></h2>
+
+      <% if @provider.marketing_description.not.blank? %>
+        <div class="description"><%= sanitize(simple_format(@provider.marketing_description)) %></div>
+      <% end %>
+    </div>
+    <div class="sidebar">
+      <ul class="links">
+        <% if logged_in? and current_user.can_edit?(@provider) %>
+          <li><%= link_to t('company_profile.edit'), edit_my_provider_path %></li>
+          <li><%= link_to t('portfolio_item.manage'), my_portfolio_items_path %></li>
+          <li><%= link_to t('endorsement.manage'), my_endorsements_path %></li>
+        <%- else -%>
+          <li class="request"><%= link_to 'Save As Favorite', '', :class=>'button' %></li>
+          <li class="request"><%= link_to t('provider.request_rfp'), new_rfp_path(:provider_id => @provider.id), :onClick=>"pageTracker._trackEvent('Request', 'Create Proposal', 'Profile');", :class=>'button' %></li>
+        <%- end -%>
+      </ul>
+    </div>
+  </div>
 
   <div class="narrow">
-    <%- if @provider.logo_file_name.not.blank? -%>
-      <%= image_tag(@provider.logo.url(:thumb)) %>
-    <%- end -%>
-  
-    <h2 class="name"><%= @provider.company_name %></h2>
-  
-    <% if @provider.marketing_description.not.blank? %>
-      <div class="description"><%= sanitize(simple_format(@provider.marketing_description)) %></div>
-    <% end %>
-  
     <div class="block companyInfo">
       <h3><%= t('provider.about') %></h3>
       <ul>
-        <li><%= @provider.private_address.join(", ") %></li>
+        <li class="language">Speaks English</li>
+        <li class="location"><%= @provider.private_address.join(", ") %></li>
+        <li class='payment'>Accepts PayPal, Credit Cards as payment</li>
       </ul>
     </div>
   
@@ -101,23 +117,34 @@
 
   </div>
 
-  <div class="sidebar">
-  
-    <ul class="sidebar links">
-      <% if logged_in? and current_user.can_edit?(@provider) %>
-        <li><%= link_to t('company_profile.edit'), edit_my_provider_path %></li>
-        <li><%= link_to t('portfolio_item.manage'), my_portfolio_items_path %></li>
-        <li><%= link_to t('endorsement.manage'), my_endorsements_path %></li>
-      <%- else -%>
-        <li class="request"><%= link_to 'Save As Favorite', '', :class=>'button' %></li>
-        <li class="request"><%= link_to t('provider.request_rfp'), new_rfp_path(:provider_id => @provider.id), :onClick=>"pageTracker._trackEvent('Request', 'Create Proposal', 'Profile');", :class=>'button' %></li>
-      <%- end -%>
-    </ul>
-  
+  <div class="sidebar">  
     <!-- <% form_for :provider, :url => new_rfp_path, :html => {:method => :get} do |f| -%>
         <%= hidden_field_tag "provider_id", @provider.id %>
         <%= f.submit t('provider.send_rfp') %>
       <% end -%> -->
+  
+    <h3>Availability</h3>
+    <table class="availability">
+      <tbody>
+        <tr>
+          <th>December</th>
+          <th>January</th>
+          <th>February</th>
+        </tr>
+        <tr>
+          <td>Booked</td>
+          <td>Accepting Work</td>
+          <td>Accepting Work</td>
+        </tr>
+      </tbody>
+    </table>
+    
+    <h3>Code Samples</h3>
+    <div class="widget">
+      <p>Paul has uploaded 4 code samples</p>
+      <p class="score"><strong>80</strong>/100 <span class="label">Avg. Score</span></p>
+      <div class="clear"></div>
+    </div>
   
     <h3><%= t('provider.feedback_headline') %></h3>
   
@@ -141,13 +168,14 @@
     <%= link_to t('provider.feedback'), new_provider_feedback_path(@provider) %>
   
     <h3><%= t('provider.quiz_results_headline') %></h3>
-  
-    <%- if @provider.quiz_results.passed.empty? -%>
-      <p><%= t('provider.no_quiz_passes') %></p>
-    <%- end -%>
-    <%- if logged_in? and current_user.provider == @provider -%>
-      <%= link_to t('quiz.take_quiz'), new_my_quiz_result_path %>
-    <%- end -%>
+    <div class="widget">
+      <%- if @provider.quiz_results.passed.empty? -%>
+        <%= t('provider.no_quiz_passes') %>
+      <%- end -%>
+      <%- if logged_in? and current_user.provider == @provider -%>
+        <%= link_to t('quiz.take_quiz'), new_my_quiz_result_path %>
+      <%- end -%>
+    </div>
     
     <h3><%= t('provider.endorsements_headline') %></h3>
   

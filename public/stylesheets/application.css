@@ -18,6 +18,7 @@ body {
 }
 .narrow .description {
   text-align: left;
+  color: #666;
 }
 dl {
   margin: 1em 0;
@@ -41,8 +42,26 @@ dd.date {
   font: 0.8em Lucida Grande, Verdana, sans-serif;
   text-transform: uppercase;
   border-bottom: 1px solid #CACACA;
-  padding-bottom: 6px;
+  padding-bottom: 8px;
   margin-top: 2em;
+}
+.providerHead .sidebar ul.links {
+  border-bottom: none;
+}
+.providerHead img {
+  height: 100px;
+  width: 100px;
+  padding: 1px;
+  border: 1px solid #DDD;
+  float: left;
+  margin: 20px 20px 10px 0;
+}
+.companyInfo  ul {
+  margin-bottom: 40px;
+}
+.companyInfo li {
+  padding-left: 20px;
+  margin-bottom: 5px;
 }
 
 /* Header */
@@ -82,7 +101,7 @@ li.username {
 /* Content Page */
 .panel {
   background: #FFF;
-  padding: 0 50px;
+  padding: 0 30px;
   margin: 0 -50px;
   border: 1px solid #E4E4E4;
 }
@@ -235,6 +254,9 @@ li .check {
   top: -2px;
   margin: 0 0.3em -5px 0;
 }
+.provider.search li input {
+  margin-top: 0;
+}
 .provider.search li label {
   color: #666;
 }
@@ -312,6 +334,9 @@ li .check {
   padding-top: 0;
   margin-top: 0;
 }
+.block h3 {
+  margin-top: 6px;
+}
 .block h4 {
   margin-top: 0em;
 }
@@ -332,7 +357,8 @@ li .check {
   margin-bottom: 40px;
 }
 .sidebar h3 {
-  padding: 0 0 0.5em;
+  padding-top: 0;
+  margin-bottom: -1px;
   border-bottom: 1px solid #CACACA;
 }
 .sidebar a {
@@ -665,6 +691,47 @@ hr {
   border-radius: 6px;
   padding: 10px;
 }
+.widget {
+  border: 1px solid #DDD;
+  padding: 15px;
+  margin-bottom: 3em;
+}
+.widget p {
+  margin: 0;
+  float: left;
+  width: 50%;
+}
+.widget p.score {
+  float: right;
+  width: 30%;
+  text-align: right;
+  text-transform: uppercase;
+}
+.widget .score strong {
+  font-size: 2.25em;
+  font-weight: normal;
+}
+.widget .label {
+  font-size: 0.8em;
+  color: #666;
+}
+.availability {
+  border: 1px solid #DDD;
+  border-collapse: collapse;
+}
+.availability th {
+  color: #369;
+  font-size: 0.9em;
+  font-weight: normal;
+  text-transform: uppercase;
+}
+.availability td, .availability th {
+  border: 1px solid #DDD;
+  padding: 10px;
+  text-align: center;
+  min-width: 33.33%;
+  vertical-align: middle;
+}
 /* Three Column Styles */
 .threeColumn {
   clear: both;
@@ -780,8 +847,14 @@ hr {
 .language {
   background: url(/images/sprite-graphics.png) no-repeat 0px -356px;
 }
+.companyInfo .language {
+  background: url(/images/sprite-graphics.png) no-repeat 0px -447px;
+}
 .schedule {
   background: url(/images/sprite-graphics.png) no-repeat 0px -402px;
+}
+.payment {
+  background:  url(/images/sprite-graphics.png) no-repeat 0 -494px;
 }
 
 .provider.search ul.location { width: 100px;}
