@@ -1,4 +1,10 @@
-config.cache_classes = true # This must be true for Cucumber to operate correctly!
+# Edit at your own peril - it's recommended to regenerate this file
+# in the future when you upgrade to a newer version of Cucumber.
+
+# IMPORTANT: Setting config.cache_classes to false is known to
+# break Cucumber's use_transactional_fixtures method.
+# For more information see https://rspec.lighthouseapp.com/projects/16211/tickets/165
+config.cache_classes = true
 
 # Log error messages when you accidentally call methods on nil.
 config.whiny_nils = true
@@ -15,9 +21,12 @@ config.action_controller.allow_forgery_protection    = false
 # ActionMailer::Base.deliveries array.
 config.action_mailer.delivery_method = :test
 
-config.gem 'cucumber',    :lib => false,        :version => '>=0.3.103' unless File.directory?(File.join(Rails.root, 'vendor/plugins/cucumber'))
-config.gem 'webrat',      :lib => false,        :version => '>=0.5.0' unless File.directory?(File.join(Rails.root, 'vendor/plugins/webrat'))
-config.gem 'rspec',       :lib => false,        :version => '>=1.2.8' unless File.directory?(File.join(Rails.root, 'vendor/plugins/rspec'))
-config.gem 'rspec-rails', :lib => false,        :version => '>=1.2.7.1' unless File.directory?(File.join(Rails.root, 'vendor/plugins/rspec-rails'))
+config.gem 'cucumber',         :lib => false, :version => '>=0.4.5.rc2' unless File.directory?(File.join(Rails.root, 'vendor/plugins/cucumber'))
+config.gem 'webrat',           :lib => false, :version => '>=0.5.3' unless File.directory?(File.join(Rails.root, 'vendor/plugins/webrat'))
+config.gem 'rspec',            :lib => false, :version => '>=1.2.9' unless File.directory?(File.join(Rails.root, 'vendor/plugins/rspec'))
+config.gem 'rspec-rails',      :lib => false, :version => '>=1.2.9' unless File.directory?(File.join(Rails.root, 'vendor/plugins/rspec-rails'))
+# If you never turn off transactions you may remove the dependency on database_cleaner.
+config.gem 'database_cleaner', :lib => false, :version => '>=0.2.3' unless File.directory?(File.join(Rails.root, 'vendor/plugins/database_cleaner'))
+
 config.gem 'thoughtbot-factory_girl', :lib => 'factory_girl', :version => '1.2.2', :source => 'http://gems.github.com'
 config.gem 'email_spec', :lib => 'email_spec', :version => '>=0.3.5', :source => 'http://gemcutter.org'
