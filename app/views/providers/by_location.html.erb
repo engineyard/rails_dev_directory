@@ -1,17 +1,19 @@
-<h2><%= t('provider.by_state') %></h2>
+<div class="panel">
+  <h2><%= t('provider.by_state') %></h2>
 
-<ul>
-<%- @providers.group_by(&:country).each do |location, providers| -%>
-  <li>
-    <%= link_to t('countries')[location.to_sym], send(Country.path_for(location)) %>
-    <%- if location == 'US' -%>
-      <ul>
-        <%- @providers.select{ |p| p.country == 'US'}.group_by(&:state_province).each do |state_province, providers| -%>
-          <%- next if state_province.blank? or State.path_for(state_province) == '_path' -%>
-          <li><%= link_to State.by_code(state_province), send(State.path_for(state_province)) %></li>
-        <%- end -%>
-      </ul>
-    <%- end -%>
-  </li>
-<%- end -%>
-</ul>
+  <ul>
+  <%- @providers.group_by(&:country).each do |location, providers| -%>
+    <li>
+      <%= link_to t('countries')[location.to_sym], send(Country.path_for(location)) %>
+      <%- if location == 'US' -%>
+        <ul>
+          <%- @providers.select{ |p| p.country == 'US'}.group_by(&:state_province).each do |state_province, providers| -%>
+            <%- next if state_province.blank? or State.path_for(state_province) == '_path' -%>
+            <li><%= link_to State.by_code(state_province), send(State.path_for(state_province)) %></li>
+          <%- end -%>
+        </ul>
+      <%- end -%>
+    </li>
+  <%- end -%>
+  </ul>
+</div>

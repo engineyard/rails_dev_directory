@@ -1,50 +1,54 @@
-<h2><%= t('provider.directory_headline') %></h2>
+<div class="panel">
+  <!-- <h2><%= t('provider.directory_headline') %></h2> -->
+  <!-- <p class="description"><%= t('provider.directory_results_description') %></p> -->
 
-<p class="description"><%= t('provider.directory_results_description') %></p>
+  <% form_tag search_providers_path, :method => :get, :id => 'search-form' do -%>
+    <h3><%= t('change_your_search_criteria') %></h3>
+    <fieldset>
+      <%= label_tag 'location', t('location') %><br />
+      <%= location_select %>
+    </fieldset>
+    <%= submit_tag t('find_a_freelancer') %>
+  <% end -%>
 
-<hr />
-<% form_tag search_providers_path, :method => :get, :id => 'search-form' do -%>
-  <h3><%= t('change_your_search_criteria') %></h3>
-  <fieldset>
-    <%= label_tag 'location', t('location') %><br />
-    <%= location_select %>
-  </fieldset>
-  <%= submit_tag t('find_a_freelancer') %>
-<% end -%>
+  <%- if @providers.empty? -%>
+    <p><%= t('provider.no_providers') %></p>
+  <%- else -%>
 
-<%- if @providers.empty? -%>
-  <p><%= t('provider.no_providers') %></p>
-<%- else -%>
-
-  <%- form_for :rfp, :url => new_rfp_path, :html => {:method => :get} do |f| -%>
+    <%- form_for :rfp, :url => new_rfp_path, :html => {:method => :get} do |f| -%>
   
-    <table>
-      <tr>
-        <th><%= t('provider.company_name') %></th>
-        <th><%= t('provider.location') %></th>
-        <th><%= t('provider.confirmed') %> <%= link_to '[?]', '#', :id => "confirmed-explanation", :class => 'tooltip', :'title' => t('provider.confirmed_explanation') %></th>
-        <th><%= t('provider.endorsements')%></th>
-        <th><%= t('provider.action')%></th>
-      </tr>
-      <%- @providers.each do |provider| -%>
-        <tr>
-          <td><%= link_to provider.company_name, provider %></td>
-          <td><%= provider.private_address.join(', ') %></td>
-          <td><%= provider.active? ? t('provider.confirmed') : '' %></td>
-          <td><%= provider.endorsements.approved.size %></td>
-          <td><%= check_box_tag 'provider_ids[]', provider.id, false, :id => dom_id(provider) %></td>
-        </tr>
-      <%- end -%>
-    </table>
+      <table>
+        <thead>
+          <tr>
+            <th><%= t('provider.company_name') %></th>
+            <th><%= t('provider.location') %></th>
+            <th><%= t('provider.confirmed') %> <%= link_to '[?]', '#', :id => "confirmed-explanation", :class => 'tooltip', :'title' => t('provider.confirmed_explanation') %></th>
+            <th><%= t('provider.endorsements')%></th>
+            <th><%= t('provider.action')%></th>
+          </tr>
+        </thead>
+        <tbody>
+          <%- @providers.each do |provider| -%>
+            <tr>
+              <td><%= link_to provider.company_name, provider %></td>
+              <td><%= provider.private_address.join(', ') %></td>
+              <td><%= provider.active? ? t('provider.confirmed') : '' %></td>
+              <td><%= provider.endorsements.approved.size %></td>
+              <td><%= check_box_tag 'provider_ids[]', provider.id, false, :id => dom_id(provider) %></td>
+            </tr>
+          <%- end -%>
+        </tbody>
+      </table>
     
-    <%= hidden_field_tag 'budget', params[:budget] %>
-    <%- if params[:service_ids] -%>
-      <%- params[:service_ids].each do |service_id| -%>
-        <%= hidden_field_tag 'service_ids[]', service_id %>
+      <%= hidden_field_tag 'budget', params[:budget] %>
+      <%- if params[:service_ids] -%>
+        <%- params[:service_ids].each do |service_id| -%>
+          <%= hidden_field_tag 'service_ids[]', service_id %>
+        <%- end -%>
       <%- end -%>
+
+      <div class="aligncenter"><%= f.submit t("general.next"), :id => 'next', :onClick=>"pageTracker._trackEvent('Request', 'Create Request', 'Search');" %></div>
     <%- end -%>
 
-    <%= f.submit t("general.next"), :id => 'next', :onClick=>"pageTracker._trackEvent('Request', 'Create Request', 'Search');" %>
   <%- end -%>
-
-<%- end -%>
+</div>

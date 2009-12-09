@@ -8,22 +8,26 @@
     <p><%= t('request.no_requests') %></p>
   <%- else -%>
     <table class="requests">
-      <tr>
-        <th><%= t('rfp.project_name') %></th>
-        <th><%= t('request.submitted_by') %></th>
-        <th><%= t('request.submitted_on') %></th>
-        <th><%= t('rfp.due_date') %></th>
-        <th><%= t('rfp.budget') %></th>
-      </tr>
-    <% @requests.each do |req| %>
-    <tr <%= 'class="unread"' if req.unread? %>>
-      <td><%= link_to req.rfp.project_name, [:my, req] %></td>
-      <td><%= req.rfp.company_name %></td>
-      <td><%= t('general.ago', :date => time_ago_in_words(req.created_at)) %></td>
-      <td><%= req.rfp.due_date_formatted %></td>
-      <td><%= price req.rfp.budget %></td>
-    </tr>
-    <%- end -%>
+      <thead>
+        <tr>
+          <th><%= t('rfp.project_name') %></th>
+          <th><%= t('request.submitted_by') %></th>
+          <th><%= t('request.submitted_on') %></th>
+          <th><%= t('rfp.due_date') %></th>
+          <th><%= t('rfp.budget') %></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @requests.each do |req| %>
+        <tr <%= 'class="unread"' if req.unread? %>>
+          <td><%= link_to req.rfp.project_name, [:my, req] %></td>
+          <td><%= req.rfp.company_name %></td>
+          <td><%= t('general.ago', :date => time_ago_in_words(req.created_at)) %></td>
+          <td><%= req.rfp.due_date_formatted %></td>
+          <td><%= price req.rfp.budget %></td>
+        </tr>
+        <%- end -%>
+      </tbody>
     </table>
   <%- end -%>
 

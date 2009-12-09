@@ -21,16 +21,18 @@
     <div id="non-sorting-endorsements">
       <%- form_tag update_all_my_endorsements_path do -%>
         <table class="endorsements">
-          <tr>
-            <th><%= t('endorsement.is_approved') %></th>
-            <th><%= t('endorsement.admin.name') %></th>
-            <th><%= t('endorsement.admin.email') %></th>
-            <th><%= t('endorsement.admin.year_hired') %></th>
-            <th>&nbsp;</th>
-          </tr>
-        <tbody id="endorsements-collection">
-          <%= render :partial => "endorsement", :collection => @endorsements %>
-        </tbody>
+          <thead>
+            <tr>
+              <th><%= t('endorsement.is_approved') %></th>
+              <th><%= t('endorsement.admin.name') %></th>
+              <th><%= t('endorsement.admin.email') %></th>
+              <th><%= t('endorsement.admin.year_hired') %></th>
+              <th>&nbsp;</th>
+            </tr>
+          </theadd>
+          <tbody id="endorsements-collection">
+            <%= render :partial => "endorsement", :collection => @endorsements %>
+          </tbody>
         </table>
         <%= submit_tag t('endorsement.approve_selected') %>
       <%- end -%>
@@ -42,20 +44,24 @@
     <p><%= t('provider.no_endorsement_requests')%></p>
   <%- else -%>
     <table class="endorsements">
-      <tr>
-        <th><%= t('endorsement_request.endorsers') %></th>
-        <th><%= t('endorsement_request.message') %></th>
-      </tr>
-    <% @endorsement_requests.each do |endorsement| %>
-    <tr>
-      <td>
-      <% endorsement.endorsers.each do |endorser| -%>
-        <%=h endorser.email %><br />
-      <% end -%>
-      </td>
-      <td><%= endorsement.message %></td>
-    </tr>
-    <%- end -%>
+      <thead>
+        <tr>
+          <th><%= t('endorsement_request.endorsers') %></th>
+          <th><%= t('endorsement_request.message') %></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @endorsement_requests.each do |endorsement| %>
+          <tr>
+            <td>
+              <% endorsement.endorsers.each do |endorser| -%>
+                <%=h endorser.email %><br />
+              <% end -%>
+            </td>
+            <td><%= endorsement.message %></td>
+          </tr>
+        <%- end -%>
+      </tbody>
     </table>
   <%- end -%>
 </div>
