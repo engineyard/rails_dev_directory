@@ -28,16 +28,18 @@ class Provider < ActiveRecord::Base
   
   attr_protected :aasm_state, :slug, :user_id, :endorsements_count
   
-  has_many :users, :dependent => :destroy
-  has_many :requests, :dependent => :destroy, :order => 'created_at desc'
-  has_many :rfps, :through => :requests
-  has_many :endorsements, :order => "sort_order asc"
+  has_many :code_samples
   has_many :endorsement_requests
+  has_many :endorsements, :order => "sort_order asc"
   has_many :feedbacks
   has_many :portfolio_items, :order => "year_completed desc"
   has_many :quiz_results, :order => 'created_at desc'
+  has_many :requests, :dependent => :destroy, :order => 'created_at desc'
+  has_many :rfps, :through => :requests
   has_many :uncompleted_quizzes, :class_name => 'Quiz',
-           :finder_sql => 'NOT EXISTS (SELECT * FROM quiz_results WHERE quiz_results.quiz_id = quizzes.id AND quiz_results.provider_id = #{self.id} AND quiz_results.passed = 1)'
+             :finder_sql => 'NOT EXISTS (SELECT * FROM quiz_results WHERE quiz_results.quiz_id = quizzes.id AND quiz_results.provider_id = #{self.id} AND quiz_results.passed = 1)'
+  has_many :users, :dependent => :destroy
+
   
   has_many :provided_services, :dependent => :destroy do
     def for_service(service)

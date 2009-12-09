@@ -45,6 +45,7 @@ ActionController::Routing::Routes.draw do |map|
     me.resources :requests
     me.resources :quiz_results
     me.resources :quiz_result_answers, :as => :answers
+    me.resources :code_samples, :member => {:review => :get, :analyze => [:get, :put]}
   end
   
   # Admin routes

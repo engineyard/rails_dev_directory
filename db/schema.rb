@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20091106150556) do
+ActiveRecord::Schema.define(:version => 20091209190516) do
 
   create_table "answers", :force => true do |t|
     t.integer  "question_id"
@@ -32,6 +32,16 @@ ActiveRecord::Schema.define(:version => 20091106150556) do
   add_index "audits", ["auditable_type", "auditable_id"], :name => "auditable_object"
   add_index "audits", ["user_id", "auditable_type"], :name => "auditable_user_index"
   add_index "audits", ["user_id"], :name => "index_audits_on_user_id"
+
+  create_table "code_samples", :force => true do |t|
+    t.string   "name"
+    t.text     "code"
+    t.integer  "provider_id"
+    t.string   "aasm_state"
+    t.integer  "score"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "endorsement_requests", :force => true do |t|
     t.integer  "provider_id"
@@ -249,6 +259,12 @@ ActiveRecord::Schema.define(:version => 20091106150556) do
   end
 
   add_index "services", ["service_category_id"], :name => "index_services_on_service_category_id"
+
+  create_table "time_blocks", :force => true do |t|
+    t.integer "provider_id"
+    t.date    "start"
+    t.date    "end"
+  end
 
   create_table "users", :force => true do |t|
     t.string   "email",             :limit => 100
