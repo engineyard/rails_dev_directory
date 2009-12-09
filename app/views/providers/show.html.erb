@@ -22,7 +22,6 @@
       <ul class="links">
         <% if logged_in? and current_user.can_edit?(@provider) %>
           <li><%= link_to t('company_profile.edit'), edit_my_provider_path %></li>
-          <li><%= link_to t('portfolio_item.manage'), my_portfolio_items_path %></li>
           <li><%= link_to t('endorsement.manage'), my_endorsements_path %></li>
         <%- else -%>
           <li class="request"><%= link_to 'Save As Favorite', '', :class=>'button' %></li>
@@ -93,28 +92,6 @@
         <%- end -%>
       </tbody>
     </table>
-
-    <%- if @provider.portfolio_items.empty? -%>
-      <% # t('provider.no_portfolio_items') %>
-      <%- if logged_in? and current_user.can_edit?(@provider) -%>
-        <div class="block portfolio">
-          <h4><%= t('provider.portfolio_items_headline') %></h4>
-          <%= link_to t('provider.add_now'), new_my_portfolio_item_path %>
-        </div>
-      <%- end -%>
-    <%- else -%>
-      <div class="block portfolio">
-        <h4><%= t('provider.portfolio_items_headline') %></h4>
-        <dl>
-          <%- @provider.portfolio_items.each do |item| -%>
-            <dt><%= link_to item.name, item.url %></dt>
-            <dd><%= item.description %></dd>
-            <dd class="date"><%= t('portfolio_item.project_completed_in') + item.year_completed %></dd>
-          <%- end -%>
-        </dl>
-      </div>
-    <%- end -%>
-
   </div>
 
   <div class="sidebar">  
