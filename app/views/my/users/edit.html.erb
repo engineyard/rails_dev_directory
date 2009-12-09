@@ -1,5 +1,7 @@
-<h2><%= t('company_profile.users.edit_headline', :user => @user.email) %></h2>
+<div class="dashboard">
+  <h2><%= t('company_profile.users.edit_headline', :user => @user.email) %></h2>
 
-<p class="description"><%= t('company_profile.users.edit_description') %></p>
+  <p class="description"><%= t('company_profile.users.edit_description') %></p>
 
-<%= render :partial => 'my/users/form' %>
+  <%= render :partial => 'my/users/form' %>
+</div>
