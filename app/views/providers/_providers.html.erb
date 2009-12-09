@@ -1,9 +1,10 @@
 <%- if @providers.empty? -%>
   <p><%= t('provider.no_providers') %></p>
 <%- else -%>
-    <table>
+    <table class="listTable">
       <thead>
         <tr>
+          <th>&nbsp;</th>
           <th><%= t('provider.company_name') %></th>
           <th><%= t('provider.location') %></th>
           <th><%= t('provider.confirmed') %> <%= link_to '[?]', '#', :id => "confirmed-explanation", :class => 'tooltip', :'title' => t('provider.confirmed_explanation') %></th>
@@ -12,7 +13,8 @@
       </thead>
       <tbody>
         <%- @providers.each do |provider| -%>
-          <tr>
+          <tr class="<%= cycle('odd', 'even') %>">
+            <td><img src="/images/profile-default-sm.png" /></td>
             <td><%= link_to provider.company_name, provider %></td>
             <td><%= provider.private_address.join(', ') %></td>
             <td><%= provider.active? ? t('provider.confirmed') : '' %></td>

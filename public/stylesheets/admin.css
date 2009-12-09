@@ -15,6 +15,12 @@ body {
 	margin-bottom: 0;
 	padding: 10px 40px 0px;
 }
+.header h1 {
+  font-size: 1em;
+}
+.header .globalNav {
+  font-size: 0.9em;
+}
 .dl10 {
   min-height: 400px;
 	width: 110px;
@@ -90,6 +96,9 @@ h2 {
 }
 
 /* Form styles */
+form {
+  padding-bottom: 30px;
+}
 input.email {
   width: 40em;
 }
@@ -118,6 +127,15 @@ textarea.email {
 }
 label {
   width: 16em;
+}
+
+/* Table Styles */
+table th {
+}
+table td, table th {
+  padding: 5px;
+  vertical-align: top;
+  border-bottom: 1px solid #DDD;
 }
 
 .sort-list { display: none; }

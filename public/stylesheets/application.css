@@ -313,7 +313,6 @@ li .check {
 
 /* Search Filter */
 .panel #search-form {
-  
   background: #DDF2FC;
   margin: 0 -30px 30px;
   padding: 30px;
@@ -321,6 +320,8 @@ li .check {
 }
 .panel #search-form fieldset {
   font-size: 0.9em;
+  padding: 0;
+  border: none;
 }
 .panel #search-form h3 {
   margin-top: 0;
@@ -419,6 +420,41 @@ li.download {
 }
 li.document {
   background: url(/images/icon-document.png) no-repeat left center;
+}
+.favorites {
+  width: 840px;
+  margin: 0 auto 60px;
+}
+.favorites h3 {
+  background: url(/images/sprite-graphics.png) no-repeat 0 -713px;
+  padding: 0 0 0 16px;
+  margin: 0 0 8px;
+  border: none;
+}
+.favorites ul {
+  border: 1px solid #DDD;
+  background: #FCFCFC;
+  padding: 0;
+}
+.favorites li {
+  background: #FFF;
+  padding: 10px;
+  width: 220px;
+  display: inline-block;
+  border-right: 1px solid #DDD;
+  font-size: 0.8em;
+}
+.favorites h4 {
+  color: #333;
+  margin: 5px 0 0;
+}
+.favorites img {
+  float: left;
+  margin-right: 10px;
+}
+.favorites p {
+  color: #666;
+  margin-bottom: 0;
 }
 /* Dashboard */
 .dashboard h3 {
@@ -556,7 +592,7 @@ thead th {
   font-size: 0.9em;
   font-weight: normal;
   text-transform: uppercase;
-  border-bottom: 1px solid #CACACA;
+  border-bottom: 1px solid #9B9B9B;
   padding: 0 0 8px;
 }
 tbody th {
@@ -567,9 +603,11 @@ tbody th {
 td {
   padding: 10px 0;
   vertical-align: top;
+  border-bottom: 1px solid #CACACA;
 }
-td:first-child {
-  min-width: 10em;
+.listTable td:first-child {
+  width: 40px;
+  padding: 10px;
 }
 .ui-datepicker td:first-child {
   min-width: 0;
