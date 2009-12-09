@@ -1,23 +1,25 @@
-<h2><%= t('provider.request_endorsement') %></h2>
+<div class="panel">
+  <h2><%= t('provider.request_endorsement') %></h2>
 
-<% form_for [:my, @endorsement_request] do |f| -%>
-  <%= f.error_messages %>
-  <fieldset>
-    <%= f.label :endorser_addresses, t("endorsement_request.email_addresses") %>
-    <%= f.text_area :endorser_addresses %><br />
-    <p>
-      <%= t("endorsement_request.email_note") %>
-      <%= t("endorsement_request.email_format") %>
-    </p>
-  </fieldset>
+  <% form_for [:my, @endorsement_request] do |f| -%>
+    <%= f.error_messages %>
+    <fieldset>
+      <%= f.label :endorser_addresses, t("endorsement_request.email_addresses") %>
+      <%= f.text_area :endorser_addresses %><br />
+      <p>
+        <%= t("endorsement_request.email_note") %>
+        <%= t("endorsement_request.email_format") %>
+      </p>
+    </fieldset>
 
-  <fieldset>
-    <p>
-      <strong><%= t('endorsement_request.subject') %></strong>
-      <%= t('email.endorsement_request.subject', :company_name => current_user.provider.company_name) %>
-    </p>
+    <fieldset>
+      <p>
+        <strong><%= t('endorsement_request.subject') %></strong>
+        <%= t('email.endorsement_request.subject', :company_name => current_user.provider.company_name) %>
+      </p>
     
-    <%= f.label :message, t("endorsement_request.message") %> <%= f.text_area :message %>
-  </fieldset>
-  <%= f.submit t('endorsement_request.save') %>
-<%- end -%>
+      <%= f.label :message, t("endorsement_request.message") %> <%= f.text_area :message %>
+    </fieldset>
+    <%= f.submit t('endorsement_request.save') %>
+  <%- end -%>
+</div>

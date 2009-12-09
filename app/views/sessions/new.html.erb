@@ -1,16 +1,18 @@
-<h1><%= t('forms.sign_in') %></h1>
+<div class="panel">
+  <h1><%= t('forms.sign_in') %></h1>
 
-<% form_for @session, :url => session_path do |f| -%>
+  <% form_for @session, :url => session_path do |f| -%>
   
-  <%= f.error_messages %>
+    <%= f.error_messages %>
 
-    <%= f.label :email, t("user.email") %> <%= f.text_field :email %> <br />
-    <%= f.label :password, t("user.password") %> <%= f.password_field :password %> <br />
-    <ul>
-      <li><%= f.check_box :remember_me %><%= f.label :remember_me, t('user.remember_me') %></li>
-    </ul>
-
-  <%= f.submit t('forms.sign_in') %>
+      <%= f.label :email, t("user.email") %> <%= f.text_field :email %> <br />
+      <%= f.label :password, t("user.password") %> <%= f.password_field :password %> <br />
+      <ul>
+        <li><%= f.check_box :remember_me %><%= f.label :remember_me, t('user.remember_me') %></li>
+      </ul>
+    <br />
+    <%= f.submit t('forms.sign_in') %>
   
-  <%= link_to t('user.forgot_password'), new_password_reset_path %>
-<% end -%>
+    <%= link_to t('user.forgot_password'), new_password_reset_path %>
+  <% end -%>
+</div>

@@ -1,11 +1,13 @@
-<h2><%= t('provider.directory_headline') %></h2>
+<div class="dashboard">
+  <h2><%= t('provider.directory_headline') %></h2>
 
-<p class="description"><%= t('provider.directory_results_description') %></p>
+  <p class="description"><%= t('provider.directory_results_description') %></p>
 
-<p><%= link_to t('provider.by_state'), by_location_providers_path %></p>
+  <p><%= link_to t('provider.by_state'), by_location_providers_path %></p>
 
-<hr />
+  <hr />
 
-<%= render :partial => 'providers/providers' %>
+  <%= render :partial => 'providers/providers' %>
 
-<%= will_paginate %>
+  <%= will_paginate %>
+</div>

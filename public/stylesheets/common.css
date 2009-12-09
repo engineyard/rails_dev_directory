@@ -37,11 +37,11 @@ a:hover {
 }
 .header h1 {
   font-family: Lucida Grande, Helvetica, Arial, sans-serf;
-  font-size: 1em;
-  font-weight: bold;
+  font-size: 1.5em;
+  font-weight: normal;
 	color: #FFF;
 	margin: 0;
-	padding: 0.5em 0;
+	padding: 8px 0 0;
 	float: left;
 }
 .header a {
@@ -53,7 +53,7 @@ a:hover {
 }
 .globalNav li {
   float: left;
-  margin: 0.25em 0 0;
+  margin: 0.5em 0 0;
   padding: 0.25em 0;
 }
 
@@ -74,7 +74,7 @@ h1 {
 }
 h2 {
   text-align: center;
-  font-size: 2.8em;
+  font-size: 2.5em;
   margin: 0.7em 0 0;
 }
 h3 {
@@ -119,6 +119,7 @@ cite {
 }
 
 /* Form Styles */
+
 fieldset {
 	border: none;
 	padding: 0.5em 0 1.5em;
@@ -162,11 +163,9 @@ input[type="submit"]:hover, button:hover {
   cursor: pointer;
 }
 input[value="Save"], input[value="Delete this user"], #recommendation_submit {
-	margin-left: 17em;
 }
 input#next {
-  float: right;
-  margin-top: 0;
+  margin: 0;
 }
 textarea {
   font-family: Lucida Grande, Helvetica, Arial, sans-serf;
@@ -236,8 +235,15 @@ input + h3, select + h3, textarea + h3, form br + h3, form ul + h3 {
 form[action="/session"] label {
   width: 7em;
 }
-form[action="/session"] input[type="submit"], form[action="/session"] ul {
-  margin-left: 8em;
+form[action="/session"] ul {
+  height: 3em;
+  margin: 0;
+}
+form[action="/session"] ul label {
+  width: auto;
+}
+form[action="/session"] input[type="submit"] {
+  clear: left;
 }
 
 /* Wide Forms and Single Line Forms */
@@ -310,6 +316,17 @@ table.layout tr:hover {
   -webkit-border-radius: 4px;
   border-radius: 4px;
   color: #333;
+}
+/* Alignment */
+.alignleft {
+  float: left;
+}
+.alignright {
+  float: right;
+}
+.aligncenter {
+  text-align: center;
+  margin: inherit auto;
 }
 /* System Messages */
 div.flash, .errorExplanation, .error, .notice { 
