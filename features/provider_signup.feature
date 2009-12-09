@@ -16,7 +16,7 @@ So that I can can receive Rails project referrals
       And I fill in the "Company website" with "ole opry"
       And I check "provider[terms_of_service]"
     When I press "Sign up"
-    Then I should see "Users password doesn't match confirmation"
+    Then I should see "Password doesn't match confirmation"
       And I should see "Please enter a valid URL"
     When I fill in the "password" with "americanpolka"
       And I fill in the "Retype password" with "americanpolka"
