@@ -41,6 +41,10 @@ class User < ActiveRecord::Base
     end
   end
   
+  def code_samples
+    provider.code_samples || []
+  end
+  
   def welcome_message(subject = nil, message = nil)
     if provider && provider.user == self
       Notification.create_user_welcome(self, subject, message)

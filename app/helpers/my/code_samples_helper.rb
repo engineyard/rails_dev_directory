@@ -1,0 +1,2 @@
+module My::CodeSamplesHelper
+end

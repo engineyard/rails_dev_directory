@@ -1,0 +1,26 @@
+<h2><%= t('code_samples') %></h2>
+
+<ul>
+  <li><%= link_to t('upload_a_code_sample'), new_my_code_sample_path %></li>
+</ul>
+
+<p><%= t('code_sample_introduction') %></p>
+
+<%- if @code_samples.empty? -%>
+  <p><%= t('no_code_samples') %></p>
+<%- else -%>  
+  <table>
+    <tr>
+      <th><%= t('code_samples') %></th>
+      <th><%= t('score') %></th>
+    </tr>
+    
+    <%- @code_samples.each do |code_sample| -%>
+    <tr>
+      <td><%= code_sample.name %></td>
+      <td><%= code_sample.score %></td>
+    </tr>
+    <% end -%>
+  
+  </table>
+<%- end -%>

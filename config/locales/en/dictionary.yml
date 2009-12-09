@@ -1,6 +1,30 @@
 en:
+  
+  cancel: Cancel
   change_your_search_criteria: Change Your Search Criteria
+  code: Code
+  code_sample_introduction: Here you can post code samples.
+  code_samples: Code Samples
   
   find_a_freelancer: Find a Freelancer
   
+  go_back_and_edit: "Go Back &amp; Edit"
+  
   location: Location
+  
+  name_your_sample_code: Name your sample code
+  no_code_samples: You haven't added any code samples yet.
+  
+  or: or
+  
+  paste_code_sample_here: Paste your code sample here
+  
+  review_code: Review Code
+  review_your_code: Review Your Code
+  
+  upload_your_code: Upload Your Code
+  upload_a_code_sample: Upload a Code Sample
+  
+  test_code: Test Code
+  test_your_code: Test Your Code
+  

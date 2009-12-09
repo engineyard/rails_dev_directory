@@ -1,0 +1,34 @@
+1. What command would you use to install rails?
+
+a) gem update rails
+b) rails my_app
+c) gem install rails
+d) ruby setup.rb
+
+2. Who created Ruby on Rails?
+
+a) Yuki Sonoda
+b) Yehuda Katz
+c) Tobias Luetke
+d) David Heinemeier Hansson
+
+3. Which of these methods will iterate over an array?
+
+a) Array#collect
+b) Array#join
+c) Array#pop
+d) Array#uniq
+
+4. In Rails, what do helpers "help"?
+
+a) The Model
+b) The View
+c) The Controller
+d) The User
+
+5. What testing framework is the default framework for Rails?
+
+a) Rspec
+b) Shoulda
+c) Test::Unit
+d) cucumber
