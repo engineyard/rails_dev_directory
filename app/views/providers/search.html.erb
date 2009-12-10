@@ -39,13 +39,7 @@
           </td>
           <td>
             <%= label_tag 'hours', t('hours_per_week') %>
-            <%= select_tag 'hours', options_for_select(
-              [
-                ['<10', 0],
-                ['10-20', 20],
-                ['20-30', 30]
-                ]
-            ) %>
+            <%= hours_per_week_select %>
           </td>
           <td>
             <%= label_tag 'weeks', t('number_of_weeks') %>

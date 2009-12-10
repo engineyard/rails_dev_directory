@@ -71,6 +71,11 @@
             <%= project_length_select %>
           </td>
           
+          <td>
+            <%= label_tag 'hours', t('hours_per_week') %>
+            <%= hours_per_week_select %>
+          </td>
+          
           <%- @bottom_services.group_by(&:category).sort_by { |c,services| c.position }.each do |category, services| -%>
             <td>
               <%= label_tag dom_id(category), category.name -%>

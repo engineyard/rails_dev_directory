@@ -78,6 +78,16 @@ module ProvidersHelper
         ["4-6 #{t('weeks')}", 4],
         [">6 #{t('weeks')}", 6]
         ]
+    )    
+  end
+  
+  def hours_per_week_select
+    select_tag 'hours', options_for_select(
+      [
+        ["<10 #{t('hours')}", 0],
+        ["10-20 #{t('hours')}", 20],
+        ["20-30 #{t('hours')}", 30]
+        ]
     )
     
   end
