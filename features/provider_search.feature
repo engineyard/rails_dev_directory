@@ -14,17 +14,6 @@ Feature: Provider directory
       And "Trulio" provides "AJAX"
       And "Trulio" provides "UI"
       And an "inactive" provider "Boolio"
-  
-  Scenario: Finding a Freelancer by budget
-    When I am on the homepage
-      And I follow "Find a Rails Freelancer"
-      And I fill in "budget" with "10000"
-      And I press "Find a Freelancer"
-    Then I should not see "Trulio"
-    When I follow "Find a Rails Freelancer"
-      And I fill in "budget" with "15000"
-      And I press "Find a Freelancer"
-    Then I should see "Trulio"
 
   Scenario: Finding a Freelancer by hourly rate
     When I am on the homepage
