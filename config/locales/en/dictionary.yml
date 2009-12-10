@@ -5,7 +5,9 @@ en:
   code: Code
   code_sample_introduction: Here you can post code samples.
   code_samples: Code Samples
+  configuration: Configuration
   
+  filter_by_project_requirements: Filter by Project Requirements
   find_a_freelancer: Find a Freelancer
   
   go_back_and_edit: "Go Back &amp; Edit"
@@ -18,6 +20,8 @@ en:
   or: or
   
   paste_code_sample_here: Paste your code sample here
+  priority: Priority
+  priority_notes: Priority affects where in the search form this category will appear
   
   review_code: Review Code
   review_your_code: Review Your Code

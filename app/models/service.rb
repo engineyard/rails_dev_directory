@@ -13,6 +13,8 @@ class Service < ActiveRecord::Base
   named_scope :for_category, lambda { |category|
     { :conditions => { :service_category_id => category.id } }
   }
+  named_scope :priority, lambda { |priority| { :conditions => {:priority => priority} }}
+  named_scope :reject_category, lambda { |category| {:conditions => ["service_category_id != ?", category.id]} if category}
   
   def self.order(ids)
     update_all(

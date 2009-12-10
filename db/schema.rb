@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20091210164854) do
+ActiveRecord::Schema.define(:version => 20091210190840) do
 
   create_table "answers", :force => true do |t|
     t.integer  "question_id"
@@ -265,6 +265,7 @@ ActiveRecord::Schema.define(:version => 20091210164854) do
     t.datetime "updated_at"
     t.boolean  "checked",             :default => false, :null => false
     t.integer  "service_category_id"
+    t.integer  "priority"
   end
 
   add_index "services", ["service_category_id"], :name => "index_services_on_service_category_id"
