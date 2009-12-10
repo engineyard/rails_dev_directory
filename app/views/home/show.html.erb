@@ -15,6 +15,10 @@
       <table>
         <tr>
           <td>
+            <%= label_tag 'location', t('provider.directory.location') %><br />
+            <%= location_select %>
+          </td>
+          <td>
             <%= label_tag 'availability', t('availability') %><br />
             <%= select_tag 'availability', options_for_select(
                 [
@@ -24,23 +28,9 @@
                   [2.months.from_now.strftime("%B"), 2.months.from_now.to_i]
                   ]) %>
           </td>
+          <%- @top_services.group_by(&:category).sort_by { |c,services| c.position }.each do |category, services| -%>
           <td>
-            <%= label_tag 'hourly_rate', t('provider.hourly_rate') %><br />
-            <%= select_tag 'hourly_rate', options_for_select(
-              [
-                ["<$75", 0],
-                ["$75-$150", 75],
-                [">$150", 150]
-                ]
-                ) %><br />
-          </td>
-          <td>
-            <%= label_tag 'location', t('provider.directory.location') %><br />
-            <%= location_select %>
-          </td>
-          <%- @bottom_services.group_by(&:category).sort_by { |c,services| c.position }.each do |category, services| -%>
-          <td>
-            <%= label_tag dom_id(category), category.name -%>
+            <%= label_tag dom_id(category), category.name -%><br />
             <%= select_tag("service_ids[]", options_for_select(services.collect{ |s| [s.name, s.id]}), :id => dom_id(category)) -%>
           </td>
           <%- end -%>
