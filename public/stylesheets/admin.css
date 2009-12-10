@@ -63,6 +63,12 @@ body {
 }
 
 /* Type Styles */
+a {
+  color: #369;
+}
+a:hover {
+  text-decoration: none;
+}
 h1, h2, h3 {
   font-family: Lucida Grande, Arial, Helvetica, sans-serif;
 }

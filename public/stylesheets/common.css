@@ -14,12 +14,6 @@ br {
   height: 1px;
   margin-top: -1px;
 }
-a {
-  color: #A83C44;
-}
-a:hover {
-  text-decoration: none;
-}
 /* Basic Layout Elements */
 .main {
   margin-bottom: 2em;

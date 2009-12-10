@@ -1,26 +1,43 @@
-<h2><%= t('code_samples') %></h2>
+<div class="panel">
+  <div class="pageHead">
+    <h2><%= t('code_samples') %></h2>
 
-<ul>
-  <li><%= link_to t('upload_a_code_sample'), new_my_code_sample_path %></li>
-</ul>
+    <ul>
+      <li><%= link_to t('upload_a_code_sample'), new_my_code_sample_path %></li>
+    </ul>
+  </div>
+  <div class="narrow">
+    <p class="description"><%= t('code_sample_introduction') %></p>
 
-<p><%= t('code_sample_introduction') %></p>
-
-<%- if @code_samples.empty? -%>
-  <p><%= t('no_code_samples') %></p>
-<%- else -%>  
-  <table>
-    <tr>
-      <th><%= t('code_samples') %></th>
-      <th><%= t('score') %></th>
-    </tr>
-    
-    <%- @code_samples.each do |code_sample| -%>
-    <tr>
-      <td><%= code_sample.name %></td>
-      <td><%= code_sample.score %></td>
-    </tr>
-    <% end -%>
+    <%- if @code_samples.empty? -%>
+      <p><%= t('no_code_samples') %></p>
+    <%- else -%>  
+      <table>
+        <thead>
+          <tr>
+            <th><%= t('code_samples') %></th>
+            <th><%= t('score') %></th>
+          </tr>
+        </thead>
+        <tbody>
+        <%- @code_samples.each do |code_sample| -%>
+        <tr>
+          <td><%= code_sample.name %></td>
+          <td><%= code_sample.score %></td>
+        </tr>
+        <% end -%>
+        </tbody>
+      </table>
+    <%- end -%>
+  </div>
   
-  </table>
-<%- end -%>
+  <div class="sidebar">
+    <div class="widget">
+      <p>4 code samples</p>
+      <p class="score"><strong>80</strong>/100 <span class="label">Avg. Score</span></p>
+      <div class="clear"></div>
+    </div>
+  </div>
+  
+  <div class="clear"></div>
+</div>

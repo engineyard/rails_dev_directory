@@ -11,6 +11,12 @@ body {
 }
 
 /* Type Styles */
+a {
+  color: #A83C44;
+}
+a:hover {
+  text-decoration: none;
+}
 .description {
   font-size: 1.1em;
   margin-top: 0.5em;
@@ -60,8 +66,13 @@ dd.date {
   margin-bottom: 40px;
 }
 .companyInfo li {
+  color: #666;
   padding-left: 20px;
-  margin-bottom: 5px;
+  margin-bottom: 10px;
+}
+.companyInfo strong {
+  font-weight: normal;
+  color: #333;
 }
 
 /* Header */
@@ -605,9 +616,15 @@ td {
   vertical-align: top;
   border-bottom: 1px solid #CACACA;
 }
+.listTable a {
+  color: #000;
+}
 .listTable td:first-child {
   width: 40px;
   padding: 10px;
+}
+.services td {
+  border-bottom: none;
 }
 .ui-datepicker td:first-child {
   min-width: 0;

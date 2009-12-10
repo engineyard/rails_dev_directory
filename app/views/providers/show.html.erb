@@ -11,6 +11,8 @@
     <div class="narrow">
       <%- if @provider.logo_file_name.not.blank? -%>
         <%= image_tag(@provider.logo.url(:thumb)) %>
+      <%- else -%>
+        <img src="/images/profile-default.png" />
       <%- end -%>
       <h2 class="name"><%= @provider.company_name %></h2>
 
@@ -35,9 +37,9 @@
     <div class="block companyInfo">
       <h3><%= t('provider.about') %></h3>
       <ul>
-        <li class="language">Speaks English</li>
+        <li class="language">Speaks <strong>English</strong></li>
         <li class="location"><%= @provider.private_address.join(", ") %></li>
-        <li class='payment'>Accepts PayPal, Credit Cards as payment</li>
+        <li class='payment'>Accepts <strong>PayPal, Credit Cards</strong> as payment</li>
       </ul>
     </div>
   
@@ -62,7 +64,7 @@
     <%- end -%>
 
 
-    <table>
+    <table class="services">
       <thead>
         <tr><th><%= t('provider.services') %></th><th><%= t('provider.experience') %></th></tr>
       </thead>
@@ -110,15 +112,15 @@
         </tr>
         <tr>
           <td>Booked</td>
-          <td>Accepting Work</td>
-          <td>Accepting Work</td>
+          <td><a href="">Accepting Work</a></td>
+          <td><a href="">Accepting Work</a></td>
         </tr>
       </tbody>
     </table>
     
     <h3>Code Samples</h3>
     <div class="widget">
-      <p>Paul has uploaded 4 code samples</p>
+      <p>Paul has uploaded <br/><a href="">4 code samples</a></p>
       <p class="score"><strong>80</strong>/100 <span class="label">Avg. Score</span></p>
       <div class="clear"></div>
     </div>
