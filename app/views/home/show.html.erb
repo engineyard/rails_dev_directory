@@ -67,10 +67,17 @@
       </table>
       
       <h4><%= t('filter_by_project_requirements') %></h4>
-      <%- @bottom_services.group_by(&:category).sort_by { |c,services| c.position }.each do |category, services| -%>
-        <%= label_tag dom_id(category), category.name -%>
-        <%= select_tag("service_ids[]", options_for_select(services.collect{ |s| [s.name, s.id]}), :id => dom_id(category)) -%>
-      <%- end -%>
+      
+      <table>
+        <tr>
+          <%- @bottom_services.group_by(&:category).sort_by { |c,services| c.position }.each do |category, services| -%>
+            <td>
+              <%= label_tag dom_id(category), category.name -%>
+              <%= select_tag("service_ids[]", options_for_select(services.collect{ |s| [s.name, s.id]}), :id => dom_id(category)) -%>
+            </td>
+          <%- end -%>
+        </tr>
+      </table>
 
         <%= submit_tag t('provider.directory.find_providers') %>
     <% end -%>
