@@ -14,26 +14,15 @@ Feature: Provider directory
       And "Trulio" provides "AJAX"
       And "Trulio" provides "UI"
       And an "inactive" provider "Boolio"
-  
-  Scenario: Finding a Freelancer by budget
-    When I am on the homepage
-      And I follow "Find a Rails Freelancer"
-      And I fill in "budget" with "10000"
-      And I press "Find a Freelancer"
-    Then I should not see "Trulio"
-    When I follow "Find a Rails Freelancer"
-      And I fill in "budget" with "15000"
-      And I press "Find a Freelancer"
-    Then I should see "Trulio"
 
   Scenario: Finding a Freelancer by hourly rate
     When I am on the homepage
       And I follow "Find a Rails Freelancer"
-      And I fill in "Hourly Rate" with "140"
+      And I press "Find a Freelancer"
+      And I select "<$75" from "Hourly Rate"
       And I press "Find a Freelancer"
     Then I should not see "Trulio"
-    When I follow "Find a Rails Freelancer"
-      And I fill in "Hourly Rate" with "160"
+    When I select ">$150" from "Hourly Rate"
       And I press "Find a Freelancer"
     Then I should see "Trulio"
 
@@ -96,20 +85,6 @@ Feature: Provider directory
     When I check "rfp[terms_of_service]"
       And I press "Submit request"
     Then I should see "Thanks for submitting your request"
-  
-  Scenario: Selecting multiple providers from within the directory and requesting an RFP
-    Given an "active" provider "Brian Flanagan"
-      And an "active" provider "Paul Campbell"
-    When I am on the homepage
-      And I follow "Find a Rails Freelancer"
-      And I press "Find a Freelancer"
-    Then I should see "Brian Flanagan"
-      And I should see "Paul Campbell"
-    When I check the "Brian Flanagan" checkbox
-      And I check the "Paul Campbell" checkbox
-      And I press "next"
-    Then I should see "Brian Flanagan"
-      And I should see "Paul Campbell"
 
   Scenario: Searching by location
     Given an "active" provider "Hyper Tiny"

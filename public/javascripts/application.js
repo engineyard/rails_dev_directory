@@ -73,14 +73,6 @@ $(document).ready(function(){
     }
   })
   
-  $('form#search-form').submit(function(){
-    if($.trim($('input#budget').val()) == '')
-    {
-      alert(I18n.t('home.enter_budget'))
-      return false
-    }
-  })
-  
   $('a.sort-endorsements').click(function(){
     if($('div#sorting-endorsements').is(':hidden'))
     {
