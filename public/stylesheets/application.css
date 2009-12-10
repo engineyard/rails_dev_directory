@@ -315,7 +315,7 @@ li .check {
 }
 .provider.search form td {
   border: none;
-  padding: 0 0 20px 35px;
+  padding: 0 0 20px 10px;
 }
 .provider.search form td:first-child {
   padding-left: 0;
@@ -670,7 +670,7 @@ td {
   height: 39px;
   overflow: hidden;
 }
-.listTable a {
+.listTable td a {
   font-size: 1.3em;
   line-height: 1.4em;
 }
