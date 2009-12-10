@@ -26,7 +26,13 @@
           </td>
           <td>
             <%= label_tag 'hourly_rate', t('provider.hourly_rate') %><br />
-            <%= text_field_tag 'hourly_rate', '', :class => "number" %><br />
+            <%= select_tag 'hourly_rate', options_for_select(
+              [
+                ["<$75", 0],
+                ["$75-$150", 75],
+                [">$150", 150]
+                ]
+                ) %><br />
           </td>
           <td>
             <%= label_tag 'location', t('provider.directory.location') %><br />
