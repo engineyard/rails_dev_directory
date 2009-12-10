@@ -11,6 +11,7 @@
     <%- end -%>
     <%= f.label :name, t("service.name") %> <%= f.text_field :name %> <br />
     <%= f.label :checked, t("service.checked") %> <%= f.check_box :checked %> <br />
+    <%= f.label :priority, t("priority") %> <%= f.text_field :priority %> <em><%= t('priority_notes') %></em><br />
   </fieldset>
 
   <%= f.submit t('forms.save') %> <%= t('forms.or') %>

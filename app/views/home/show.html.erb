@@ -26,6 +26,13 @@
             <%= label_tag 'location', t('provider.directory.location') %><br />
             <%= location_select %>
           </td>
+          <%- @bottom_services.group_by(&:category).sort_by { |c,services| c.position }.each do |category, services| -%>
+          <td>
+            <%= label_tag dom_id(category), category.name -%>
+            <%= select_tag("service_ids[]", options_for_select(services.collect{ |s| [s.name, s.id]}), :id => dom_id(category)) -%>
+          </td>
+          <%- end -%>
+          
         </tr>
       </table>
       <h4>Filter by services and skills</h4>
@@ -35,9 +42,15 @@
             <h4><%= t('provider.directory.services') %>:</h4>
             <ul>
               <li><label><%= image_tag '/images/icon-check.png', :class=>"check"%> <%= t('provider.directory.default_service') %></label></li>
+              <%- @general_services.each do |service| -%>
+                <li>
+                  <%= check_box_tag "service_ids[]", service.id, false, :id => dom_id(service) %>
+                  <%= label_tag dom_id(service), service.name %>
+                </li>
+              <%- end -%>
             </ul>
           </td>
-          <%- @services.group_by(&:category).each do |category, services| -%>
+          <%- @mid_services.group_by(&:category).sort_by { |c,services| c.position }.each do |category, services| -%>
             <td>
               <h4><%= category.name %>:</h4>
               <ul>
@@ -48,6 +61,19 @@
                   </li>
                 <%- end -%>
               </ul>
+            </td>
+          <%- end -%>
+        </tr>
+      </table>
+      
+      <h4><%= t('filter_by_project_requirements') %></h4>
+      
+      <table>
+        <tr>
+          <%- @bottom_services.group_by(&:category).sort_by { |c,services| c.position }.each do |category, services| -%>
+            <td>
+              <%= label_tag dom_id(category), category.name -%>
+              <%= select_tag("service_ids[]", options_for_select(services.collect{ |s| [s.name, s.id]}), :id => dom_id(category)) -%>
             </td>
           <%- end -%>
         </tr>
