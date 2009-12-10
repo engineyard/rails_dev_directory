@@ -77,8 +77,8 @@ class Notification < ActionMailer::Base
   end
   
   def setup_email
-    from "#{site_config(:email_name)} <sso@engineyard.com>"
-    reply_to "#{site_config(:email_address)}"
+    from "#{config(:email_name)} <sso@engineyard.com>"
+    reply_to "#{config(:email_address)}"
   end
   
   def password_reset_instructions(user)

@@ -11,20 +11,25 @@ email_name:
 smtp_address:
   default: "example.com"
   type: string
+  name: SMTP Address
 
 smtp_domain:
   default: "example.com"
+  name: SMTP Domain
 
 smtp_port:
   default: '25'
+  name: SMTP Port
 
 smtp_user_name:
   default: "example@example.com"
+  name: SMTP User Name
 
 smtp_password:
   default: "example"
+  name: SMTP Password
 
 tracking_code:
   type: text
-  default: |
-  <!-- Sample Tracking Code -->
+  name: Tracking Code
+  default: "<!-- Sample Tracking Code -->"
