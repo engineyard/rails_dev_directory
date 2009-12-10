@@ -95,22 +95,25 @@
         <thead>
           <tr>
             <th>&nbsp;</th>
-            <th><%= t('provider.company_name') %></th>
-            <th><%= t('provider.location') %></th>
-            <th><%= t('provider.confirmed') %> <%= link_to '[?]', '#', :id => "confirmed-explanation", :class => 'tooltip', :'title' => t('provider.confirmed_explanation') %></th>
-            <th><%= t('provider.endorsements')%></th>
-            <th><%= t('provider.action')%></th>
+            <th><%= t('name_and_location') %></th>
+            <th><%= t('speaks') %></th>
+            <th><%= t('will_travel') %> <%= link_to '[?]', '#', :id => "confirmed-explanation", :class => 'tooltip', :'title' => t('provider.confirmed_explanation') %></th>
+            <th><%= t('availability')%></th>
+            <th>&nbsp;</th>
           </tr>
         </thead>
         <tbody>
           <%- @providers.each do |provider| -%>
             <tr class="<%= cycle('odd', 'even') %>">
               <td><img src="/images/profile-default-sm.png" /></td>
-              <td><%= link_to provider.company_name, provider %></td>
-              <td><%= provider.private_address.join(', ') %></td>
-              <td><%= provider.active? ? t('provider.confirmed') : '' %></td>
-              <td><%= provider.endorsements.approved.size %></td>
-              <td><%= check_box_tag 'provider_ids[]', provider.id, false, :id => dom_id(provider) %></td>
+              <td>
+                <%= link_to provider.company_name, provider %>
+                <%= provider.private_address.join(', ') %>
+              </td>
+              <td>English (TODO)</td>
+              <td>SF Bay Area (TODO)</td>
+              <td>December (TODO)</td>
+              <td><%= link_to "Add to Favorites (TODO)", '#' %></td>
             </tr>
           <%- end -%>
         </tbody>

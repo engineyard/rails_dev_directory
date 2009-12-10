@@ -20,6 +20,7 @@ en:
   
   location: Location
   
+  name_and_location: Name and Location
   name_your_sample_code: Name your sample code
   no_code_samples: You haven't added any code samples yet.
   number_of_weeks: Number of Weeks
@@ -34,6 +35,7 @@ en:
   review_your_code: Review Your Code
   
   score: Score
+  speaks: Speaks
   
   this_month: This Month
   
