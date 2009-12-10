@@ -263,7 +263,7 @@ th, table td {
   line-height: 1.2em;
 }
 .even td {
-  background: #FEFDF9;
+  background: url(/images/sprite-layout.png) repeat-x 0 -235px;
 }
 
 /* Table Layout Styles */

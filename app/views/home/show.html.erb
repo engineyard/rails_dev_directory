@@ -68,7 +68,7 @@
       
       <h4><%= t('filter_by_project_requirements') %></h4>
       
-      <table>
+      <table class="filters">
         <tr>
           <%- @bottom_services.group_by(&:category).sort_by { |c,services| c.position }.each do |category, services| -%>
             <td>

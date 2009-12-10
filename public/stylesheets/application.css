@@ -55,12 +55,24 @@ dd.date {
   border-bottom: none;
 }
 .providerHead img {
+  margin: 0 2px 0 0;
+}
+.providerHead img.avatar {
   height: 100px;
   width: 100px;
   padding: 1px;
   border: 1px solid #DDD;
   float: left;
   margin: 20px 20px 10px 0;
+}
+.providerHead p {
+  margin: 5px 0 8px;
+}
+.providerHead p img:last-child {
+  margin-right: 6px;
+}
+.rate {
+  color: #999;
 }
 .companyInfo  ul {
   margin-bottom: 40px;
@@ -160,7 +172,7 @@ li.username {
 }
 .main {
   margin: auto;
-  padding: 0 50px 1em;
+  padding: 0 50px 40px;
 }
 .welcome {
   background: url(/images/sprite-graphics.png) no-repeat 0px 20px;
@@ -294,7 +306,6 @@ li .check {
 }
 .provider.search table.filters {
   border-top: 1px solid #DBDBDB;
-  border-bottom: 1px solid #DBDBDB;
 }
 .provider.search table.filters td {
   padding-top: 1.5em;
@@ -467,6 +478,10 @@ li.document {
   color: #666;
   margin-bottom: 0;
 }
+.favorite {
+  background: url(/images/sprite-graphics.png) no-repeat 0 -754px;
+  padding-left: 16px;
+}
 /* Dashboard */
 .dashboard h3 {
   border-bottom: 2px solid #DDD;
@@ -503,27 +518,38 @@ li.document {
   text-align: left;
   margin: 0px 0 0;
 }
+.pageHead .button {
+  float: right;
+  margin: -5px 0 0;
+}
 .pageHead h2 strong {
   color: #333;
   font-weight: normal;
 }
 .pageHead ul {
   float: right;
+  margin-top: -20px;
 }
 .pageHead li {
   display: inline-block;
 }
-.pageHead li a {
+.pageHead li {
   padding: 19px 20px 21px;
   color: #999;
   font-size: 1.2em;
-}
-.pageHead li.active a {
   background: #F3E9C8;
-  color: #666;
 }
 .pageHead .timestamp {
   margin-top: 0px;
+}
+ul.testList {
+  padding: 0;
+  border-bottom: none;
+}
+ul.testList li {
+  border: 1px solid #DDD;
+  margin-bottom: -1px;
+  padding: 5px 10px;
 }
 
 /* Request Page */
@@ -637,12 +663,24 @@ td {
   vertical-align: top;
   border-bottom: 1px solid #CACACA;
 }
+.listTable td {
+  font-size: 0.9em;
+  padding: 15px 15px 15px 0;
+  vertical-align: bottom;
+  height: 39px;
+  overflow: hidden;
+}
 .listTable a {
-  color: #000;
+  font-size: 1.3em;
+  line-height: 1.4em;
+}
+.listTable a.favorite {
+  font-size: 1em;
+  float: right;
 }
 .listTable td:first-child {
   width: 40px;
-  padding: 10px;
+  padding-left: 15px;
 }
 .services td {
   border-bottom: none;
@@ -737,6 +775,7 @@ textarea#code_sample_code {
   font: 11px/16px Monaco, Courier, mono;
   width: 100%;
   height: 500px;
+  margin-bottom: 10px;
 }
 .sidebar input {
   margin-left: 0;
@@ -846,12 +885,18 @@ hr {
   min-width: 33.33%;
   vertical-align: middle;
 }
-.code pre {
+.code pre, .codeReview {
   font-size: 12px;
   overflow: auto;
   height: 500px;
-  width: 100%;
+  width: 500px;
   background: #333;
+  color: #EEE;
+  padding: 6px;
+}
+.codeReview, .codeReview:focus {
+  padding: 0 0 0 5px;
+  border: 1px solid #999;
   color: #EEE;
 }
 

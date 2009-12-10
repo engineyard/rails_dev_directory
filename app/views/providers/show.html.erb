@@ -10,15 +10,18 @@
   <div class="providerHead">
     <div class="narrow">
       <%- if @provider.logo_file_name.not.blank? -%>
-        <%= image_tag(@provider.logo.url(:thumb)) %>
+        <%= image_tag(@provider.logo.url(:thumb), :class=>'avatar') %>
       <%- else -%>
-        <img src="/images/profile-default.png" />
+        <img src="/images/profile-default.png" class='avatar' />
       <%- end -%>
       <h2 class="name"><%= @provider.company_name %></h2>
+      <p>Located in <%= @provider.private_address.join(", ") %></p>
+      <p class="rate"><img src="/images/icon-money-on.png" /><img src="/images/icon-money-on.png" /><img src="/images/icon-money-off.png" /> Hourly Rate</p>
 
-      <% if @provider.marketing_description.not.blank? %>
-        <div class="description"><%= sanitize(simple_format(@provider.marketing_description)) %></div>
-      <% end %>
+      <!-- <% if @provider.marketing_description.not.blank? %>
+              <div class="description"><%= sanitize(simple_format(@provider.marketing_description)) %></div>
+            <% end %> -->
+
     </div>
     <div class="sidebar">
       <ul class="links">
@@ -38,7 +41,7 @@
       <h3><%= t('provider.about') %></h3>
       <ul>
         <li class="language">Speaks <strong>English</strong></li>
-        <li class="location"><%= @provider.private_address.join(", ") %></li>
+        <li class="location">Willing to travel <strong>anywhere in the world</strong></li>
         <li class='payment'>Accepts <strong>PayPal, Credit Cards</strong> as payment</li>
       </ul>
     </div>
@@ -83,7 +86,7 @@
                 <td>
                   <%= service.name %>
                 </td>
-                <td>
+                <td><img src="/images/icon-exp-on.png" alt="*" /> <img src="/images/icon-exp-on.png" alt="*" /> <img src="/images/icon-exp-off.png" alt="" /> Intermediate
                   <%- if proficiency = @provider.provided_services.for_service(service).proficiency -%>
                     (<%= t("service.proficiency_#{proficiency}") %>)
                   <%- end -%>

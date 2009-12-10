@@ -6,19 +6,24 @@
         <tr>
           <th>&nbsp;</th>
           <th><%= t('provider.company_name') %></th>
-          <th><%= t('provider.location') %></th>
-          <th><%= t('provider.confirmed') %> <%= link_to '[?]', '#', :id => "confirmed-explanation", :class => 'tooltip', :'title' => t('provider.confirmed_explanation') %></th>
-          <th><%= t('provider.endorsements')%></th>
+          <th>Speaks</th>
+          <th>Will Travel</th>
+          <th>Availability</th>
+          <th>&nbsp;</th>
         </tr>
       </thead>
       <tbody>
         <%- @providers.each do |provider| -%>
           <tr class="<%= cycle('odd', 'even') %>">
             <td><img src="/images/profile-default-sm.png" /></td>
-            <td><%= link_to provider.company_name, provider %></td>
-            <td><%= provider.private_address.join(', ') %></td>
-            <td><%= provider.active? ? t('provider.confirmed') : '' %></td>
-            <td><%= provider.endorsements.approved.size %></td>
+            <td>
+              <%= link_to provider.company_name, provider %><br/>
+              <%= provider.private_address.join(', ') %>
+            </td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td><a href="" class="favorite">Add to Favorites</a></td>
           </tr>
         <%- end -%>
       </tbody>
