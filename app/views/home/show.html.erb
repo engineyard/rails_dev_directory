@@ -20,13 +20,7 @@
           </td>
           <td>
             <%= label_tag 'availability', t('availability') %><br />
-            <%= select_tag 'availability', options_for_select(
-                [
-                  [t('any'), 'any'],
-                  ["#{Date.today.strftime("%B")} (#{t('this_month')})",Time.now.to_i],
-                  [1.month.from_now.strftime("%B"), 1.month.from_now.to_i],
-                  [2.months.from_now.strftime("%B"), 2.months.from_now.to_i]
-                  ]) %>
+            <%= availability_select %>
           </td>
           <%- @top_services.group_by(&:category).sort_by { |c,services| c.position }.each do |category, services| -%>
           <td>

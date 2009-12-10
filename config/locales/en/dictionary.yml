@@ -1,6 +1,7 @@
 en:
   
   any: Any
+  anywhere: Anywhere
   availability: Availability
   
   cancel: Cancel
@@ -15,10 +16,13 @@ en:
   
   go_back_and_edit: "Go Back &amp; Edit"
   
+  hours_per_week: Hours Per Week
+  
   location: Location
   
   name_your_sample_code: Name your sample code
   no_code_samples: You haven't added any code samples yet.
+  number_of_weeks: Number of Weeks
   
   or: or
   
@@ -39,3 +43,4 @@ en:
   test_code: Test Code
   test_your_code: Test Your Code
   
+  will_travel: Will Travel

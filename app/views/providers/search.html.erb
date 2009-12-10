@@ -21,6 +21,43 @@
                 ]
                 ) %><br />
           </td>
+          <td>
+            <%= label_tag 'travel', t('will_travel') %>
+            <%= select_tag 'travel', options_for_select(
+            [
+              [t('anywhere'), 'anywhere']
+              ]
+            ) %>
+          </td>
+        </tr>
+      </table>
+      <table>
+        <tr>
+          <td>
+            <%= label_tag 'availability', t('availability') %>
+            <%= availability_select %>
+          </td>
+          <td>
+            <%= label_tag 'hours', t('hours_per_week') %>
+            <%= select_tag 'hours', options_for_select(
+              [
+                ['<10', 0],
+                ['10-20', 20],
+                ['20-30', 30]
+                ]
+            ) %>
+          </td>
+          <td>
+            <%= label_tag 'weeks', t('number_of_weeks') %>
+            <%= select_tag 'weeks', options_for_select(
+              [
+                ['1-2', 0],
+                ['2-4', 2],
+                ['4-6', 4],
+                ['>6', 6]
+                ]
+            ) %>
+          </td>
         </tr>
       </table>
     </fieldset>
