@@ -49,14 +49,7 @@
           </td>
           <td>
             <%= label_tag 'weeks', t('number_of_weeks') %>
-            <%= select_tag 'weeks', options_for_select(
-              [
-                ['1-2', 0],
-                ['2-4', 2],
-                ['4-6', 4],
-                ['>6', 6]
-                ]
-            ) %>
+            <%= project_length_select %>
           </td>
         </tr>
       </table>
