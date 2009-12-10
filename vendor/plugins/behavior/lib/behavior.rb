@@ -9,6 +9,12 @@ module Behavior
     end
   end
   
+  class << self
+    def config
+      Behavior::Configuration.new
+    end
+  end
+  
   class Configuration
     def meta
       HashWithIndifferentAccess.new(YAML.load_file(Behavior::Settings.config_file))
