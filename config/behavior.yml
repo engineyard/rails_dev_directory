@@ -7,3 +7,24 @@ email_name:
   default: Site Administrator
   type: string
   name: Email Name
+
+smtp_address:
+  default: "example.com"
+  type: string
+
+smtp_domain:
+  default: "example.com"
+
+smtp_port:
+  default: '25'
+
+smtp_user_name:
+  default: "example@example.com"
+
+smtp_password:
+  default: "example"
+
+tracking_code:
+  type: text
+  default: |
+  <!-- Sample Tracking Code -->

@@ -37,6 +37,7 @@
         <h3><%= t('navigation.system_admin') %></h3>
         
         <ul>
+          <li><%= link_to t('configuration'), admin_config_path %></li>
           <li><%= link_to t('navigation.pages'), admin_pages_path %></li>
           <li><%= link_to t('navigation.services'), admin_services_path %></li>
           <li><%= link_to t('navigation.users'), admin_users_path %></li>
