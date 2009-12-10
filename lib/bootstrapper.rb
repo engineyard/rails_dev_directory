@@ -23,14 +23,11 @@ class Bootstrapper
         <li class="step3">Get 3 endorsements</li>
       </ol>])
       
-      category = ServiceCategory.make(:name => "Programming", :proficiency => true)
-      
-      ruby = Service.make(:name => "Ruby on Rails", :checked => true, :category => category)
-      Service.make(:name => "PHP", :checked => false, :category => category)
+      create_categories_and_services
       
       Endorsement.make(:provider => provider, :aasm_state => 'approved')
       
-      provider.services << ruby
+      provider.services << Service.find_by_name('Ruby')
     end
     
     def provider
@@ -39,6 +36,52 @@ class Bootstrapper
     
     def rfp
       @rfp ||= Factory.build(:rfp)
+    end
+    
+    def create_categories_and_services
+      
+      puts "Creating Categories and Services"
+      puts "Languages"
+      languages = ServiceCategory.make(:name => "Spoken Language", :position => 1, :proficiency => true)
+      languages.services << Service.make(:name => "English", :position => 1, :priority => 1)
+      languages.services << Service.make(:name => "French", :position => 2, :priority => 1)
+      languages.services << Service.make(:name => "Italian", :position => 3, :priority => 1)
+      languages.services << Service.make(:name => "Spanish", :position => 4, :priority => 1)
+
+      puts "General"
+      general = ServiceCategory.make(:name => "General", :position => 2)
+      general.services << Service.make(:name => "AJAX / Javascript Coding", :position => 1, :priority => 2)
+      
+      puts "Programming"
+      programming = ServiceCategory.make(:name => "Programming Languages", :position => 3, :proficiency => true)
+      programming.services << Service.make(:name => "C++", :position => 1, :priority => 2)
+      programming.services << Service.make(:name => "PHP", :position => 2, :priority => 2)
+      programming.services << Service.make(:name => "Ruby", :position => 3, :priority => 2)
+      programming.services << Service.make(:name => "Java", :position => 4, :priority => 2)
+      
+      puts "Stack"
+      stack = ServiceCategory.make(:name => "Rails Stack", :position => 4, :proficiency => true)
+      stack.services << Service.make(:name => "Phusion Passenger", :position => 1, :priority => 2)
+      stack.services << Service.make(:name => "nginx", :position => 2, :priority => 2)
+      stack.services << Service.make(:name => "unicorn", :position => 3, :priority => 2)
+      stack.services << Service.make(:name => "Mongrel", :position => 4, :priority => 2)
+      
+      puts "Toolkit"
+      toolkit = ServiceCategory.make(:name => "Toolkit", :position => 5, :proficiency => true)
+      toolkit.services << Service.make(:name => "Cucumber", :position => 1, :priority => 2)
+      toolkit.services << Service.make(:name => "RSpec", :position => 2, :priority => 2)
+      toolkit.services << Service.make(:name => "Ruby on Rails", :position => 3, :priority => 2)
+
+      puts "Methodologies"
+      methodologies = ServiceCategory.make(:name => "Methodologies", :position => 6, :proficiency => true)
+      methodologies.services << Service.make(:name => "Behavior Driven Development", :position => 1, :priority => 2)
+      
+      puts "Payment Methods"
+      payment_methods = ServiceCategory.make(:name => "Accepted Payment Methods", :position => 1, :proficiency => false)
+      payment_methods.services << Service.make(:name => "Paypal", :position => 1, :priority => 3)
+      payment_methods.services << Service.make(:name => "Credit Card", :position => 2, :priority => 3)
+      payment_methods.services << Service.make(:name => "Bank Transfer", :position => 3, :priority => 3)
+      
     end
     
     def user
