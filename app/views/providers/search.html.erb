@@ -5,8 +5,24 @@
   <% form_tag search_providers_path, :method => :get, :id => 'search-form' do -%>
     <h3><%= t('change_your_search_criteria') %></h3>
     <fieldset>
-      <%= label_tag 'location', t('location') %><br />
-      <%= location_select %>
+      <table>
+        <tr>
+          <td>
+            <%= label_tag 'location', t('location') %><br />
+            <%= location_select %>
+          </td>
+          <td>
+            <%= label_tag 'hourly_rate', t('provider.hourly_rate') %><br />
+            <%= select_tag 'hourly_rate', options_for_select(
+              [
+                ["<$75", 0],
+                ["$75-$150", 75],
+                [">$150", 150]
+                ]
+                ) %><br />
+          </td>
+        </tr>
+      </table>
     </fieldset>
     <%= submit_tag t('find_a_freelancer') %>
   <% end -%>
