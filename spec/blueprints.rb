@@ -27,6 +27,7 @@ end
 Service.blueprint do
   category { ServiceCategory.make }
   name
+  priority 2
 end
 
 ServiceCategory.blueprint do
