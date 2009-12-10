@@ -1,13 +1,16 @@
 <div class="panel">
   <%= render 'common_navigation' %>
+  <div class="narrow">
+    <h3><%= @code_sample.name %></h3>
 
-  <h3><%= @code_sample.name %></h3>
+    <div class="code">
+      <pre><%= @code_sample.code %></pre>
+    </div>
 
-  <div class="code">
-    <pre><%= @code_sample.code %></pre>
+    <div class="tests">
+      <p>Score: <%= @code_sample.score %></p>
+    </div>
   </div>
-
-  <div class="tests">
-    <p>Score: <%= @code_sample.score %></p>
-  </div>
+  <div class="sidebar"></div>
+  <div class="clear"></div>
 </div>
