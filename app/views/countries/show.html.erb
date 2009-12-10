@@ -1,5 +1,9 @@
-<%- content_for :title do -%><%= t("country.providers_in", :country => Country.from_slug(params[:country]).name) %> | <%- end -%>
+<div class="panel">
+  <%- content_for :title do -%><%= t("country.providers_in", :country => Country.from_slug(params[:country]).name) %> | <%- end -%>
 
-<h2><%= t("country.providers_in", :country => Country.from_slug(params[:country]).name) %></h2>
+  <h2><%= t("country.providers_in", :country => Country.from_slug(params[:country]).name) %></h2>
 
-<%= render :partial => 'providers/providers' %>
+  <hr/>
+
+  <%= render :partial => 'providers/providers' %>
+</div>

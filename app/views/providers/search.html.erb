@@ -10,6 +10,27 @@
     </fieldset>
     <%= submit_tag t('find_a_freelancer') %>
   <% end -%>
+  
+  
+  <div class="favorites">
+    <h3>Your Favorites (3)</h3>
+    <ul>
+      <li>
+        <img src="/images/profile-default-sm.png" />
+        <h4>Paul Campbell</h4>
+        <p>Mountain View, California, USA</p>
+      </li>
+      <li>
+        <img src="/images/profile-default-sm.png" />
+        <h4>Ben de Jesus</h4>
+        <p>San Francisco, California, USA</p>
+      </li>
+      <li>
+        <img src="/images/profile-default-sm.png" />
+        <h4>Andy Delcambre</h4>
+        <p>Portland, Oregon, USA</p>
+      </li>
+  </div>
 
   <%- if @providers.empty? -%>
     <p><%= t('provider.no_providers') %></p>
@@ -17,9 +38,10 @@
 
     <%- form_for :rfp, :url => new_rfp_path, :html => {:method => :get} do |f| -%>
   
-      <table>
+      <table class="listTable">
         <thead>
           <tr>
+            <th>&nbsp;</th>
             <th><%= t('provider.company_name') %></th>
             <th><%= t('provider.location') %></th>
             <th><%= t('provider.confirmed') %> <%= link_to '[?]', '#', :id => "confirmed-explanation", :class => 'tooltip', :'title' => t('provider.confirmed_explanation') %></th>
@@ -29,7 +51,8 @@
         </thead>
         <tbody>
           <%- @providers.each do |provider| -%>
-            <tr>
+            <tr class="<%= cycle('odd', 'even') %>">
+              <td><img src="/images/profile-default-sm.png" /></td>
               <td><%= link_to provider.company_name, provider %></td>
               <td><%= provider.private_address.join(', ') %></td>
               <td><%= provider.active? ? t('provider.confirmed') : '' %></td>

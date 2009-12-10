@@ -41,9 +41,11 @@
   <fieldset>
     <h3><%= t('provider.services') %></h3>
   
-    <%- Service.all.each do |service| -%>
-      <%= label_tag dom_id(service), service.name %><%= check_box_tag "provider[service_ids][]", service.id, @provider.services.include?(service), :id => dom_id(service) %><br/>
-    <%- end -%>
+    <ul>
+      <%- Service.all.each do |service| -%>
+        <li><%= check_box_tag "provider[service_ids][]", service.id, @provider.services.include?(service), :id => dom_id(service) %><%= label_tag dom_id(service), service.name %></li>
+      <%- end -%>
+    </ul>
 
   </fieldset>
   <%= f.submit t('forms.save') %> or <%= link_to t('forms.cancel'), [:admin, @provider] %>
