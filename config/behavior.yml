@@ -1,0 +1,9 @@
+email_address:
+  name: Email Address
+  type: string
+  default: example@example.com
+
+email_name:
+  default: Site Administrator
+  type: string
+  name: Email Name

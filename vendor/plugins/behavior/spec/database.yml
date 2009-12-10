@@ -1,0 +1,21 @@
+sqlite:
+  :adapter: sqlite
+  :database: spec/behavior.sqlite.db
+
+sqlite3:
+  :adapter: sqlite3
+  :database: spec/behavior.sqlite3.db
+
+postgresql:
+  :adapter: postgresql
+  :username: postgres
+  :password: postgres
+  :database: behavior_test
+  :min_messages: ERROR
+
+mysql:
+  :adapter: mysql
+  :host: localhost
+  :username: root
+  :password: password
+  :database: behavior_test

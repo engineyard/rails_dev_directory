@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20091209190516) do
+ActiveRecord::Schema.define(:version => 20091210164854) do
 
   create_table "answers", :force => true do |t|
     t.integer  "question_id"
@@ -32,6 +32,15 @@ ActiveRecord::Schema.define(:version => 20091209190516) do
   add_index "audits", ["auditable_type", "auditable_id"], :name => "auditable_object"
   add_index "audits", ["user_id", "auditable_type"], :name => "auditable_user_index"
   add_index "audits", ["user_id"], :name => "index_audits_on_user_id"
+
+  create_table "behavior_configs", :force => true do |t|
+    t.string   "key"
+    t.string   "value"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "behavior_configs", ["key"], :name => "index_behavior_configs_on_key"
 
   create_table "code_samples", :force => true do |t|
     t.string   "name"

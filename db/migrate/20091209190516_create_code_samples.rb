@@ -6,7 +6,7 @@ class CreateCodeSamples < ActiveRecord::Migration
       t.integer :provider_id
       t.string :aasm_state
       t.integer :score
-
+    
       t.timestamps
     end
   end

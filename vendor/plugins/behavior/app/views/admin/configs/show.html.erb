@@ -1,0 +1,20 @@
+<h2>Edit Configuration</h2>
+
+<%- if !flash[:notice].blank? -%>
+  <div class="notice">
+    <%= flash[:notice] %>
+  </div>
+<%- end -%>
+
+<%- form_tag admin_config_path, :method => :put do -%>
+
+  <fieldset>
+    <%- @configs.each do |conf| -%>
+      <%= label_tag(conf, (config.meta[conf][:name] || config))  %>
+      <%= text_field_tag("conf[#{conf}]", config[conf], :id => conf) %> <br />
+    <%- end -%>
+  </fieldset>
+  
+  <%= submit_tag "Save" %>
+  
+<%- end -%>
