@@ -11,7 +11,6 @@
   <%= f.label :state_province, t("provider.state") %> <%= f.select :state_province, ([[t('provider.outside_us'), "NA"]] + State::NAMES), :include_blank => true %> <br />
   <%= f.label :postal_code, t("provider.postal_code") %> <%= f.text_field :postal_code %> <br />
   <%= f.label :country, t('provider.country') %> <%= f.localized_country_select :country, [:US, :CA, :FR, :DE,  :IE, :ES, :GB], :include_blank => t('provider.choose_country') %> <br />
-  <%= f.label :phone_number, t("provider.phone_number") %> <%= f.text_field :phone_number %> <br />
   <%= f.label :email, t("provider.email") %> <%= f.text_field :email %> <br />
   <%= f.label :company_url, t("provider.company_url") %> <%= f.text_field :company_url %> <br />
   <%= f.label :logo, t('provider.logo') %><%= f.file_field :logo %><br/>

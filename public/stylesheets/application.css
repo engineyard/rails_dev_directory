@@ -342,7 +342,7 @@ li .check {
   border: 2px solid #FFF;
 }
 .panel #search-form fieldset {
-  font-size: 0.9em;
+  font-size: 1em;
   padding: 0;
   border: none;
 }
@@ -352,6 +352,19 @@ li .check {
   font-size: 1em;
   color: #666;
   border-bottom: none;
+}
+.panel #search-form li {
+  display: inline-block;
+  margin-right: 10px;
+}
+#search-form #location {
+  width: 300px;
+}
+#search-form #hourly_rate {
+  width: 100px;
+}
+#search-form #language, #search-form #travel, #search-form #availability, #search-form #hours, #search-form #weeks {
+  width: 200px;
 }
 
 /* Content Elements */
@@ -555,6 +568,7 @@ li.document {
 }
 .userEdit .status {
   float: right;
+  font-size: 1.5em;
 }
 ul.testList {
   padding: 0;
@@ -678,6 +692,7 @@ td {
   vertical-align: top;
   border-bottom: 1px solid #CACACA;
 }
+/* Custom Table Styles */
 .listTable {
   margin-bottom: 20px;
 }
@@ -693,6 +708,9 @@ td {
   font-size: 1.3em;
   line-height: 1.4em;
 }
+.listTable tr:hover td {
+  background: #F3FAFE;
+}
 .listTable a.favorite {
   font-size: 1em;
   float: right;
@@ -703,6 +721,10 @@ td {
 }
 .services td {
   border-bottom: none;
+}
+.services tbody td:first-child, .services tbody th:first-child {
+  width: 70%;
+  font-size: 1.1em;
 }
 .ui-datepicker td:first-child {
   min-width: 0;
@@ -803,6 +825,9 @@ textarea#code_sample_code {
   height: 500px;
   margin-bottom: 10px;
 }
+#provider_terms_of_service {
+  margin-bottom: 30px;
+}
 .sidebar input {
   margin-left: 0;
 }
@@ -823,7 +848,7 @@ textarea#code_sample_code {
   margin: 0;
 }
 .info p + p {
-  margin-top: 8em;
+  margin-top: 3em;
 }
 
 /* Homepage Form */
@@ -876,7 +901,7 @@ hr {
   margin-bottom: 3em;
 }
 .widget p {
-  margin: 0;
+  margin: 5px 0 0;
   float: left;
   width: 50%;
 }
@@ -885,6 +910,7 @@ hr {
   width: 30%;
   text-align: right;
   text-transform: uppercase;
+  margin-top: 0;
 }
 .widget .score strong {
   font-size: 2.25em;

@@ -1,12 +1,15 @@
-<%- if @quizzes.empty? -%>
-  <p><%= t('quiz.no_quizzes') %></p>
-<%- else -%>
-  <%- form_for [:my, @quiz_result] do |f| -%>
-    <fieldset>
-      <%= f.label :quiz_id, t('quiz_result.quiz') %>
-      <%= f.select :quiz_id, options_for_quiz_select(@quizzes) %> <br/>
-    </fieldset>
+<div class="dashboard">
+  <h1>Quizzes</h1>
+  <%- if @quizzes.empty? -%>
+    <p><%= t('quiz.no_quizzes') %></p>
+  <%- else -%>
+    <%- form_for [:my, @quiz_result] do |f| -%>
+      <fieldset>
+        <%= f.label :quiz_id, t('quiz_result.quiz') %>
+        <%= f.select :quiz_id, options_for_quiz_select(@quizzes) %> <br/>
+      </fieldset>
 
-    <%= f.submit t('quiz_result.next') %>
+      <%= f.submit t('quiz_result.next') %>
+    <%- end -%>
   <%- end -%>
-<%- end -%>
+</div>

@@ -1,9 +1,11 @@
-<% form_for [:my, @portfolio_item] do |f| -%>
-  <%= render :partial => 'my/portfolio_items/form', :locals => {:f => f} %>
-<% end %>
+<div class="dashboard">
+  <% form_for [:my, @portfolio_item] do |f| -%>
+    <%= render :partial => 'my/portfolio_items/form', :locals => {:f => f} %>
+  <% end %>
 
-<p>
-  <% form_for [:my, @portfolio_item], :html => {:method => :delete} do |f| -%>
-    <%= f.submit t('portfolio_item.delete') , :class => "confirm" %>
-  <% end -%>
-</p>
+  <p>
+    <% form_for [:my, @portfolio_item], :html => {:method => :delete} do |f| -%>
+      <%= f.submit t('portfolio_item.delete') , :class => "confirm" %>
+    <% end -%>
+  </p>
+</div>

@@ -31,24 +31,23 @@
         </table>
 
           <%= uf.label :email, t("user.email") %> <%= uf.text_field :email %><br />
+          <%= f.label :phone_number, t("provider.phone_number") %> <%= f.text_field :phone_number %> <br />
           <%= uf.label :password, t("user.password") %> <%= uf.password_field :password %> <br />
           <%= uf.label :password_confirmation, t("user.password_again") %> <%= uf.password_field :password_confirmation %>
 
       <%- end -%>
-  
+
       <h3><%= t('provider.company_details_headline') %></h3>
       <!-- <p><% t('provider.company_details_descrpition') %></p> -->
       <div class="info">
         <p>If you're doing buiness under a name other than your own, you can enter it here.</p>
       </div>
-    
+
       <%= render :partial => 'providers/form', :locals => {:f => f} %>
     <fieldset>
-
       <div class="info">
         <p>Please read and accept this website's Terms of Use before proceeding.</p>
       </div>
-      <label><%= t('provider.terms_of_service') %></label>
       <ul>
         <li><%= f.check_box :terms_of_service %> <%= f.label :terms_of_service, t('provider.accept_terms_of_service')%></li>
       </ul>
