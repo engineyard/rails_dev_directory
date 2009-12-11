@@ -46,27 +46,6 @@
         <li class='payment'><%= t('accepts_as_payment') %></li>
       </ul>
     </div>
-  
-    <%- if @provider.min_hours or @provider.max_hours or (@provider.hourly_rate > 0)-%>
-    <div class="block">
-      <h4><%= t('provider.accepted_projects') %></h4>
-      <dl>
-        <%- if @provider.hourly_rate > 0 -%>
-        <dt><%= t('provider.hourly_rate') %></dt>
-        <dd>&#36;<%= @provider.hourly_rate_formatted %></dd>
-        <%- end -%>
-        <%- if @provider.min_hours -%>
-        <dt><%= t('provider.min_hours') %></dt>
-        <dd><%= @provider.min_hours %></dd>
-        <%- end -%>
-        <%- if @provider.max_hours -%>
-        <dt><%= t('provider.max_hours') %></dt>
-        <dd><%= @provider.max_hours %></dd>
-        <%- end -%>
-      </dl>
-    </div>
-    <%- end -%>
-
 
     <table class="services">
       <thead>

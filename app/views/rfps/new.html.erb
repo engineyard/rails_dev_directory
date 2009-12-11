@@ -1,11 +1,10 @@
-<div class="panel">
-  <h2><%= t('rfp.new_rfp_headline') %></h2>
+<h2><%= t('rfp.new_rfp_headline') %></h2>
 
-  <p class="description"><%= t('rfp.new_rfp_description') %></p>
+<p class="description"><%= t('rfp.new_rfp_description') %></p>
 
-  <p class="description note"><%= t('rfp.disclaimer') %></p>
+<p class="description note"><%= t('rfp.disclaimer') %></p>
 
-  <hr />
+<div class="narrow box">
 
   <% form_for setup_rfp(@rfp) do |f| -%>
   
@@ -68,7 +67,6 @@
     </fieldset>
   
     <fieldset>
-      <label><%= t('rfp.terms_of_service') %></label>
       <ul>
         <li><%= f.check_box :terms_of_service %> <%= f.label :terms_of_service, t('rfp.accept_terms_of_service')%></li>
       </ul>
@@ -76,6 +74,6 @@
 
     <%= recaptcha_tags %>
 
-    <%= f.submit t('rfp.submit'), :onClick=>"pageTracker._trackEvent('Request', 'Submit Request');" %>
+    <%= f.submit t('rfp.submit'), :onClick=>"pageTracker._trackEvent('Request', 'Submit Request');", :class=>'callout' %>
   <% end -%>
 </div>
