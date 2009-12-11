@@ -80,3 +80,6 @@ Given /^provider "([^\"]*)" is available for projects "([^\"]*)" in length$/ do 
   Provider.find_by_company_name(provider_name).update_attribute(:project_length, length.to_i)
 end
 
+Given /^provider "([^\"]*)" likes to work between "([^\"]*)" and "([^\"]*)" hours per week$/ do |provider_name, min, max|
+  Provider.find_by_company_name(provider_name).update_attributes(:min_hours => min, :max_hours => max)
+end

@@ -82,3 +82,16 @@ Feature: Provider directory
     When I select "1-4 Weeks" from "Project Length"
       And I press "Find a Freelancer"
     Then I should not see "Paul Campbell"
+
+  Scenario: Searching by project length
+    Given provider "Paul Campbell" likes to work between "10" and "20" hours per week
+
+    When I am on the homepage
+      And I select "10-20 Hours/Week" from "Hours Per Week"
+      And I press "Find a Freelancer"
+    Then I should see "Paul Campbell"
+      And the "Hours Per Week" field should contain "10"
+
+    When I select "<10 Hours/Week" from "Hours Per Week"
+      And I press "Find a Freelancer"
+    Then I should not see "Paul Campbell"

@@ -22,9 +22,7 @@ So that I can can receive Rails project referrals
       And I fill in the "Retype password" with "americanpolka"
       And I fill in the "Company website" with "oleopry.com"
       And I press "Sign up"
-    Then I should see "Pivotpaul Labs Admin"
-    When I follow "Profile"
-    Then I should see "The human mind can only stand so much."
+    Then I should see "Hi Pivotpaul Labs"
 
   Scenario: Signing up and sloppily missing the TOS
     Given I am on the homepage
@@ -43,6 +41,4 @@ So that I can can receive Rails project referrals
     Then I should see "Terms of Use"
     When I check "provider[terms_of_service]"
       And I press "Sign up"
-    Then I should see "Pivotpaul Labs Admin"
-    When I follow "Profile"
-    Then I should see "Some things are too hot to touch."
+    Then I should see "Hi Pivotpaul Labs"

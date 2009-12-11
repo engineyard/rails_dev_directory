@@ -86,9 +86,9 @@ module ProvidersHelper
     select_tag 'hours', options_for_select(
       [
         [t('any'), ''],
-        ["<10 #{t('hours')}", 0],
-        ["10-20 #{t('hours')}", 20],
-        ["20-30 #{t('hours')}", 30]
+        ["<10 #{t('hours')}", "0-10"],
+        ["10-20 #{t('hours')}", "10-20"],
+        ["20-30 #{t('hours')}", "20-30"]
         ],
         params[:hours].to_i
     )

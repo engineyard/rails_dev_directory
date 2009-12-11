@@ -82,6 +82,9 @@ class Provider < ActiveRecord::Base
   
   def self.search(params)
     conditions = ["aasm_state != 'flagged'"]
+    joins = nil
+    group = nil
+
     if params[:budget].not.blank?
       conditions[0] << " and min_budget <= ?"
       conditions << params[:budget].gsub(/[^0-9\.]/, '').to_i
@@ -98,9 +101,18 @@ class Provider < ActiveRecord::Base
         conditions << max.to_i
       end
     end
-
-    joins = nil
-    group = nil
+    
+    if params[:hours].not.blank?
+      min,max = params[:hours].split('-')
+      if min and min.not.empty?
+        conditions[0] << " and min_hours <= ?"
+        conditions << min.to_i
+      end
+      if max and max.not.empty?
+        conditions[0] << " and max_hours >= ?"
+        conditions << max.to_i
+      end
+    end
 
     if params[:service_ids].not.blank? and params[:service_ids].is_a?(Array)
       conditions[0] << " and (select count(*) from provided_services where provider_id = providers.id and service_id IN (?)) = #{params[:service_ids].size}"

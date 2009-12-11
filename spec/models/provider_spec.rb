@@ -93,6 +93,18 @@ describe Provider do
         Provider.search({:hourly_rate => "0-75"})
       end
     end
+
+    context "project length" do
+      it "should search on project length" do
+        Provider.should_receive(:all).with(
+          :joins => nil,
+          :group => nil,
+          :conditions => ["aasm_state != 'flagged' and min_hours <= ? and max_hours >= ?", 0, 10],
+          :order=>"aasm_state asc, if(endorsements_count >= 3,endorsements_count,0) desc, RAND()",
+          :limit=>10)
+        Provider.search({:hours => "0-10"})
+      end
+    end
   end
     
   describe "default tech types" do
