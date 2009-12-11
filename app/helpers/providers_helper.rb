@@ -90,7 +90,7 @@ module ProvidersHelper
         ["10-20 #{t('hours')}", "10-20"],
         ["20-30 #{t('hours')}", "20-30"]
         ],
-        params[:hours].to_i
+        params[:hours]
     )
     
   end
