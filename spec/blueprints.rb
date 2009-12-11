@@ -88,3 +88,8 @@ Rfp.blueprint do
   last_name { Sham.name }
   email
 end
+
+CodeSample.blueprint do
+  name
+  code "class Woo; end"
+end

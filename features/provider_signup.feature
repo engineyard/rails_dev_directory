@@ -11,7 +11,6 @@ So that I can can receive Rails project referrals
       And I fill in the "Email" with "jdcrow@oleopry.com"
       And I fill in the "Password" with "dingusday"
       And I fill in the "Retype password" with "greasycoat"
-      And I fill in the "provider[marketing_description]" with "The human mind can only stand so much."
       And I fill in the "Company email" with "theboys@oleopry.com"
       And I fill in the "Company website" with "ole opry"
       And I check "provider[terms_of_service]"
@@ -36,7 +35,6 @@ So that I can can receive Rails project referrals
       | Design      | UI            |
     When I follow "Create an account"
       And I fill in the provider sign up form for "Pivotpaul Labs"
-      And I fill in the "provider[marketing_description]" with "Some things are too hot to touch."
       And I press "Sign up"
     Then I should see "Terms of Use"
     When I check "provider[terms_of_service]"
