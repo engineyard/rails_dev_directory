@@ -71,14 +71,14 @@ Feature: Provider directory
       And I should not see "Hyper Tiny"
       
   Scenario: Searching by project length
-    Given provider "Paul Campbell" is available for projects "4-8 weeks" in length
+    Given provider "Paul Campbell" is available for projects "4-8 Weeks" in length
     
     When I am on the homepage
-      And I select "4-8 weeks" from "Project Length"
+      And I select "4-8 Weeks" from "Project Length"
       And I press "Find a Freelancer"
     Then I should see "Paul Campbell"
-      And the "Project Length" field should contain "4-8 weeks"
+      And the "Project Length" field should contain "4"
     
-    When I select "1-4 weeks" from "Project Length"
+    When I select "1-4 Weeks" from "Project Length"
       And I press "Find a Freelancer"
     Then I should not see "Paul Campbell"

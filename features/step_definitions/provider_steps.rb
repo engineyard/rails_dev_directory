@@ -77,6 +77,6 @@ end
 
 
 Given /^provider "([^\"]*)" is available for projects "([^\"]*)" in length$/ do |provider_name, length|
-  Provider.find_by_name(provider_name).update_attribute(:project_length, length.to_i)
+  Provider.find_by_company_name(provider_name).update_attribute(:project_length, length.to_i)
 end
 

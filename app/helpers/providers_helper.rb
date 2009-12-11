@@ -77,7 +77,8 @@ module ProvidersHelper
         ["1-4 #{t('weeks')}", 0],
         ["4-8 #{t('weeks')}", 4],
         [">8 #{t('weeks')}", 8]
-        ]
+        ],
+        params[:weeks].to_i
     )    
   end
   
@@ -88,7 +89,8 @@ module ProvidersHelper
         ["<10 #{t('hours')}", 0],
         ["10-20 #{t('hours')}", 20],
         ["20-30 #{t('hours')}", 30]
-        ]
+        ],
+        params[:hours].to_i
     )
     
   end
