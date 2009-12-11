@@ -14,11 +14,11 @@
   <div class="sidebar">
     <h3>Your code will be run against these tests:</h3>
     <ul class="testList">
-      <li>Reek</li>
-      <li>Flay</li>
-      <li>Flog</li>
-      <li>Churn</li>
-      <li>Roodi</li>
+      <li>Reek <%= @code_sample.reek_result %></li>
+      <li>Flay <%= @code_sample.flay_result %></li>
+      <li>Flog <%= @code_sample.flog_result %></li>
+      <li>Roodi <%= @code_sample.roodi_result %></li>
+      <li>Saikuro <%= @code_sample.saikuro_result %></li>
       <li class="score">Score</li>
     </ul>
   </div>

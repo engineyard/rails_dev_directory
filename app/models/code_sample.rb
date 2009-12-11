@@ -16,24 +16,38 @@ class CodeSample < ActiveRecord::Base
     transitions :to => :show, :from => [:review]
   end
   
+  def run_tests!
+    update_attributes(
+      :reek_result => reek,
+      :flay_result => flay,
+      :flog_result => flog,
+      :roodi_result => roodi,
+      :saikuro_result => saikuro)
+    analyze!
+  end
+  
   def reek
-    run_test('reek').size - 1
+    @reek ||= run_test('reek').size - 1
   end
   
   def flay
-    run_test('flay').first.split.reverse.first.to_i
+    @flay ||= run_test('flay').
+      first.
+        split.
+          reverse.
+            first.to_i
   end
   
   def flog
-    run_test('flog').first.to_f
+    @flog ||= run_test('flog').first.to_f
   end
   
   def roodi
-    run_test('roodi').last.split[1].to_i
+    @roodi ||= run_test('roodi').last.split[1].to_i
   end
   
   def saikuro
-    with_tmp_file do |file|
+    @saikuro ||= with_tmp_file do |file|
       tmp_dir = "/tmp/d_#{code.to_sha1}"
       system("saikuro -f text -c -p #{file} -o #{tmp_dir}")
       output = File.read("#{tmp_dir}#{file}_cyclo.html")

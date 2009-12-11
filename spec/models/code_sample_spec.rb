@@ -1,28 +1,41 @@
 require 'spec_helper'
 
 describe CodeSample do
-  before do
+
+  @@tests_and_results = {
+  'reek' => 8,
+  'flay' => 72,
+  'flog' => BigDecimal.new('85.2'),
+  'roodi' => 0,
+  'saikuro' => BigDecimal.new('5.5')
+  }
+
+  before(:all) do
     @file_contents = File.read('spec/fixtures/code_sample.rb')
     @code_sample = CodeSample.make(:code => @file_contents)
   end
   
-  it "should run reek" do
-    @code_sample.reek.should == 8
+  describe "tests" do    
+    @@tests_and_results.each do |test, test_result|
+      it "should run #{test}" do
+        @code_sample.send(test).should == test_result
+      end
+    end
   end
   
-  it "should run flay" do
-    @code_sample.flay.should == 72
-  end
-  
-  it "should run flog" do
-    @code_sample.flog.should == 85.2
-  end
-  
-  it "should run roodi" do
-    @code_sample.roodi.should == 0
-  end
-  
-  it "should run saikuru" do
-    @code_sample.saikuro.should == 5.5
+  describe "#run_tests" do
+    before(:all) do
+      @code_sample.run_tests!
+    end
+    
+    it "should set the test values" do
+      @code_sample.aasm_state.should == "show"
+    end
+    
+    @@tests_and_results.each do |test, test_result|
+      it "should have a result for #{test}" do
+        @code_sample.send("#{test}_result").should == test_result
+      end
+    end
   end
 end

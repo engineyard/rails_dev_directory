@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20091211144416) do
+ActiveRecord::Schema.define(:version => 20091211190326) do
 
   create_table "answers", :force => true do |t|
     t.integer  "question_id"
@@ -50,6 +50,11 @@ ActiveRecord::Schema.define(:version => 20091211144416) do
     t.integer  "score"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "reek_result"
+    t.integer  "flay_result"
+    t.decimal  "flog_result",    :precision => 8, :scale => 2
+    t.integer  "roodi_result"
+    t.decimal  "saikuro_result", :precision => 8, :scale => 2
   end
 
   create_table "endorsement_requests", :force => true do |t|

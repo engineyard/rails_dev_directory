@@ -14,7 +14,7 @@ class My::CodeSamplesController < ApplicationController
   end
   
   def analyze
-    @code_sample.analyze!
+    @code_sample.run_tests!
     redirect_to [:my, @code_sample]
   end
   
