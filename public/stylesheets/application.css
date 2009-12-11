@@ -63,7 +63,7 @@ dd.date {
   padding: 1px;
   border: 1px solid #DDD;
   float: left;
-  margin: 20px 20px 10px 0;
+  margin: 0px 20px 10px 0;
 }
 .providerHead p {
   margin: 5px 0 8px;
@@ -128,6 +128,7 @@ li.username {
 }
 .panel h2.name {
   font: 2em Lucida Grande, Verdana, sans-serif;
+  margin-top: 30px;
 }
 .shadow {
   padding: 0px;
@@ -365,6 +366,10 @@ li .check {
   float: right;
   margin: 0.4em 0 0 10px;
 }
+.sidebar .links {
+  border-bottom: none;
+  height: 125px;
+}
 .narrow {
   float: left;
   width: 510px;
@@ -541,6 +546,15 @@ li.document {
 }
 .pageHead .timestamp {
   margin-top: 0px;
+}
+.userEdit {
+  margin-bottom: 0;
+}
+.userEdit .button {
+  float: left;
+}
+.userEdit .status {
+  float: right;
 }
 ul.testList {
   padding: 0;
@@ -883,18 +897,22 @@ hr {
   border: 1px solid #DDD;
   border-collapse: collapse;
 }
+.availability td, .availability th {
+  border: 1px solid #DDD;
+  text-align: center;
+  min-width: 33.33%;
+  vertical-align: middle;
+}
 .availability th {
+  padding: 10px;
   color: #369;
   font-size: 0.9em;
   font-weight: normal;
   text-transform: uppercase;
 }
-.availability td, .availability th {
-  border: 1px solid #DDD;
-  padding: 10px;
-  text-align: center;
-  min-width: 33.33%;
-  vertical-align: middle;
+.availability td {
+  padding: 20px 10px;
+  font-size: 1.2em;
 }
 .code pre, .codeReview {
   font-size: 12px;
