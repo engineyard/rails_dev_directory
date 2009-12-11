@@ -7,38 +7,36 @@
   <%- content_for :title do -%><%= @provider.company_name %> <%= t('provider.developer_profile') %> | <%= t('provider.rails_developer_in') %> <%= [@provider.city, @provider.state_province].reject { |a| a.blank? or a == 'NA' }.join(', ') %> | <%- end %>
   <%- content_for :description do -%><meta name="description" content="<%= t('provider.developer_description', :name => @provider.company_name, :address => @provider.private_address.join(', '), :services_offered => (Service.checked + @provider.services).collect{ |t| t.name }.join(', ')) %>"><%- end -%>
 
-  <div class="providerHead">
-    <div class="narrow">
+  
+    
+      <% if logged_in? and current_user.can_edit?(@provider) %>
+      <div class="pageHead userEdit">
+        <%= link_to t('company_profile.edit'), edit_my_provider_path, :class=>"button" %>
+        <h2 class="status">Your profile is <strong>50%</strong> complete</h2>
+      </div>
+      <%- end -%>
+    
+  <div class="narrow">
+    <div class="providerHead">
       <%- if @provider.logo_file_name.not.blank? -%>
-        <%= image_tag(@provider.logo.url(:thumb)) %>
+        <%= image_tag(@provider.logo.url(:thumb), :class=>'avatar') %>
       <%- else -%>
-        <img src="/images/profile-default.png" />
+        <img src="/images/profile-default.png" class='avatar' />
       <%- end -%>
       <h2 class="name"><%= @provider.company_name %></h2>
+      <p>Located in <%= @provider.private_address.join(", ") %></p>
+      <p class="rate"><img src="/images/icon-money-on.png" /><img src="/images/icon-money-on.png" /><img src="/images/icon-money-off.png" /> Hourly Rate</p>
 
-      <% if @provider.marketing_description.not.blank? %>
-        <div class="description"><%= sanitize(simple_format(@provider.marketing_description)) %></div>
-      <% end %>
+      <!-- <% if @provider.marketing_description.not.blank? %>
+              <div class="description"><%= sanitize(simple_format(@provider.marketing_description)) %></div>
+            <% end %> -->
     </div>
-    <div class="sidebar">
-      <ul class="links">
-        <% if logged_in? and current_user.can_edit?(@provider) %>
-          <li><%= link_to t('company_profile.edit'), edit_my_provider_path %></li>
-          <li><%= link_to t('endorsement.manage'), my_endorsements_path %></li>
-        <%- else -%>
-          <li class="request"><%= link_to 'Save As Favorite', '', :class=>'button' %></li>
-          <li class="request"><%= link_to t('provider.request_rfp'), new_rfp_path(:provider_id => @provider.id), :onClick=>"pageTracker._trackEvent('Request', 'Create Proposal', 'Profile');", :class=>'button' %></li>
-        <%- end -%>
-      </ul>
-    </div>
-  </div>
 
-  <div class="narrow">
     <div class="block companyInfo">
       <h3><%= t('provider.about') %></h3>
       <ul>
         <li class="language">Speaks <strong>English</strong></li>
-        <li class="location"><%= @provider.private_address.join(", ") %></li>
+        <li class="location">Willing to travel <strong>anywhere in the world</strong></li>
         <li class='payment'>Accepts <strong>PayPal, Credit Cards</strong> as payment</li>
       </ul>
     </div>
@@ -83,7 +81,7 @@
                 <td>
                   <%= service.name %>
                 </td>
-                <td>
+                <td><img src="/images/icon-exp-on.png" alt="*" /> <img src="/images/icon-exp-on.png" alt="*" /> <img src="/images/icon-exp-off.png" alt="" /> Intermediate
                   <%- if proficiency = @provider.provided_services.for_service(service).proficiency -%>
                     (<%= t("service.proficiency_#{proficiency}") %>)
                   <%- end -%>
@@ -102,6 +100,13 @@
         <%= f.submit t('provider.send_rfp') %>
       <% end -%> -->
   
+    <% unless logged_in? and current_user.can_edit?(@provider) %>
+      <ul class="links">
+        <li class="request"><%= link_to 'Save As Favorite', '', :class=>'button' %></li>
+        <li class="request"><%= link_to t('provider.request_rfp'), new_rfp_path(:provider_id => @provider.id), :onClick=>"pageTracker._trackEvent('Request', 'Create Proposal', 'Profile');", :class=>'button' %></li>
+      </ul>
+    <%- end -%>
+      
     <h3>Availability</h3>
     <table class="availability">
       <tbody>
@@ -125,26 +130,26 @@
       <div class="clear"></div>
     </div>
   
-    <h3><%= t('provider.feedback_headline') %></h3>
-  
-    <%- if @provider.feedbacks.accepted.empty? -%>
-      <p><%= t('provider.no_feedback') %></p>
-    <%- else -%>
-      <%- @provider.feedbacks.accepted.each do |feedback| -%>
-        <div>
-          <blockquote>&#8220;<%= h feedback.message %>&#8221;</blockquote>
-          <cite>
-            <% # This part needs to get cleaned up %>
-            <%=h feedback.name %>, <%=h feedback.position %>
-            <%= t('feedback.at') %> <%=h feedback.company %><br />
-            <%= t('feedback.hired') %> <%=h @provider.company_name %>
-            <%= t('feedback.in') %> <%=h feedback.year_hired %>
-          </cite>
-        </div>
-      <%- end -%>
-    <%- end -%>
-  
-    <%= link_to t('provider.feedback'), new_provider_feedback_path(@provider) %>
+    <!-- <h3><%= t('provider.feedback_headline') %></h3>
+      
+        <%- if @provider.feedbacks.accepted.empty? -%>
+          <p><%= t('provider.no_feedback') %></p>
+        <%- else -%>
+          <%- @provider.feedbacks.accepted.each do |feedback| -%>
+            <div>
+              <blockquote>&#8220;<%= h feedback.message %>&#8221;</blockquote>
+              <cite>
+                <% # This part needs to get cleaned up %>
+                <%=h feedback.name %>, <%=h feedback.position %>
+                <%= t('feedback.at') %> <%=h feedback.company %><br />
+                <%= t('feedback.hired') %> <%=h @provider.company_name %>
+                <%= t('feedback.in') %> <%=h feedback.year_hired %>
+              </cite>
+            </div>
+          <%- end -%>
+        <%- end -%>
+      
+        <%= link_to t('provider.feedback'), new_provider_feedback_path(@provider) %> -->
   
     <h3><%= t('provider.quiz_results_headline') %></h3>
     <div class="widget">

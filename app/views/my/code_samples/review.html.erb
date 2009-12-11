@@ -1,13 +1,23 @@
 <div class="panel">
   <%= render 'common_navigation' %>
-
-  <% form_for [:analyze, :my, @code_sample] do |f| -%>
-    <fieldset>
+  <div class="narrow">
+    <% form_for [:analyze, :my, @code_sample] do |f| -%>
       <%= f.label :name, t('name_your_sample_code') %> <%= f.text_field :name %> <br />
-    
-      <%= f.label :code, t('paste_code_sample_here') %> <%= f.text_area :code %> <br />
-    </fieldset>
+      <%= f.label :code, t('paste_code_sample_here') %> <%= f.text_area :code, :class=>'codeReview' %> <br />
   
-    <%= f.submit t('test_code') %> <%= link_to t('go_back_and_edit'), my_code_samples_path %>
-  <% end -%>
+      <%= f.submit t('test_code') %> <%= link_to t('go_back_and_edit'), my_code_samples_path %>
+    <% end -%>
+  </div>
+  <div class="sidebar">
+    <h3>Your code will be run against these tests:</h3>
+    <ul class="testList">
+      <li>Reek</li>
+      <li>Flay</li>
+      <li>Flog</li>
+      <li>Churn</li>
+      <li>Roodi</li>
+      <li class="score">Score</li>
+    </ul>
+  </div>
+  <div class="clear"></div>
 </div>

@@ -113,7 +113,6 @@ cite {
 }
 
 /* Form Styles */
-
 fieldset {
 	border: none;
 	padding: 0.5em 0 1.5em;
@@ -148,6 +147,9 @@ label {
 }
 input[type="checkbox"] {
   margin: 13px 0 0;
+}
+input[type="submit"] {
+  margin-top: 30px;
 }
 input[type="submit"], button {
   -moz-border-radius: 4px;
@@ -238,6 +240,7 @@ form[action="/session"] ul label {
 }
 form[action="/session"] input[type="submit"] {
   clear: left;
+  margin-top: 0;
 }
 
 /* Wide Forms and Single Line Forms */
@@ -263,7 +266,7 @@ th, table td {
   line-height: 1.2em;
 }
 .even td {
-  background: #FEFDF9;
+  background: url(/images/sprite-layout.png) repeat-x 0 -235px;
 }
 
 /* Table Layout Styles */

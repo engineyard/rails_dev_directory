@@ -55,12 +55,24 @@ dd.date {
   border-bottom: none;
 }
 .providerHead img {
+  margin: 0 2px 0 0;
+}
+.providerHead img.avatar {
   height: 100px;
   width: 100px;
   padding: 1px;
   border: 1px solid #DDD;
   float: left;
-  margin: 20px 20px 10px 0;
+  margin: 0px 20px 10px 0;
+}
+.providerHead p {
+  margin: 5px 0 8px;
+}
+.providerHead p img:last-child {
+  margin-right: 6px;
+}
+.rate {
+  color: #999;
 }
 .companyInfo  ul {
   margin-bottom: 40px;
@@ -116,6 +128,7 @@ li.username {
 }
 .panel h2.name {
   font: 2em Lucida Grande, Verdana, sans-serif;
+  margin-top: 30px;
 }
 .shadow {
   padding: 0px;
@@ -160,7 +173,7 @@ li.username {
 }
 .main {
   margin: auto;
-  padding: 0 50px 1em;
+  padding: 0 50px 40px;
 }
 .welcome {
   background: url(/images/sprite-graphics.png) no-repeat 0px 20px;
@@ -235,7 +248,7 @@ li.username {
   padding: 5px 15px;
   border: 1px solid #DDD;
   border-bottom: none;
-  margin: 1em 0 0;
+  margin: 0;
 }
 .provider.search table h4 {
   font-size: 1em;
@@ -294,7 +307,6 @@ li .check {
 }
 .provider.search table.filters {
   border-top: 1px solid #DBDBDB;
-  border-bottom: 1px solid #DBDBDB;
 }
 .provider.search table.filters td {
   padding-top: 1.5em;
@@ -304,7 +316,7 @@ li .check {
 }
 .provider.search form td {
   border: none;
-  padding: 0 0 20px 35px;
+  padding: 0 0 20px 10px;
 }
 .provider.search form td:first-child {
   padding-left: 0;
@@ -353,6 +365,10 @@ li .check {
 .links li.request {
   float: right;
   margin: 0.4em 0 0 10px;
+}
+.sidebar .links {
+  border-bottom: none;
+  height: 125px;
 }
 .narrow {
   float: left;
@@ -467,6 +483,10 @@ li.document {
   color: #666;
   margin-bottom: 0;
 }
+.favorite {
+  background: url(/images/sprite-graphics.png) no-repeat 0 -754px;
+  padding-left: 16px;
+}
 /* Dashboard */
 .dashboard h3 {
   border-bottom: 2px solid #DDD;
@@ -490,22 +510,63 @@ li.document {
 .utility li:first-child {
   border-left: none;
 }
-
-/* Request Page */
-.request .pageHead {
-  padding: 2em 0 1em;
-  margin-bottom: 1.5em;
-  border-bottom: 2px solid #DDD;
+.pageHead {
+  background: #F9F4E2;
+  padding: 20px 30px 0;
+  margin: 2px -28px 40px;
+  height: 40px;
 }
-.request .pageHead h2 {
-  font-size: 1.2em;
+.pageHead h2 {
+  font: 1.2em Lucida Grande, Verdana, sans-serif;
   color: #666;
+  float: left;
   text-align: left;
+  margin: 0px 0 0;
 }
-.request .pageHead h2 strong {
+.pageHead .button {
+  float: right;
+  margin: -5px 0 0;
+}
+.pageHead h2 strong {
   color: #333;
   font-weight: normal;
 }
+.pageHead ul {
+  float: right;
+  margin-top: -20px;
+}
+.pageHead li {
+  display: inline-block;
+}
+.pageHead li {
+  padding: 19px 20px 21px;
+  color: #999;
+  font-size: 1.2em;
+  background: #F3E9C8;
+}
+.pageHead .timestamp {
+  margin-top: 0px;
+}
+.userEdit {
+  margin-bottom: 0;
+}
+.userEdit .button {
+  float: left;
+}
+.userEdit .status {
+  float: right;
+}
+ul.testList {
+  padding: 0;
+  border-bottom: none;
+}
+ul.testList li {
+  border: 1px solid #DDD;
+  margin-bottom: -1px;
+  padding: 5px 10px;
+}
+
+/* Request Page */
 .request .narrow {
   width: 632px;
   padding-right: 28px;
@@ -610,18 +671,35 @@ tbody th {
   background: #F5FAFF none;
   text-transform: capitalize;
   padding: 10px 0 8px;
+  border-top: 1px solid #EDEDED;
 }
 td {
   padding: 10px 0;
   vertical-align: top;
   border-bottom: 1px solid #CACACA;
 }
-.listTable a {
-  color: #000;
+.listTable {
+  margin-bottom: 20px;
+}
+.listTable td {
+  font-size: 0.9em;
+  padding: 15px 15px 15px 0;
+  vertical-align: bottom;
+  height: 39px;
+  overflow: hidden;
+  border-bottom: 1px solid #DDD;
+}
+.listTable td a {
+  font-size: 1.3em;
+  line-height: 1.4em;
+}
+.listTable a.favorite {
+  font-size: 1em;
+  float: right;
 }
 .listTable td:first-child {
   width: 40px;
-  padding: 10px;
+  padding-left: 15px;
 }
 .services td {
   border-bottom: none;
@@ -695,11 +773,12 @@ input[type="submit"] {
   -webkit-border-radius: 4px;
 }
 input[type="submit"].callout {
-  font-size: 1.1em;
+  font-size: 1.2em;
   color: #FFF;
-  text-shadow: 1px 1px 1px #333;
+  text-shadow: 1px 1px 1px #666;
   background: #858585 url(/images/sprite-layout.png) repeat-x 0 -190px;
   border: 1px solid #00ADFF;
+  padding: 8px 80px;
 }
 input[type="submit"]:hover, button:hover {
   cursor: pointer;
@@ -708,14 +787,26 @@ form p {
   margin-top: 1em;
   margin-bottom: 1em;
 }
+form table, form table td {
+  border-bottom: none;
+  margin: 0;
+  padding: 0;
+}
 textarea { 
   width: 30em;
   height: 10em;
+  margin-bottom: 10px;
+}
+textarea#code_sample_code {
+  font: 11px/16px Monaco, Courier, mono;
+  width: 100%;
+  height: 500px;
+  margin-bottom: 10px;
 }
 .sidebar input {
   margin-left: 0;
 }
-.info {
+.box .info {
   font-size: 0.9em;
   position: absolute;
   margin-left: 680px;
@@ -807,19 +898,38 @@ hr {
   border: 1px solid #DDD;
   border-collapse: collapse;
 }
+.availability td, .availability th {
+  border: 1px solid #DDD;
+  text-align: center;
+  min-width: 33.33%;
+  vertical-align: middle;
+}
 .availability th {
+  padding: 10px;
   color: #369;
   font-size: 0.9em;
   font-weight: normal;
   text-transform: uppercase;
 }
-.availability td, .availability th {
-  border: 1px solid #DDD;
-  padding: 10px;
-  text-align: center;
-  min-width: 33.33%;
-  vertical-align: middle;
+.availability td {
+  padding: 20px 10px;
+  font-size: 1.2em;
 }
+.code pre, .codeReview {
+  font-size: 12px;
+  overflow: auto;
+  height: 500px;
+  width: 500px;
+  background: #333;
+  color: #EEE;
+  padding: 6px;
+}
+.codeReview, .codeReview:focus {
+  padding: 0 0 0 5px;
+  border: 1px solid #999;
+  color: #EEE;
+}
+
 /* Three Column Styles */
 .threeColumn {
   clear: both;
@@ -943,6 +1053,12 @@ hr {
 }
 .payment {
   background:  url(/images/sprite-graphics.png) no-repeat 0 -494px;
+}
+
+.notice {
+  margin: -10px -50px -1px;
+  padding: 15px 30px;
+  border: 1px solid #E4E4E4;
 }
 
 .provider.search ul.location { width: 100px;}

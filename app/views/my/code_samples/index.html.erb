@@ -2,9 +2,7 @@
   <div class="pageHead">
     <h2><%= t('code_samples') %></h2>
 
-    <ul>
-      <li><%= link_to t('upload_a_code_sample'), new_my_code_sample_path %></li>
-    </ul>
+    <%= link_to t('upload_a_code_sample'), new_my_code_sample_path, :class=>'button' %>
   </div>
   <div class="narrow">
     <p class="description"><%= t('code_sample_introduction') %></p>

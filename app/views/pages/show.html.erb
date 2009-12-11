@@ -1,7 +1,9 @@
-<%- content_for :title do -%><%= @page.title %> | <%- end -%>
-<%- content_for :keywords do -%><meta name="keywords" content="<%= @page.keywords %>"><%- end -%>
-<%- content_for :description do -%><meta name="description" content="<%= @page.description %>"><%- end -%>
+<div class="panel">
+  <%- content_for :title do -%><%= @page.title %> | <%- end -%>
+  <%- content_for :keywords do -%><meta name="keywords" content="<%= @page.keywords %>"><%- end -%>
+  <%- content_for :description do -%><meta name="description" content="<%= @page.description %>"><%- end -%>
 
-<h2><%= @page.title %></h2>
+  <h2><%= @page.title %></h2>
 
-<%= @page.content %>
+  <%= @page.content %>
+</div>

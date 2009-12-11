@@ -1,13 +1,26 @@
 <div class="panel">
   <%= render 'common_navigation' %>
+  <div class="narrow">
+    <h3><%= @code_sample.name %></h3>
 
-  <h3><%= @code_sample.name %></h3>
+    <div class="code">
+      <pre><%= @code_sample.code %></pre>
+    </div>
 
-  <div class="code">
-    <pre><%= @code_sample.code %></pre>
+    <div class="tests">
+      <p>Score: <%= @code_sample.score %></p>
+    </div>
   </div>
-
-  <div class="tests">
-    <p>Score: <%= @code_sample.score %></p>
+  <div class="sidebar">
+    <h3>Your code will be run against these tests:</h3>
+    <ul class="testList">
+      <li>Reek</li>
+      <li>Flay</li>
+      <li>Flog</li>
+      <li>Churn</li>
+      <li>Roodi</li>
+      <li class="score">Score</li>
+    </ul>
   </div>
+  <div class="clear"></div>
 </div>
