@@ -25,7 +25,12 @@
       <%- end -%>
       <h2 class="name"><%= @provider.company_name %></h2>
       <p>Located in <%= @provider.private_address.join(", ") %></p>
-      <p class="rate"><img src="/images/icon-money-on.png" /><img src="/images/icon-money-on.png" /><img src="/images/icon-money-off.png" /> Hourly Rate</p>
+      <p class="rate">
+        <img src="/images/icon-money-on.png" />
+        <img src="/images/icon-money-<%= @provider.hourly_rate.to_i >= 75 ? 'on' : 'off' %>.png" />
+        <img src="/images/icon-money-<%= @provider.hourly_rate.to_i >= 150 ? 'on' : 'off' %>.png" />
+        Hourly Rate
+      </p>
 
       <!-- <% if @provider.marketing_description.not.blank? %>
               <div class="description"><%= sanitize(simple_format(@provider.marketing_description)) %></div>
