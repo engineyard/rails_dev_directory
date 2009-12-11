@@ -24,8 +24,8 @@
         <img src="/images/profile-default.png" class='avatar' />
       <%- end -%>
       <h2 class="name"><%= @provider.company_name %></h2>
-      <p>Located in <%= @provider.private_address.join(", ") %></p>
-      <p class="rate"><img src="/images/icon-money-on.png" /><img src="/images/icon-money-on.png" /><img src="/images/icon-money-off.png" /> Hourly Rate</p>
+      <p><%= t('located_in') %> <%= @provider.private_address.join(", ") %></p>
+      <p class="rate"><img src="/images/icon-money-on.png" /><img src="/images/icon-money-on.png" /><img src="/images/icon-money-off.png" /> <%= t('hourly_rate') %></p>
 
       <!-- <% if @provider.marketing_description.not.blank? %>
               <div class="description"><%= sanitize(simple_format(@provider.marketing_description)) %></div>
@@ -35,9 +35,9 @@
     <div class="block companyInfo">
       <h3><%= t('provider.about') %></h3>
       <ul>
-        <li class="language">Speaks <strong>English</strong></li>
-        <li class="location">Willing to travel <strong>anywhere in the world</strong></li>
-        <li class='payment'>Accepts <strong>PayPal, Credit Cards</strong> as payment</li>
+        <li class="language"><%= t('speaks') %> <strong>English</strong></li>
+        <li class="location"><%= t('willing_to_travel') %></li>
+        <li class='payment'><%= t('accepts_as_payment') %></li>
       </ul>
     </div>
   
@@ -81,9 +81,9 @@
                 <td>
                   <%= service.name %>
                 </td>
-                <td><img src="/images/icon-exp-on.png" alt="*" /> <img src="/images/icon-exp-on.png" alt="*" /> <img src="/images/icon-exp-off.png" alt="" /> Intermediate
+                <td><img src="/images/icon-exp-on.png" alt="*" /> <img src="/images/icon-exp-on.png" alt="*" /> <img src="/images/icon-exp-off.png" alt="" />
                   <%- if proficiency = @provider.provided_services.for_service(service).proficiency -%>
-                    (<%= t("service.proficiency_#{proficiency}") %>)
+                    <%= t("service.proficiency_#{proficiency}") %>
                   <%- end -%>
                 </td>
               </tr>
@@ -107,7 +107,7 @@
       </ul>
     <%- end -%>
       
-    <h3>Availability</h3>
+    <h3><%= t('availability') %></h3>
     <table class="availability">
       <tbody>
         <tr>
@@ -123,10 +123,10 @@
       </tbody>
     </table>
     
-    <h3>Code Samples</h3>
+    <h3><%= t('code_samples') %></h3>
     <div class="widget">
-      <p>Paul has uploaded <br/><a href="">4 code samples</a></p>
-      <p class="score"><strong>80</strong>/100 <span class="label">Avg. Score</span></p>
+      <p><%= t('code_sample_label') %></p>
+      <p class="score"><strong>80</strong>/100 <span class="label"><%= t('avg_score') %></span></p>
       <div class="clear"></div>
     </div>
   

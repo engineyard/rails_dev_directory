@@ -3,8 +3,8 @@
   <%= f.label :marketing_description, "#{t("provider.marketing_description")}<br/><em>#{t("provider.marketing_description_limit")}</em><br/><span class='charCount'><em class=\"number\">#{300 - (@provider.marketing_description ? @provider.marketing_description.size : 0)}</em> #{t('provider.remaining')}</span>" %> <%= f.text_area :marketing_description, :'data-count' => 300  %> <br />
   
   <div class="info">
-    <h5>Business Address</h5>
-    <p>Your business location is needed to allow potential customers to search for you by your location.</p>
+    <h5><%= t('business_address') %></h5>
+    <p><%= t('info_business_address') %></p>
   </div>
   <%= f.label :street_address, t("provider.street_address") %> <%= f.text_field :street_address %> <br />
   <label></label><%= f.text_field :further_street_address %> <br />

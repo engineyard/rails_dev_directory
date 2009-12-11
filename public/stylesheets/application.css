@@ -762,6 +762,7 @@ td input, td input[type="checkbox"] {
 .wizard {
   text-align: center;
   margin: 0;
+  display: none;
 }
 .wizard li {
   font: 1.5em Georgia, Times New Roman, serif;
