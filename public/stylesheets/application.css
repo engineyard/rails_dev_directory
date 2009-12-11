@@ -795,6 +795,7 @@ form table, form table td {
 textarea { 
   width: 30em;
   height: 10em;
+  margin-bottom: 10px;
 }
 textarea#code_sample_code {
   font: 11px/16px Monaco, Courier, mono;

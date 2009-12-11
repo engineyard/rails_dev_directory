@@ -58,7 +58,7 @@ en:
     service_categories: Service Categories
 
   dashboard:
-    dashboard_for: "{{company}} Admin"
+    dashboard_for: "Hi {{company}}!"
     rfps: Recent Requests for Proposals
     all_rfps: See All Requests
     endorsements: Recent Endorsements
