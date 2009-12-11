@@ -81,3 +81,10 @@ Feedback.blueprint do
   year_hired { Time.now.strftime('%Y') }
   message
 end
+
+Rfp.blueprint do
+  project_name "Howdyee"
+  first_name { Sham.name }
+  last_name { Sham.name }
+  email
+end

@@ -15,9 +15,9 @@
             <%= label_tag 'hourly_rate', t('provider.hourly_rate') %><br />
             <%= select_tag 'hourly_rate', options_for_select(
               [
-                ["<$75", 0],
-                ["$75-$150", 75],
-                [">$150", 150]
+                ["<$75", "0-75"],
+                ["$75-$150", "75-150"],
+                [">$150", "150-"]
                 ]
                 ) %><br />
           </td>
@@ -42,7 +42,7 @@
             <%= hours_per_week_select %>
           </td>
           <td>
-            <%= label_tag 'weeks', t('number_of_weeks') %>
+            <%= label_tag 'weeks', t('project_length') %>
             <%= project_length_select %>
           </td>
         </tr>

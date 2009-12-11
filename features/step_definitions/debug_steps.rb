@@ -1,4 +1,3 @@
-When /^I am debugging$/ do
-  breakpoint
-  0
+When /^I debug$/ do
+  require 'debug'
 end

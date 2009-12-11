@@ -63,7 +63,7 @@ module ProvidersHelper
   def availability_select
     select_tag 'availability', options_for_select(
       [
-        [t('any'), 'any'],
+        [t('any'), ''],
         ["#{Date.today.strftime("%B")} (#{t('this_month')})",Time.now.to_i],
         [1.month.from_now.strftime("%B"), 1.month.from_now.to_i],
         [2.months.from_now.strftime("%B"), 2.months.from_now.to_i]
@@ -73,10 +73,10 @@ module ProvidersHelper
   def project_length_select
     select_tag 'weeks', options_for_select(
       [
-        ["1-2 #{t('weeks')}", 0],
-        ["2-4 #{t('weeks')}", 2],
-        ["4-6 #{t('weeks')}", 4],
-        [">6 #{t('weeks')}", 6]
+        [t('any'), ''],
+        ["1-4 #{t('weeks')}", 0],
+        ["4-8 #{t('weeks')}", 4],
+        [">8 #{t('weeks')}", 8]
         ]
     )    
   end
@@ -84,6 +84,7 @@ module ProvidersHelper
   def hours_per_week_select
     select_tag 'hours', options_for_select(
       [
+        [t('any'), ''],
         ["<10 #{t('hours')}", 0],
         ["10-20 #{t('hours')}", 20],
         ["20-30 #{t('hours')}", 30]

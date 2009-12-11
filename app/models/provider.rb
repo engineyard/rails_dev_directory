@@ -88,8 +88,11 @@ class Provider < ActiveRecord::Base
     end
 
     if params[:hourly_rate].not.blank?
-      conditions[0] << " and hourly_rate <= ?"
-      conditions << params[:hourly_rate].gsub(/[^0-9\.]/, '').to_i
+      hourly_rate = params[:hourly_rate].to_i
+      if hourly_rate == 0
+        conditions[0] << " and hourly_rate <= ?"
+        conditions << params[:hourly_rate].gsub(/[^0-9\.]/, '').to_i
+      end
     end
 
     joins = nil
@@ -180,7 +183,7 @@ class Provider < ActiveRecord::Base
   end
   
   def hourly_rate_formatted
-    return nil if hourly_rate.nil?
+    return nil if hourly_rate.nil? or hourly_rate == 0
     "%.2f" % hourly_rate
   end
   

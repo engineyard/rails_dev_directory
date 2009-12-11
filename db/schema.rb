@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20091210190840) do
+ActiveRecord::Schema.define(:version => 20091211144416) do
 
   create_table "answers", :force => true do |t|
     t.integer  "question_id"
@@ -156,6 +156,7 @@ ActiveRecord::Schema.define(:version => 20091210190840) do
     t.integer  "endorsements_count",                                    :default => 0
     t.integer  "min_hours"
     t.integer  "max_hours"
+    t.integer  "project_length"
   end
 
   add_index "providers", ["slug"], :name => "index_providers_on_slug"

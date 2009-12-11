@@ -9,7 +9,7 @@ class Rfp < ActiveRecord::Base
   has_many :providers, :through => :requests
   has_many :requested_services
 
-  after_save :add_checked_requested_services
+  after_create :add_checked_requested_services
   
   audit
   format_dates [:timestamps, :start_date, :due_date]
@@ -47,8 +47,8 @@ class Rfp < ActiveRecord::Base
 
 private
   def add_checked_requested_services
-    Service.checked.each do |tech_type|
-      requested_services << RequestedService.create!(:name => tech_type.name)
+    Service.checked.each do |service|
+      requested_services << RequestedService.create!(:name => service.name)
     end
   end
   

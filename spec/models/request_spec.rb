@@ -3,8 +3,8 @@ require File.expand_path(File.dirname(__FILE__) + '/../spec_helper')
 describe Request do
   before(:each) do
     @user = mock_model(User, :name => 'Paul')
-    @rfp = mock_model(Rfp)
-    @provider = mock_model(Provider, :user => @user)
+    @rfp = mock_model(Rfp, :destroyed? => false)
+    @provider = mock_model(Provider, :user => @user, :destroyed? => false)
     @request = Request.new(:rfp => @rfp, :provider => @provider)
   end
 

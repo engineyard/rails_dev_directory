@@ -5,14 +5,14 @@ Feature: Provider directory
   So that I can find the providers that I like
   
   Background:
-    Given an "active" provider "Trulio"
-      And "Trulio" has a new endorsement from "George Tenet"
-      And "Trulio" has a minimum budget of "15000"
-      And "Trulio" has an hourly rate of "150"
+    Given an "active" provider "Paul Campbell"
+      And "Paul Campbell" has a new endorsement from "George Tenet"
+      And "Paul Campbell" has a minimum budget of "15000"
+      And "Paul Campbell" has an hourly rate of "150"
       And pre checked services "Ruby on Rails"
       And primary services "AJAX, Visual design, UI"
-      And "Trulio" provides "AJAX"
-      And "Trulio" provides "UI"
+      And "Paul Campbell" provides "AJAX"
+      And "Paul Campbell" provides "UI"
       And an "inactive" provider "Boolio"
 
   Scenario: Finding a Freelancer by hourly rate
@@ -21,70 +21,33 @@ Feature: Provider directory
       And I press "Find a Freelancer"
       And I select "<$75" from "Hourly Rate"
       And I press "Find a Freelancer"
-    Then I should not see "Trulio"
+    Then I should not see "Paul Campbell"
     When I select ">$150" from "Hourly Rate"
       And I press "Find a Freelancer"
-    Then I should see "Trulio"
+    Then I should see "Paul Campbell"
 
   Scenario: Finding a Freelancer by skill set
     When I am on the homepage
       And I follow "Find a Rails Freelancer"
       And I check "AJAX"
       And I press "Find a Freelancer"
-    Then I should see "Trulio"
+    Then I should see "Paul Campbell"
     When I am on the homepage
       And I follow "Find a Rails Freelancer"
       And I check "AJAX"
       And I check "UI"
       And I press "Find a Freelancer"
-    Then I should see "Trulio"
+    Then I should see "Paul Campbell"
     When I am on the homepage
       And I follow "Find a Rails Freelancer"
       And I check "AJAX"
       And I check "Visual design"
       And I press "Find a Freelancer"
-    Then I should not see "Trulio"
+    Then I should not see "Paul Campbell"
     When I follow "Find a Rails Freelancer"
       And I check "Visual design"
       And I press "Find a Freelancer"
-    Then I should not see "Trulio"
-
-  Scenario:
-    When I am on the homepage
-      And I follow "Find a Rails Freelancer"
-      And I fill in "budget" with "20000"
-      And I press "Find a Freelancer"
-    Then I should see "Trulio"
-      And I should see "Boolio"
-    When I press "Fill out request"
-      Then I should see "Please choose at least one provider to submit a request to."
-    When I follow "Trulio"
-    Then I should see "Trulio"
-      And I should not see "Dublin Avenue"
-      And I should not see "Dublin 3"
-    When I follow "Fill out request"
-      And I fill in "First Name" with "Paul"
-      And I fill in "Last Name" with "Campbell"
-      And I fill in "Name" with "Joojoobangbang"
-      And I fill in "ZIP / Post code" with "90210"
-      And I fill in "Email" with "paul@rslw.com"
-      And I fill in "Phone" with "0879148162"
-      And I fill in "Project Name" with "Super secret monster project"
-      And I select "$5k-$20k" from "rfp[budget]"
-      And I fill in "Start date" with "20 May 2010"
-      And I fill in "Duration" with "2 weeks"
-      And I select "(GMT+00:00) Dublin" from "rfp[time_zone]"
-      And I fill in "Office Location" with "Dublin"
-      And I check "rfp[general_liability_insurance]"
-      And I check "rfp[professional_liability_insurance]"
-    Then I should see "Ruby on Rails"
-    When I check "Visual Design"
-      And I check "UI"
-      And I press "Submit request"
-    Then I should see "Terms of service must be accepted"
-    When I check "rfp[terms_of_service]"
-      And I press "Submit request"
-    Then I should see "Thanks for submitting your request"
+    Then I should not see "Paul Campbell"
 
   Scenario: Searching by location
     Given an "active" provider "Hyper Tiny"
@@ -106,3 +69,16 @@ Feature: Provider directory
       And I press "Find a Freelancer"
     Then I should see "Hashrocket"
       And I should not see "Hyper Tiny"
+      
+  Scenario: Searching by project length
+    Given provider "Paul Campbell" is available for projects "4-8 weeks" in length
+    
+    When I am on the homepage
+      And I select "4-8 weeks" from "Project Length"
+      And I press "Find a Freelancer"
+    Then I should see "Paul Campbell"
+      And the "Project Length" field should contain "4-8 weeks"
+    
+    When I select "1-4 weeks" from "Project Length"
+      And I press "Find a Freelancer"
+    Then I should not see "Paul Campbell"

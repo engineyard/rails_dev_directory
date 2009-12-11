@@ -11,7 +11,8 @@ describe Notification do
   it "should create the subject correctly for an endorsement request" do
     @endorsement_request = Factory.build(:test_endorsement_request)
     @endorsement_request.stub!(:id).and_return(1)
-    @notification = Notification.create_endorsement_request(@endorsement_request,@endorsement_request.emails.first)
+    @endorser = Endorser.make
+    @notification = Notification.create_endorsement_request(@endorsement_request,@endorser)
     @notification.subject.should match(/Can you endorse Hyper Tiny?/)
   end
 

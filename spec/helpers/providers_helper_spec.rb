@@ -12,10 +12,6 @@ describe ProvidersHelper do
     @provider.users.should_not be_empty
   end
   
-  it "should figure out how to display the company size" do
-    company_size(@provider).should == "11-30"
-  end
-  
   it "should format the price nicely if provider isn't specified" do
     price(@provider.hourly_rate).should == "$10,000"
   end

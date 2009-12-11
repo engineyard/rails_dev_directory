@@ -24,6 +24,7 @@ Rails::Initializer.run do |config|
   config.gem "authlogic", :version => '2.1.2'
   config.gem "fastercsv"
   config.gem 'hpricot', :version => '>=0.6'
+  config.gem 'behavior', :version => '0.1.1', :source => 'http://gemcutter.org'
 
   # Only load the plugins named here, in the order given (default is alphabetical).
   # :all can be used as a placeholder for all plugins not explicitly named

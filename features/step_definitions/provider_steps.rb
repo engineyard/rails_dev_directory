@@ -74,3 +74,9 @@ Then /^the provider "([^\"]*)" should be (active|inactive)$/ do |provider_name, 
   provider = Provider.find_by_company_name(provider_name)
   provider.aasm_state.should eql(state)
 end
+
+
+Given /^provider "([^\"]*)" is available for projects "([^\"]*)" in length$/ do |provider_name, length|
+  Provider.find_by_name(provider_name).update_attribute(:project_length, length.to_i)
+end
+

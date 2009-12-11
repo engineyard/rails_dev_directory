@@ -18,17 +18,11 @@ describe Provider do
   it "should create a new instance given valid attributes" do
     Provider.new(@valid_attributes).should be_valid
   end
-  
-  it "should generate options for company size" do
-    Provider.options_for_company_size.should == [
-      ["2-10", 2], ["11-30", 11], ["31-100", 31], ["100+", 100]
-]
-  end
-  
+    
   describe "counter cache on endorsements" do
     it "should increment the endorsements on the provider counter cache" do
       provider = Factory.create(:test_provider, :company_name => "Counter Slug")
-      provider.endorsements << Factory.create(:test_endorsement, :aasm_state => 'approved')
+      provider.endorsements << Endorsement.make(:aasm_state => 'approved')
       provider.reload
       provider.endorsements_count.should == 1
     end
@@ -46,8 +40,14 @@ describe Provider do
     end
     
     it "should search on services provided" do
-      Provider.should_receive(:all).with(:joins => :provided_services, :group => 'provider_id', :conditions => ["aasm_state != 'flagged' and provided_services.technology_type_id IN (?)", [1,2,3]], :order => "aasm_state asc, if(endorsements_count >= 3,endorsements_count,0) desc, RAND()", :limit => 10)
-      Provider.search({:technology_type_ids => [1,2,3]})
+      Provider.should_receive(:all).with(
+        :joins => nil,
+        :group => nil,
+        :conditions => [
+          "aasm_state != 'flagged' and (select count(*) from provided_services where provider_id = providers.id and service_id IN (?)) = 3", [1,2,3]],
+        :order => "aasm_state asc, if(endorsements_count >= 3,endorsements_count,0) desc, RAND()",
+        :limit => 10)
+      Provider.search({:service_ids => [1,2,3]})
     end
     
     it "should search on country" do
@@ -71,23 +71,40 @@ describe Provider do
     end
     
     it "should search on many states and many countries" do
-      Provider.should_receive(:all).with(:joins => nil, :group => nil, :conditions => ["aasm_state != 'flagged' and country IN (?) and if(country = 'US', state_province IN (?), ?)", ['IE', 'US'], ['FL', 'NY'], true], :order => "aasm_state asc, if(endorsements_count >= 3,endorsements_count,0) desc, RAND()", :limit => 10)
+      Provider.should_receive(:all).with(
+        :joins => nil,
+        :group => nil,
+        :conditions => [
+          "aasm_state != 'flagged' and country IN (?) and if(country = 'US', state_province IN (?), ?)",
+            ['IE', 'US'], ['FL', 'NY'], true],
+        :order => "aasm_state asc, if(endorsements_count >= 3,endorsements_count,0) desc, RAND()",
+        :limit => 10)
       Provider.search({:countries => ['IE', 'US'], :states => ['FL', 'NY']})
+    end
+    
+    context "hourly rate" do
+      it "should search on for a limit" do
+        Provider.should_receive(:all).with(
+          :joins => nil,
+          :group => nil,
+          :conditions => ["hourly_rate >= ? and hourly_rate <= 75", 0, 75])
+        Provider.search({:hourly_rate => "0-75"})
+      end
     end
   end
     
   describe "default tech types" do
     before do
-      @tech_type = TechnologyType.create!(:name => "Default", :checked => true)
-      @provider = Provider.create!(@valid_attributes)
+      @service = Service.make(:name => "Default", :checked => true)
+      @provider = Provider.make(@valid_attributes)
     end
     
     it "should have Default as tech type" do
-      @provider.technology_types.include?(@tech_type).should be_true
+      @provider.services.include?(@service).should be_true
     end
     
     after do
-      TechnologyType.destroy_all
+      Service.destroy_all
     end
   end
 
