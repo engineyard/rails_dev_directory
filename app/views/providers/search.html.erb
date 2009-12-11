@@ -2,51 +2,51 @@
   <!-- <h2><%= t('provider.directory_headline') %></h2> -->
   <!-- <p class="description"><%= t('provider.directory_results_description') %></p> -->
 
-  <% form_tag search_providers_path, :method => :get, :id => 'search-form' do -%>
+  <% form_tag search_providers_path, :method => :get, :id => 'search-form', :class=>'searchFilters' do -%>
     <h3><%= t('change_your_search_criteria') %></h3>
     <fieldset>
-      <table>
-        <tr>
-          <td>
-            <%= label_tag 'location', t('location') %><br />
-            <%= location_select %>
-          </td>
-          <td>
-            <%= label_tag 'hourly_rate', t('provider.hourly_rate') %><br />
-            <%= select_tag 'hourly_rate', options_for_select(
-              [
-                ["<$75", "0-75"],
-                ["$75-$150", "75-150"],
-                [">$150", "150-"]
-                ]
-                ) %><br />
-          </td>
-          <td>
-            <%= label_tag 'travel', t('will_travel') %>
-            <%= select_tag 'travel', options_for_select(
+      <ul>
+        <li>
+          <%= label_tag 'location', t('location') %><br />
+          <%= location_select %>
+        </li>
+        <li>
+          <%= label_tag 'hourly_rate', t('provider.hourly_rate') %><br />
+          <%= select_tag 'hourly_rate', options_for_select(
             [
-              [t('anywhere'), 'anywhere']
+              ["<$75", "0-75"],
+              ["$75-$150", "75-150"],
+              [">$150", "150-"]
               ]
-            ) %>
-          </td>
-        </tr>
-      </table>
-      <table>
-        <tr>
-          <td>
-            <%= label_tag 'availability', t('availability') %>
-            <%= availability_select %>
-          </td>
-          <td>
-            <%= label_tag 'hours', t('hours_per_week') %>
-            <%= hours_per_week_select %>
-          </td>
-          <td>
-            <%= label_tag 'weeks', t('project_length') %>
-            <%= project_length_select %>
-          </td>
-        </tr>
-      </table>
+              ) %>
+        </li>
+        <li>
+          <label>Speaks</label><br />
+          <select id="language">
+            <option>Any Language</option>
+          </select>            
+        </li>
+        <li>
+          <%= label_tag 'travel', t('will_travel') %><br />
+          <%= select_tag 'travel', options_for_select(
+          [
+            [t('anywhere'), 'anywhere']
+            ]
+          ) %>
+        </li>
+        <li>
+          <%= label_tag 'availability', t('availability') %><br />
+          <%= availability_select %>
+        </li>
+        <li>
+          <%= label_tag 'hours', t('hours_per_week') %><br />
+          <%= hours_per_week_select %>
+        </li>
+        <li>
+          <%= label_tag 'weeks', t('project_length') %><br />
+          <%= project_length_select %>
+        </li>
+      </ul>
     </fieldset>
     <%= submit_tag t('find_a_freelancer') %>
   <% end -%>
