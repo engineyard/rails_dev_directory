@@ -247,7 +247,7 @@ li.username {
   padding: 5px 15px;
   border: 1px solid #DDD;
   border-bottom: none;
-  margin: 1em 0 0;
+  margin: 0;
 }
 .provider.search table h4 {
   font-size: 1em;
@@ -657,11 +657,15 @@ tbody th {
   background: #F5FAFF none;
   text-transform: capitalize;
   padding: 10px 0 8px;
+  border-top: 1px solid #EDEDED;
 }
 td {
   padding: 10px 0;
   vertical-align: top;
   border-bottom: 1px solid #CACACA;
+}
+.listTable {
+  margin-bottom: 20px;
 }
 .listTable td {
   font-size: 0.9em;
@@ -669,6 +673,7 @@ td {
   vertical-align: bottom;
   height: 39px;
   overflow: hidden;
+  border-bottom: 1px solid #DDD;
 }
 .listTable td a {
   font-size: 1.3em;
@@ -754,11 +759,12 @@ input[type="submit"] {
   -webkit-border-radius: 4px;
 }
 input[type="submit"].callout {
-  font-size: 1.1em;
+  font-size: 1.2em;
   color: #FFF;
-  text-shadow: 1px 1px 1px #333;
+  text-shadow: 1px 1px 1px #666;
   background: #858585 url(/images/sprite-layout.png) repeat-x 0 -190px;
   border: 1px solid #00ADFF;
+  padding: 8px 80px;
 }
 input[type="submit"]:hover, button:hover {
   cursor: pointer;
@@ -766,6 +772,11 @@ input[type="submit"]:hover, button:hover {
 form p {
   margin-top: 1em;
   margin-bottom: 1em;
+}
+form table, form table td {
+  border-bottom: none;
+  margin: 0;
+  padding: 0;
 }
 textarea { 
   width: 30em;
@@ -780,7 +791,7 @@ textarea#code_sample_code {
 .sidebar input {
   margin-left: 0;
 }
-.info {
+.box .info {
   font-size: 0.9em;
   position: absolute;
   margin-left: 680px;
@@ -1023,6 +1034,12 @@ hr {
 }
 .payment {
   background:  url(/images/sprite-graphics.png) no-repeat 0 -494px;
+}
+
+.notice {
+  margin: -10px -50px -1px;
+  padding: 15px 30px;
+  border: 1px solid #E4E4E4;
 }
 
 .provider.search ul.location { width: 100px;}
