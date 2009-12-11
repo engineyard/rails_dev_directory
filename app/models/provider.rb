@@ -88,10 +88,14 @@ class Provider < ActiveRecord::Base
     end
 
     if params[:hourly_rate].not.blank?
-      hourly_rate = params[:hourly_rate].to_i
-      if hourly_rate == 0
+      min,max = params[:hourly_rate].split('-')
+      if min.not.empty?
+        conditions[0] << " and hourly_rate >= ?"
+        conditions << min.to_i
+      end
+      if max.not.empty?
         conditions[0] << " and hourly_rate <= ?"
-        conditions << params[:hourly_rate].gsub(/[^0-9\.]/, '').to_i
+        conditions << max.to_i
       end
     end
 

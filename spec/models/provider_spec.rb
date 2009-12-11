@@ -87,7 +87,9 @@ describe Provider do
         Provider.should_receive(:all).with(
           :joins => nil,
           :group => nil,
-          :conditions => ["hourly_rate >= ? and hourly_rate <= 75", 0, 75])
+          :conditions => ["aasm_state != 'flagged' and hourly_rate >= ? and hourly_rate <= ?", 0, 75],
+          :order=>"aasm_state asc, if(endorsements_count >= 3,endorsements_count,0) desc, RAND()",
+          :limit=>10)
         Provider.search({:hourly_rate => "0-75"})
       end
     end
