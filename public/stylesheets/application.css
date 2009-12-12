@@ -150,6 +150,17 @@ li.username {
   padding: 15px 20px;
   text-align: right;
 }
+.subnav sup {
+  display: inline-block;
+  font-weight: bold;
+  background: url(/images/sprite-graphics.png) no-repeat 0 -973px;
+  margin-left: -0.8em;
+  margin-top: -7px;
+  padding: 3px 2px 6px 0;
+  min-width: 20px;
+  text-align: center;
+  color: #FFF;
+}
 .subnav a {
   color: #333;
   border: none;
@@ -564,7 +575,13 @@ li.document {
   padding: 19px 20px 21px;
   color: #999;
   font-size: 1.2em;
+}
+.pageHead li.active {
   background: #F3E9C8;
+  color: #666;
+}
+.pageHead li.done {
+  background: url(/images/sprite-graphics.png) no-repeat 0px -866px;
 }
 .pageHead .timestamp {
   margin-top: 0px;
