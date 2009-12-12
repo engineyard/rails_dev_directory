@@ -1,22 +1,22 @@
 <% form_for [:admin, @question] do |f| -%>
 
   <%- setup_question(@question) -%>
-  
   <%= f.error_messages %>
-  
+  <%= f.label :quiz_id, t('question.quiz') %>
+  <%= f.select :quiz_id, Quiz.options_for_select %>
+  <hr />
   <fieldset>
-    <%= f.label :quiz_id, t('question.quiz') %>
-    <%= f.select :quiz_id, Quiz.options_for_select %> <br/>
-    <%= f.label :text, t("question.text") %> <%= f.text_area :text %> <br/>
-
-    <%- index = 1 -%>
-    <%- f.fields_for :answers do |a| -%>
-      <%= a.label :text, "Answer #{index}" %>
-      <%= a.text_area :text %> <br/>
-      <%= a.label :correct, "Answer #{index} is correct" %> <%= a.check_box :correct %> <br/>
-      <%- index += 1 -%>
-    <%- end -%>
+  <%= f.label :text, t("question.text") %> <%= f.text_area :text %>
   </fieldset>
+  <%- index = 1 -%>
+  <%- f.fields_for :answers do |a| -%>
+    <fieldset>
+    <%= a.label :text, "Answer #{index}" %>
+    <%= a.text_area :text %> <br/>
+    <ul><li><%= a.check_box :correct %> <%= a.label :correct, "Answer #{index} is correct" %></li></ul>
+    <%- index += 1 -%>
+    </fieldset>
+  <%- end -%>
   
   <%= f.submit t('forms.save') %>
 <% end -%>

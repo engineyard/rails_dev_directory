@@ -1,5 +1,7 @@
 <div class="dashboard">
-  <h3><%= @quiz_result.quiz.name %></h3>
+  <div class="pageHead">
+    <h2><%= @quiz_result.quiz.name %></h2>
+  </div>
 
   <%- if @quiz_result.passed? -%>
     <p><%= t('quiz_result.passed') %></p>
@@ -13,4 +15,4 @@
       <%= link_to t('quiz_result.try_again'), new_my_quiz_result_path %>
     </p>
   <%- end -%>
-<div class="panel">
+</div>

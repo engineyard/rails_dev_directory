@@ -58,12 +58,13 @@
     <% if logged_in? and current_user.provider %>
       <div class="subnav">
         <div class="content">
-          <h2><%= t('dashboard.dashboard_for', :company => h(current_user.provider.company_name))%></h2>
           <div class="navigation">
             <ul>
-              <li><%= link_to t('navigation.dashboard'), my_dashboard_path %></li>
-              <li><%= link_to t('navigation.rfps'), my_requests_path %></li>
+              <li class="alignleft"><%= link_to t('navigation.dashboard'), my_dashboard_path %></li>
               <li><%= link_to t('navigation.profile'), current_user.provider %></li>
+              <li><%= link_to t('contacts'), my_requests_path %></li>
+              <li><%= t('availability') %></li>
+              <li><%= link_to t('quizzes'), new_my_quiz_result_path %></li>
               <li><%= link_to t('code'), my_code_samples_path %></li>
               <li><%= link_to t('navigation.my_account'), my_account_path %></li>
             </ul>

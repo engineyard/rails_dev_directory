@@ -1,21 +1,25 @@
 <div class="dashboard">
   <%- if @quiz_result_answer -%>
-
-    <h3><%= @quiz_result_answer.quiz_result.quiz.name %></h3>
-
-    <p><%= @quiz_result_answer.question.text %></p>
+    <div class="pageHead">
+      <h2><%= @quiz_result_answer.quiz_result.quiz.name %></h2>
+    </div>
 
     <%- form_for [:my, @quiz_result_answer] do |f| -%>
+      <h3><%= @quiz_result_answer.question.text %></h3>
       <%= f.hidden_field :quiz_result_id %>
       <%= f.hidden_field :question_id %>
 
       <%= f.error_messages %>
 
+      <ul>
       <%- @quiz_result_answer.question.answers.each do |answer| -%>
-        <%= f.radio_button :answer_id, answer.id %>
-        <%= f.label "answer_id_#{answer.id}", answer.text %> <br/>
+        <li>
+          <%= f.radio_button :answer_id, answer.id %>
+          <%= f.label "answer_id_#{answer.id}", answer.text %>
+        </li>
       <%- end -%>
-  
+      </ul>
+      <br />
       <%= f.submit t('quiz_result.next') %>
     <%- end -%>
 

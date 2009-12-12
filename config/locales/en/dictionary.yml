@@ -16,6 +16,7 @@ en:
   code_sample_label: Paul has uploaded 4 code samples
   code_samples: Code Samples
   configuration: Configuration
+  contacts: Contacts
   
   filter_by_project_requirements: Filter by Project Requirements
   filter_by_services_skills: Filter by services and skills
@@ -36,7 +37,7 @@ en:
   
   located_in: Located in
   location: Location
-  
+
   name_and_location: Name and Location
   name_your_sample_code: Name your sample code
   no_code_samples: You haven't added any code samples yet.
@@ -49,14 +50,18 @@ en:
   priority_notes: Priority affects where in the search form this category will appear
   project_length: Project Length
   
+  quizzes: Quizzes
+  
   review_code: Review Code
   review_your_code: Review Your Code
   
   score: Score
+  show_more_results: Show 20 More Results
   speaks: Speaks
   
   this_month: This Month
   
+  update: Update
   upload_your_code: Upload Your Code
   upload_a_code_sample: Upload a Code Sample
   
