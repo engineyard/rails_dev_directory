@@ -28,6 +28,7 @@ Rails::Initializer.run do |config|
   config.gem 'reek'
   config.gem 'flay'
   config.gem 'flog'
+  config.gem 'roodi'
   config.gem 'Saikuro'
 
   # Only load the plugins named here, in the order given (default is alphabetical).
