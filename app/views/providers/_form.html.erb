@@ -1,6 +1,8 @@
 <fieldset>
   <%= f.label :company_name, t("provider.company_name") %> <%= f.text_field :company_name %> <br />
   
+  <%= f.label :company_url, t("website") %> <%= f.text_field :company_url %> <br />
+  
   <div class="info">
     <h5><%= t('business_address') %></h5>
     <p><%= t('info_business_address') %></p>
@@ -11,12 +13,6 @@
   <%= f.label :state_province, t("provider.state") %> <%= f.select :state_province, ([[t('provider.outside_us'), "NA"]] + State::NAMES), :include_blank => true %> <br />
   <%= f.label :postal_code, t("provider.postal_code") %> <%= f.text_field :postal_code %> <br />
   <%= f.label :country, t('provider.country') %> <%= f.localized_country_select :country, [:US, :CA, :FR, :DE,  :IE, :ES, :GB], :include_blank => t('provider.choose_country') %> <br />
-  <%= f.label :email, t("provider.email") %> <%= f.text_field :email %> <br />
-  <%= f.label :company_url, t("provider.company_url") %> <%= f.text_field :company_url %> <br />
-  <%= f.label :logo, t('provider.logo') %><%= f.file_field :logo %><br/>
-  <%- if @provider.not.new_record? and @provider.logo_file_name.not.blank? -%>
-  <%= image_tag(@provider.logo.url(:thumb)) %>
-<%- end -%>
 
   <h3><%= t('provider.accepted_projects') %></h3>
   <%= f.label :hourly_rate, t("provider.hourly_rate") %>

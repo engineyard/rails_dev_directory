@@ -37,8 +37,9 @@
                   <li>
                   <%= ps.radio_button :proficiency, level %>
                   <%= ps.label "proficiency_#{level}", t("service.proficiency_#{level}") %>
-                  <% ps.label "proficiency_#{level}",
-                               "#{category.name} #{ps.object.name} #{t("service.proficiency_#{level}")}" %>
+                  <%= ps.label "proficiency_#{level}",
+                               "#{category.name} #{ps.object.name} #{t("service.proficiency_#{level}")}",
+                               :class => 'hidden' %>
                   </li>
                 <%- end -%>
                 </ul>

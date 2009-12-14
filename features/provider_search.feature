@@ -27,23 +27,23 @@ Feature: Provider directory
 
   Scenario: Finding a Freelancer by skill set
     When I am on the homepage
-      And I follow "Find a Rails Freelancer"
       And I check "AJAX"
       And I press "Find a freelance developer"
     Then I should see "Paul Campbell"
+
     When I am on the homepage
-      And I follow "Find a Rails Freelancer"
       And I check "AJAX"
       And I check "UI"
       And I press "Find a freelance developer"
     Then I should see "Paul Campbell"
+
     When I am on the homepage
-      And I follow "Find a Rails Freelancer"
       And I check "AJAX"
       And I check "Visual design"
       And I press "Find a freelance developer"
     Then I should not see "Paul Campbell"
-    When I follow "Find a Rails Freelancer"
+
+    When I am on the homepage
       And I check "Visual design"
       And I press "Find a freelance developer"
     Then I should not see "Paul Campbell"

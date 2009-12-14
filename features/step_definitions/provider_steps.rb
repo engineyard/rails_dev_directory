@@ -20,11 +20,10 @@ end
 
 When /^I fill in the provider sign up form for "([^\"]*)"$/ do |provider_name|
   fill_in("Email", :with => "paul@rslw.com")
-  fill_in('provider[email]', :with => 'info@rslw.com')
   fill_in("Password", :with => "password")
   fill_in("Retype password", :with => "password")
   fill_in("Name", :with => "#{provider_name}")
-  fill_in("Company website", :with => "http://www.rslw.com")
+  fill_in("Website", :with => "http://www.rslw.com")
   fill_in("City", :with => "Dublin")
 end
 

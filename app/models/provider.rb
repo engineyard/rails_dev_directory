@@ -2,7 +2,7 @@ require 'exportable'
 class Provider < ActiveRecord::Base
   include AASM
   
-  validates_presence_of :company_name, :city, :email, :company_url
+  validates_presence_of :city
   validates_uniqueness_of :slug
   validate_on_create :first_user_has_email_matching_company_url
   validates_acceptance_of :terms_of_service
