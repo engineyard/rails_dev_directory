@@ -18,7 +18,7 @@ So that I can can receive Rails project referrals
       And I should see "Please enter a valid URL"
     When I fill in the "password" with "americanpolka"
       And I fill in the "Retype password" with "americanpolka"
-      And I fill in the "Company website" with "oleopry.com"
+      And I fill in the "Website" with "oleopry.com"
       And I press "Sign up"
     Then I should see "Welcome, JD"
 
