@@ -15,9 +15,9 @@
     
       <%- f.fields_for :users do |uf| -%>
         <div class="info">
-          <h5>Account Information</h5>
-          <p>First we need to get your account contact information.</p>
-          <p>We may use your phone number to contact you and verify your information, but we won’t list it on your directory profile.</p>
+          <h5><%= t('account_information') %></h5>
+          <p><%= t('info_account') %></p>
+          <p><%= t('info_phone') %></p>
         </div>
         <table>
           <tr>
@@ -40,13 +40,13 @@
       <h3><%= t('provider.company_details_headline') %></h3>
       <!-- <p><% t('provider.company_details_descrpition') %></p> -->
       <div class="info">
-        <p>If you're doing buiness under a name other than your own, you can enter it here.</p>
+        <p><%= t('info_company_name') %></p>
       </div>
 
       <%= render :partial => 'providers/form', :locals => {:f => f} %>
     <fieldset>
       <div class="info">
-        <p>Please read and accept this website's Terms of Use before proceeding.</p>
+        <p><%= t('info_terms') %></p>
       </div>
       <ul>
         <li><%= f.check_box :terms_of_service %> <%= f.label :terms_of_service, t('provider.accept_terms_of_service')%></li>
@@ -54,7 +54,7 @@
     </fieldset>
     
     <div class="info">
-      <p>We hate spam, so we're going to ask you to prove you're human.</p>
+      <p><%= t('info_captcha') %></p>
     </div>
     <%= recaptcha_tags(:ssl => true) %>
 

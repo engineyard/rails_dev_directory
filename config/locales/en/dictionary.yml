@@ -1,26 +1,43 @@
 en:
   
+  accepts_as_payment: "Accepts <strong>PayPal, Credit Cards</strong> as payment"
+  account_information: Account Information
   any: Any
   anywhere: Anywhere
   availability: Availability
+  avg_score: AVG. SCORE
+  
+  business_address: Business Address
   
   cancel: Cancel
   change_your_search_criteria: Change Your Search Criteria
   code: Code
   code_sample_introduction: Here you can post code samples.
+  code_sample_label: Paul has uploaded 4 code samples
   code_samples: Code Samples
   configuration: Configuration
+  contacts: Contacts
   
   filter_by_project_requirements: Filter by Project Requirements
-  find_a_freelancer: Find a Freelancer
+  filter_by_services_skills: Filter by services and skills
+  find_a_freelancer: Find a freelance developer
   
   go_back_and_edit: "Go Back &amp; Edit"
   
+  hourly_rate: Hourly Rate
   hours: Hours/Week
   hours_per_week: Hours Per Week
   
-  location: Location
+  info_account: First we need to get your account contact information.
+  info_business_address: Your business location is needed to allow potential customers to search for you by your location.
+  info_captcha: "We hate spam, so we're going to ask you to prove you're human."
+  info_company_name: "If you're doing business under a name other than your own, you can enter it here."
+  info_phone: "We may use your phone number to contact you and verify your information, but we won't list it on your directory profile."
+  info_terms: Please read and accept this website's Terms of Use before proceeding.
   
+  located_in: Located in
+  location: Location
+
   name_and_location: Name and Location
   name_your_sample_code: Name your sample code
   no_code_samples: You haven't added any code samples yet.
@@ -33,14 +50,18 @@ en:
   priority_notes: Priority affects where in the search form this category will appear
   project_length: Project Length
   
+  quizzes: Quizzes
+  
   review_code: Review Code
   review_your_code: Review Your Code
   
   score: Score
+  show_more_results: Show 20 More Results
   speaks: Speaks
   
   this_month: This Month
   
+  update: Update
   upload_your_code: Upload Your Code
   upload_a_code_sample: Upload a Code Sample
   
@@ -49,3 +70,7 @@ en:
   
   weeks: Weeks
   will_travel: Will Travel
+  willing_to_travel: Willing to travel <strong>anywhere in the world</strong>
+  
+  your_favorites: Your favorites (3)
+  your_profile_is_complete: "Your profile is <strong>50%</strong> complete"

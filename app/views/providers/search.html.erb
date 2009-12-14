@@ -21,7 +21,7 @@
               ) %>
         </li>
         <li>
-          <label>Speaks</label><br />
+          <label><%= t('speaks') %></label><br />
           <select id="language">
             <option>Any Language</option>
           </select>            
@@ -46,14 +46,16 @@
           <%= label_tag 'weeks', t('project_length') %><br />
           <%= project_length_select %>
         </li>
+        <li><%= submit_tag t('update') %></li>
       </ul>
+    
+      
     </fieldset>
-    <%= submit_tag t('find_a_freelancer') %>
   <% end -%>
   
   
   <div class="favorites">
-    <h3>Your Favorites (3) (TODO)</h3>
+    <h3><%= t('your_favorites') %></h3>
     <ul>
       <li>
         <img src="/images/profile-default-sm.png" />
@@ -113,7 +115,7 @@
         <%- end -%>
       <%- end -%>
 
-      <div class="aligncenter"><%= f.submit t("general.next"), :id => 'next', :onClick=>"pageTracker._trackEvent('Request', 'Create Request', 'Search');" %></div>
+      <div class="aligncenter"><%= f.submit t("show_more_results"), :id => 'next' %></div>
     <%- end -%>
 
   <%- end -%>

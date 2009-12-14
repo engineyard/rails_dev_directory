@@ -163,14 +163,6 @@ input[value="Save"], input[value="Delete this user"], #recommendation_submit {
 input#next {
   margin: 0;
 }
-textarea {
-  font-family: Lucida Grande, Helvetica, Arial, sans-serf;
-}
-textarea:focus, input[type="text"]:focus, input[type="password"]:focus {
-	color: #000;
-  padding: 2px 0px;
-  border: 2px solid #999;
-}
 textarea, input[type="text"], input[type="password"] {
 	color: #333;
   padding: 3px 1px;
@@ -179,6 +171,16 @@ textarea, input[type="text"], input[type="password"] {
 }
 input.number {
   width: 5em;
+}
+textarea {
+  font-family: Lucida Grande, Helvetica, Arial, sans-serf;
+  width: 500px;
+  height: 100px;
+}
+textarea:focus, input[type="text"]:focus, input[type="password"]:focus {
+	color: #000;
+  padding: 2px 0px;
+  border: 2px solid #999;
 }
 ul label {
   display:inline;

@@ -1,5 +1,7 @@
 <div class="dashboard">
-  <h1>Quizzes</h1>
+  <div class="pageHead">
+    <h2>Quizzes</h2>
+  </div>
   <%- if @quizzes.empty? -%>
     <p><%= t('quiz.no_quizzes') %></p>
   <%- else -%>

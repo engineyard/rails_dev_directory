@@ -150,6 +150,17 @@ li.username {
   padding: 15px 20px;
   text-align: right;
 }
+.subnav sup {
+  display: inline-block;
+  font-weight: bold;
+  background: url(/images/sprite-graphics.png) no-repeat 0 -973px;
+  margin-left: -0.8em;
+  margin-top: -7px;
+  padding: 3px 2px 6px 0;
+  min-width: 20px;
+  text-align: center;
+  color: #FFF;
+}
 .subnav a {
   color: #333;
   border: none;
@@ -338,12 +349,16 @@ li .check {
 .panel #search-form {
   background: #DDF2FC;
   margin: 0 -30px 30px;
-  padding: 30px;
+  padding: 20px 30px 15px;
   border: 2px solid #FFF;
+}
+.panel #search-form label {
+  margin-top: 0;
 }
 .panel #search-form fieldset {
   font-size: 1em;
   padding: 0;
+  margin: 0;
   border: none;
 }
 .panel #search-form h3 {
@@ -356,6 +371,11 @@ li .check {
 .panel #search-form li {
   display: inline-block;
   margin-right: 10px;
+}
+.panel #search-form input[type="submit"] {
+  padding: 2px 0;
+  margin: 0;
+  width: 200px;
 }
 #search-form #location {
   width: 300px;
@@ -526,7 +546,7 @@ li.document {
 .pageHead {
   background: #F9F4E2;
   padding: 20px 30px 0;
-  margin: 2px -28px 40px;
+  margin: 2px -28px 20px;
   height: 40px;
 }
 .pageHead h2 {
@@ -555,7 +575,13 @@ li.document {
   padding: 19px 20px 21px;
   color: #999;
   font-size: 1.2em;
+}
+.pageHead li.active {
   background: #F3E9C8;
+  color: #666;
+}
+.pageHead li.done {
+  background: url(/images/sprite-graphics.png) no-repeat 0px -866px;
 }
 .pageHead .timestamp {
   margin-top: 0px;
@@ -762,6 +788,7 @@ td input, td input[type="checkbox"] {
 .wizard {
   text-align: center;
   margin: 0;
+  display: none;
 }
 .wizard li {
   font: 1.5em Georgia, Times New Roman, serif;
@@ -1081,7 +1108,7 @@ hr {
   background:  url(/images/sprite-graphics.png) no-repeat 0 -494px;
 }
 
-.notice {
+.notice, .error {
   margin: -10px -50px -1px;
   padding: 15px 30px;
   border: 1px solid #E4E4E4;
