@@ -278,18 +278,16 @@ li.username {
   display: inline;
 }
 .provider.search p, .provider.search ul, .provider.search li {
-  margin-left: 0;
-  margin-bottom: 0.2em;
-}
-.provider.search ul {
+  padding-top: 5px;
+  margin: 0;
 }
 .provider.search li {
   display: block;
   margin-right: 2%;
   min-height: 20px;
-  white-space: nowrap;
 }
 li .check {
+  float: left;
   position: relative;
   top: -2px;
   margin: 0 0.3em -5px 0;
@@ -299,7 +297,10 @@ li .check {
 }
 .provider.search li label {
   color: #666;
+  float: left;
+  max-width: 160px;
 }
+
 .provider.search input[type="submit"] {
   font-size: 1.2em;
   font-weight: normal;
@@ -327,7 +328,7 @@ li .check {
 }
 .provider.search form td {
   border: none;
-  padding: 0 0 20px 10px;
+  padding: 0 0 20px 20px;
 }
 .provider.search form td:first-child {
   padding-left: 0;
@@ -354,6 +355,8 @@ li .check {
 }
 .panel #search-form label {
   margin-top: 0;
+  font-size: 0.9em;
+  color: #333;
 }
 .panel #search-form fieldset {
   font-size: 1em;
@@ -687,9 +690,15 @@ ul.testList li {
 .footer .attribution {
   float: right;
 }
-.footer .attribution img {
-  float: none;
-  margin: -1em 0 -0.7em;
+.footer .attribution .engineyard {
+  display: inline-block;
+  overflow: hidden;
+  text-indent: -1000px;
+  width: 98px;
+  height: 30px;
+  margin: -10px 0;
+  background: url(/images/sprite-graphics.png) no-repeat 0 -1025px;
+  border-bottom: none;
 }
 .footer .attribution a {
   color: #91020C;
@@ -706,6 +715,7 @@ thead th {
   text-transform: uppercase;
   border-bottom: 1px solid #9B9B9B;
   padding: 0 0 8px;
+  color: #666;
 }
 tbody th {
   background: #F5FAFF none;
@@ -740,6 +750,7 @@ td {
 .listTable a.favorite {
   font-size: 1em;
   float: right;
+  color: #666;
 }
 .listTable td:first-child {
   width: 40px;
@@ -782,6 +793,26 @@ td input, td input[type="checkbox"] {
 }
 .allEndorsements cite {
   padding-left: 0;
+}
+
+.sidebar cite {
+  padding-left: 0;
+  padding-right: 0;
+}
+.ratings {
+  min-height: 60px;
+}
+.ratings dt, .ratings dd {
+  margin: 0;
+  padding: 0;
+  display: block;
+  float: left;
+  height: 20px;
+}
+.ratings dt {
+  font-size: 0.9em;
+  clear: left;
+  width: 80px;
 }
 
 /* Form Wizard */

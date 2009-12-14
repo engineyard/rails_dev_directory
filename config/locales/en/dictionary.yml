@@ -17,6 +17,9 @@ en:
   code_samples: Code Samples
   configuration: Configuration
   contacts: Contacts
+  contact_developer: Contact Developer
+  
+  experience: Experience
   
   filter_by_project_requirements: Filter by Project Requirements
   filter_by_services_skills: Filter by services and skills
@@ -48,10 +51,12 @@ en:
   paste_code_sample_here: Paste your code sample here
   priority: Priority
   priority_notes: Priority affects where in the search form this category will appear
+  professional: Professional
   project_length: Project Length
   
   quizzes: Quizzes
   
+  reliable: Reliable
   review_code: Review Code
   review_your_code: Review Your Code
   
