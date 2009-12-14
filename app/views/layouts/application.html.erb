@@ -52,19 +52,32 @@
       </div>
     </div>
 
-
     <% if logged_in? and current_user.provider %>
       <div class="subnav">
         <div class="content">
           <div class="navigation">
             <ul>
-              <li class="alignleft"><%= link_to t('navigation.dashboard'), my_dashboard_path %><sup>12</sup></li>
-              <li><%= link_to t('navigation.profile'), current_user.provider %></li>
-              <li><%= link_to t('contacts'), my_requests_path %></li>
-              <li><%= t('availability') %></li>
-              <li><%= link_to t('quizzes'), new_my_quiz_result_path %></li>
-              <li><%= link_to t('code'), my_code_samples_path %></li>
-              <li><%= link_to t('navigation.my_account'), my_account_path %></li>
+              <li class="alignleft<%= ' active' if controller_name == 'dashboard' %>">
+                <%= link_to t('navigation.dashboard'), my_dashboard_path %><sup>12</sup>
+              </li>
+              <li <%= 'class="active"' if controller_name == 'providers' %>>
+                <%= link_to t('navigation.profile'), current_user.provider %>
+              </li>
+              <li <%= 'class="active"' if controller_name == 'requests' %>>
+                <%= link_to t('contacts'), my_requests_path %>
+              </li>
+              <li <%= 'class="active"' if controller_name == 'availability' %>>
+                <%= t('availability') %>
+              </li>
+              <li <%= 'class="active"' if controller_name == 'quiz_results' %>>
+                <%= link_to t('quizzes'), new_my_quiz_result_path %>
+              </li>
+              <li <%= 'class="active"' if controller_name == 'code_samples' %>>
+                <%= link_to t('code'), my_code_samples_path %>
+              </li>
+              <li <%= 'class="active"' if controller_name == 'users' %>>
+                <%= link_to t('navigation.my_account'), my_account_path %>
+              </li>
             </ul>
           </div>
         </div>
