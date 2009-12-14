@@ -21,7 +21,7 @@ So that I can can receive Rails project referrals
       And I fill in the "Retype password" with "americanpolka"
       And I fill in the "Company website" with "oleopry.com"
       And I press "Sign up"
-    Then I should see "Hi Pivotpaul Labs"
+    Then I should see "Welcome, JD"
 
   Scenario: Signing up and sloppily missing the TOS
     Given I am on the homepage
@@ -35,8 +35,9 @@ So that I can can receive Rails project referrals
       | Design      | UI            |
     When I follow "Create an account"
       And I fill in the provider sign up form for "Pivotpaul Labs"
+      And I fill in "First Name" with "Paul"
       And I press "Sign up"
     Then I should see "Terms of Use"
     When I check "provider[terms_of_service]"
       And I press "Sign up"
-    Then I should see "Hi Pivotpaul Labs"
+    Then I should see "Welcome, Paul"

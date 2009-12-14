@@ -17,36 +17,35 @@ Feature: Provider directory
 
   Scenario: Finding a Freelancer by hourly rate
     When I am on the homepage
-      And I follow "Find a Rails Freelancer"
-      And I press "Find a Freelancer"
+      And I press "Find a freelance developer"
       And I select "<$75" from "Hourly Rate"
-      And I press "Find a Freelancer"
+      And I press "Update"
     Then I should not see "Paul Campbell"
     When I select ">$150" from "Hourly Rate"
-      And I press "Find a Freelancer"
+      And I press "Update"
     Then I should see "Paul Campbell"
 
   Scenario: Finding a Freelancer by skill set
     When I am on the homepage
       And I follow "Find a Rails Freelancer"
       And I check "AJAX"
-      And I press "Find a Freelancer"
+      And I press "Find a freelance developer"
     Then I should see "Paul Campbell"
     When I am on the homepage
       And I follow "Find a Rails Freelancer"
       And I check "AJAX"
       And I check "UI"
-      And I press "Find a Freelancer"
+      And I press "Find a freelance developer"
     Then I should see "Paul Campbell"
     When I am on the homepage
       And I follow "Find a Rails Freelancer"
       And I check "AJAX"
       And I check "Visual design"
-      And I press "Find a Freelancer"
+      And I press "Find a freelance developer"
     Then I should not see "Paul Campbell"
     When I follow "Find a Rails Freelancer"
       And I check "Visual design"
-      And I press "Find a Freelancer"
+      And I press "Find a freelance developer"
     Then I should not see "Paul Campbell"
 
   Scenario: Searching by location
@@ -56,17 +55,17 @@ Feature: Provider directory
       And "Hyper Tiny" is based in "NA, IE"
     When I am on the homepage
       And I select "All Locations" from "Location"
-      And I press "Find a Freelancer"
+      And I press "Find a freelance developer"
     Then I should see "Hyper Tiny"
       And I should see "Hashrocket"
     
     When I select "Ireland" from "Location"
-      And I press "Find a Freelancer"
+      And I press "Update"
     Then I should see "Hyper Tiny"
       And the "Location" field should contain "IE"
       And I should not see "Hashrocket"
     When I select "Florida" from "Location"
-      And I press "Find a Freelancer"
+      And I press "Update"
     Then I should see "Hashrocket"
       And I should not see "Hyper Tiny"
       
@@ -75,12 +74,12 @@ Feature: Provider directory
     
     When I am on the homepage
       And I select "4-8 Weeks" from "Project Length"
-      And I press "Find a Freelancer"
+      And I press "Find a freelance developer"
     Then I should see "Paul Campbell"
       And the "Project Length" field should contain "4"
     
     When I select "1-4 Weeks" from "Project Length"
-      And I press "Find a Freelancer"
+      And I press "Update"
     Then I should not see "Paul Campbell"
 
   Scenario: Searching by project length
@@ -88,10 +87,10 @@ Feature: Provider directory
 
     When I am on the homepage
       And I select "10-20 Hours/Week" from "Hours Per Week"
-      And I press "Find a Freelancer"
+      And I press "Find a freelance developer"
     Then I should see "Paul Campbell"
       And the "Hours Per Week" field should contain "10"
 
     When I select "<10 Hours/Week" from "Hours Per Week"
-      And I press "Find a Freelancer"
+      And I press "Update"
     Then I should not see "Paul Campbell"
