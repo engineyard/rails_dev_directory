@@ -45,7 +45,6 @@
             <li><%= link_to t('navigation.provider_directory'), home_path %></li>
             <li><%= link_to t('general.sign_out'), logout_path %></li>
           <%- else -%>
-            <li><%= link_to t('home.find_a_provider'), home_path %></li>
             <li><%= link_to t('provider.signup'), new_provider_path, :rel => "nofollow", :onClick=>"pageTracker._trackEvent('Request', 'Create Account');" %></li>
             <li><%= link_to t('provider.sign_in'), login_path, :rel => "nofollow" %></li>
           <%- end -%>
