@@ -14,11 +14,6 @@
   <%= f.label :postal_code, t("provider.postal_code") %> <%= f.text_field :postal_code %> <br />
   <%= f.label :country, t('provider.country') %> <%= f.localized_country_select :country, [:US, :CA, :FR, :DE,  :IE, :ES, :GB], :include_blank => t('provider.choose_country') %> <br />
 
-  <%= f.label :logo, t('provider.logo') %><%= f.file_field :logo %><br/>
-  <%- if @provider.not.new_record? and @provider.logo_file_name.not.blank? -%>
-  <%= image_tag(@provider.logo.url(:thumb)) %>
-<%- end -%>
-
   <h3><%= t('provider.accepted_projects') %></h3>
   <%= f.label :hourly_rate, t("provider.hourly_rate") %>
   &#36;<%= f.text_field :hourly_rate, :class => 'number' %><br />
