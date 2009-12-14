@@ -119,13 +119,13 @@ $(document).ready(function(){
   
   $('input[type="checkbox"].service').map(function() {
     if (!$(this).is(':checked')) {
-      $(this).nextAll('input[type="radio"], label').hide()
+      $(this).siblings('ul').hide()
     }
     $(this).click(function() {
       if ($(this).is(':checked')) {
-        $(this).nextAll('input[type="radio"], label:not(.testability)').show()
+        $(this).siblings('ul.testability').show()
       } else {
-        $(this).nextAll('input[type="radio"], label').hide()
+        $(this).siblings('ul.testability').hide()
       }
     })
   })

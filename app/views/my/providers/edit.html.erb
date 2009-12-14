@@ -32,14 +32,13 @@
               <%= ps.label :_delete, ps.object.name %>
             
               <%- if category.proficiency? -%>
-                <ul>
+                <ul class="testability">
                 <%- (1..3).each do |level| -%>
                   <li>
                   <%= ps.radio_button :proficiency, level %>
                   <%= ps.label "proficiency_#{level}", t("service.proficiency_#{level}") %>
-                  <%= ps.label "proficiency_#{level}",
-                               "#{category.name} #{ps.object.name} #{t("service.proficiency_#{level}")}",
-                               :class => 'testability' %>
+                  <% ps.label "proficiency_#{level}",
+                               "#{category.name} #{ps.object.name} #{t("service.proficiency_#{level}")}" %>
                   </li>
                 <%- end -%>
                 </ul>
