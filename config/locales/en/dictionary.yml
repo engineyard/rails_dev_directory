@@ -50,15 +50,18 @@ en:
   located_in: Located in
   location: Location
 
-  minimum_hours_per_week: Minimum Hours Per Week
   maximum_hours_per_week: Maximum Hours Per Week
-  minimum_project_length: Minimum Hours in Project
   maximum_project_length: Maximum Hours in Project
+  minimum_hours_per_week: Minimum Hours Per Week
+  minimum_project_length: Minimum Hours in Project
+  minutes: Minutes
   my_upcoming_availability: My Upcoming Availability
 
+  name: Name
   name_and_location: Name and Location
   name_your_sample_code: Name your sample code
   no_code_samples: You haven't added any code samples yet.
+  no_quizzes: No Quizzes Have Been Added Yet
   number_of_weeks: Number of Weeks
   
   or: or
@@ -69,7 +72,10 @@ en:
   professional: Professional
   project_length: Project Length
   
+  questions: Questions
   quizzes: Quizzes
+  quiz_details: Quiz Details
+  quiz_name: Quiz Name
   
   reliable: Reliable
   review_code: Review Code
@@ -79,19 +85,20 @@ en:
   score: Score
   send: Send
   show_more_results: Show 20 More Results
+  skill_level: Skill Level
   speaks: Speaks
   
+  take_a_quiz: Take a Quiz
+  take_this_quiz: Take this quiz
+  tell_us_about_your_business: Tell us about your business
+  test_code: Test Code
+  test_your_code: Test Your Code
   this_month: This Month
+  time_limit: Time Limit
   
   update: Update
   upload_your_code: Upload Your Code
   upload_a_code_sample: Upload a Code Sample
-  
-  questions: Questions
-  
-  tell_us_about_your_business: Tell us about your business
-  test_code: Test Code
-  test_your_code: Test Your Code
   
   website: Website
   weeks: Weeks

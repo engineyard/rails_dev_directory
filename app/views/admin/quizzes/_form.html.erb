@@ -5,6 +5,9 @@
   <fieldset>
     <%= f.label :name, t("quiz.name") %>
     <%= f.text_field :name %> <br />
+    
+    <%= f.label :skill_level %> <%= f.select :skill_level, [['Beginner', 'beginner'], ['Intermediate', 'intermediate'], ['Advanced', 'advanced']] %> <br />
+    <%= f.label :time_limit %> <%= f.text_field :time_limit %> (in minutes)<br />
   </fieldset>
   
   <h2><%= t('questions') %></h2>

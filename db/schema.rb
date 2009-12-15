@@ -9,12 +9,11 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20091215212026) do
+ActiveRecord::Schema.define(:version => 20091215214301) do
 
   create_table "answers", :force => true do |t|
     t.integer  "question_id"
     t.string   "text"
-    t.boolean  "correct"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -203,6 +202,8 @@ ActiveRecord::Schema.define(:version => 20091215212026) do
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "skill_level"
+    t.integer  "time_limit"
   end
 
   create_table "reference_requests", :force => true do |t|
