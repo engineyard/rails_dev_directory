@@ -74,11 +74,11 @@ module ProvidersHelper
     select_tag 'weeks', options_for_select(
       [
         [t('any'), ''],
-        ["1-4 #{t('weeks')}", 0],
-        ["4-8 #{t('weeks')}", 4],
-        [">8 #{t('weeks')}", 8]
+        ["1-4 #{t('weeks')}", '0-4'],
+        ["4-8 #{t('weeks')}", '4-8'],
+        [">8 #{t('weeks')}", '8-']
         ],
-        params[:weeks].to_i
+        params[:weeks]
     )    
   end
   
@@ -86,9 +86,10 @@ module ProvidersHelper
     select_tag 'hours', options_for_select(
       [
         [t('any'), ''],
-        ["<10 #{t('hours')}", "0-10"],
-        ["10-20 #{t('hours')}", "10-20"],
-        ["20-30 #{t('hours')}", "20-30"]
+        ["<15 #{t('hours')}", "0-15"],
+        ["15-25 #{t('hours')}", "15-25"],
+        ["25-35 #{t('hours')}", "25-35"],
+        [">35 #{t('hours')}", "35-"]
         ],
         params[:hours]
     )

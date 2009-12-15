@@ -95,7 +95,7 @@ describe Provider do
     end
 
     context "project length" do
-      it "should search on project length" do
+      it "should search on hours per week" do
         Provider.should_receive(:all).with(
           :joins => nil,
           :group => nil,
@@ -115,6 +115,18 @@ describe Provider do
           :order=>"aasm_state asc, if(endorsements_count >= 3,endorsements_count,0) desc, RAND()",
           :limit=>10)
         Provider.search({:availability => "2009-12-01"})
+      end
+    end
+    
+    context "project length" do
+      it "should search on project length" do
+        Provider.should_receive(:all).with(
+          :joins => nil,
+          :group => nil,
+          :conditions => ["aasm_state != 'flagged' and min_project_length >= ? and max_project_length <= ?", 0, 120],
+          :order=>"aasm_state asc, if(endorsements_count >= 3,endorsements_count,0) desc, RAND()",
+          :limit=>10)
+        Provider.search({:weeks => "0-4"})
       end
     end
   end
@@ -272,5 +284,24 @@ describe Provider, "receiving email on signup" do
     Notification.should_receive(:create_provider_welcome)
     
     @provider.save
+  end
+end
+
+describe Provider, "with bookings" do
+  describe "#booked_for" do
+    before do
+      @provider = Provider.make
+      (Date.today.beginning_of_month..Date.today.end_of_month).each do |day|
+        @provider.bookings << Booking.make(:date => day)
+      end
+    end
+    
+    it "should be booked for this month" do
+      @provider.booked_for(Date.today).should be_true
+    end
+    
+    it "should not be booked for next month" do
+      @provider.booked_for(1.month.from_now).should_not be_true
+    end
   end
 end

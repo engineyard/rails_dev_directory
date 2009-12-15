@@ -116,6 +116,18 @@ class Provider < ActiveRecord::Base
       end
     end
     
+    if params[:weeks].not.blank?
+      min,max = params[:weeks].split('-')
+      if min and min.not.empty?
+        conditions[0] << " and min_project_length >= ?"
+        conditions << (min.to_i * 30)
+      end
+      if max and max.not.empty?
+        conditions[0] << " and max_project_length <= ?"
+        conditions << (max.to_i * 30)
+      end
+    end
+    
     if params[:availability].not.blank?
       month = Date.parse(params[:availability])
       conditions[0] << " and (select count(*) from bookings where provider_id = providers.id and DATE_FORMAT(date, '%m') = ?) != ?"
@@ -223,6 +235,11 @@ class Provider < ActiveRecord::Base
 
   def has_enough_portfolio_items?
     portfolio_items.size >= 3
+  end
+  
+  def booked_for(month)
+    days_in_month = month.end_of_month.day
+    bookings.count(:conditions => ["DATE_FORMAT(date, '%m') = ?", month.strftime("%m")]) == days_in_month.to_i
   end
   
   def can_edit?(user)

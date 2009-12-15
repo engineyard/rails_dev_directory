@@ -76,22 +76,22 @@ Feature: Provider directory
       And I select "4-8 Weeks" from "Project Length"
       And I press "Find a freelance developer"
     Then I should see "Paul Campbell"
-      And the "Project Length" field should contain "4"
+      And the "Project Length" field should contain "4-8"
     
     When I select "1-4 Weeks" from "Project Length"
       And I press "Update"
     Then I should not see "Paul Campbell"
 
   Scenario: Searching by project length
-    Given provider "Paul Campbell" likes to work between "10" and "20" hours per week
+    Given provider "Paul Campbell" likes to work between "15" and "25" hours per week
 
     When I am on the homepage
-      And I select "10-20 Hours/Week" from "Hours Per Week"
+      And I select "15-25 Hours/Week" from "Hours Per Week"
       And I press "Find a freelance developer"
     Then I should see "Paul Campbell"
-      And the "Hours Per Week" field should contain "10"
+      And the "Hours Per Week" field should contain "15-25"
 
-    When I select "<10 Hours/Week" from "Hours Per Week"
+    When I select "<15 Hours/Week" from "Hours Per Week"
       And I press "Update"
     Then I should not see "Paul Campbell"
 

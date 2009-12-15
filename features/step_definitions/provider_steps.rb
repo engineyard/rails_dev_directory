@@ -75,7 +75,7 @@ Then /^the provider "([^\"]*)" should be (active|inactive)$/ do |provider_name, 
 end
 
 Given /^provider "([^\"]*)" is available for projects between "([^\"]*)" and "([^\"]*)" weeks in length$/ do |provider_name, min_length, max_length|
-  Provider.find_by_company_name(provider_name).update_attributes(:min_project_length => min_length.to_i, :max_project_length => max_length.to_i)
+  Provider.find_by_company_name(provider_name).update_attributes(:min_project_length => min_length.to_i * 30, :max_project_length => max_length.to_i * 30)
 end
 
 Given /^provider "([^\"]*)" likes to work between "([^\"]*)" and "([^\"]*)" hours per week$/ do |provider_name, min, max|

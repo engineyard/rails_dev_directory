@@ -96,14 +96,20 @@
     <table class="availability">
       <tbody>
         <tr>
-          <th>December</th>
-          <th>January</th>
-          <th>February</th>
+          <%- [Date.today,1.month.from_now,2.months.from_now].each do |date| -%>
+            <th><%= date.strftime("%B") %></th>
+          <%- end -%>
         </tr>
         <tr>
-          <td>Booked</td>
-          <td><a href="">Accepting Work</a></td>
-          <td><a href="">Accepting Work</a></td>
+          <%- [Date.today,1.month.from_now,2.months.from_now].each do |date| -%>
+            <td id="<%= date.strftime("%B") %>">
+              <%- if @provider.booked_for(date) -%>
+                <%= t('booked') %>
+              <%- else -%>
+                <%= t('accepting_work') %>
+              <%- end -%>
+            </td>
+        <%- end -%>
         </tr>
       </tbody>
     </table>
