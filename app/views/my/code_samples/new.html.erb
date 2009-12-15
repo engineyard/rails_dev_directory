@@ -4,7 +4,7 @@
     <% form_for [:my, @code_sample] do |f| -%>
       <%= f.label :name, t('name_your_sample_code') %> <%= f.text_field :name %> <br />
       <%= f.label :code, t('paste_code_sample_here') %> <%= f.text_area :code %> <br />
-      <%= f.submit t('review_code') %> <%= link_to t('cancel'), my_code_samples_path %>
+      <div class="formactions"><%= f.submit t('review_code') %> <%= link_to t('cancel'), my_code_samples_path %></div>
     <% end -%>
   </div>
   <div class="sidebar">

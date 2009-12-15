@@ -1,19 +1,36 @@
-<h2><%= t('rfp.new_rfp_headline') %></h2>
+<div class="panel"
+  <h2><%= t('contact_a_developer') %></h2>
 
-<p class="description"><%= t('rfp.new_rfp_description') %></p>
-
-<p class="description note"><%= t('rfp.disclaimer') %></p>
-
-<div class="narrow box">
+  <p><%= t('contact_a_developer_introduction') %></p>
 
   <% form_for setup_rfp(@rfp) do |f| -%>
   
-    <%= f.error_messages %>
+      
+        <%- @providers.each do |provider| -%>
+        <div class="currentDev">
+          <%- if provider.logo_file_name.not.blank? -%>
+            <%= image_tag(provider.logo.url(:thumb), :class=>'avatar') %>
+          <%- else -%>
+            <img src="/images/profile-default.png" class='avatar' />
+          <%- end -%>
+          
+          <%= hidden_field_tag "rfp[provider_ids][]", provider.id %>
+          <h4><%= provider.company_name %></h4>
+          <p><%= provider.private_address.join(", ") %></p>
+        </div>
+        <%- end -%>
+      
   
-    <h3><%= t('rfp.about_you') %></h3>
-
-      <%= f.label :first_name, t("rfp.first_name") %> <%= f.text_field :first_name %> <br />
-      <%= f.label :last_name, t("rfp.last_name") %> <%= f.text_field :last_name %> <br />
+    <%= f.error_messages %>
+    
+    <fieldset>
+      <h3><%= t('rfp.about_you') %></h3>
+      <table>
+        <tr>
+          <td><%= f.label :first_name, t("rfp.first_name") %> <%= f.text_field :first_name %></td>
+          <td><%= f.label :last_name, t("rfp.last_name") %> <%= f.text_field :last_name %></td>
+        </tr>
+      </table>
       <%= f.label :company_name, t("rfp.company_name") %> <%= f.text_field :company_name %> <br />    
       <%= f.label :email, t("rfp.email") %> <%= f.text_field :email %> <br />
       <%= f.label :phone_number, t("rfp.phone_number") %> <%= f.text_field :phone_number %> <br />
@@ -21,7 +38,8 @@
       <%= f.label :postal_code, t("rfp.postal_code") %> <%= f.text_field :postal_code %> <br />
       <%= f.label :time_zone, t("rfp.time_zone") %> <%= f.time_zone_select :time_zone %> <br />
 
-  
+    </fieldset>
+    <fieldset>
     <h3><%= t('rfp.about_your_project') %></h3>
 
       <%= f.label :project_name, t("rfp.project_name") %> <%= f.text_field :project_name %> <br />
@@ -54,19 +72,13 @@
         <li><%= f.check_box :general_liability_insurance %><%= f.label :general_liability_insurance, t("rfp.general_liability") %></li>
         <li><%= f.check_box :professional_liability_insurance %><%= f.label :professional_liability_insurance, t("rfp.professional_liability") %></li>
       </ul>
-  
-    <h3><%= t('rfp.choose_providers') %></h3>
-      <ul>
-      <%- @providers.each do |provider| -%>
-        <li><%= hidden_field_tag "rfp[provider_ids][]", provider.id %><%= link_to provider.company_name, provider %></li>
-      <%- end -%>
-      </ul>
-  
-    <fieldset>  
+      
+      <br />
+      
       <%= f.label :additional_services, t("rfp.additional_services") %> <%= f.text_area :additional_services %> <br />
     </fieldset>
   
-    <fieldset>
+    <fieldset class="terms">
       <ul>
         <li><%= f.check_box :terms_of_service %> <%= f.label :terms_of_service, t('rfp.accept_terms_of_service')%></li>
       </ul>
@@ -74,6 +86,6 @@
 
     <%= recaptcha_tags %>
 
-    <%= f.submit t('rfp.submit'), :onClick=>"pageTracker._trackEvent('Request', 'Submit Request');", :class=>'callout' %>
+    <%= f.submit t('send'), :onClick=>"pageTracker._trackEvent('Request', 'Submit Request');", :class=>'callout' %>
   <% end -%>
 </div>

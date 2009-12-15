@@ -162,13 +162,16 @@ li.username {
   color: #FFF;
 }
 .subnav a {
-  color: #333;
+  color: #636363;
   border: none;
-  padding: 5px 10px;
+  padding: 5px 15px;
   -moz-border-radius: 1em;
   -webkit-border-radius: 1em;
 }
 .subnav a:hover {
+  color: #000;
+}
+.subnav li.active a {
   color: #000;
 }
 .navigation ul {
@@ -841,6 +844,12 @@ td input, td input[type="checkbox"] {
 }
 
 /* Form Styles */
+fieldset {
+  border-bottom: none;
+}
+fieldset.terms {
+  border-top: 1px solid #CACACA;
+}
 input[type="submit"] {
   font-size: 1em;
   font-weight: normal;
@@ -863,14 +872,26 @@ input[type="submit"].callout {
 input[type="submit"]:hover, button:hover {
   cursor: pointer;
 }
+form h3 {
+  margin-bottom: 10px;
+}
 form p {
   margin-top: 1em;
   margin-bottom: 1em;
 }
+form table {
+  display: block;
+  margin-top: 10px;
+}
 form table, form table td {
   border-bottom: none;
-  margin: 0;
+  margin: 0 0 10px;
   padding: 0;
+  font-size: 1em;
+}
+form table input {
+  margin-top: 5px;
+  margin-right: 1em;
 }
 textarea { 
   width: 30em;
@@ -907,6 +928,31 @@ textarea#code_sample_code {
 }
 .info p + p {
   margin-top: 3em;
+}
+.formactions {
+  text-align: center;
+}
+.formactions input, .formactions a {
+  text-align: center;
+  background: url(/images/sprite-layout.png) repeat-x 0 -308px;
+  border: 1px solid #666;
+  width: 150px;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  color: #333;
+  
+  display: inline-block;
+  width: 160px;
+  padding: 5px 0;
+  margin: 20px 0 0;
+}
+.formactions input[type="submit"] {
+  background: url(/images/sprite-layout.png) repeat-x 0 -340px;
+  position: relative;
+  top: -1px;
+  padding-bottom: 6px;
+  margin-right: 1em;
 }
 
 /* Homepage Form */
@@ -1137,6 +1183,30 @@ hr {
 }
 .payment {
   background:  url(/images/sprite-graphics.png) no-repeat 0 -494px;
+}
+.currentDev {
+  border: 1px solid #D7DCE1;
+  background: #F5FAFF;
+  padding: 14px;
+  margin: 20px 0;
+  height: 40px;
+  color: #666;
+  
+  width: 300px;
+}
+.currentDev img {
+  height: 40px;
+  width: 40px;
+  float: left;
+  margin-right: 14px;
+}
+.currentDev h4 {
+  margin-top: 4px;
+  color: #333;
+}
+.currentDev p {
+  font-size: 0.9em;
+  margin: 0;
 }
 
 .notice, .error {

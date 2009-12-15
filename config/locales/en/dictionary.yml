@@ -1,6 +1,7 @@
 en:
   
   accepts_as_payment: "Accepts <strong>PayPal, Credit Cards</strong> as payment"
+  account: Account
   account_information: Account Information
   any: Any
   anywhere: Anywhere
@@ -8,6 +9,7 @@ en:
   avg_score: AVG. SCORE
   
   business_address: Business Address
+  business_name: Business Name (DBA)
   
   cancel: Cancel
   change_your_search_criteria: Change Your Search Criteria
@@ -17,6 +19,8 @@ en:
   code_samples: Code Samples
   configuration: Configuration
   contacts: Contacts
+  contact_a_developer: Contact a Developer
+  contact_a_developer_introduction: "You're sending a note to this developer about your project:"
   contact_developer: Contact Developer
   
   experience: Experience
@@ -61,6 +65,7 @@ en:
   review_your_code: Review Your Code
   
   score: Score
+  send: Send
   show_more_results: Show 20 More Results
   speaks: Speaks
   
@@ -70,6 +75,7 @@ en:
   upload_your_code: Upload Your Code
   upload_a_code_sample: Upload a Code Sample
   
+  tell_us_about_your_business: Tell us about your business
   test_code: Test Code
   test_your_code: Test Your Code
   

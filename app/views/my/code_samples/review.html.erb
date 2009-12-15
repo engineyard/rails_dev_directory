@@ -5,7 +5,7 @@
       <%= f.label :name, t('name_your_sample_code') %> <%= f.text_field :name %> <br />
       <%= f.label :code, t('paste_code_sample_here') %> <%= f.text_area :code, :class=>'codeReview' %> <br />
   
-      <%= f.submit t('test_code') %> <%= link_to t('go_back_and_edit'), my_code_samples_path %>
+      <div class="formactions"><%= f.submit t('test_code') %> <%= link_to t('go_back_and_edit'), my_code_samples_path %></div class="formactions">
     <% end -%>
   </div>
   <div class="sidebar">
