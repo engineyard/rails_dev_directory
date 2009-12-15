@@ -1138,6 +1138,7 @@ hr {
 div#sorting-endorsements { /*display:none;*/ }
 div#sorting-endorsements ul li strong { cursor: move; }
 
+/* Paul Makes a questionable stab at the calendar */
 div.padding { width: 14%; float: left;}
 div.month { float: left; width: 33%;}
 div.days {  }
