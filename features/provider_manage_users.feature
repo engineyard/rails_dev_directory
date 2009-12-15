@@ -7,7 +7,7 @@ Feature: Managing user account
     Given a provider "Kooky" belonging to "paul@joy.com"
       And I am on the homepage
     When I log in as "paul@joy.com" with password "testtest"
-      And I follow "My Account"
+      And I follow "Account"
       And I fill in "First name" with "Ciara"
       And I fill in "Last name" with "McGuire"
       And I fill in "Email" with "ciara@ciarascakes.com"

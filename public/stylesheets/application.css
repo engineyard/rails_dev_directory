@@ -1243,7 +1243,7 @@ div#sorting-endorsements ul li strong { cursor: move; }
 div.padding { width: 14%; float: left;}
 div.month { float: left; width: 33%;}
 div.days {  }
-div.day { width: 14%; float: left; cursor: pointer; }
+div.day, div.day label { width: 14%; float: left; cursor: pointer; }
 div.day:hover { background-color: pink; }
 div.day.checked { background-color: red; }
 div.day.checked label { color: white; }
