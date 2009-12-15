@@ -64,9 +64,9 @@ module ProvidersHelper
     select_tag 'availability', options_for_select(
       [
         [t('any'), ''],
-        ["#{Date.today.strftime("%B")} (#{t('this_month')})",Time.now.to_i],
-        [1.month.from_now.strftime("%B"), 1.month.from_now.to_i],
-        [2.months.from_now.strftime("%B"), 2.months.from_now.to_i]
+        ["#{Date.today.strftime("%B")}",Time.now.to_date.beginning_of_month],
+        [1.month.from_now.strftime("%B"), 1.month.from_now.to_date.beginning_of_month],
+        [2.months.from_now.strftime("%B"), 2.months.from_now.to_date.beginning_of_month]
         ])
   end
   

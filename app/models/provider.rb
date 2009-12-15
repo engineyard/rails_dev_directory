@@ -115,6 +115,13 @@ class Provider < ActiveRecord::Base
         conditions << max.to_i
       end
     end
+    
+    if params[:availability].not.blank?
+      month = Date.parse(params[:availability])
+      conditions[0] << " and (select count(*) from bookings where provider_id = providers.id and DATE_FORMAT(date, '%m') = ?) != ?"
+      conditions << month.strftime("%m").to_i
+      conditions << month.end_of_month.day
+    end
 
     if params[:service_ids].not.blank? and params[:service_ids].is_a?(Array)
       conditions[0] << " and (select count(*) from provided_services where provider_id = providers.id and service_id IN (?)) = #{params[:service_ids].size}"

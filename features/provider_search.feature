@@ -94,3 +94,15 @@ Feature: Provider directory
     When I select "<10 Hours/Week" from "Hours Per Week"
       And I press "Update"
     Then I should not see "Paul Campbell"
+
+  Scenario: Searching by availability
+    Given the date is "15 December 2009"
+      And I am on the homepage
+      And provider "Paul Campbell" is booked up for "December 2009"
+    When I am on the homepage
+      And I select "December" from "Availability"
+      And I press "Find a freelance developer"
+    Then I should not see "Paul Campbell"
+    When I select "January" from "Availability"
+      And I press "Update"
+    Then I should see "Paul Campbell"

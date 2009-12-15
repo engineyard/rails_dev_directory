@@ -105,6 +105,18 @@ describe Provider do
         Provider.search({:hours => "0-10"})
       end
     end
+    
+    context "availability" do
+      it "should search on availability" do
+        Provider.should_receive(:all).with(
+          :joins => nil,
+          :group => nil,
+          :conditions => ["aasm_state != 'flagged' and (select count(*) from bookings where provider_id = providers.id and DATE_FORMAT(date, '%m') = ?) != ?", 12, 31],
+          :order=>"aasm_state asc, if(endorsements_count >= 3,endorsements_count,0) desc, RAND()",
+          :limit=>10)
+        Provider.search({:availability => "2009-12-01"})
+      end
+    end
   end
     
   describe "default tech types" do
