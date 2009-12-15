@@ -109,6 +109,14 @@ h3 {
 .header h1 {
   padding: 9px 0 0;
 }
+.header h1 sup {
+  line-height: 0;
+  font-size: 10px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  margin-left: 2px;
+  color: #DDD;
+}
 .header h1 img {
   margin: 0 0 5px;
 }

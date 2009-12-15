@@ -3,9 +3,9 @@
 
 en:
   general:
-    site_title: RailsDevelopers.com
-    site_title_logo: RailsDevelopers.com
-    site_title_admin: RailsDevelopers.com Admin
+    site_title: Rails Freelance Directory Beta
+    site_title_logo: Rails Freelance Directory<sup>BETA</sup>
+    site_title_admin: Rails Freelance Directory<sup>BETA</sup> Admin
     "yes": "Yes"
     "no": "No"
     access_denied: You don't have permission to do that
