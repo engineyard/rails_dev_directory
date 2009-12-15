@@ -930,6 +930,7 @@ textarea#code_sample_code {
   margin-top: 3em;
 }
 .formactions {
+  clear: both;
   text-align: center;
 }
 .formactions input, .formactions a {
@@ -1211,7 +1212,7 @@ hr {
 
 .notice, .error {
   margin: -10px -50px -1px;
-  padding: 15px 30px;
+  padding: 10px 30px;
   border: 1px solid #E4E4E4;
 }
 
@@ -1239,18 +1240,58 @@ hr {
 div#sorting-endorsements { /*display:none;*/ }
 div#sorting-endorsements ul li strong { cursor: move; }
 
-/* Paul Makes a questionable stab at the calendar */
-/*div.padding { width: 14%; float: left;}
-div.month { float: left; width: 33%;}
-div.days {  }
-div.day, div.day label { width: 14%; float: left; cursor: pointer; }
-div.day:hover { background-color: pink; }
-div.day.checked { background-color: red; }
-div.day.checked label { color: white; }
-div.days input, div.days label { float: left; clear: none;}
-*/
-.month { width: 247px; height: 250px; margin-bottom: 60px; float: left; margin-right: -1px;}
+/* Availability Calendar */
+.calendar h3, .calendar h4 {
+  font-size: 0.75em;
+  text-transform: uppercase;
+  border-bottom: none;
+  margin-top: 30px;
+  margin-bottom: 0;
+}
+.calendar h4 {
+  border-bottom: 1px solid #CACACA;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+}
+.calendar .formactions {
+  border-top: 1px solid #CACACA;
+}
+.halfColumn label {
+  clear: none;
+  float: left;
+  margin: 10px 0;
+  font-size: 0.9em;
+  min-width: 165px;
+}
+.halfColumn input, .halfColumn select {
+  width: 160px;
+  margin-top: 8px;
+}
+.month, .days {
+  width: 294px;
+}
+.month {
+  float: left; 
+  margin-right: -1px;
+  background: #EDEDED url(/images/bg-blankday.png);
+  border-bottom: 1px solid #DEDEDE;
+  border-right: 1px solid #DEDEDE;
+}
+.month h4 {
+  display: block;
+  background: #F5FAFF;
+  margin: 0 -1px 0 0;
+  padding: 8px 20px;
+  font-size: 0.75em;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  border: 1px solid #DEDEDE;
+  margin-bottom: -1px;
+  color: #369;
+}
 .days label {
+  font-size: 0.95em;
+  color: #666;
   display: block;
   float: none;
   margin: 0;
@@ -1259,26 +1300,28 @@ div.days input, div.days label { float: left; clear: none;}
   padding: 11px 0 12px;
 }
 .days input, .days label.hidden { display: none; }
-.days { width: 247px; height: 247px; background: #EDEDED;}
 .day, .padding {
   display: block;
   float: left;
-  width: 40px;
-  height: 40px;
+  width: 41px;
+  height: 41px;
   margin-right: -1px;
   margin-bottom: -1px;
   border: 1px solid #DEDEDE;
   overflow: hidden;
   background: #FFF;
 }
-.day:hover {
+.padding {
+  background: none;
+}
+.day:hover, .day.checked {
   border-color: #F99;
   position: relative;
   z-index: 10;
 }
-.padding {
-  background: #EDEDED;
-}
 .checked label, .checked label:hover {
-  background: #FCC
+  background: #FCC;
+}
+.day.checked {
+  border-color: #E5B2B2;
 }

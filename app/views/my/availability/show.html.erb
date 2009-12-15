@@ -32,32 +32,39 @@
         <%- end -%>
 
     <%- end -%>
-  
-    <%= f.label :min_hours, t('minimum_hours_per_week') %>
-    <%= f.select :min_hours, options_for_select([
-        ["1 #{t('hour_per_week')}", 1],
-        ["4 #{t('hours')}", 4],
-        ["8 #{t('hours')}", 8],
-        ["16 #{t('hours')}", 16],
-        ["24 #{t('hours')}", 24],
-        ["32 #{t('hours')}", 32],
-        ["40 #{t('hours')}", 40]
-      ]) %> <br />
     
-    <%= f.label :max_hours, t('maximum_hours_per_week') %>
-    <%= f.select :max_hours, options_for_select([
-        ["4 #{t('hours')}", 4],
-        ["8 #{t('hours')}", 8],
-        ["16 #{t('hours')}", 16],
-        ["24 #{t('hours')}", 24],
-        ["32 #{t('hours')}", 32],
-        ["40 #{t('hours')}", 40]
-      ]) %> <br />
+    <div class="halfColumn">
+      <h4><%= t('availability_by_hours') %></h4>
+      <%= f.label :min_hours, t('minimum_hours_per_week') %>
+      <%= f.select :min_hours, options_for_select([
+          ["1 #{t('hour_per_week')}", 1],
+          ["4 #{t('hours')}", 4],
+          ["8 #{t('hours')}", 8],
+          ["16 #{t('hours')}", 16],
+          ["24 #{t('hours')}", 24],
+          ["32 #{t('hours')}", 32],
+          ["40 #{t('hours')}", 40]
+        ]) %> <br />
     
-    <%= f.label :min_project_length, t('minimum_project_length') %> <%= f.text_field :min_project_length %> <br />
-    <%= f.label :max_project_length, t('maximum_project_length') %> <%= f.text_field :max_project_length %> <br />
+      <%= f.label :max_hours, t('maximum_hours_per_week') %>
+      <%= f.select :max_hours, options_for_select([
+          ["4 #{t('hours')}", 4],
+          ["8 #{t('hours')}", 8],
+          ["16 #{t('hours')}", 16],
+          ["24 #{t('hours')}", 24],
+          ["32 #{t('hours')}", 32],
+          ["40 #{t('hours')}", 40]
+        ]) %>
+    </div>
+    <div class="halfColumn">
+      <h4><%= t('availability_by_project_size') %></h4>
+      <%= f.label :min_project_length, t('minimum_project_length') %> <%= f.text_field :min_project_length %> <br />
+      <%= f.label :max_project_length, t('maximum_project_length') %> <%= f.text_field :max_project_length %>
+    </div>
   
-    <%= f.submit t('save_changes') %>
-
+    <div class="formactions">
+      <%= f.submit t('save_changes') %>
+    </div>
+  
   <%- end -%>
 </div>

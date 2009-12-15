@@ -7,6 +7,8 @@ en:
   any: Any
   anywhere: Anywhere
   availability: Availability
+  availability_by_hours: General availability by hours per week
+  availability_by_project_size: General availability by project size
   avg_score: AVG. SCORE
 
   booked: Booked
@@ -25,6 +27,7 @@ en:
   contact_a_developer_introduction: "You're sending a note to this developer about your project:"
   contact_developer: Contact Developer
   
+  edit_your_profile: Edit Your Profile
   experience: Experience
   
   filter_by_project_requirements: Filter by Project Requirements
@@ -52,7 +55,7 @@ en:
   maximum_hours_per_week: Maximum Hours Per Week
   minimum_project_length: Minimum Hours in Project
   maximum_project_length: Maximum Hours in Project
-  my_upcoming_availability: My Upcoming Availability
+  my_upcoming_availability: My Upcoming Availability &mdash; 3 month view
 
   name_and_location: Name and Location
   name_your_sample_code: Name your sample code
