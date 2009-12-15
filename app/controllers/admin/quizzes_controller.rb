@@ -29,7 +29,7 @@ class Admin::QuizzesController < ApplicationController
     @quiz = Quiz.find(params[:id])
     if @quiz.update_attributes(params[:quiz])
       flash[:notice] = t('quiz.saved_successfully')
-      redirect_to admin_quizzes_path
+      redirect_to edit_admin_quiz_path(@quiz)
     else
       render :edit
     end

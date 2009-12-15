@@ -1,4 +1,4 @@
-<% form_for [:admin, @quiz] do |f| -%>
+<% form_for [:admin, setup_quiz(@quiz)] do |f| -%>
   
   <%= f.error_messages %>
 
@@ -6,6 +6,18 @@
     <%= f.label :name, t("quiz.name") %>
     <%= f.text_field :name %> <br />
   </fieldset>
+  
+  <h2><%= t('questions') %></h2>
+    <%- n = 0; f.fields_for :questions do |q| n = n.next -%>
+      <%= q.label :text, "Question #{n}" %> <%= q.text_field :text %> <br />
+      <%= q.label :correct_answer_id %> <%= q.select :correct_answer_id, q.object.answers.collect { |a| [a.text, a.id] } %> <br />
+      <h3><%= t('answers') %></h3>
+      <%- n1 = 0; q.fields_for :answers do |a| n1 = n1.next -%>
+        <%= a.label :text, "Answer #{n1}" %> <%= a.text_field :text %> <br />
+      <%- end -%>
+    <%- end -%>
+  
+  
 
   <%= f.submit t('forms.save') %> <%= t('forms.or') %> <%= link_to t('forms.cancel'), admin_quizzes_path %>
 <% end -%>

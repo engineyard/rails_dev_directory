@@ -4,6 +4,8 @@ en:
   accepts_as_payment: "Accepts <strong>PayPal, Credit Cards</strong> as payment"
   account: Account
   account_information: Account Information
+  answer: Answer
+  answers: Answers
   any: Any
   anywhere: Anywhere
   availability: Availability
@@ -84,6 +86,8 @@ en:
   update: Update
   upload_your_code: Upload Your Code
   upload_a_code_sample: Upload a Code Sample
+  
+  questions: Questions
   
   tell_us_about_your_business: Tell us about your business
   test_code: Test Code
