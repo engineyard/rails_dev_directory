@@ -88,7 +88,7 @@
     <% unless logged_in? and current_user.can_edit?(@provider) %>
       <ul class="links">
         <li class="request"><%= link_to 'Save As Favorite', '', :class=>'button' %></li>
-        <li class="request"><%= link_to t('provider.request_rfp'), new_rfp_path(:provider_id => @provider.id), :onClick=>"pageTracker._trackEvent('Request', 'Create Proposal', 'Profile');", :class=>'button' %></li>
+        <li class="request"><%= link_to t('contact_developer'), new_rfp_path(:provider_id => @provider.id), :onClick=>"pageTracker._trackEvent('Request', 'Create Proposal', 'Profile');", :class=>'button' %></li>
       </ul>
     <%- end -%>
       
@@ -109,7 +109,7 @@
     </table>
     
     <h3><%= t('code_samples') %></h3>
-    <div class="widget">
+    <div class="widget codesamples">
       <p><%= t('code_sample_label') %></p>
       <p class="score"><strong>80</strong>/100 <span class="label"><%= t('avg_score') %></span></p>
       <div class="clear"></div>
@@ -154,6 +154,16 @@
       <% @provider.endorsements.recent.approved.each do |endorsement| %>
         <div>
           <blockquote>&#8220;<%= h endorsement.endorsement %>&#8221;</blockquote>
+          
+          <dl class="ratings">
+            <dt>Reliable</dt>
+            <dd><img src="/images/icon-ratestar-on.png" /><img src="/images/icon-ratestar-on.png" /><img src="/images/icon-ratestar-on.png" /><img src="/images/icon-ratestar-off.png" /><img src="/images/icon-ratestar-off.png" /></dd>
+            <dt>Experience</dt>
+            <dd><img src="/images/icon-ratestar-on.png" /><img src="/images/icon-ratestar-on.png" /><img src="/images/icon-ratestar-on.png" /><img src="/images/icon-ratestar-off.png" /><img src="/images/icon-ratestar-off.png" /></dd>
+            <dt>Professional</dt>
+            <dd><img src="/images/icon-ratestar-on.png" /><img src="/images/icon-ratestar-on.png" /><img src="/images/icon-ratestar-on.png" /><img src="/images/icon-ratestar-off.png" /><img src="/images/icon-ratestar-off.png" /></dd>
+          </dl>
+          
           <cite>
             <% # This part needs to get cleaned up %>
             <%=h endorsement.name %>, <%=h endorsement.position %>
@@ -161,12 +171,13 @@
             <%= t('endorsement.hired') %> <%=h @provider.company_name %>
             <%= t('endorsement.in') %> <%=h endorsement.year_hired %>
           </cite>
+          
           <%= link_to t('provider.request_a_reference'),
                       new_endorsement_reference_request_path(endorsement) %>
         </div>
       <%- end -%> 
     <%- end -%>
-  
+    
     <%- if @provider.endorsements.approved.count > 3 -%>
       <%= link_to t('provider.more_endorsements'), provider_endorsements_path(@provider), :id => 'more-endorsements' %>
       | 

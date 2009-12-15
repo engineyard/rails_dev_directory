@@ -9,7 +9,7 @@ en:
     "yes": "Yes"
     "no": "No"
     access_denied: You don't have permission to do that
-    copyright: 'Created by <a href="http://www.engineyard.com"><img src="/images/logo-ey-horiz.png" alt="Engine Yard, Ruby on Rails Hosting" /></a>. Runs on <a href="http://www.engineyard.com/products/cloud">Engine Yard Cloud</a>.'
+    copyright: 'Created by <a href="http://www.engineyard.com" class="engineyard">Engine Yard, Ruby on Rails Hosting</a>. Runs on <a href="http://www.engineyard.com/products/cloud">Engine Yard Cloud</a>.'
     contact_us: 'Contact Us'
     terms: 'Terms and Conditions'
     
@@ -416,7 +416,11 @@ en:
     download_txt: Download as Text
     
     delete_note: "It’s bad form to delete a valid request for a proposal without first responding and letting the project owner know that you’re not interested in, or unavaible to take on, the project. However, if you get a request that is clearly spam, or if you’ve already responded and want to clear the request from your view, you can delete the request:"
-    
+  
+  rfps:
+    new:
+      description: "You're sending a note to this developer about your project:"
+
   service:
     add_new: Add a new Service
     edit: Edit Service

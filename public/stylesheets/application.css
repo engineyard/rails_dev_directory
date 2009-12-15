@@ -162,13 +162,16 @@ li.username {
   color: #FFF;
 }
 .subnav a {
-  color: #333;
+  color: #636363;
   border: none;
-  padding: 5px 10px;
+  padding: 5px 15px;
   -moz-border-radius: 1em;
   -webkit-border-radius: 1em;
 }
 .subnav a:hover {
+  color: #000;
+}
+.subnav li.active a {
   color: #000;
 }
 .navigation ul {
@@ -278,18 +281,16 @@ li.username {
   display: inline;
 }
 .provider.search p, .provider.search ul, .provider.search li {
-  margin-left: 0;
-  margin-bottom: 0.2em;
-}
-.provider.search ul {
+  padding-top: 5px;
+  margin: 0;
 }
 .provider.search li {
   display: block;
   margin-right: 2%;
   min-height: 20px;
-  white-space: nowrap;
 }
 li .check {
+  float: left;
   position: relative;
   top: -2px;
   margin: 0 0.3em -5px 0;
@@ -299,7 +300,10 @@ li .check {
 }
 .provider.search li label {
   color: #666;
+  float: left;
+  max-width: 160px;
 }
+
 .provider.search input[type="submit"] {
   font-size: 1.2em;
   font-weight: normal;
@@ -327,7 +331,7 @@ li .check {
 }
 .provider.search form td {
   border: none;
-  padding: 0 0 20px 10px;
+  padding: 0 0 20px 20px;
 }
 .provider.search form td:first-child {
   padding-left: 0;
@@ -354,6 +358,8 @@ li .check {
 }
 .panel #search-form label {
   margin-top: 0;
+  font-size: 0.9em;
+  color: #333;
 }
 .panel #search-form fieldset {
   font-size: 1em;
@@ -687,9 +693,15 @@ ul.testList li {
 .footer .attribution {
   float: right;
 }
-.footer .attribution img {
-  float: none;
-  margin: -1em 0 -0.7em;
+.footer .attribution .engineyard {
+  display: inline-block;
+  overflow: hidden;
+  text-indent: -1000px;
+  width: 98px;
+  height: 30px;
+  margin: -10px 0;
+  background: url(/images/sprite-graphics.png) no-repeat 0 -1025px;
+  border-bottom: none;
 }
 .footer .attribution a {
   color: #91020C;
@@ -706,6 +718,7 @@ thead th {
   text-transform: uppercase;
   border-bottom: 1px solid #9B9B9B;
   padding: 0 0 8px;
+  color: #666;
 }
 tbody th {
   background: #F5FAFF none;
@@ -740,6 +753,7 @@ td {
 .listTable a.favorite {
   font-size: 1em;
   float: right;
+  color: #666;
 }
 .listTable td:first-child {
   width: 40px;
@@ -784,6 +798,26 @@ td input, td input[type="checkbox"] {
   padding-left: 0;
 }
 
+.sidebar cite {
+  padding-left: 0;
+  padding-right: 0;
+}
+.ratings {
+  min-height: 60px;
+}
+.ratings dt, .ratings dd {
+  margin: 0;
+  padding: 0;
+  display: block;
+  float: left;
+  height: 20px;
+}
+.ratings dt {
+  font-size: 0.9em;
+  clear: left;
+  width: 80px;
+}
+
 /* Form Wizard */
 .wizard {
   text-align: center;
@@ -810,6 +844,12 @@ td input, td input[type="checkbox"] {
 }
 
 /* Form Styles */
+fieldset {
+  border-bottom: none;
+}
+fieldset.terms {
+  border-top: 1px solid #CACACA;
+}
 input[type="submit"] {
   font-size: 1em;
   font-weight: normal;
@@ -832,14 +872,26 @@ input[type="submit"].callout {
 input[type="submit"]:hover, button:hover {
   cursor: pointer;
 }
+form h3 {
+  margin-bottom: 10px;
+}
 form p {
   margin-top: 1em;
   margin-bottom: 1em;
 }
+form table {
+  display: block;
+  margin-top: 10px;
+}
 form table, form table td {
   border-bottom: none;
-  margin: 0;
+  margin: 0 0 10px;
   padding: 0;
+  font-size: 1em;
+}
+form table input {
+  margin-top: 5px;
+  margin-right: 1em;
 }
 textarea { 
   width: 30em;
@@ -876,6 +928,31 @@ textarea#code_sample_code {
 }
 .info p + p {
   margin-top: 3em;
+}
+.formactions {
+  text-align: center;
+}
+.formactions input, .formactions a {
+  text-align: center;
+  background: url(/images/sprite-layout.png) repeat-x 0 -308px;
+  border: 1px solid #666;
+  width: 150px;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  color: #333;
+  
+  display: inline-block;
+  width: 160px;
+  padding: 5px 0;
+  margin: 20px 0 0;
+}
+.formactions input[type="submit"] {
+  background: url(/images/sprite-layout.png) repeat-x 0 -340px;
+  position: relative;
+  top: -1px;
+  padding-bottom: 6px;
+  margin-right: 1em;
 }
 
 /* Homepage Form */
@@ -1106,6 +1183,30 @@ hr {
 }
 .payment {
   background:  url(/images/sprite-graphics.png) no-repeat 0 -494px;
+}
+.currentDev {
+  border: 1px solid #D7DCE1;
+  background: #F5FAFF;
+  padding: 14px;
+  margin: 20px 0;
+  height: 40px;
+  color: #666;
+  
+  width: 300px;
+}
+.currentDev img {
+  height: 40px;
+  width: 40px;
+  float: left;
+  margin-right: 14px;
+}
+.currentDev h4 {
+  margin-top: 4px;
+  color: #333;
+}
+.currentDev p {
+  font-size: 0.9em;
+  margin: 0;
 }
 
 .notice, .error {
