@@ -1,59 +1,63 @@
-<h2><%= t('availability') %></h2>
+<div class="dashboard">
+  <div class="pageHead">
+    <h2><%= t('availability') %></h2>
+  </div>
 
-<% form_for [:my, setup_availability(current_user.provider)], :url => my_availability_path, :html => {:class => 'availability'} do |f| -%>
+  <% form_for [:my, setup_availability(current_user.provider)], :url => my_availability_path, :html => {:class => 'calendar'} do |f| -%>
+  <h3><%= t('my_upcoming_availability') %></h3>
 
-
-  <%- months = []; f.fields_for(:bookings, current_user.provider.bookings.sort_by { |b| b.date }) do |bookings_form| -%>
+    <%- months = []; f.fields_for(:bookings, current_user.provider.bookings.sort_by { |b| b.date }) do |bookings_form| -%>
       
-      <%- month = bookings_form.object.date.strftime("%B") -%>
-      <%= "<div class=\"month\"><h3>#{month}</h3>" if months.not.include?(month) %>
-      <%- months << bookings_form.object.date.strftime("%B") -%>
+        <%- month = bookings_form.object.date.strftime("%B") -%>
+        <%= "<div class=\"month\"><h4>#{month}</h4>" if months.not.include?(month) %>
+        <%- months << bookings_form.object.date.strftime("%B") -%>
       
-      <%- if bookings_form.object.date == bookings_form.object.date.beginning_of_month -%>
-        <div class="days">
-          <%= '<div class="padding">&nbsp;</div>' * bookings_form.object.date.strftime("%w").to_i %>
-      <%- end -%>
+        <%- if bookings_form.object.date == bookings_form.object.date.beginning_of_month -%>
+          <div class="days">
+            <%= '<div class="padding">&nbsp;</div>' * bookings_form.object.date.strftime("%w").to_i %>
+        <%- end -%>
       
-        <div class="day <%= 'checked' if bookings_form.object.not.new_record? %>">
-          <%= bookings_form.check_box "_delete",{
-              :checked => bookings_form.object.not.new_record? 
-                }, 0, 1 %>
-          <%= bookings_form.hidden_field :date %>
-          <%= bookings_form.label "_delete", bookings_form.object.date.day %>
-          <%= bookings_form.label "_delete", bookings_form.object.date, :class => "hidden" %>
+          <div class="day <%= 'checked' if bookings_form.object.not.new_record? %>">
+            <%= bookings_form.check_box "_delete",{
+                :checked => bookings_form.object.not.new_record? 
+                  }, 0, 1 %>
+            <%= bookings_form.hidden_field :date %>
+            <%= bookings_form.label "_delete", bookings_form.object.date.day %>
+            <%= bookings_form.label "_delete", bookings_form.object.date, :class => "hidden" %>
+          </div>
+      
+        <%- if bookings_form.object.date == bookings_form.object.date.end_of_month -%>
+          </div>
         </div>
-      
-      <%- if bookings_form.object.date == bookings_form.object.date.end_of_month -%>
-        </div>
-      </div>
-      <%- end -%>
+        <%- end -%>
+
+    <%- end -%>
+  
+    <%= f.label :min_hours, t('minimum_hours_per_week') %>
+    <%= f.select :min_hours, options_for_select([
+        ["1 #{t('hour_per_week')}", 1],
+        ["4 #{t('hours')}", 4],
+        ["8 #{t('hours')}", 8],
+        ["16 #{t('hours')}", 16],
+        ["24 #{t('hours')}", 24],
+        ["32 #{t('hours')}", 32],
+        ["40 #{t('hours')}", 40]
+      ]) %> <br />
+    
+    <%= f.label :max_hours, t('maximum_hours_per_week') %>
+    <%= f.select :max_hours, options_for_select([
+        ["4 #{t('hours')}", 4],
+        ["8 #{t('hours')}", 8],
+        ["16 #{t('hours')}", 16],
+        ["24 #{t('hours')}", 24],
+        ["32 #{t('hours')}", 32],
+        ["40 #{t('hours')}", 40]
+      ]) %> <br />
+    
+    <%= f.label :min_project_length, t('minimum_project_length') %> <%= f.text_field :min_project_length %> <br />
+    <%= f.label :max_project_length, t('maximum_project_length') %> <%= f.text_field :max_project_length %> <br />
+  
+    <%= f.submit t('save_changes') %>
 
   <%- end -%>
-  
-  <%= f.label :min_hours, t('minimum_hours_per_week') %>
-  <%= f.select :min_hours, options_for_select([
-      ["1 #{t('hour_per_week')}", 1],
-      ["4 #{t('hours')}", 4],
-      ["8 #{t('hours')}", 8],
-      ["16 #{t('hours')}", 16],
-      ["24 #{t('hours')}", 24],
-      ["32 #{t('hours')}", 32],
-      ["40 #{t('hours')}", 40]
-    ]) %> <br />
-    
-  <%= f.label :max_hours, t('maximum_hours_per_week') %>
-  <%= f.select :max_hours, options_for_select([
-      ["4 #{t('hours')}", 4],
-      ["8 #{t('hours')}", 8],
-      ["16 #{t('hours')}", 16],
-      ["24 #{t('hours')}", 24],
-      ["32 #{t('hours')}", 32],
-      ["40 #{t('hours')}", 40]
-    ]) %> <br />
-    
-  <%= f.label :min_project_length, t('minimum_project_length') %> <%= f.text_field :min_project_length %> <br />
-  <%= f.label :max_project_length, t('maximum_project_length') %> <%= f.text_field :max_project_length %> <br />
-  
-  <%= f.submit t('save_changes') %>
-
-<%- end -%>
+</div>

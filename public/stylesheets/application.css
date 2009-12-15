@@ -1240,7 +1240,7 @@ div#sorting-endorsements { /*display:none;*/ }
 div#sorting-endorsements ul li strong { cursor: move; }
 
 /* Paul Makes a questionable stab at the calendar */
-div.padding { width: 14%; float: left;}
+/*div.padding { width: 14%; float: left;}
 div.month { float: left; width: 33%;}
 div.days {  }
 div.day, div.day label { width: 14%; float: left; cursor: pointer; }
@@ -1248,4 +1248,37 @@ div.day:hover { background-color: pink; }
 div.day.checked { background-color: red; }
 div.day.checked label { color: white; }
 div.days input, div.days label { float: left; clear: none;}
-div.days input { display: none; }
+*/
+.month { width: 247px; height: 250px; margin-bottom: 60px; float: left; margin-right: -1px;}
+.days label {
+  display: block;
+  float: none;
+  margin: 0;
+  text-align: center;
+  cursor: pointer;
+  padding: 11px 0 12px;
+}
+.days input, .days label.hidden { display: none; }
+.days { width: 247px; height: 247px; background: #EDEDED;}
+.day, .padding {
+  display: block;
+  float: left;
+  width: 40px;
+  height: 40px;
+  margin-right: -1px;
+  margin-bottom: -1px;
+  border: 1px solid #DEDEDE;
+  overflow: hidden;
+  background: #FFF;
+}
+.day:hover {
+  border-color: #F99;
+  position: relative;
+  z-index: 10;
+}
+.padding {
+  background: #EDEDED;
+}
+.checked label, .checked label:hover {
+  background: #FCC
+}
