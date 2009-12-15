@@ -70,7 +70,7 @@ Feature: Provider directory
       And I should not see "Hyper Tiny"
       
   Scenario: Searching by project length
-    Given provider "Paul Campbell" is available for projects "4-8 Weeks" in length
+    Given provider "Paul Campbell" is available for projects between "4" and "8" weeks in length
     
     When I am on the homepage
       And I select "4-8 Weeks" from "Project Length"

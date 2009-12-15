@@ -1137,3 +1137,9 @@ hr {
 /* Sorting Endorsements */
 div#sorting-endorsements { /*display:none;*/ }
 div#sorting-endorsements ul li strong { cursor: move; }
+
+div.padding { width: 14%; float: left;}
+div.month { float: left; width: 33%;}
+div.days {  }
+div.day { width: 14%; float: left;}
+div.days input, div.days label { float: left; clear: none;}

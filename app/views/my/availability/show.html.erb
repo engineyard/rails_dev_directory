@@ -3,14 +3,30 @@
 <% form_for [:my, setup_availability(current_user.provider)], :url => my_availability_path, :html => {:class => 'availability'} do |f| -%>
 
 
-  <%- f.fields_for(:bookings, current_user.provider.bookings.sort_by { |b| b.date }) do |bookings_form| -%>
-
-      <%= bookings_form.check_box "_delete",{
-          :checked => bookings_form.object.not.new_record? 
-            }, 0, 1 %>
-      <%= bookings_form.hidden_field :date %>
-      <%= bookings_form.label "_delete", bookings_form.object.date.day %>
-      <%= bookings_form.label "_delete", bookings_form.object.date, :class => "hidden" %>
+  <%- months = []; f.fields_for(:bookings, current_user.provider.bookings.sort_by { |b| b.date }) do |bookings_form| -%>
+      
+      <%- month = bookings_form.object.date.strftime("%B") -%>
+      <%= "<div class=\"month\"><h3>#{month}</h3>" if months.not.include?(month) %>
+      <%- months << bookings_form.object.date.strftime("%B") -%>
+      
+      <%- if bookings_form.object.date == bookings_form.object.date.beginning_of_month -%>
+        <div class="days">
+          <%= '<div class="padding">&nbsp;</div>' * bookings_form.object.date.strftime("%w").to_i %>
+      <%- end -%>
+      
+        <div class="day">
+          <%= bookings_form.check_box "_delete",{
+              :checked => bookings_form.object.not.new_record? 
+                }, 0, 1 %>
+          <%= bookings_form.hidden_field :date %>
+          <%= bookings_form.label "_delete", bookings_form.object.date.day %>
+          <%= bookings_form.label "_delete", bookings_form.object.date, :class => "hidden" %>
+        </div>
+      
+      <%- if bookings_form.object.date == bookings_form.object.date.end_of_month -%>
+        </div>
+      </div>
+      <%- end -%>
 
   <%- end -%>
   
