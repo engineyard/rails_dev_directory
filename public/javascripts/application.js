@@ -130,6 +130,21 @@ $(document).ready(function(){
     })
   })
   
+  $('div.day').click(function(){
+    checkbox = $(this).find('input')
+    if(checkbox.is(':checked'))
+    {
+      checkbox.attr('checked', false)
+      $(this).removeClass('checked')
+    }
+    else
+    {
+      checkbox.attr('checked', true)
+      $(this).addClass('checked')
+    }
+    return false
+  })
+  
 })
 
 var RecaptchaOptions = {

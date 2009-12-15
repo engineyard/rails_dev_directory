@@ -1142,5 +1142,9 @@ div#sorting-endorsements ul li strong { cursor: move; }
 div.padding { width: 14%; float: left;}
 div.month { float: left; width: 33%;}
 div.days {  }
-div.day { width: 14%; float: left;}
+div.day { width: 14%; float: left; cursor: pointer; }
+div.day:hover { background-color: pink; }
+div.day.checked { background-color: red; }
+div.day.checked label { color: white; }
 div.days input, div.days label { float: left; clear: none;}
+div.days input { display: none; }

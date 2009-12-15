@@ -14,7 +14,7 @@
           <%= '<div class="padding">&nbsp;</div>' * bookings_form.object.date.strftime("%w").to_i %>
       <%- end -%>
       
-        <div class="day">
+        <div class="day <%= 'checked' if bookings_form.object.not.new_record? %>">
           <%= bookings_form.check_box "_delete",{
               :checked => bookings_form.object.not.new_record? 
                 }, 0, 1 %>
