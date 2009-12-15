@@ -1,7 +1,5 @@
 en:
   
-  
-  
   accepts_as_payment: "Accepts <strong>PayPal, Credit Cards</strong> as payment"
   account: Account
   account_information: Account Information
@@ -52,6 +50,7 @@ en:
   maximum_hours_per_week: Maximum Hours Per Week
   minimum_project_length: Minimum Hours in Project
   maximum_project_length: Maximum Hours in Project
+  my_upcoming_availability: My Upcoming Availability
 
   name_and_location: Name and Location
   name_your_sample_code: Name your sample code
