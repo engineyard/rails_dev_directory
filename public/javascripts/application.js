@@ -129,6 +129,7 @@ $(document).ready(function(){
       }
     })
   })
+  
 })
 
 var RecaptchaOptions = {

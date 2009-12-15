@@ -1,5 +1,7 @@
 en:
   
+  
+  
   accepts_as_payment: "Accepts <strong>PayPal, Credit Cards</strong> as payment"
   account_information: Account Information
   any: Any
@@ -26,6 +28,7 @@ en:
   
   hourly_rate: Hourly Rate
   hours: Hours/Week
+  hour_per_week: Hour/Week
   hours_per_week: Hours Per Week
   
   info_account: First we need to get your account contact information.
@@ -37,6 +40,11 @@ en:
   
   located_in: Located in
   location: Location
+
+  minimum_hours_per_week: Minimum Hours Per Week
+  maximum_hours_per_week: Maximum Hours Per Week
+  minimum_project_length: Minimum Hours in Project
+  maximum_project_length: Maximum Hours in Project
 
   name_and_location: Name and Location
   name_your_sample_code: Name your sample code
@@ -55,6 +63,7 @@ en:
   review_code: Review Code
   review_your_code: Review Your Code
   
+  save_changes: Save Changes
   score: Score
   show_more_results: Show 20 More Results
   speaks: Speaks

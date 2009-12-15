@@ -36,16 +36,19 @@ ActionController::Routing::Routes.draw do |map|
   map.namespace :my do |me|
     me.resource :dashboard, :controller => 'dashboard'
     me.resource :provider, :as => :developer
+    me.resource :user
+    me.resource :availability, :controller => 'availability'
+
     me.resources :portfolio_items
     me.resources :endorsement_requests
-    me.resource :user
-    me.account 'account', :controller => 'users', :action => 'edit'
     me.resources :endorsements, :collection => {:sort => :put, :update_all => :put}
     me.resources :feedbacks, :only => [:edit, :update]
     me.resources :requests
     me.resources :quiz_results
     me.resources :quiz_result_answers, :as => :answers
     me.resources :code_samples, :member => {:review => :get, :analyze => [:get, :put]}
+    
+    me.account 'account', :controller => 'users', :action => 'edit'
   end
   
   # Admin routes

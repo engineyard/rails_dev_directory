@@ -1,0 +1,9 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  provider_id: 1
+  date: 2009-12-14
+
+two:
+  provider_id: 1
+  date: 2009-12-14

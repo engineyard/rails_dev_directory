@@ -93,3 +93,5 @@ CodeSample.blueprint do
   name
   code "class Woo; end"
 end
+
+Booking.blueprint {}

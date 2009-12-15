@@ -67,7 +67,7 @@
                 <%= link_to t('contacts'), my_requests_path %>
               </li>
               <li <%= 'class="active"' if controller_name == 'availability' %>>
-                <%= t('availability') %>
+                <%= link_to t('availability'), my_availability_path %>
               </li>
               <li <%= 'class="active"' if controller_name == 'quiz_results' %>>
                 <%= link_to t('quizzes'), new_my_quiz_result_path %>

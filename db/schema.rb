@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20091211190326) do
+ActiveRecord::Schema.define(:version => 20091214231918) do
 
   create_table "answers", :force => true do |t|
     t.integer  "question_id"
@@ -41,6 +41,13 @@ ActiveRecord::Schema.define(:version => 20091211190326) do
   end
 
   add_index "behavior_configs", ["key"], :name => "index_behavior_configs_on_key"
+
+  create_table "bookings", :force => true do |t|
+    t.integer  "provider_id"
+    t.date     "date"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "code_samples", :force => true do |t|
     t.string   "name"
@@ -161,7 +168,8 @@ ActiveRecord::Schema.define(:version => 20091211190326) do
     t.integer  "endorsements_count",                                    :default => 0
     t.integer  "min_hours"
     t.integer  "max_hours"
-    t.integer  "project_length"
+    t.integer  "min_project_length"
+    t.integer  "max_project_length"
   end
 
   add_index "providers", ["slug"], :name => "index_providers_on_slug"
