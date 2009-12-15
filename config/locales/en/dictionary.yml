@@ -9,11 +9,13 @@ en:
   any: Any
   anywhere: Anywhere
   availability: Availability
+  availability_by_hours: General availability by hours per week
+  availability_by_project_size: General availability by project size
   avg_score: AVG. SCORE
 
   booked: Booked
   business_address: Business Address
-  business_name: Business Name (DBA)
+  business_name: Business Name <em>(optional)</em>
   
   cancel: Cancel
   change_your_search_criteria: Change Your Search Criteria
@@ -26,7 +28,9 @@ en:
   contact_a_developer: Contact a Developer
   contact_a_developer_introduction: "You're sending a note to this developer about your project:"
   contact_developer: Contact Developer
+  create_a_rails_freelance_account: Create a Rails Freelance Account
   
+  edit_your_profile: Edit Your Profile
   experience: Experience
   
   filter_by_project_requirements: Filter by Project Requirements
@@ -55,7 +59,7 @@ en:
   minimum_hours_per_week: Minimum Hours Per Week
   minimum_project_length: Minimum Hours in Project
   minutes: Minutes
-  my_upcoming_availability: My Upcoming Availability
+  my_upcoming_availability: "My Upcoming Availability &mdash; 3 month view"
 
   name: Name
   name_and_location: Name and Location

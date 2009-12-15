@@ -3,9 +3,9 @@
 
 en:
   general:
-    site_title: Rails Freelancers Directory
-    site_title_logo: "Rails Freelancers Directory"
-    site_title_admin: Rails Development Directory Admin
+    site_title: Rails Freelance Directory Beta
+    site_title_logo: Rails Freelance Directory<sup>BETA</sup>
+    site_title_admin: Rails Freelance Directory<sup>BETA</sup> Admin
     "yes": "Yes"
     "no": "No"
     access_denied: You don't have permission to do that
@@ -72,7 +72,7 @@ en:
     change_password: Change Password
     dashboard:
       title: Admin Dashboard
-      welcome: This is the administrator section of the Rails Development Directory
+      welcome: This is the administrator section of the Rails Freelance Directory Beta
       total_providers: "Total number of freelancers: {{providers_size}}"
       active_providers: "active: {{active_providers_size}}"
       inactive_providers: "inactive: {{inactive_providers_size}}"
@@ -567,55 +567,55 @@ en:
       greeting: "Hi {{name}}"
       introduction: A new request has been submitted. Click below to view the request.
       thanks: Thanks.
-      signoff: The Rails Development Directory team
+      signoff: The Rails Freelance Directory team
 
     endorsement_request: 
       greeting: "Hi {{name}}"
       subject: "Can you endorse {{company_name}}?"
       instructions: "To write your endorsement, go to:"
-      appendage: This was sent from the Rails Development Directory.
+      appendage: This was sent from the Rails Freelance Directory.
 
     endorsement_notification:
       greeting: "Hi {{name}}"
-      subject: You've been endorsed in the Rails Development Directory
-      instructions: "{{name}} has endorsed you on the Rails Development Directory. To approve this endorsement, go to:"
-      appendage: This was sent from the Rails Development Directory
+      subject: You've been endorsed in the Rails Freelance Directory
+      instructions: "{{name}} has endorsed you on the Rails Freelance Directory. To approve this endorsement, go to:"
+      appendage: This was sent from the Rails Freelance Directory
 
     reference_request:
       subject: "Can you provide a reference for {{company_name}}?"
       lead_in: "{{name}} <{{email}}> has asked that you provide a reference for {{company_name}}:"
       instructions: "To provide a reference, go to:"
-      appendage: This was sent from the Rails Development Directory.
+      appendage: This was sent from the Rails Freelance Directory.
 
     reference:
       subject: "You've received a reference for {{company_name}}"
       lead_in: "{{name}} <{{email}}> has provided the following reference for {{company_name}}:"
-      appendage: This was sent from the Rails Development Directory.
+      appendage: This was sent from the Rails Freelance Directory.
 
     feedback_notification:
-      subject: You've received feedback in the Rails Development Directory
+      subject: You've received feedback in the Rails Freelance Directory
       instructions: "{{name}} from {{company}} has left feedback on the project {{project}}. To accept this feedback, go to:"
 
     user_welcome: 
-      subject: 'Welcome to the Rails Development Directory'
+      subject: 'Welcome to the Rails Freelance Directory'
       greeting: "Hi {{name}}"
-      message: You've been set up with an account on the Rails Development Directory
+      message: You've been set up with an account on the Rails Freelance Directory
       credentials: "You can get started by clicking the link below"
       email: "Email:"
       password: "You can get started using the link below"
       signoff: "Regards, The Engine Yard Team"
 
     provider_welcome: 
-      subject: 'Welcome to the Rails Development Directory'
+      subject: 'Welcome to the Rails Freelance Directory'
       greeting: Hi {{name}},
-      message: Thanks for signing up to the Rails Development Directory
+      message: Thanks for signing up to the Rails Freelance Directory
       credentials: "You can log in at {{url}} and your details are below"
       email: "Email:"
       password: "Password:"
       signoff: "Regards, The Engine Yard Team"
 
     password_reset: 
-      subject: 'Welcome to the Rails Development Directory'
+      subject: 'Welcome to the Rails Freelance Directory'
       greeting: Hi {{name}},
       instructions: You can reset your password using the link below
       signoff: "Regards, The Engine Yard Team"
@@ -672,7 +672,7 @@ en:
     accept: Accept
     reject: Decline
     validations:
-      prior_to_joining: "Feedback can only be accepted for projects completed after {{company}} joined the Rails Developer Directory"
+      prior_to_joining: "Feedback can only be accepted for projects completed after {{company}} joined the Rails Freelance Directory"
 
   reference_request:
     name: Name

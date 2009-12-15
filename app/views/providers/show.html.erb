@@ -11,7 +11,7 @@
     
       <% if logged_in? and current_user.can_edit?(@provider) %>
       <div class="pageHead userEdit">
-        <%= link_to t('company_profile.edit'), edit_my_provider_path, :class=>"button" %>
+        <%= link_to t('edit_your_profile'), edit_my_provider_path, :class=>"button" %>
         <h2 class="status">Your profile is <strong>50%</strong> complete</h2>
       </div>
       <%- end -%>
@@ -42,7 +42,7 @@
       <h3><%= t('provider.about') %></h3>
       <ul>
         <li class="language"><%= t('speaks') %> <strong>English</strong></li>
-        <li class="location"><%= t('willing_to_travel') %></li>
+        <!-- <li class="location"><%= t('willing_to_travel') %></li> -->
         <li class='payment'><%= t('accepts_as_payment') %></li>
       </ul>
     </div>

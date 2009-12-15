@@ -1,8 +1,8 @@
 <div class="dashboard">
-  
-<h2><%= t('company_profile.edit_headline') %></h2>
 
-<p class="description"><%= t('company_profile.edit_description') %></p>
+  <div class="pageHead">
+    <h2><%= t('edit_your_profile') %></h2>
+  </div>
 
   <% form_for @provider, :url => my_provider_path, :html => {:multipart => true} do |f| -%>
   
@@ -19,38 +19,44 @@
     <h3><%= t('provider.services') %></h3>
 
     <%- setup_services(@provider) -%>
+    <ul>
+    
     <%- @provider.provided_services.group_by(&:category).each do |category, services| -%>
-      <div class="service_category"><%= category.name %></div>
-      <ul>
-      <%- services.each do |service| %>
-        <%- f.fields_for :provided_services, service do |ps| -%>
-          <%- if ps.object.category == category -%>
-            <li>
-              <%= ps.check_box :_delete, { :class => 'service' }, 'false', 'true' %>
-              <%= ps.hidden_field :service_id %>
+      <li>
+        <h4 class="service_category"><%= category.name %></h4>
+        <ul>
+        <%- services.each do |service| %>
+          <%- f.fields_for :provided_services, service do |ps| -%>
+            <%- if ps.object.category == category -%>
+              <li>
+                <%= ps.check_box :_delete, { :class => 'service' }, 'false', 'true' %>
+                <%= ps.hidden_field :service_id %>
             
-              <%= ps.label :_delete, ps.object.name %>
+                <%= ps.label :_delete, ps.object.name %>
             
-              <%- if category.proficiency? -%>
-                <ul class="testability">
-                <%- (1..3).each do |level| -%>
-                  <li>
-                  <%= ps.radio_button :proficiency, level %>
-                  <%= ps.label "proficiency_#{level}", t("service.proficiency_#{level}") %>
-                  <%= ps.label "proficiency_#{level}",
-                               "#{category.name} #{ps.object.name} #{t("service.proficiency_#{level}")}",
-                               :class => 'hidden' %>
-                  </li>
+                <%- if category.proficiency? -%>
+                  <ul class="testability">
+                  <%- (1..3).each do |level| -%>
+                    <li>
+                    <%= ps.radio_button :proficiency, level %>
+                    <%= ps.label "proficiency_#{level}", t("service.proficiency_#{level}") %>
+                    <%= ps.label "proficiency_#{level}",
+                                 "#{category.name} #{ps.object.name} #{t("service.proficiency_#{level}")}",
+                                 :class => 'hidden' %>
+                    </li>
+                  <%- end -%>
+                  </ul>
                 <%- end -%>
-                </ul>
-              <%- end -%>
-            </li>
+              </li>
+            <%- end -%>
           <%- end -%>
         <%- end -%>
-      <%- end -%>
-      </ul>
+        </ul>
+      </li>
     <%- end -%>
 
+    </ul>
+    
     <div class="clear"></div>
     <%= f.submit t('forms.save') %> <%= t('forms.or')%> <%= link_to t('forms.cancel'), @provider %>
 

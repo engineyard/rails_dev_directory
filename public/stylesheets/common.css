@@ -206,23 +206,33 @@ form li label {
   float: left;
   width: auto;
 }
-form li ul {
+.testability {
+  display: none;
+  margin: 0;
+  height: 1em;
+}
+form .testability {
   font-size: 0.8em;
   margin-top: 0;
-  margin-left: 140px;
+  
 }
-form li li {
+form .testability li {
   display: inline-block;
   margin: 0;
 }
-form li li label {
+form .testability li label {
   margin-right: 15px;
   padding: 0;
   border: none;
 }
-.testability {
-  display: none;
+li + li > .service_category {
+  margin-top: 50px;
 }
+form ul ul, form ul ul li {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
 form br {
   margin: -1em 0;
 }
@@ -384,4 +394,12 @@ div.notice {
 }
 #recaptcha_widget_div table {
   width: auto;
+}
+
+/* Complex Layout */
+.halfColumn {
+  width: 48%;
+  margin-right: 2%;
+  float: left;
+  padding-bottom: 40px;
 }
