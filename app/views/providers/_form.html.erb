@@ -1,8 +1,6 @@
 <fieldset>
   <%= f.label :company_name, t("business_name") %> <%= f.text_field :company_name %> <br />
   
-  <%= f.label :company_url, t("website") %> <%= f.text_field :company_url %> <br />
-  
   <div class="info">
     <h5><%= t('business_address') %></h5>
     <p><%= t('info_business_address') %></p>
@@ -13,7 +11,9 @@
   <%= f.label :state_province, t("provider.state") %> <%= f.select :state_province, ([[t('provider.outside_us'), "NA"]] + State::NAMES), :include_blank => true %> <br />
   <%= f.label :postal_code, t("provider.postal_code") %> <%= f.text_field :postal_code %> <br />
   <%= f.label :country, t('provider.country') %> <%= f.localized_country_select :country, [:US, :CA, :FR, :DE,  :IE, :ES, :GB], :include_blank => t('provider.choose_country') %> <br />
+  <%= f.label :company_url, t("website") %> <%= f.text_field :company_url %> <br />
 
+  <!-- 
   <h3><%= t('provider.accepted_projects') %></h3>
   <%= f.label :hourly_rate, t("provider.hourly_rate") %>
   &#36;<%= f.text_field :hourly_rate, :class => 'number' %><br />
@@ -23,5 +23,6 @@
   <%= f.text_field :min_hours, :class => 'number' %><br />
   <%= f.label :max_hours, t("provider.max_hours") %>
   <%= f.text_field :max_hours, :class => 'number' %><br />
-
+  -->
+  
 </fieldset>

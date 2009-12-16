@@ -66,9 +66,9 @@
                 <td>
                   <%= service.name %>
                 </td>
-                <td><img src="/images/icon-exp-on.png" alt="*" /> <img src="/images/icon-exp-on.png" alt="*" /> <img src="/images/icon-exp-off.png" alt="" />
+                <td class="proficiency">
                   <%- if proficiency = @provider.provided_services.for_service(service).proficiency -%>
-                    <%= t("service.proficiency_#{proficiency}") %>
+                    <div class="<%= t("service.proficiency_#{proficiency}") %>"></div><%= t("service.proficiency_#{proficiency}") %>
                   <%- end -%>
                 </td>
               </tr>

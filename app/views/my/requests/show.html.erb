@@ -1,13 +1,12 @@
 <div class="request dashboard">
   <div class="pageHead">
-    <h2><%= t('rfp.show_rfp') %>: <strong><%= @rfp.project_name %></strong></h2>
-    <div class="timestamp"><%= t('rfp.submitted_on') %> <%= @rfp.created_at_formatted %></div>
+    <h2><%= t('contacts') %></h2>
+    <ul class="summary">
+      <li><%= t('rfp.submitted_on') %> <%= @rfp.created_at_formatted %></li>
+      <li class="flagged">Flag This Contact</li>
+    </ul>
   </div>
   
-
-
-  <div class="narrow">
-
   <div class="block">
   
     <h3><%= t('rfp.project_owner') %></h3>
@@ -27,6 +26,7 @@
       <h4><%= t('rfp.company_name') %></h4>
       <p><%= @rfp.company_name %></p>
   
+      <h4><%= t('address') %></h4>
       <address>
       <%= @rfp.office_location %>
       <%= @rfp.postal_code %>
@@ -87,31 +87,5 @@
     <%= @rfp.additional_services %>
     
   </div>
-  </div>
-
-
-  <div class="sidebar">
-    
-    <!-- Needs to be implemented -->
-      
-    <!-- <ul class="actions">
-      <li class="requestRFP"><%= link_to t('rfp.reply'), '', :class=>'request' %></li>
-    </ul>
-
-    <ul class="actions">
-      <li class="email"><%= link_to t('rfp.send_email') %></li>
-      <li class="address"><%= link_to t('rfp.add_address') %></li>
-      <li class="calendar"><%= link_to t('rfp.add_calendar') %></li>
-      <li class="download"><%= link_to t('rfp.download_csv') %></li>
-      <li class="document"><%= link_to t('rfp.download_txt') %></li>
-    </ul> -->
   
-    <p class="note"><%= t('rfp.delete_note') %></p>
-  
-    <% form_for [:my, @request], :html => {:method => :delete} do |f| -%>
-      <%= f.submit t('rfp.delete'), :class => "delete" %>
-    <% end -%>
-
-  </div>
-  <div class="clear"></div>
 </div>

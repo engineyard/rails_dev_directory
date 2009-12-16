@@ -17,18 +17,20 @@
         <table class="requests">
           <thead>
             <tr>
-              <th><%= t('rfp.project_name') %></th>
               <th><%= t('rfp.submitted_by') %></th>
-              <th><%= t('rfp.budget') %></th>
+              <th><%= t('start') %></th>
+              <th><%= t('hours') %></th>
+              <th><%= t('length') %></th>
               <th><%= t('rfp.submitted_on') %></th>
             </tr>
           </thead>
           <tbody>
             <% @provider.requests.recent.each do |req| %>
-              <tr <%= req.unread? ? 'class="unread"' : nil %>>
-                <td><%= link_to h(req.rfp.project_name), [:my, req] %></td>
-                <td><%= h(req.rfp.first_name) %> <%= req.rfp.last_name %></td>
-                <td><%= price(req.rfp.budget) %></td>
+              <tr class="<%= req.unread? ? 'unread' : nil %> <%= cycle('odd', 'even') %>">
+                <td><%= link_to req.rfp.company_name, [:my, req] %></td>
+                <td></td>
+                <td></td>
+                <td></td>
                 <td><%= req.rfp.created_at_formatted %></td>
               </tr>
             <%- end -%>

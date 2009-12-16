@@ -4,6 +4,7 @@ en:
   accepts_as_payment: "Accepts <strong>PayPal, Credit Cards</strong> as payment"
   account: Account
   account_information: Account Information
+  address: Address
   answer: Answer
   answers: Answers
   any: Any
@@ -37,6 +38,7 @@ en:
   filter_by_services_skills: Filter by services and skills
   find_a_freelancer: Find a freelance developer
   finished: Finished!
+  find_a_provider: Find a provider
   
   go_back_and_edit: "Go Back &amp; Edit"
   
@@ -52,6 +54,7 @@ en:
   info_phone: "We may use your phone number to contact you and verify your information, but we won't list it on your directory profile."
   info_terms: Please read and accept this website's Terms of Use before proceeding.
   
+  length: Length
   located_in: Located in
   location: Location
 
@@ -96,6 +99,7 @@ en:
   show_more_results: Show 20 More Results
   skill_level: Skill Level
   speaks: Speaks
+  start: Start
   
   take_a_quiz: Take a Quiz
   take_this_quiz: Take this quiz
