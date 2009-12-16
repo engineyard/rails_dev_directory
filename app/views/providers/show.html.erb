@@ -39,12 +39,21 @@
     </div>
 
     <div class="block companyInfo">
-      <div class="hidden">
+      <div>
       <h3><%= t('provider.about') %></h3>
       <ul>
-        <li class="language"><%= t('speaks') %> <strong>English</strong></li>
-        <li class="location"><%= t('willing_to_travel') %></li>
-        <li class='payment'><%= t('accepts_as_payment') %></li>
+        <%- if @provider.languages.not.empty? -%>
+          <li class="language">
+            <%= t('speaks') %> <strong><%= @provider.languages.collect(&:name).to_sentence %></strong>
+          </li>
+        <%- end -%>
+        <li class="location hidden"><%= t('willing_to_travel') %></li>
+        <%- if @provider.accepted_payment_methods.not.empty? -%>
+          <li class='payment'>
+            <%= t('accepts_as_payment', :types => @provider.accepted_payment_methods.collect(&:name).to_sentence ) %>
+          </li>
+        <%- end -%>
+
       </ul>
       </div>
     </div>
@@ -59,7 +68,7 @@
             <td colspan="2"><%= t('provider.no_services') %></td>
           </tr>
         <%- else -%>
-          <%- @provider.services.group_by(&:category).each do |category, services| -%>
+          <%- @provider.services.priority(2).group_by(&:category).each do |category, services| -%>
             <tr>
               <th colspan="2"><%= category.name %></th>
             </tr>
@@ -150,6 +159,8 @@
     <div class="widget">
       <%- if @provider.quiz_results.empty? -%>
         <%= t('no_quizzes_taken') %>
+      <%- else -%>
+        <%- @provider.first_name -%> <%= t('has_taken') %> <%= t('x_quizzes', :count => @provider.quiz_results.size) %>
       <%- end -%>
       <%- if logged_in? and current_user.provider == @provider -%>
         <%= link_to t('take_a_quiz'), my_quizzes_path %>

@@ -4,6 +4,7 @@ class My::AvailabilityController < ApplicationController
   
   def update
     current_user.provider.update_attributes(params[:provider])
+    flash.now[:notice] = t('availability_updated')
     render :show
   end
   

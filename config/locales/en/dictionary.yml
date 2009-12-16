@@ -1,7 +1,7 @@
 en:
   
   accepting_work: Accepting Work
-  accepts_as_payment: "Accepts <strong>PayPal, Credit Cards</strong> as payment"
+  accepts_as_payment: "Accepts <strong>{{types}}</strong> as payment"
   account: Account
   account_information: Account Information
   activity: Activity
@@ -13,6 +13,7 @@ en:
   availability: Availability
   availability_by_hours: General availability by hours per week
   availability_by_project_size: General availability by project size
+  availability_updated: Thanks for Updating Your Availability
   avg_score: AVG. SCORE
 
   booked: Booked
@@ -33,6 +34,7 @@ en:
   create_a_rails_freelance_account: Create a Rails Freelance Account
   
   edit_your_profile: Edit Your Profile
+  enquiries: Enquiries
   experience: Experience
   
   filter_by_project_requirements: Filter by Project Requirements
@@ -43,6 +45,7 @@ en:
   
   go_back_and_edit: "Go Back &amp; Edit"
   
+  has_taken: Has Taken
   hourly_rate: Hourly Rate
   hours: Hours/Week
   hour_per_week: Hour/Week
@@ -70,6 +73,7 @@ en:
   name_and_location: Name and Location
   name_your_sample_code: Name your sample code
   no_code_samples: You haven't added any code samples yet.
+  no_enquiries: You have no enquiries
   no_quizzes: No Quizzes Have Been Added Yet
   no_quizzes_taken: No Quizzes Taken Yet
   number_of_weeks: Number of Weeks

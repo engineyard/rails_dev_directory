@@ -184,6 +184,11 @@ class Provider < ActiveRecord::Base
     end
     out
   end
+  
+  def first_name
+    return user.first_name if user and user.first_name.not.blank?
+    company_name
+  end
 
   def to_param
     slug
@@ -248,6 +253,18 @@ class Provider < ActiveRecord::Base
   def booked_for(month)
     days_in_month = month.end_of_month.day
     bookings.count(:conditions => ["DATE_FORMAT(date, '%m') = ?", month.strftime("%m")]) == days_in_month.to_i
+  end
+  
+  def languages
+    category = ServiceCategory.find_by_name(Behavior.config[:language_service])
+    return [] unless category
+    services.find_all_by_service_category_id(category.id)
+  end
+
+  def accepted_payment_methods
+    category = ServiceCategory.find_by_name(Behavior.config[:payment_service])
+    return [] unless category
+    services.find_all_by_service_category_id(category.id)
   end
   
   def can_edit?(user)

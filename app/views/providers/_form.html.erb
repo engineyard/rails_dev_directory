@@ -1,3 +1,9 @@
+<%- if @provider.not.new_record? -%>
+  <fieldset>
+    <%= f.label :hourly_rate, t('hourly_rate') %> <%= f.text_field :hourly_rate %> <br />
+  </fieldset>
+<%- end -%>
+
 <fieldset>
   <%= f.label :company_name, t("business_name") %> <%= f.text_field :company_name %> <br />
   
