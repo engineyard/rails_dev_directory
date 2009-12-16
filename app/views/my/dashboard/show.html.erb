@@ -2,6 +2,9 @@
   <div class="dashboard">  
     <div class="pageHead">
       <h2><%= t('navigation.dashboard') %></h2>
+      <div class="completeness">
+        <p><%= t('your_profile_is_x_complete', :score => current_user.provider.percent_complete) %></p>
+      </div>
     </div>
     
     <div>

@@ -26,6 +26,14 @@ class Provider < ActiveRecord::Base
   
   url_field :company_url
   
+  define_completeness_scoring do
+    check :name, lambda { |provider| provider.company_name.not.blank? or provider.user.name.not.blank? }
+    check :one_quiz_taken, lambda { |provider| provider.quiz_results.not.empty? }
+    check :hourly_rate, lambda { |provider| provider.hourly_rate.not.zero? }
+    check :project_length, lambda { |provider| provider.min_project_length.not.blank? and provider.max_project_length.not.blank? }
+    check :hours, lambda { |provider| provider.min_hours.not.blank? and provider.max_hours.not.blank? }
+  end
+  
   attr_protected :aasm_state, :slug, :user_id, :endorsements_count
   
   has_many :bookings, :order => "date asc"
