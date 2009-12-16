@@ -28,6 +28,7 @@ br {
 	margin-bottom: 1em;
 	height: 3em;
 	color: #FFF;
+	width: 100%;
 }
 .header h1 {
   font-family: Lucida Grande, Helvetica, Arial, sans-serf;
@@ -84,7 +85,7 @@ h4 {
 ul, dl, dd {
 	margin: 0 0 1em;
 }
-li {
+ul li {
   list-style: none;
 }
 p {
