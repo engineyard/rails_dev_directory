@@ -41,9 +41,17 @@
     <div class="block companyInfo">
       <h3><%= t('provider.about') %></h3>
       <ul>
-        <li class="language"><%= t('speaks') %> <strong>English</strong></li>
+        <%- if @provider.languages.not.empty? -%>
+          <li class="language">
+            <%= t('speaks') %> <strong><%= @provider.languages.collect(&:name).to_sentence %></strong>
+          </li>
+        <%- end -%>
         <!-- <li class="location"><%= t('willing_to_travel') %></li> -->
-        <li class='payment'><%= t('accepts_as_payment') %></li>
+        <%- if @provider.accepted_payment_methods.not.empty? -%>
+          <li class='payment'>
+            <%= t('accepts_as_payment', :types => @provider.accepted_payment_methods.collect(&:name).to_sentence ) %>
+          </li>
+        <%- end -%>
       </ul>
     </div>
 

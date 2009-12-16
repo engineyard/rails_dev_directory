@@ -35,7 +35,7 @@
   <body>
     <div class="header">
       <div class="content">
-        <h1 class="siteTitle"><%= link_to t('general.site_title_logo'), root_path %></h1>
+        <h1 class="siteTitle"><%= link_to t('general.site_title_logo'), home_path %></h1>
         <ul class="globalNav">
           <%- if logged_in? -%>
             <li class="username"><%= t('user.welcome', :user => h(current_user.first_name_or_email))%></li>

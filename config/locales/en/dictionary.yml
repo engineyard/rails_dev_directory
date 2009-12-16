@@ -1,7 +1,7 @@
 en:
   
   accepting_work: Accepting Work
-  accepts_as_payment: "Accepts <strong>PayPal, Credit Cards</strong> as payment"
+  accepts_as_payment: "Accepts <strong>{{types}}</strong> as payment"
   account: Account
   account_information: Account Information
   activity: Activity

@@ -250,6 +250,18 @@ class Provider < ActiveRecord::Base
     bookings.count(:conditions => ["DATE_FORMAT(date, '%m') = ?", month.strftime("%m")]) == days_in_month.to_i
   end
   
+  def languages
+    category = ServiceCategory.find_by_name(Behavior.config[:language_service])
+    return [] unless category
+    services.find_all_by_service_category_id(category.id)
+  end
+
+  def accepted_payment_methods
+    category = ServiceCategory.find_by_name(Behavior.config[:payment_service])
+    return [] unless category
+    services.find_all_by_service_category_id(category.id)
+  end
+  
   def can_edit?(user)
     users.include?(user)
   end

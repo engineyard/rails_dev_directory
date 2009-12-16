@@ -327,3 +327,33 @@ describe Provider, "with bookings" do
     end
   end
 end
+
+describe Provider, "with services" do
+  describe "#languages" do
+    before do
+      c = ServiceCategory.make(:name => "Spoken Languages")
+      @english = Service.make(:category => c, :name => "English")
+      @provider = Provider.make
+      @provider.services << @english
+    end
+    
+    it "should add that service to the providers languages" do
+      @provider.languages.should == [@english]
+    end
+  end
+  
+  describe "#accepted_payment_methods" do
+    before do
+      c = ServiceCategory.make(:name => "Accepted Payment Methods")
+      @paypal = Service.make(:category => c, :name => "Paypal")
+      @provider = Provider.make
+      @provider.services << @paypal
+    end
+    
+    it "should add that service to the providers languages" do
+      @provider.accepted_payment_methods.should == [@paypal]
+    end
+  end
+  
+  
+end

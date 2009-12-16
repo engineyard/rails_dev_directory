@@ -33,3 +33,11 @@ tracking_code:
   type: text
   name: Tracking Code
   default: "<!-- Sample Tracking Code -->"
+
+language_service:
+  default: Spoken Languages
+  name: Name of Service for Spoken Languages
+
+payment_service:
+  default: Accepted Payment Methods
+  name: Name of Service for Accepted Payment Methods
