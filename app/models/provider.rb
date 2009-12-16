@@ -27,11 +27,20 @@ class Provider < ActiveRecord::Base
   url_field :company_url
   
   define_completeness_scoring do
-    check :name, lambda { |provider| provider.company_name.not.blank? or (provider.user and provider.user.name.not.blank?) }
-    check :one_quiz_taken, lambda { |provider| provider.quiz_results.not.empty? }
-    check :hourly_rate, lambda { |provider| provider.hourly_rate.not.zero? }
-    check :project_length, lambda { |provider| provider.min_project_length.not.blank? and provider.max_project_length.not.blank? }
-    check :hours, lambda { |provider| provider.min_hours.not.blank? and provider.max_hours.not.blank? }
+    check :name, lambda { |provider| provider.company_name.not.blank? or (provider.user and provider.user.name.not.blank?) }, 10
+    check :hourly_rate, lambda { |provider| provider.hourly_rate.not.zero? }, 5
+    check :project_length, lambda { |provider| provider.min_project_length.not.blank? and provider.max_project_length.not.blank? }, 5
+    check :hours, lambda { |provider| provider.min_hours.not.blank? and provider.max_hours.not.blank? }, 5
+    check :one_quiz_taken, lambda { |provider| provider.quiz_results.any? }, 5
+    
+    check :languages, lambda { |provider| provider.languages.not.empty? }, 5
+    check :photo, lambda { |provider| false }, 5
+    check :payment_method, lambda { |provider| provider.accepted_payment_methods }, 5
+    
+    check :code_sample, lambda { |provider| provider.code_samples.any? }, 10
+    check :many_quizzes, lambda { |provider| provider.quiz_results.many? }, 10
+    
+    check :services, lambda { |provider| provider.services.priority(2).any? }, 5
   end
   
   attr_protected :aasm_state, :slug, :user_id, :endorsements_count
