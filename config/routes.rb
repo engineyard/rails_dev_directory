@@ -44,6 +44,7 @@ ActionController::Routing::Routes.draw do |map|
     me.resources :endorsements, :collection => {:sort => :put, :update_all => :put}
     me.resources :feedbacks, :only => [:edit, :update]
     me.resources :requests
+    me.resources :quizzes, :member => {:take => :get, :submit => :post}
     me.resources :quiz_results
     me.resources :quiz_result_answers, :as => :answers
     me.resources :code_samples, :member => {:review => :get, :analyze => [:get, :put]}

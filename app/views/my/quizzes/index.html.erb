@@ -1,0 +1,21 @@
+<h2><%= t('quizzes') %></h2>
+
+<%- if @quizzes.empty? -%>
+  <p><%= t('no_quizzes') %></p>
+<%- else -%>
+  <table>
+    <tr>
+      <th><%= t('quiz_name') %></th>
+      <th><%= t('skill_level') %></th>
+      <th><%= t('time_limit') %></th>
+    </tr>
+    <%- @quizzes.each do |quiz| -%>
+      <tr>
+        <td><%= quiz.name %></td>
+        <td><%= quiz.skill_level %></td>
+        <td><%= quiz.time_limit %> <%= t('minutes') %></td>
+        <td><%= link_to t('take_this_quiz'), take_my_quiz_path(quiz) %></td>
+      </tr>
+    <%- end -%>
+  </table>
+<%- end -%>
