@@ -540,13 +540,10 @@ li.flagged {
   padding-left: 16px;
 }
 /* Dashboard */
-.dashboard .utility {
-  font: 1.05em Georgia, Times New Roman, serif;
-}
 .utility {
   color: #666;
   float: right;
-  margin: -3.7em 0 0;
+  margin: -2.75em 0 0;
 }
 .utility li {
   float: left;
