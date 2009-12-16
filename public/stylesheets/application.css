@@ -285,11 +285,11 @@ li.username {
   border: 1px solid #DDD;
   margin: 10px 0 -1px;
 }
-.provider.search table h4 {
-  font-size: 1em;
+.provider.search ul h4 {
+  font-size: 0.9em;
   display: block;
   padding: 0;
-  margin: 0 0 5px;
+  margin: 5px 0;
   border: none;
   color: #333;
 }
@@ -297,19 +297,36 @@ li.username {
   text-align: left;
 }
 .provider.search label {
+  font-size: 0.9em;
   color: #333;
-  width: auto;
   margin: 0;
-  display: inline;
 }
-.provider.search p, .provider.search ul, .provider.search li {
+.provider.search p, .provider.search ul ul, .provider.search li {
   padding-top: 5px;
   margin: 0;
 }
-.provider.search li {
+.provider.search ul {
+  clear: both;
   display: block;
-  margin-right: 2%;
-  min-height: 20px;
+  border-top: 1px solid #DDD;
+  margin: 0 0 10px;
+  
+}
+.provider.search ul.first {
+  border-top: none;
+}
+.provider.search ul ul {
+  border-top: none;
+}
+.provider.search li {
+  display: inline-block;
+  vertical-align: top;
+  margin-right: 10px;
+}
+.provider.search li li {
+  display: block;
+  font-size: 0.8em;
+  height: 1.6em;
 }
 li .check {
   float: left;
@@ -320,10 +337,10 @@ li .check {
 .provider.search li input {
   margin-top: 0;
 }
-.provider.search li label {
+.provider.search li li label {
+  font-size: 1.1em;
   color: #666;
-  float: left;
-  max-width: 160px;
+  line-height: 1.2em;
 }
 
 .provider.search input[type="submit"] {
@@ -331,7 +348,7 @@ li .check {
   font-weight: normal;
   display: block;
   padding: 0 0 4px;
-  margin: 1em auto 0;
+  margin: 40px auto 0;
   background:  url(/images/sprite-graphics.png) no-repeat 0px -150px;
   color: #FFF;
   border: none;
@@ -339,7 +356,9 @@ li .check {
   height: 42px;
   text-shadow: 1px 1px 1px #666;
 }
-.provider.search table {
+
+
+/*.provider.search table {
   margin: 0;
   clear: both;
 }
@@ -358,7 +377,8 @@ li .check {
 }
 .provider.search form td:first-child {
   padding-left: 0;
-}
+}*/
+
 .provider.search input[type="text"] {
   display: inline;
   margin-left: 0;
