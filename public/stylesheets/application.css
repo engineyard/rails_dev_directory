@@ -952,6 +952,9 @@ textarea#code_sample_code {
   padding: 20px;
   background: #E8E8E8;
 }
+.dashboard .info {
+  display: none;
+}
 .info h5 {
  font: 1em Lucida Grande, Verdana, sans-serif;
  margin-bottom: 0.4em;
