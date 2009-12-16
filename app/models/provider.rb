@@ -184,6 +184,11 @@ class Provider < ActiveRecord::Base
     end
     out
   end
+  
+  def first_name
+    return user.first_name if user and user.first_name.not.blank?
+    company_name
+  end
 
   def to_param
     slug

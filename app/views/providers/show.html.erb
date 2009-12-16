@@ -159,6 +159,8 @@
     <div class="widget">
       <%- if @provider.quiz_results.empty? -%>
         <%= t('no_quizzes_taken') %>
+      <%- else -%>
+        <%- @provider.first_name -%> <%= t('has_taken') %> <%= t('x_quizzes', :count => @provider.quiz_results.size) %>
       <%- end -%>
       <%- if logged_in? and current_user.provider == @provider -%>
         <%= link_to t('take_a_quiz'), my_quizzes_path %>
