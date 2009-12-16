@@ -1,6 +1,11 @@
 <div class="dashboard"> 
   <div class="pageHead">
     <h2><%= t('request.headline') %></h2>
+    <ul class="summary">
+      <li class="unread">Unread</li>
+      <li class="flagged">Flagged</li>
+      <li>Awaiting Response</li>
+    </ul>
   </div>
   
   <!-- Uncomment this to add a page description -->
@@ -12,21 +17,21 @@
     <table class="requests">
       <thead>
         <tr>
-          <th><%= t('rfp.project_name') %></th>
           <th><%= t('request.submitted_by') %></th>
+          <th><%= t('start') %></th>
+          <th><%= t('hours') %></th>
+          <th><%= t('length') %></th>
           <th><%= t('request.submitted_on') %></th>
-          <th><%= t('rfp.due_date') %></th>
-          <th><%= t('rfp.budget') %></th>
         </tr>
       </thead>
       <tbody>
         <% @requests.each do |req| %>
-        <tr <%= 'class="unread"' if req.unread? %>>
-          <td><%= link_to req.rfp.project_name, [:my, req] %></td>
-          <td><%= req.rfp.company_name %></td>
+        <tr class="<%= 'unread' if req.unread? %> <%= cycle('odd', 'even') %>">
+          <td><%= link_to req.rfp.company_name, [:my, req] %></td>
+          <td></td>
+          <td></td>
+          <td></td>
           <td><%= t('general.ago', :date => time_ago_in_words(req.created_at)) %></td>
-          <td><%= req.rfp.due_date_formatted %></td>
-          <td><%= price req.rfp.budget %></td>
         </tr>
         <%- end -%>
       </tbody>

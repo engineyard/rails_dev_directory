@@ -370,7 +370,7 @@ en:
     start_date: Start date
     duration: Duration
     due_date: Due Date
-    time_zone: Office Time Zone
+    time_zone: Time Zone
     office_location: Office Location
     insurance_requirements_headline: "Insurance Requirements:"
     insurance_requirements_description: "Does your project require the developer to have insurance? If so, please check the types of insurance that you require."
@@ -431,9 +431,9 @@ en:
     service_type: Service type
     position: Position
     manage: Manage Services
-    proficiency_1: Beginner
-    proficiency_2: Intermediate
-    proficiency_3: Advanced
+    proficiency_1: beginner
+    proficiency_2: intermediate
+    proficiency_3: advanced
   
   service_category:
     name: Name
@@ -501,7 +501,7 @@ en:
       before_provider_joined: Should be after the developer registered with us.
     
   request:
-    headline: Requests for Proposals
+    headline: Contacts
     description: Here you can browse the requests that have been submitted to your company
     no_requests: You have not yet received any Requests for Proposals
     submitted_by: Submitted by
