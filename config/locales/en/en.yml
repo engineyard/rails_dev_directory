@@ -431,9 +431,9 @@ en:
     service_type: Service type
     position: Position
     manage: Manage Services
-    proficiency_1: beginner
-    proficiency_2: intermediate
-    proficiency_3: advanced
+    proficiency_1: Beginner
+    proficiency_2: Intermediate
+    proficiency_3: Advanced
   
   service_category:
     name: Name

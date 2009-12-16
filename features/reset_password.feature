@@ -6,7 +6,7 @@ Feature: Reset password
   Scenario: Requesting a password reset
     Given a user "paul@rslw.com"
     When I am on the homepage
-      And I follow "Sign in to your account"
+      And I follow "Login to your account"
       And I follow "Forgot your password?"
     And I fill in "email" with "jo@armstrong.net"
       And I press "Send"
