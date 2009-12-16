@@ -278,24 +278,26 @@ li.username {
 }
 .provider.search h4 {
   font-size: 0.9em;
-  display: inline-block;
+  display: block;
+  float: left;
+  clear: both;
   padding: 5px 15px;
   border: 1px solid #DDD;
-  border-bottom: none;
-  margin: 0;
+  margin: 10px 0 -1px;
 }
 .provider.search table h4 {
   font-size: 1em;
   display: block;
   padding: 0;
+  margin: 0 0 5px;
   border: none;
-  color: #000;
+  color: #333;
 }
 .provider.search form {
   text-align: left;
 }
 .provider.search label {
-  color: #000;
+  color: #333;
   width: auto;
   margin: 0;
   display: inline;
