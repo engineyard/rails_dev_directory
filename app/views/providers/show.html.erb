@@ -39,12 +39,14 @@
     </div>
 
     <div class="block companyInfo">
+      <div class="hidden">
       <h3><%= t('provider.about') %></h3>
       <ul>
         <li class="language"><%= t('speaks') %> <strong>English</strong></li>
-        <!-- <li class="location"><%= t('willing_to_travel') %></li> -->
+        <li class="location"><%= t('willing_to_travel') %></li>
         <li class='payment'><%= t('accepts_as_payment') %></li>
       </ul>
+      </div>
     </div>
 
     <table class="services">
@@ -87,7 +89,7 @@
   
     <% unless logged_in? and current_user.can_edit?(@provider) %>
       <ul class="links">
-        <li class="request"><%= link_to 'Save As Favorite', '', :class=>'button' %></li>
+        <li class="request"><%= link_to 'Save As Favorite', '', :class=>'button hidden' %></li>
         <li class="request"><%= link_to t('contact_developer'), new_rfp_path(:provider_id => @provider.id), :onClick=>"pageTracker._trackEvent('Request', 'Create Proposal', 'Profile');", :class=>'button' %></li>
       </ul>
     <%- end -%>
@@ -106,7 +108,7 @@
               <%- if @provider.booked_for(date) -%>
                 <%= t('booked') %>
               <%- else -%>
-                <%= t('accepting_work') %>
+                <%= link_to t('accepting_work'), new_rfp_path(:provider_id => @provider.id) %>
               <%- end -%>
             </td>
         <%- end -%>
@@ -114,11 +116,13 @@
       </tbody>
     </table>
     
-    <h3><%= t('code_samples') %></h3>
-    <div class="widget codesamples">
-      <p><%= t('code_sample_label') %></p>
-      <p class="score"><strong>80</strong>/100 <span class="label"><%= t('avg_score') %></span></p>
-      <div class="clear"></div>
+    <div class="hidden">
+      <h3><%= t('code_samples') %></h3>
+      <div class="widget codesamples">
+        <p><%= t('code_sample_label') %></p>
+        <p class="score"><strong>80</strong>/100 <span class="label"><%= t('avg_score') %></span></p>
+        <div class="clear"></div>
+      </div>
     </div>
   
     <!-- <h3><%= t('provider.feedback_headline') %></h3>
@@ -152,6 +156,7 @@
       <%- end -%>
     </div>
     
+    <div class="hidden">
     <h3><%= t('provider.endorsements_headline') %></h3>
   
     <%- if @provider.endorsements.approved.empty? -%>
@@ -191,6 +196,7 @@
     <% if logged_in? and current_user.provider == @provider %>
       <%= link_to t('endorsement.ask_for_endorsement'), new_my_endorsement_request_path %>
     <%- end -%>
+    </div>
   </div>
   <div class="clear"></div>
 </div>

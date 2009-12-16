@@ -1,6 +1,6 @@
-<div class="panel">
+<div class="dashboard">
   <h2><%= t('provider.by_state') %></h2>
-  <hr />
+  <p class="description"></p>
   <ul>
   <%- @providers.group_by(&:country).each do |location, providers| -%>
     <li>

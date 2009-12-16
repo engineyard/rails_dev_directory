@@ -5,10 +5,9 @@
       <thead>
         <tr>
           <th>&nbsp;</th>
-          <th><%= t('provider.company_name') %></th>
-          <th>Speaks</th>
-          <th>Will Travel</th>
-          <th>Availability</th>
+          <th><%= t('name_and_location') %></th>
+          <th><%= t('speaks') %></th>
+          <th><%= t('soonest_availability')%></th>
           <th>&nbsp;</th>
         </tr>
       </thead>
@@ -22,8 +21,7 @@
             </td>
             <td></td>
             <td></td>
-            <td></td>
-            <td><a href="" class="favorite">Add to Favorites</a></td>
+            <td><a href="" class="favorite hidden">Add to Favorites</a></td>
           </tr>
         <%- end -%>
       </tbody>
