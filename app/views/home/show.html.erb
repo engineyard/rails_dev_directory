@@ -12,7 +12,7 @@
   <div class="provider search">
     <h3><%= t('provider.directory.description') %></h3>
     <% form_tag search_providers_path, :method => :get, :id => 'search-form' do -%>
-      <ul class="filters">
+      <ul class="filters first">
         <li>
           <%= label_tag 'location', t('provider.directory.location') %><br />
           <%= location_select %>
