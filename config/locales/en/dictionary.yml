@@ -33,6 +33,7 @@ en:
   create_a_rails_freelance_account: Create a Rails Freelance Account
   
   edit_your_profile: Edit Your Profile
+  enquiries: Enquiries
   experience: Experience
   
   filter_by_project_requirements: Filter by Project Requirements
@@ -70,6 +71,7 @@ en:
   name_and_location: Name and Location
   name_your_sample_code: Name your sample code
   no_code_samples: You haven't added any code samples yet.
+  no_enquiries: You have no enquiries
   no_quizzes: No Quizzes Have Been Added Yet
   no_quizzes_taken: No Quizzes Taken Yet
   number_of_weeks: Number of Weeks
