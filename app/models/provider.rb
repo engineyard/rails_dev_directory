@@ -252,6 +252,11 @@ private
     if slug.blank?
       self.slug = user.slugged_name if user
     end
+    n = 1
+    while Provider.find_by_slug(slug)
+      self.slug = "#{slug}-#{n}"
+      n = n.next
+    end
   end
   
   def first_user_has_email_matching_company_url

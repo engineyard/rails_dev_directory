@@ -292,7 +292,7 @@ describe Provider, "trying to register an empty company name" do
   
   it "should be invalid if I try to register a new one" do
     @provider = Provider.make_unsaved(:company_name => "")
-    @provider.should_not be_valid
+    @provider.should be_valid
   end
   
   it "should use my name to create a slug" do
@@ -301,21 +301,11 @@ describe Provider, "trying to register an empty company name" do
     @provider.should be_valid
     @provider.slug.should == "paul-campbell"
   end
-end
-
-
-describe Provider, "receiving email on signup" do
-  it "should send the provider welcome" do
-    @provider = Provider.new({"city"=>"Dublin", "state_province"=>"", "further_street_address"=>"28 Malahide Road", "company_url"=>"rushedsunlight.com", "country"=>"IE", "company_name"=>"Rushed Sunlight", "company_size"=>"2", "postal_code"=>"Dublin 3", "hourly_rate"=>"", "marketing_description"=>"", "phone_number"=>"[FILTERED]", "street_address"=>"28 Malahide Road", "terms_of_service"=>"1", "users_attributes"=>{"0"=>{"password_confirmation"=>"[FILTERED]", "last_name"=>"CAmpbell", "password"=>"[FILTERED]", "email"=>"paul@rushedsunlight.com", "first_name"=>"Paul"}}, "min_budget"=>"0.0", "email"=>"paul@rushedsunlight.com"})
-    @provider.users.first.password = 'monkeys'
-    @provider.users.first.password_confirmation = 'monkeys'
-    
-    @provider.should be_valid
-    
-    Notification.should_not_receive(:create_user_welcome)
-    Notification.should_receive(:create_provider_welcome)
-    
-    @provider.save
+  
+  it "shouldn't use the same slug twice" do
+    Provider.make(:company_name => "Jim")
+    @provider = Provider.make(:company_name => "Jim")
+    @provider.slug.should == 'jim-1'
   end
 end
 
