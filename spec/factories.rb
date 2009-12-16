@@ -68,6 +68,8 @@ Factory.define :rfp do |rfp|
 end
 
 Factory.define :admin_user, :class => User do |user|
+  user.first_name "Paul"
+  user.last_name "Campbell"
   user.password "mightyadmin"
   user.password_confirmation "mightyadmin"
   user.email "administrator@engineyard.com"

@@ -38,6 +38,7 @@ So that I can can receive Rails project referrals
     When I follow "Create an account"
       And I fill in the provider sign up form for "Pivotpaul Labs"
       And I fill in "First Name" with "Paul"
+      And I fill in "Last Name" with "Campbell"
       And I press "Sign up"
     Then I should see "Terms of Use"
     When I check "provider[terms_of_service]"
