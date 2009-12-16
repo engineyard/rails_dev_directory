@@ -16,8 +16,8 @@ So that I can make sure my profile is accurate and up-to-date
       And I am on the homepage
     When I log in as "paul@dopo.com" with password "testtest"
       And I follow "Profile"
-      And I follow "Edit company profile"
-      Then I should see "Edit your company profile"
+      And I follow "Edit Your Profile"
+      Then I should see "Edit Your Profile"
     When I fill in "Street Address" with "Market Street"
       And I fill in "Minimum Hours" with "5"
       And I fill in "Maximum Hours" with "10"
@@ -31,7 +31,7 @@ So that I can make sure my profile is accurate and up-to-date
       And I should see "Ruby"
       And I should see "Intermediate"
       And I should not see "Python"
-    When I follow "Edit company profile"
+    When I follow "Edit Your Profile"
     Then the "Ruby" checkbox should be checked
       And the "Programming Languages Ruby Intermediate" checkbox should be checked
       And the "Python" checkbox should not be checked

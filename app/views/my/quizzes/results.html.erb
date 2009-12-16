@@ -4,4 +4,4 @@
 
 <h3><%= t('your_score') %></h3>
 
-<%= @quiz.results_for(current_user.provider) %> / <%= @quiz.questions.size %>
+<%= @quiz.correct_responses_for(current_user.provider) %> / <%= @quiz.questions.size %>

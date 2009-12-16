@@ -25,6 +25,11 @@ class My::QuizzesController < ApplicationController
     end
     if questions_answered.size == @quiz.questions.size
       responses.each(&:save)
+      if @quiz.correct_responses_for(current_user.provider) == @quiz.questions.size
+        current_user.provider.quiz_results.create!(
+          :quiz => @quiz,
+          :score => @quiz.correct_responses_for(current_user.provider))
+      end
       redirect_to(results_my_quiz_path(@quiz))
     else
       flash.now[:notice] = t('please_answer_all_questions')

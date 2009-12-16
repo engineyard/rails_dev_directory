@@ -67,6 +67,7 @@ en:
   name_your_sample_code: Name your sample code
   no_code_samples: You haven't added any code samples yet.
   no_quizzes: No Quizzes Have Been Added Yet
+  no_quizzes_taken: No Quizzes Taken Yet
   number_of_weeks: Number of Weeks
   
   or: or
@@ -83,6 +84,7 @@ en:
   quiz_details: Quiz Details
   quiz_name: Quiz Name
   quiz_result: Quiz Result
+  quiz_taken: Quiz Has Been Taken
   
   reliable: Reliable
   review_code: Review Code
