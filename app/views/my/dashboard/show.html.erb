@@ -17,7 +17,7 @@
     
     <div class="pageHead">
       <h2><%= t('navigation.dashboard') %></h2>
-      <h2 class="status"><%= t('your_profile_is_x_complete', :score => current_user.provider.percent_complete) %></h2>
+      <h2 class="status"><%= t('your_profile_is_x_complete', :score => current_user.provider.percent_complete.to_i) %></h2>
       <%= link_to t('edit_your_profile'), edit_my_provider_path, :class=>"button" %>
     </div>
     
