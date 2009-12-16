@@ -7,6 +7,8 @@ class QuizResult < ActiveRecord::Base
   
   after_save :activate_provider_if_full_marks
   
+  named_scope :passed, :conditions => {:score => 100}
+  
   def activate_provider_if_full_marks
     if provider.aasm_state == 'inactive'
       provider.activate! if score == quiz.questions.size

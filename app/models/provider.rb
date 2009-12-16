@@ -244,7 +244,7 @@ class Provider < ActiveRecord::Base
   end
 
   def activate_if_criteria_passed
-    return unless quizzes.passed.any?
+    return unless quiz_results.passed.any?
     return unless hourly_rate.not.blank?
     return unless min_hours.not.blank? or max_hours.not.blank?
     activate! if aasm_state != 'active' and aasm_state != 'flagged'

@@ -1,4 +1,16 @@
 <% if @provider %>
+  
+  <div class="almost-there <%- ' popup' if @provider.aasm_state != 'active' -%>">
+    <h2><%= t('almost_there') %></h2>
+    <p><%= t('just_a_few_more_things') %></p>
+    
+    <ol>
+      <li><%= link_to t('set_your_hourly_rate'), edit_my_provider_path %></li>
+      <li><%= link_to t('set_your_availability'), my_availability_path %></li>
+      <li><%= link_to t('take_the_basic_rails_quiz'), my_quizzes_path %></li>
+    </ol>
+  </div>
+
   <div class="dashboard">  
     
     <div class="pageHead">

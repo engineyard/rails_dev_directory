@@ -6,6 +6,7 @@ en:
   account_information: Account Information
   activity: Activity
   address: Address
+  almost_there: Almost There!
   answer: Answer
   answers: Answers
   any: Any
@@ -58,6 +59,8 @@ en:
   info_phone: "We may use your phone number to contact you and verify your information, but we won't list it on your directory profile."
   info_terms: Please read and accept this website's Terms of Use before proceeding.
   
+  just_a_few_more_things: There are just a few more things you need to do to get your developer profile listed in the directory.
+  
   length: Length
   located_in: Located in
   location: Location
@@ -102,6 +105,8 @@ en:
   save_changes: Save Changes
   score: Score
   send: Send
+  set_your_availability: Set Your Availability
+  set_your_hourly_rate: Set Your Hourly Rate
   show_more_results: Show 20 More Results
   skill_level: Skill Level
   soonest_availability: Soonest Availability
@@ -109,6 +114,7 @@ en:
   start: Start
   
   take_a_quiz: Take a Quiz
+  take_the_basic_rails_quiz: Take the Basic Rails Quiz
   take_this_quiz: Take this quiz
   tell_us_about_your_business: Tell us about your business
   test_code: Test Code
