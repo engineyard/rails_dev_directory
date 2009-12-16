@@ -21,7 +21,7 @@
               ]
               ) %>
         </li>
-        <li>
+        <li class="hidden">
           <label><%= t('speaks') %></label><br />
           <select id="language">
             <option>Any Language</option>
@@ -55,7 +55,7 @@
   <% end -%>
   
   
-  <div class="favorites">
+  <div class="favorites hidden">
     <h3><%= t('your_favorites') %></h3>
     <ul>
       <li>
@@ -87,8 +87,7 @@
             <th>&nbsp;</th>
             <th><%= t('name_and_location') %></th>
             <th><%= t('speaks') %></th>
-            <th><%= t('will_travel') %> <%= link_to '[?]', '#', :id => "confirmed-explanation", :class => 'tooltip', :'title' => t('provider.confirmed_explanation') %></th>
-            <th><%= t('availability')%></th>
+            <th><%= t('soonest_availability')%></th>
             <th>&nbsp;</th>
           </tr>
         </thead>
@@ -106,10 +105,9 @@
                 <%= link_to provider.company_name, provider %><br />
                 <%= provider.private_address.join(', ') %>
               </td>
-              <td>English (TODO)</td>
-              <td>SF Bay Area (TODO)</td>
-              <td>December (TODO)</td>
-              <td><%= link_to "Add to Favorites (TODO)", '#', :class=>'favorite' %></td>
+              <td><!-- English (TODO) --></td>
+              <td><!-- December (TODO) --></td>
+              <td><%= link_to "Add to Favorites (TODO)", '#', :class=>'favorite hidden' %></td>
             </tr>
           <%- end -%>
         </tbody>
@@ -122,7 +120,10 @@
         <%- end -%>
       <%- end -%>
 
-      <div class="aligncenter"><%= f.submit t("show_more_results"), :id => 'next' %></div>
+      <div class="aligncenter hidden">
+        <!-- TODO: This needs to show 20 more results -->
+        <%= f.submit t("show_more_results"), :id => 'next' %>
+      </div>
     <%- end -%>
 
   <%- end -%>

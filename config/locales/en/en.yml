@@ -140,7 +140,7 @@ en:
     
     directory_headline: Find a Rails Freelancer
     directory_description: "Start Your Search for a Rails Freelancer Now"
-    directory_results_description: "Click on the developer's name to view their profile. Check the box next to the names of the developers you want to submit a request to (you can only send requests to a maximum of 3 companies)."
+    directory_results_description: "Click on the developer's name to view their profile."
     visit_website: Visit this company's website
     directory:
       description: "Start Your Search for a Rails Freelancer Now"

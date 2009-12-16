@@ -86,6 +86,7 @@ h3 {
   border-bottom: 1px solid #CACACA;
   padding-bottom: 8px;
   margin-top: 2em;
+  color: #666;
 }
 .favorites h3 {
   background: url(/images/sprite-graphics.png) no-repeat 0 -713px;
@@ -182,7 +183,7 @@ li.username {
   color: #FFF;
 }
 .subnav a {
-  color: #636363;
+  color: #969696;
   border: none;
   padding: 5px 15px;
   -moz-border-radius: 1em;
@@ -426,7 +427,7 @@ li .check {
 }
 .sidebar .links {
   border-bottom: none;
-  height: 125px;
+  height: 85px;
 }
 .narrow {
   float: left;
@@ -623,7 +624,12 @@ li.flagged {
 }
 .userEdit .status {
   float: right;
-  font-size: 1.5em;
+  font-size: 1.4em;
+  color: #666;
+}
+.userEdit .status strong {
+  font-weight: normal;
+  color: #333;
 }
 ul.testList {
   padding: 0;
@@ -1011,9 +1017,6 @@ hr {
   -webkit-border-radius: 6px;
   -moz-border-radius: 6px;
 }
-.hidden {
-  display: none;
-}
 .note {
   font-size: 0.9em;
   color: #666;
@@ -1069,7 +1072,8 @@ hr {
 }
 .availability td {
   padding: 20px 10px;
-  font-size: 1.2em;
+  color: #666;
+  font-size: 1.1em;
 }
 .code pre, .codeReview {
   font-size: 12px;
@@ -1331,23 +1335,21 @@ div#sorting-endorsements ul li strong { cursor: move; }
   background: #FCC;
 }
 
-td.proficiency {
+td.Beginner, td.Intermediate, td.Advanced {
   background: url(/images/sprite-graphics.png) no-repeat 0 -1120px;
   text-transform: capitalize;
 }
-td.proficiency div {
+div.proficiency {
   width: 45px;
   height: 14px;
   float: left;
-}
-div.Beginner, div.Intermediate, div.Advanced {
   background: url(/images/sprite-graphics.png) no-repeat 0 -1098px;
 }
-td.proficiency div.Beginner {
+td.Beginner div.proficiency {
   width: 14px;
   margin-right: 31px;
 }
-td.proficiency div.Intermediate {
+td.Intermediate div.proficiency {
   width: 25px;
   margin-right: 20px;
 }
@@ -1355,4 +1357,8 @@ td.proficiency div.Intermediate {
 /* Hiding stuff */
 .navigation sup, .summary {
   display: none;
+}
+
+.hidden {
+  display: none !important;
 }
