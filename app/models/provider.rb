@@ -61,7 +61,6 @@ class Provider < ActiveRecord::Base
   before_validation :filter_carraige_returns
   before_create :set_first_user_provider
   after_create :set_first_user_as_owner
-  after_create :send_owner_welcome
   after_create :set_default_services
   
   named_scope :active, :conditions => {:aasm_state => 'active'}, :order => :company_name
@@ -272,10 +271,6 @@ private
   
   def set_first_user_provider
     users.first.provider = self if users.first
-  end
-  
-  def send_owner_welcome
-    Notification.create_provider_welcome(user) if user
   end
   
   def owner_name

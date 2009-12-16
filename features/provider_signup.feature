@@ -21,6 +21,9 @@ So that I can can receive Rails project referrals
       And I fill in the "Website" with "oleopry.com"
       And I press "Sign up"
     Then I should see "Welcome, JD"
+      And "jdcrow@oleopry.com" should receive an email
+    When I open the email
+    Then I should not see "americanpolka"
 
   Scenario: Signing up and sloppily missing the TOS
     Given I am on the homepage
