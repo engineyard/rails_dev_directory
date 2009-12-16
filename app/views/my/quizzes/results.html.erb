@@ -1,7 +1,11 @@
-<h2><%= t('quiz_result') %></h2>
+<div class="panel">
+  <div class="pageHead">
+    <h2><%= t('quiz_result') %></h2>
+  </div>
 
-<%= render 'details' %>
+  <%= render 'details' %>
 
-<h3><%= t('your_score') %></h3>
+  <h3><%= t('your_score') %></h3>
 
-<%= @quiz.correct_responses_for(current_user.provider) %> / <%= @quiz.questions.size %>
+  <%= @quiz.correct_responses_for(current_user.provider) %> / <%= @quiz.questions.size %>
+</div>
