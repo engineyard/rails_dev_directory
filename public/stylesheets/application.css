@@ -779,6 +779,10 @@ td {
   width: 40px;
   padding-left: 15px;
 }
+.listTable .avatar {
+  height: 40px;
+  width: 40px;
+}
 .services td {
   border-bottom: none;
 }
