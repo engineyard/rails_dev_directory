@@ -431,9 +431,9 @@ en:
     service_type: Service type
     position: Position
     manage: Manage Services
-    proficiency_1: beginner
-    proficiency_2: intermediate
-    proficiency_3: advanced
+    proficiency_1: Beginner
+    proficiency_2: Intermediate
+    proficiency_3: Advanced
   
   service_category:
     name: Name
@@ -640,16 +640,6 @@ en:
     text: Question
     saved_successfully: Question saved
     no_correct_answer: No answer marked as correct
-
-  quiz_result:
-    next: Next
-    quiz: Quiz
-    passed: You have passed the quiz.
-    failed: You have failed the quiz.
-    try_again: Try again.
-
-  quiz_result_answer:
-    no_answer: Please answer the question.
 
   feedback:
     hired: Hired

@@ -16,6 +16,7 @@ So that developers can prove they know a thing or two about rails
     When I follow "Edit"
       And I fill in "Name" with "ActiveRecord observers"
       And I press "Save"
+      And I follow "Quizzes"
     Then I should see "ActiveRecord observers"
     
     When I follow "Delete"

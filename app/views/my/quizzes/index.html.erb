@@ -2,7 +2,7 @@
   <div class="pageHead">
     <h2><%= t('quizzes') %></h2>
   </div>
-  
+
   <%- if @quizzes.empty? -%>
     <p><%= t('no_quizzes') %></p>
   <%- else -%>
@@ -16,15 +16,22 @@
         </tr>
       </thead>
       <tbody>
-        <%- @quizzes.each do |quiz| -%>
-          <tr>
-            <td><%= quiz.name %></td>
-            <td><%= quiz.skill_level %></td>
-            <td><%= quiz.time_limit %> <%= t('minutes') %></td>
-            <td><%= link_to t('take_this_quiz'), take_my_quiz_path(quiz) %></td>
-          </tr>
-        <%- end -%>
+      <%- @quizzes.each do |quiz| -%>
+        <tr>
+          <td><%= quiz.name %></td>
+          <td><%= quiz.skill_level %></td>
+          <td><%= quiz.time_limit %> <%= t('minutes') %></td>
+          <td>
+            <%- if current_user.provider.quiz_results.find_by_quiz_id(quiz.id) -%>
+              <%= t('quiz_taken') %>
+            <%- else -%>
+              <%= link_to t('take_this_quiz'), take_my_quiz_path(quiz) %>
+            <%- end -%>
+          </td>
+        </tr>
+      <%- end -%>
       </tbody>
     </table>
   <%- end -%>
+
 </div>

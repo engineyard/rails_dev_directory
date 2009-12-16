@@ -10,6 +10,6 @@ Feature: Provider dashboard
       And "Hyper Tiny" has a new endorsement from "Mike Foley"
       And I am on the homepage
     When I log in as "paul@inimici.com" with password "testtest"
-      Then I should see "Help us!"
+      Then I should not see "Help us!"
       And I should see "Tom Rowley"
       And I should see "Mike Foley"

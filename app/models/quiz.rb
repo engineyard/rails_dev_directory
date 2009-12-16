@@ -10,5 +10,14 @@ class Quiz < ActiveRecord::Base
   def self.options_for_select
     all(:order => :name).collect { |quiz| [quiz.name, quiz.id] }
   end
+  
+  def correct_responses_for(provider)
+    correct_results = 0
+    questions.each do |question|
+      response = provider.responses.first(:conditions => {:question_id => question.id})
+      correct_results = correct_results + 1 if question.correct_answer == response.answer
+    end
+    correct_results
+  end
 
 end
