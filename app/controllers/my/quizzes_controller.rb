@@ -24,10 +24,15 @@ class My::QuizzesController < ApplicationController
         )
     end
     if questions_answered.size == @quiz.questions.size
-    
+      responses.each(&:save)
+      redirect_to(results_my_quiz_path(@quiz))
     else
       flash.now[:notice] = t('please_answer_all_questions')
       render :take
     end
+  end
+  
+  def results
+    @quiz = Quiz.find(params[:id])
   end
 end

@@ -641,16 +641,6 @@ en:
     saved_successfully: Question saved
     no_correct_answer: No answer marked as correct
 
-  quiz_result:
-    next: Next
-    quiz: Quiz
-    passed: You have passed the quiz.
-    failed: You have failed the quiz.
-    try_again: Try again.
-
-  quiz_result_answer:
-    no_answer: Please answer the question.
-
   feedback:
     hired: Hired
     at: at

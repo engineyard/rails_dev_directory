@@ -82,6 +82,7 @@ en:
   quizzes: Quizzes
   quiz_details: Quiz Details
   quiz_name: Quiz Name
+  quiz_result: Quiz Result
   
   reliable: Reliable
   review_code: Review Code
@@ -113,3 +114,4 @@ en:
   
   your_favorites: Your favorites (3)
   your_profile_is_complete: "Your profile is <strong>50%</strong> complete"
+  your_score: Your Score

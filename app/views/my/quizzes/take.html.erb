@@ -1,17 +1,6 @@
 <h2><%= t('take_a_quiz') %></h2>
 
-<h3><%= t('quiz_details') %></h3>
-
-<dl>
-  <dt><%= t('name') %></dt>
-  <dd><%= @quiz.name %></dd>
-  
-  <dt><%= t('skill_level') %></dt>
-  <dd><%= @quiz.skill_level %></dd>
-  
-  <dt><%= t('time_limit') %></dt>
-  <dd><%= @quiz.time_limit %> <%= t('minutes') %></dd>
-</dl>
+<%= render 'details' %>
 
 <h3><%= t('questions') %></h3>
 
