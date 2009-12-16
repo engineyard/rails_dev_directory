@@ -1347,3 +1347,8 @@ td.proficiency div.intermediate {
   width: 25px;
   margin-right: 20px;
 }
+
+/* Hiding stuff */
+.navigation sup, .summary {
+  display: none;
+}

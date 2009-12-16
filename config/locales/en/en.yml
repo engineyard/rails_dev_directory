@@ -59,8 +59,8 @@ en:
 
   dashboard:
     dashboard_for: "Hi {{company}}!"
-    rfps: Recent Requests for Proposals
-    all_rfps: See All Requests
+    rfps: Recent Contacts
+    all_rfps: See All Contacts
     endorsements: Recent Endorsements
     all_endorsements: See All Endorsements
     
