@@ -95,7 +95,13 @@
         <tbody>
           <%- @providers.each do |provider| -%>
             <tr class="<%= cycle('odd', 'even') %>">
-              <td><img src="/images/profile-default-sm.png" /></td>
+              <td>
+                <%- if @provider.logo_file_name.not.blank? -%>
+                  <%= image_tag(@provider.logo.url(:thumb), :class=>'avatar') %>
+                <%- else -%>
+                  <img src="/images/profile-default.png" class='avatar' />
+                <%- end -%>
+              </td>
               <td>
                 <%= link_to provider.company_name, provider %><br />
                 <%= provider.private_address.join(', ') %>
