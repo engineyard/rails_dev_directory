@@ -1,10 +1,10 @@
 <% if @provider %>
   <div class="dashboard">  
+    
     <div class="pageHead">
       <h2><%= t('navigation.dashboard') %></h2>
-      <div class="completeness">
-        <p><%= t('your_profile_is_x_complete', :score => current_user.provider.percent_complete) %></p>
-      </div>
+      <h2 class="status"><%= t('your_profile_is_x_complete', :score => current_user.provider.percent_complete) %></h2>
+      <%= link_to t('edit_your_profile'), edit_my_provider_path, :class=>"button" %>
     </div>
     
     <div>

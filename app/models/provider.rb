@@ -27,7 +27,7 @@ class Provider < ActiveRecord::Base
   url_field :company_url
   
   define_completeness_scoring do
-    check :name, lambda { |provider| provider.company_name.not.blank? or provider.user.name.not.blank? }
+    check :name, lambda { |provider| provider.company_name.not.blank? or (provider.user and provider.user.name.not.blank?) }
     check :one_quiz_taken, lambda { |provider| provider.quiz_results.not.empty? }
     check :hourly_rate, lambda { |provider| provider.hourly_rate.not.zero? }
     check :project_length, lambda { |provider| provider.min_project_length.not.blank? and provider.max_project_length.not.blank? }
