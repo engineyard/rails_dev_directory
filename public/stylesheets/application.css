@@ -183,7 +183,7 @@ li.username {
   color: #FFF;
 }
 .subnav a {
-  color: #636363;
+  color: #969696;
   border: none;
   padding: 5px 15px;
   -moz-border-radius: 1em;
@@ -624,7 +624,12 @@ li.flagged {
 }
 .userEdit .status {
   float: right;
-  font-size: 1.5em;
+  font-size: 1.4em;
+  color: #666;
+}
+.userEdit .status strong {
+  font-weight: normal;
+  color: #333;
 }
 ul.testList {
   padding: 0;

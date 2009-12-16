@@ -12,7 +12,7 @@
       <% if logged_in? and current_user.can_edit?(@provider) %>
       <div class="pageHead userEdit">
         <%= link_to t('edit_your_profile'), edit_my_provider_path, :class=>"button" %>
-        <h2 class="status"><%= t('your_profile_is_x_complete', :score => current_user.provider.percent_complete) %></h2>
+        <p class="status"><%= t('your_profile_is_x_complete', :score => current_user.provider.percent_complete) %></p>
       </div>
       <%- end -%>
     
