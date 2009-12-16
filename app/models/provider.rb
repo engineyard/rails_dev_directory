@@ -68,6 +68,7 @@ class Provider < ActiveRecord::Base
   before_validation_on_create :save_slug
   before_validation :filter_carraige_returns
   before_create :set_first_user_provider
+  before_save :activate_if_criteria_passed
   after_create :set_first_user_as_owner
   after_create :set_default_services
   
@@ -242,8 +243,11 @@ class Provider < ActiveRecord::Base
     "%.2f" % min_budget
   end
 
-  def check_quiz_scores_and_activate
-    activate! if quizzes.passed.any?
+  def activate_if_criteria_passed
+    return unless quizzes.passed.any?
+    return unless hourly_rate.not.blank?
+    return unless min_hours.not.blank? or max_hours.not.blank?
+    activate! if aasm_state != 'active' and aasm_state != 'flagged'
   end
 
   def has_enough_portfolio_items?
