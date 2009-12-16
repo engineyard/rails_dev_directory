@@ -250,6 +250,9 @@ class Provider < ActiveRecord::Base
 private
   def save_slug
     self.slug = slugged_company_name
+    if slug.blank?
+      self.slug = user.slugged_name if user
+    end
   end
   
   def first_user_has_email_matching_company_url
