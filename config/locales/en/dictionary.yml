@@ -4,6 +4,7 @@ en:
   accepts_as_payment: "Accepts <strong>PayPal, Credit Cards</strong> as payment"
   account: Account
   account_information: Account Information
+  activity: Activity
   address: Address
   answer: Answer
   answers: Answers
@@ -73,6 +74,7 @@ en:
   no_quizzes_taken: No Quizzes Taken Yet
   number_of_weeks: Number of Weeks
   
+  optional: Optional
   or: or
   
   paste_code_sample_here: Paste your code sample here
@@ -119,5 +121,5 @@ en:
   willing_to_travel: Willing to travel <strong>anywhere in the world</strong>
   
   your_favorites: Your favorites (3)
-  your_profile_is_complete: "Your profile is <strong>50%</strong> complete"
+  your_profile_is_x_complete: "Your profile is <strong>{{score}}%</strong> complete"
   your_score: Your Score

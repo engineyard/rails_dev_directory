@@ -26,6 +26,14 @@ class Provider < ActiveRecord::Base
   
   url_field :company_url
   
+  define_completeness_scoring do
+    check :name, lambda { |provider| provider.company_name.not.blank? or (provider.user and provider.user.name.not.blank?) }
+    check :one_quiz_taken, lambda { |provider| provider.quiz_results.not.empty? }
+    check :hourly_rate, lambda { |provider| provider.hourly_rate.not.zero? }
+    check :project_length, lambda { |provider| provider.min_project_length.not.blank? and provider.max_project_length.not.blank? }
+    check :hours, lambda { |provider| provider.min_hours.not.blank? and provider.max_hours.not.blank? }
+  end
+  
   attr_protected :aasm_state, :slug, :user_id, :endorsements_count
   
   has_many :bookings, :order => "date asc"
@@ -61,7 +69,6 @@ class Provider < ActiveRecord::Base
   before_validation :filter_carraige_returns
   before_create :set_first_user_provider
   after_create :set_first_user_as_owner
-  after_create :send_owner_welcome
   after_create :set_default_services
   
   named_scope :active, :conditions => {:aasm_state => 'active'}, :order => :company_name
@@ -250,6 +257,14 @@ class Provider < ActiveRecord::Base
 private
   def save_slug
     self.slug = slugged_company_name
+    if slug.blank?
+      self.slug = user.slugged_name if user
+    end
+    n = 1
+    while Provider.find_by_slug(slug)
+      self.slug = "#{slug}-#{n}"
+      n = n.next
+    end
   end
   
   def first_user_has_email_matching_company_url
@@ -269,10 +284,6 @@ private
   
   def set_first_user_provider
     users.first.provider = self if users.first
-  end
-  
-  def send_owner_welcome
-    Notification.create_provider_welcome(user) if user
   end
   
   def owner_name

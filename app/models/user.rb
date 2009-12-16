@@ -1,6 +1,9 @@
 require 'digest/sha1'
 
 class User < ActiveRecord::Base  
+  
+  validates_presence_of :first_name, :last_name
+  
   belongs_to :provider
 
   after_create :reset_token
@@ -73,5 +76,9 @@ class User < ActiveRecord::Base
   
   def reset_token
     reset_perishable_token!
+  end
+  
+  def slugged_name
+    name.downcase.gsub(/[^a-z0-9\s]/, '').gsub(/\s/,'-') if name
   end
 end

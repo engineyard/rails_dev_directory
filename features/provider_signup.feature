@@ -21,6 +21,9 @@ So that I can can receive Rails project referrals
       And I fill in the "Website" with "oleopry.com"
       And I press "Sign up"
     Then I should see "Welcome, JD"
+      And "jdcrow@oleopry.com" should receive an email
+    When I open the email
+    Then I should not see "americanpolka"
 
   Scenario: Signing up and sloppily missing the TOS
     Given I am on the homepage
@@ -35,6 +38,7 @@ So that I can can receive Rails project referrals
     When I follow "Create an account"
       And I fill in the provider sign up form for "Pivotpaul Labs"
       And I fill in "First Name" with "Paul"
+      And I fill in "Last Name" with "Campbell"
       And I press "Sign up"
     Then I should see "Terms of Use"
     When I check "provider[terms_of_service]"

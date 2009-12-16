@@ -181,7 +181,12 @@ describe Provider do
   
   describe "with a user" do
     before do
-      @provider = Provider.new(@valid_attributes.merge(:users_attributes => {'0' => {:password => 'password', :password_confirmation => 'password', :email => 'dongle@rslw.com'}}))    
+      @provider = Provider.new(@valid_attributes.merge(:users_attributes => {'0' => {
+        :password => 'password',
+        :password_confirmation => 'password',
+        :email => 'dongle@rslw.com',
+        :first_name => "Paul",
+        :last_name => "Campbell"}}))
       @provider.users.first.password = 'password'
       @provider.users.first.password_confirmation = 'password'
     end
@@ -213,7 +218,15 @@ describe Provider do
 
   describe "making sure that the email and url domain match" do
     before do
-      @provider = Provider.new(@valid_attributes.merge(:email => 'paul@rslw.com', :company_url => 'http://www.hypertiny.net', :users_attributes => {'0' => {:email => 'paul@rslw.com', :password => 'password', :password_confirmation => 'password'}}))
+      @provider = Provider.new(@valid_attributes.merge(
+        :email => 'paul@rslw.com',
+        :company_url => 'http://www.hypertiny.net',
+        :users_attributes => {'0' => {
+          :first_name => "Paul",
+          :last_name => "Campbell",
+          :email => 'paul@rslw.com',
+          :password => 'password', 
+          :password_confirmation => 'password'}}))
       @provider.users.first.password = 'password'
       @provider.users.first.password_confirmation = 'password'
     end
@@ -272,18 +285,27 @@ describe Provider, "trying to register a reserved country / state name" do
   end
 end
 
-describe Provider, "receiving email on signup" do
-  it "should send the provider welcome" do
-    @provider = Provider.new({"city"=>"Dublin", "state_province"=>"", "further_street_address"=>"28 Malahide Road", "company_url"=>"rushedsunlight.com", "country"=>"IE", "company_name"=>"Rushed Sunlight", "company_size"=>"2", "postal_code"=>"Dublin 3", "hourly_rate"=>"", "marketing_description"=>"", "phone_number"=>"[FILTERED]", "street_address"=>"28 Malahide Road", "terms_of_service"=>"1", "users_attributes"=>{"0"=>{"password_confirmation"=>"[FILTERED]", "last_name"=>"CAmpbell", "password"=>"[FILTERED]", "email"=>"paul@rushedsunlight.com", "first_name"=>"Paul"}}, "min_budget"=>"0.0", "email"=>"paul@rushedsunlight.com"})
-    @provider.users.first.password = 'monkeys'
-    @provider.users.first.password_confirmation = 'monkeys'
-    
+describe Provider, "trying to register an empty company name" do
+  before do
+    p = Provider.make(:company_name => "")
+  end
+  
+  it "should be invalid if I try to register a new one" do
+    @provider = Provider.make_unsaved(:company_name => "")
     @provider.should be_valid
-    
-    Notification.should_not_receive(:create_user_welcome)
-    Notification.should_receive(:create_provider_welcome)
-    
-    @provider.save
+  end
+  
+  it "should use my name to create a slug" do
+    @provider = Provider.make_unsaved(:company_name => "")
+    @provider.user = User.make(:first_name => "Paul", :last_name => "Campbell")
+    @provider.should be_valid
+    @provider.slug.should == "paul-campbell"
+  end
+  
+  it "shouldn't use the same slug twice" do
+    Provider.make(:company_name => "Jim")
+    @provider = Provider.make(:company_name => "Jim")
+    @provider.slug.should == 'jim-1'
   end
 end
 

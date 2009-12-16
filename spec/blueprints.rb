@@ -19,9 +19,11 @@ Sham.city { Faker::Address.city }
 Sham.position { ['CEO', 'Developer', 'Manager'].rand }
 
 User.blueprint do
-  name
+  first_name Sham.name
+  last_name Sham.name
   email
-  password
+  password 'xxxxxx'
+  password_confirmation 'xxxxxx'
 end
 
 Service.blueprint do
