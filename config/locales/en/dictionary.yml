@@ -36,6 +36,7 @@ en:
   filter_by_project_requirements: Filter by Project Requirements
   filter_by_services_skills: Filter by services and skills
   find_a_freelancer: Find a freelance developer
+  finished: Finished!
   
   go_back_and_edit: "Go Back &amp; Edit"
   
@@ -71,6 +72,7 @@ en:
   or: or
   
   paste_code_sample_here: Paste your code sample here
+  please_answer_all_questions: "Please answer all questions"
   priority: Priority
   priority_notes: Priority affects where in the search form this category will appear
   professional: Professional
