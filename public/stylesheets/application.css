@@ -1299,3 +1299,23 @@ div#sorting-endorsements ul li strong { cursor: move; }
 .checked label, .checked label:hover {
   background: #FCC;
 }
+
+td.proficiency {
+  background: url(/images/sprite-graphics.png) no-repeat 0 -1120px;
+}
+td.proficiency div {
+  width: 45px;
+  height: 14px;
+  float: left;
+}
+div.Beginner, div.Intermediate, div.Advanced {
+  background: url(/images/sprite-graphics.png) no-repeat 0 -1098px;
+}
+td.proficiency div.Beginner {
+  width: 14px;
+  margin-right: 31px;
+}
+td.proficiency div.Intermediate {
+  width: 25px;
+  margin-right: 20px;
+}
