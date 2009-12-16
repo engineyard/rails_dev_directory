@@ -1331,23 +1331,21 @@ div#sorting-endorsements ul li strong { cursor: move; }
   background: #FCC;
 }
 
-td.proficiency {
+td.Beginner, td.Intermediate, td.Advanced {
   background: url(/images/sprite-graphics.png) no-repeat 0 -1120px;
   text-transform: capitalize;
 }
-td.proficiency div {
+div.proficiency {
   width: 45px;
   height: 14px;
   float: left;
-}
-div.Beginner, div.Intermediate, div.Advanced {
   background: url(/images/sprite-graphics.png) no-repeat 0 -1098px;
 }
-td.proficiency div.Beginner {
+td.Beginner div.proficiency {
   width: 14px;
   margin-right: 31px;
 }
-td.proficiency div.Intermediate {
+td.Intermediate div.proficiency {
   width: 25px;
   margin-right: 20px;
 }

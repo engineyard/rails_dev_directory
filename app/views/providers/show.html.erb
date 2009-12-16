@@ -66,11 +66,11 @@
                 <td>
                   <%= service.name %>
                 </td>
-                <td class="proficiency">
-                  <%- if proficiency = @provider.provided_services.for_service(service).proficiency -%>
-                    <div class="<%= t("service.proficiency_#{proficiency}") %>"></div><%= t("service.proficiency_#{proficiency}") %>
-                  <%- end -%>
-                </td>
+                <%- if proficiency = @provider.provided_services.for_service(service).proficiency -%>
+                  <td class="<%= t("service.proficiency_#{proficiency}") %>">
+                    <div class="proficiency"></div><%= t("service.proficiency_#{proficiency}") %>
+                  </td>
+                <%- end -%>
               </tr>
             <%- end -%>
           <%- end -%>
