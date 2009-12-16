@@ -75,5 +75,12 @@
         </table>
       <%- end -%>
     </div>
+    
+    <div>
+      <h3><%= t('activity') %></h3>
+      <ul>
+        <li> <%= t('your_profile_has_been_viewed_x_times', :count => @provider.views) %></li>
+      </ul>
+    </div>
   </div>
 <%- end -%>

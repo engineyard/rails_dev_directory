@@ -16,6 +16,7 @@ class ProvidersController < ApplicationController
   
   def show
     @provider = Provider.find(params[:id])
+    @provider.increment!(:views) unless logged_in? and current_user.provider == @provider
   end
   
   def new
