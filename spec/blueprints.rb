@@ -39,6 +39,7 @@ end
 Provider.blueprint do
   email
   company_url { Sham.url }
+  company_name { Sham.name }
   city
 end
 

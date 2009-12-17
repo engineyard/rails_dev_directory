@@ -28,6 +28,7 @@ class My::QuizzesController < ApplicationController
       current_user.provider.quiz_results.create!(
         :quiz => @quiz,
         :score => @quiz.correct_responses_for(current_user.provider))
+      current_user.provider.save
       redirect_to(results_my_quiz_path(@quiz))
     else
       flash.now[:notice] = t('please_answer_all_questions')

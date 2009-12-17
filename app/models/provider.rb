@@ -101,7 +101,7 @@ class Provider < ActiveRecord::Base
   end
   
   def self.search(params)
-    conditions = ["aasm_state != 'flagged'"]
+    conditions = ["aasm_state = 'active'"]
     joins = nil
     group = nil
 
@@ -261,7 +261,7 @@ class Provider < ActiveRecord::Base
     return unless quiz_results.passed.any?
     return unless hourly_rate.not.blank?
     return unless min_hours.not.blank? or max_hours.not.blank?
-    activate! if aasm_state != 'active' and aasm_state != 'flagged'
+    activate! if aasm_state == 'inactive'
   end
 
   def has_enough_portfolio_items?
@@ -294,6 +294,9 @@ private
     self.slug = slugged_company_name
     if slug.blank?
       self.slug = user.slugged_name if user
+    end
+    if slug.blank?
+      self.slug = 'unnamed'
     end
     n = 1
     while Provider.find_by_slug(slug)

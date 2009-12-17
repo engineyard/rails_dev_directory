@@ -30,12 +30,12 @@ describe Provider do
   
   describe "searching" do
     it "should search on budget" do
-      Provider.should_receive(:all).with(:joins => nil, :group => nil, :conditions => ["aasm_state != 'flagged' and min_budget <= ?", 20000], :order => "aasm_state asc, if(endorsements_count >= 3,endorsements_count,0) desc, RAND()", :limit => 10)
+      Provider.should_receive(:all).with(:joins => nil, :group => nil, :conditions => ["aasm_state = 'active' and min_budget <= ?", 20000], :order => "aasm_state asc, if(endorsements_count >= 3,endorsements_count,0) desc, RAND()", :limit => 10)
       Provider.search({:budget => "20000"})
     end
     
     it "should search on budget with weird formatting" do
-      Provider.should_receive(:all).with(:joins => nil, :group => nil, :conditions => ["aasm_state != 'flagged' and min_budget <= ?", 20000], :order => "aasm_state asc, if(endorsements_count >= 3,endorsements_count,0) desc, RAND()", :limit => 10)
+      Provider.should_receive(:all).with(:joins => nil, :group => nil, :conditions => ["aasm_state = 'active' and min_budget <= ?", 20000], :order => "aasm_state asc, if(endorsements_count >= 3,endorsements_count,0) desc, RAND()", :limit => 10)
       Provider.search({:budget => "20,000"})
     end
     
@@ -44,29 +44,29 @@ describe Provider do
         :joins => nil,
         :group => nil,
         :conditions => [
-          "aasm_state != 'flagged' and (select count(*) from provided_services where provider_id = providers.id and service_id IN (?)) = 3", [1,2,3]],
+          "aasm_state = 'active' and (select count(*) from provided_services where provider_id = providers.id and service_id IN (?)) = 3", [1,2,3]],
         :order => "aasm_state asc, if(endorsements_count >= 3,endorsements_count,0) desc, RAND()",
         :limit => 10)
       Provider.search({:service_ids => [1,2,3]})
     end
     
     it "should search on country" do
-      Provider.should_receive(:all).with(:joins => nil, :group => nil, :conditions => ["aasm_state != 'flagged' and country = ?", 'IE'], :order => "aasm_state asc, if(endorsements_count >= 3,endorsements_count,0) desc, RAND()", :limit => 10)
+      Provider.should_receive(:all).with(:joins => nil, :group => nil, :conditions => ["aasm_state = 'active' and country = ?", 'IE'], :order => "aasm_state asc, if(endorsements_count >= 3,endorsements_count,0) desc, RAND()", :limit => 10)
       Provider.search({:location => 'IE'})
     end
     
     it "should search on state" do
-      Provider.should_receive(:all).with(:joins => nil, :group => nil, :conditions => ["aasm_state != 'flagged' and state_province = ?", 'FL'], :order => "aasm_state asc, if(endorsements_count >= 3,endorsements_count,0) desc, RAND()", :limit => 10)
+      Provider.should_receive(:all).with(:joins => nil, :group => nil, :conditions => ["aasm_state = 'active' and state_province = ?", 'FL'], :order => "aasm_state asc, if(endorsements_count >= 3,endorsements_count,0) desc, RAND()", :limit => 10)
       Provider.search({:location => 'US-FL'})
     end
     
     it "should search on many countries" do
-      Provider.should_receive(:all).with(:joins => nil, :group => nil, :conditions => ["aasm_state != 'flagged' and country IN (?)", ['IE', 'US']], :order => "aasm_state asc, if(endorsements_count >= 3,endorsements_count,0) desc, RAND()", :limit => 10)
+      Provider.should_receive(:all).with(:joins => nil, :group => nil, :conditions => ["aasm_state = 'active' and country IN (?)", ['IE', 'US']], :order => "aasm_state asc, if(endorsements_count >= 3,endorsements_count,0) desc, RAND()", :limit => 10)
       Provider.search({:countries => ['IE', 'US']})
     end
     
     it "should search on many states" do
-      Provider.should_receive(:all).with(:joins => nil, :group => nil, :conditions => ["aasm_state != 'flagged' and state_province IN (?)", ['FL', 'NY']], :order => "aasm_state asc, if(endorsements_count >= 3,endorsements_count,0) desc, RAND()", :limit => 10)
+      Provider.should_receive(:all).with(:joins => nil, :group => nil, :conditions => ["aasm_state = 'active' and state_province IN (?)", ['FL', 'NY']], :order => "aasm_state asc, if(endorsements_count >= 3,endorsements_count,0) desc, RAND()", :limit => 10)
       Provider.search({:states => ['FL', 'NY']})
     end
     
@@ -75,7 +75,7 @@ describe Provider do
         :joins => nil,
         :group => nil,
         :conditions => [
-          "aasm_state != 'flagged' and country IN (?) and if(country = 'US', state_province IN (?), ?)",
+          "aasm_state = 'active' and country IN (?) and if(country = 'US', state_province IN (?), ?)",
             ['IE', 'US'], ['FL', 'NY'], true],
         :order => "aasm_state asc, if(endorsements_count >= 3,endorsements_count,0) desc, RAND()",
         :limit => 10)
@@ -87,7 +87,7 @@ describe Provider do
         Provider.should_receive(:all).with(
           :joins => nil,
           :group => nil,
-          :conditions => ["aasm_state != 'flagged' and hourly_rate >= ? and hourly_rate <= ?", 0, 75],
+          :conditions => ["aasm_state = 'active' and hourly_rate >= ? and hourly_rate <= ?", 0, 75],
           :order=>"aasm_state asc, if(endorsements_count >= 3,endorsements_count,0) desc, RAND()",
           :limit=>10)
         Provider.search({:hourly_rate => "0-75"})
@@ -99,7 +99,7 @@ describe Provider do
         Provider.should_receive(:all).with(
           :joins => nil,
           :group => nil,
-          :conditions => ["aasm_state != 'flagged' and min_hours <= ? and max_hours >= ?", 0, 10],
+          :conditions => ["aasm_state = 'active' and min_hours <= ? and max_hours >= ?", 0, 10],
           :order=>"aasm_state asc, if(endorsements_count >= 3,endorsements_count,0) desc, RAND()",
           :limit=>10)
         Provider.search({:hours => "0-10"})
@@ -111,7 +111,7 @@ describe Provider do
         Provider.should_receive(:all).with(
           :joins => nil,
           :group => nil,
-          :conditions => ["aasm_state != 'flagged' and (select count(*) from bookings where provider_id = providers.id and DATE_FORMAT(date, '%m') = ?) != ?", 12, 31],
+          :conditions => ["aasm_state = 'active' and (select count(*) from bookings where provider_id = providers.id and DATE_FORMAT(date, '%m') = ?) != ?", 12, 31],
           :order=>"aasm_state asc, if(endorsements_count >= 3,endorsements_count,0) desc, RAND()",
           :limit=>10)
         Provider.search({:availability => "2009-12-01"})
@@ -123,7 +123,7 @@ describe Provider do
         Provider.should_receive(:all).with(
           :joins => nil,
           :group => nil,
-          :conditions => ["aasm_state != 'flagged' and min_project_length >= ? and max_project_length <= ?", 0, 120],
+          :conditions => ["aasm_state = 'active' and min_project_length >= ? and max_project_length <= ?", 0, 120],
           :order=>"aasm_state asc, if(endorsements_count >= 3,endorsements_count,0) desc, RAND()",
           :limit=>10)
         Provider.search({:weeks => "0-4"})
