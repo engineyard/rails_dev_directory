@@ -18,16 +18,17 @@
               ["<$75", "0-75"],
               ["$75-$150", "75-150"],
               [">$150", "150-"]
-              ]
+              ],
+              params[:hourly_rate]
               ) %>
         </li>
-        <li class="hidden">
+        <li>
           <label><%= t('speaks') %></label><br />
           <select id="language">
             <option>Any Language</option>
           </select>            
         </li>
-        <li>
+        <li class="hidden">
           <%= label_tag 'travel', t('will_travel') %><br />
           <%= select_tag 'travel', options_for_select(
           [

@@ -101,7 +101,7 @@ class Provider < ActiveRecord::Base
   end
   
   def self.search(params)
-    conditions = ["aasm_state != 'flagged'"]
+    conditions = ["aasm_state NOT IN ('flagged','inactive')"]
     joins = nil
     group = nil
 
