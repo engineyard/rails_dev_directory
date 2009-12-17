@@ -24,6 +24,9 @@
         <img src="/images/profile-default.png" class='avatar' />
       <%- end -%>
       <h2 class="name"><%= @provider.name %></h2>
+      <%- if @provider.company_name.not.blank? and @provider.company_name != @provider.name -%>
+        <p>(<%= t('doing_business_as') %> <%= @provider.company_name %>)</p>
+      <%- end -%>
 
       <p><%= t('located_in') %> <%= @provider.private_address.join(", ") %></p>
       <p class="rate">
