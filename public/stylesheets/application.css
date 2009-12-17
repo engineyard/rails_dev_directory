@@ -749,19 +749,16 @@ ul.testList li {
 .footer .attribution {
   float: right;
 }
-.footer .attribution .engineyard {
-  display: inline-block;
-  overflow: hidden;
-  text-indent: -1000px;
-  width: 98px;
-  height: 30px;
-  margin: -10px 0;
-  background: url(/images/sprite-graphics.png) no-repeat 0 -1025px;
-  border-bottom: none;
-}
 .footer .attribution a {
   color: #91020C;
-  border-bottom: 1px solid #91020C;
+}
+.footer .attribution a.logo {
+  border: none;
+}
+.footer .attribution img {
+  float: none;
+  margin: -10px 0px;
+  border: none;
 }
 /* Table Styles */
 table {
