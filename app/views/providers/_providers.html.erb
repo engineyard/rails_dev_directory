@@ -17,7 +17,9 @@
             <td><img src="/images/profile-default-sm.png" /></td>
             <td>
               <%= link_to provider.name, provider %>
-              <%= "<em>(#{link_to(provider.company_name, provider)})</em>" if provider.company_name.not.blank? %>
+              <%- if provider.company_name.not.blank? and provider.company_name != provider.name -%>
+                <%= "<em>(#{link_to(provider.company_name, provider)})</em>"  %>
+              <%- end -%>
               <br/>
               <%= provider.private_address.join(', ') %>
             </td>

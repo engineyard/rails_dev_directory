@@ -103,6 +103,9 @@
               </td>
               <td>
                 <%= link_to provider.name, provider %><br />
+                <%- if provider.company_name.not.blank? and provider.company_name != provider.name -%>
+                  <%= "<em>(#{link_to(provider.company_name, provider)})</em>"  %>
+                <%- end -%>
                 <%= provider.private_address.join(', ') %>
               </td>
               <td><!-- English (TODO) --></td>
