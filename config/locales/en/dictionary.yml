@@ -6,6 +6,7 @@ en:
   account_information: Account Information
   activity: Activity
   address: Address
+  all_enquiries: See All Enquiries
   almost_there: Almost There!
   answer: Answer
   answers: Answers
@@ -98,6 +99,7 @@ en:
   quiz_result: Quiz Result
   quiz_taken: Quiz Has Been Taken
   
+  recent_enquiries: Recent Enquiries
   reliable: Reliable
   review_code: Review Code
   review_your_code: Review Your Code

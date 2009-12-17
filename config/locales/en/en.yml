@@ -352,7 +352,7 @@ en:
     
     first_name: First Name
     last_name: Last Name
-    company_name: Name
+    company_name: Company Name
     about_you: Tell us a bit about you
     email: Email
     phone_number: Phone
@@ -367,8 +367,8 @@ en:
     other: Other
     project_name: Project Name
     budget: Budget
-    start_date: Start date
-    duration: Duration
+    start_date: "I need someone who can start:"
+    duration: "I estimate that this project will last:"
     due_date: Due Date
     time_zone: Time Zone
     office_location: Office Location
@@ -403,7 +403,7 @@ en:
     nda_required: An NDA is required on this project
     platform_requirements: Platform Requirements
     due_date: Due Date
-    time_zone: Office Time Zone
+    time_zone: Time Zone
     general_liability_insurance: General Liability Insurance
     professional_liability_insurance: Professional Liability Insurance
     additional_services: Additional Services Required
