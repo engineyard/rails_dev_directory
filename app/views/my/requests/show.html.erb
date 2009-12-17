@@ -1,6 +1,6 @@
 <div class="request dashboard">
   <div class="pageHead">
-    <h2><%= t('contacts') %></h2>
+    <h2><%= t('enquiries') %></h2>
     <ul class="summary">
       <li><%= t('rfp.submitted_on') %> <%= @rfp.created_at_formatted %></li>
       <li class="flagged">Flag This Contact</li>
@@ -45,47 +45,48 @@
       <h4><%= t('rfp.project_name') %></h4>
       <%= @rfp.project_name %>
       
-      <h4><%= t('rfp.budget') %></h4>
-      <%= price @rfp.budget %>
+      <h4><%= t('rfp.duration') %></h4>
+      <%= @rfp.duration %>
     </div>
 
     <div class="column">
       <h4><%= t('rfp.start_date') %></h4>
       <%= @rfp.start_date_formatted %>
 
-      <h4><%= t('rfp.duration') %></h4>
-      <%= @rfp.duration %>
-    </div>
-
-    <div class="clear">
-      <div class="column services">
-        <h4><%= t('rfp.services') %></h4>
-        <ul>
-          <% @rfp.requested_services.each do |service| %>
-            <li><%= service.name %></li>
-          <%- end -%>
-        </ul>
-      </div>
-      <div class="column services">
-        <h4><%= t('rfp.insurance_requirements') %></h4>
-        <ul>
-          <li><%= t('rfp.general_liability_insurance') %>: <%= yes_or_no(@rfp.general_liability_insurance)%></li>
-          <li><%= t('rfp.professional_liability_insurance') %>: <%= yes_or_no(@rfp.professional_liability_insurance) %></li>
-        </ul>
-      </div>
+      <h4><%= t('rfp.budget') %></h4>
+      <%= price @rfp.budget %>
     </div>
     
+    <div class="column">
     <h4><%= t('rfp.details') %></h4>
 
-    <%= t('rfp.nda_required') if @rfp.nda_required? %>
-    <%= @rfp.project_description %>
+      <%= t('rfp.nda_required') if @rfp.nda_required? %>
+      <%= @rfp.project_description %>
 
-    <h4><%= t('rfp.platform_requirements')%></h4>
-    <%= @rfp.platform_requirements %>
+      <h4><%= t('rfp.platform_requirements')%></h4>
+      <%= @rfp.platform_requirements %>
 
-    <h4><%= t('rfp.additional_services') %></h4>
-    <%= @rfp.additional_services %>
+      <h4><%= t('rfp.additional_services') %></h4>
+      <%= @rfp.additional_services %>
+    </div>
     
+    <div class="column services hidden">
+      <h4><%= t('rfp.insurance_requirements') %></h4>
+      <ul>
+        <li><%= t('rfp.general_liability_insurance') %>: <%= yes_or_no(@rfp.general_liability_insurance)%></li>
+        <li><%= t('rfp.professional_liability_insurance') %>: <%= yes_or_no(@rfp.professional_liability_insurance) %></li>
+      </ul>
+    </div>
+    <div class="column services">
+      <h4><%= t('rfp.services') %></h4>
+      <ul>
+        <% @rfp.requested_services.each do |service| %>
+          <li><%= service.name %></li>
+        <%- end -%>
+      </ul>
+    </div>
+    
+    <div class="clear"></div>
   </div>
   
 </div>

@@ -666,17 +666,9 @@ ul.testList li {
 }
 
 /* Request Page */
-.request .narrow {
-  width: 632px;
-  padding-right: 28px;
-  margin-right: -1px;
-  border-right: 1px solid #CCC;
-}
-.request .sidebar {
-  width: 204px;
-  padding-left: 27px;
-  margin-left: -1px;
-  border-left: 1px solid #CCC;
+.request .column {
+  width: 26%;
+  margin-right: 2%;
 }
 .request .block {
   border: none;
