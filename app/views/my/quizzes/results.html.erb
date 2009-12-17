@@ -7,5 +7,5 @@
 
   <h3><%= t('your_score') %></h3>
 
-  <%= @quiz.correct_responses_for(current_user.provider) %> / <%= @quiz.questions.size %>
+  <div class="score"><strong><%= @quiz.correct_responses_for(current_user.provider) %></strong> / <%= @quiz.questions.size %>
 </div>

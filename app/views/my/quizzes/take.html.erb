@@ -7,6 +7,7 @@
 
   <%- form_tag(submit_my_quiz_path(@quiz)) do -%>
     <%- @quiz.questions.each_with_index do |question, index| -%>
+      <fieldset>
       <h4><%= index + 1 %>. <%= question.text %></h4>
       <ul>
         <%- question.answers.each do |answer| -%>
@@ -16,6 +17,7 @@
                                    :id => dom_id(answer) %> <%= label_tag dom_id(answer), answer.text %></li>
         <%- end -%>
       </ul>
+      </fieldset>
     <%- end -%>
   
     <%= submit_tag(t('finished')) %>
