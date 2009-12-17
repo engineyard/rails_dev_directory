@@ -4,7 +4,7 @@
     # Meta Description: View the Rails developer profile for <name>, located in <city>, <state>, <country>, providing <services offered>.
    %>
 
-  <%- content_for :title do -%><%= @provider.company_name %> <%= t('provider.developer_profile') %> | <%= t('provider.rails_developer_in') %> <%= [@provider.city, @provider.state_province].reject { |a| a.blank? or a == 'NA' }.join(', ') %> | <%- end %>
+  <%- content_for :title do -%><%= @provider.name %> <%= t('provider.developer_profile') %> | <%= t('provider.rails_developer_in') %> <%= [@provider.city, @provider.state_province].reject { |a| a.blank? or a == 'NA' }.join(', ') %> | <%- end %>
   <%- content_for :description do -%><meta name="description" content="<%= t('provider.developer_description', :name => @provider.company_name, :address => @provider.private_address.join(', '), :services_offered => (Service.checked + @provider.services).collect{ |t| t.name }.join(', ')) %>"><%- end -%>
 
   
@@ -23,7 +23,7 @@
       <%- else -%>
         <img src="/images/profile-default.png" class='avatar' />
       <%- end -%>
-      <h2 class="name"><%= @provider.company_name %></h2>
+      <h2 class="name"><%= @provider.name %></h2>
 
       <p><%= t('located_in') %> <%= @provider.private_address.join(", ") %></p>
       <p class="rate">
