@@ -3,11 +3,11 @@ class ProvidersController < ApplicationController
   ssl_required :new, :create
 
   def index
-    @providers = Provider.all_by_company_name.paginate(:page => params[:page])
+    @providers = Provider.active.all_by_company_name.paginate(:page => params[:page])
   end
   
   def by_location
-    @providers = Provider.all_by_location
+    @providers = Provider.active.all_by_location
   end
   
   def search
