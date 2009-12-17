@@ -44,6 +44,16 @@ dd.date {
   margin-bottom: 1em;
   color: #666;
 }
+dl.details dt, dl.details dd {
+  display: inline-block;
+}
+dl.details dt {
+  padding: 0;
+  color: #666;
+}
+dl.details dd {
+  margin-right: 40px;
+}
 .providerHead .sidebar ul.links {
   border-bottom: none;
 }
@@ -1064,7 +1074,7 @@ hr {
   text-transform: uppercase;
   margin-top: 0;
 }
-.widget .score strong {
+.widget .score strong, .score strong {
   font-size: 2.25em;
   font-weight: normal;
 }

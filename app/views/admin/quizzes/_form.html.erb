@@ -10,15 +10,17 @@
     <%= f.label :time_limit %> <%= f.text_field :time_limit %> (in minutes)<br />
   </fieldset>
   
+  
   <h2><%= t('questions') %></h2>
-    <%- n = 0; f.fields_for :questions do |q| n = n.next -%>
-      <%= q.label :text, "Question #{n}" %> <%= q.text_field :text %> <br />
-      <%= q.label :correct_answer_id %> <%= q.select :correct_answer_id, q.object.answers.collect { |a| [a.text, a.id] } %> <br />
-      <h3><%= t('answers') %></h3>
-      <%- n1 = 0; q.fields_for :answers do |a| n1 = n1.next -%>
-        <%= a.label :text, "Answer #{n1}" %> <%= a.text_field :text %> <br />
-      <%- end -%>
+  <%- n = 0; f.fields_for :questions do |q| n = n.next -%>
+    <h3><%= q.label :text, "Question #{n}" %></h3> <%= q.text_field :text %> <br />
+    <%= q.label :correct_answer_id %> <%= q.select :correct_answer_id, q.object.answers.collect { |a| [a.text, a.id] } %>
+    <h3><%= t('answers') %></h3>
+    <%- n1 = 0; q.fields_for :answers do |a| n1 = n1.next -%>
+      <%= a.label :text, "Answer #{n1}" %> <%= a.text_field :text %> <br />
     <%- end -%>
+    <hr/>
+  <%- end -%>
   
   
 
