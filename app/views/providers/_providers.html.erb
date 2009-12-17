@@ -16,7 +16,9 @@
           <tr class="<%= cycle('odd', 'even') %>">
             <td><img src="/images/profile-default-sm.png" /></td>
             <td>
-              <%= link_to provider.name, provider %><br/>
+              <%= link_to provider.name, provider %>
+              <%= "<em>(#{link_to(provider.company_name, provider)})</em>" if provider.company_name.not.blank? %>
+              <br/>
               <%= provider.private_address.join(', ') %>
             </td>
             <td></td>

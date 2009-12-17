@@ -68,7 +68,7 @@
               <li <%= 'class="active"' if controller_name == 'availability' %>>
                 <%= link_to t('availability'), my_availability_path %>
               </li>
-              <li class="hidden<%= ' active' if controller_name == 'quizzes' %>">
+              <li <%= 'class="active"' if controller_name == 'quizzes' %>>
                 <%= link_to t('quizzes'), my_quizzes_path %>
               </li>
               <li class="hidden<%= ' active' if controller_name == 'code_samples' %>">

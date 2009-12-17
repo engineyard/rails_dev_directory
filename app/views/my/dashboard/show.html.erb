@@ -1,6 +1,5 @@
 <% if @provider %>
-  
-  <div class="almost-there <%- ' popup' if @provider.aasm_state != 'active' -%>">
+  <div class="almost-there <%= ' popup' if @provider.aasm_state != 'active' -%>">
     <div class="content">
       <h2><%= t('almost_there') %></h2>
       <p><%= t('just_a_few_more_things') %></p>

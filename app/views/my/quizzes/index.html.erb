@@ -11,7 +11,7 @@
         <tr>
           <th><%= t('quiz_name') %></th>
           <th><%= t('skill_level') %></th>
-          <th><%= t('time_limit') %></th>
+          <th class="hidden"><%= t('time_limit') %></th>
           <th></th>
         </tr>
       </thead>
@@ -20,10 +20,10 @@
         <tr>
           <td><%= quiz.name %></td>
           <td><%= quiz.skill_level %></td>
-          <td><%= quiz.time_limit %> <%= t('minutes') %></td>
+          <td class="hidden"><%= quiz.time_limit %> <%= t('minutes') %></td>
           <td>
             <%- if current_user.provider.quiz_results.find_by_quiz_id(quiz.id) -%>
-              <%= t('quiz_taken') %>
+              <%= t('your_score') %>: <%= current_user.provider.quiz_results.find_by_quiz_id(quiz.id).score %> / <%= quiz.questions.count %>
             <%- else -%>
               <%= link_to t('take_this_quiz'), take_my_quiz_path(quiz) %>
             <%- end -%>
