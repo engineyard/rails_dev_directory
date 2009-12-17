@@ -101,7 +101,7 @@ class Provider < ActiveRecord::Base
   end
   
   def self.search(params)
-    conditions = ["aasm_state NOT IN ('flagged','inactive')"]
+    conditions = ["aasm_state = 'active'"]
     joins = nil
     group = nil
 
@@ -294,6 +294,9 @@ private
     self.slug = slugged_company_name
     if slug.blank?
       self.slug = user.slugged_name if user
+    end
+    if slug.blank?
+      self.slug = 'unnamed'
     end
     n = 1
     while Provider.find_by_slug(slug)
