@@ -92,8 +92,8 @@ en:
       
   home:
     logo: /images/logo-rails.jpg
-    welcome: "Looking for a Rails Freelancer?"
-    description: "<p>We know that finding a qualified Ruby on Rails developer can be a challenge. On the Rails Developer Directory, we match your business with professional Rails developers who want to build your app. It only takes seconds to find qualified firms, so start searching now!</p>"
+    welcome: "Looking for a Freelance Rails Developer?"
+    description: "<p>We match your business with professional freelance Rails developers who want to build your app. It only takes seconds to find a qualified Rails developer, so start searching now!</p>"
     find_a_provider: Find a Rails Freelancer
     full_listing: Full listing
     by_location: Geographic listing

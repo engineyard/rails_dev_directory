@@ -5,7 +5,9 @@
   height: 1px;
   overflow: hidden;
 }
-
+.welcome {
+  margin-top: 10px;
+}
 .wizard {
   white-space: nowrap;
 }
@@ -17,6 +19,17 @@
 hr {
   clear: both;
 }
-.provider {
-  width: 653px;
+.provider.search h4 {
+}
+.provider.search ul li {
+  float: left;
+  display: block;
+  clear: none;
+}
+.provider.search ul {
+  margin-top: 0;
+}
+.provider.search ul li li {
+  float: none;
+  clear: both;
 }
