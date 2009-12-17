@@ -50,6 +50,13 @@
         </li>
         <li><%= submit_tag t('update') %></li>
       </ul>
+      
+      <%= hidden_field_tag 'budget', params[:budget] %>
+      <%- if params[:service_ids] -%>
+        <%- params[:service_ids].each do |service_id| -%>
+          <%= hidden_field_tag 'service_ids[]', service_id %>
+        <%- end -%>
+      <%- end -%>
     
       
     </fieldset>
@@ -116,13 +123,6 @@
           <%- end -%>
         </tbody>
       </table>
-    
-      <%= hidden_field_tag 'budget', params[:budget] %>
-      <%- if params[:service_ids] -%>
-        <%- params[:service_ids].each do |service_id| -%>
-          <%= hidden_field_tag 'service_ids[]', service_id %>
-        <%- end -%>
-      <%- end -%>
 
       <div class="aligncenter hidden">
         <!-- TODO: This needs to show 20 more results -->
