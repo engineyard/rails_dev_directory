@@ -19,7 +19,7 @@
         <td><%= "#{index + 1}." %></td>
         <td>
           <%= link_to provider.name, admin_provider_path(provider) %>
-          <%= link_to provider.company_name, admin_provider_path(provider) if provider.company_name.not.blank? %>
+          <%= "(#{link_to(provider.company_name, admin_provider_path(provider))})" if provider.company_name.not.blank? %>
         </td>
         <td><%= provider.created_at_formatted %></td>
         <td><%= provider.status %></td>
