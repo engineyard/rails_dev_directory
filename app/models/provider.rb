@@ -2,7 +2,7 @@ require 'exportable'
 class Provider < ActiveRecord::Base
   include AASM
   
-  validates_presence_of :city
+  validates_presence_of :city, :slug
   validates_uniqueness_of :slug
   validate_on_create :first_user_has_email_matching_company_url
   validates_acceptance_of :terms_of_service
@@ -197,6 +197,11 @@ class Provider < ActiveRecord::Base
   
   def first_name
     return user.first_name if user and user.first_name.not.blank?
+    company_name
+  end
+  
+  def name
+    return user.name if user and user.name.not.blank?
     company_name
   end
 
