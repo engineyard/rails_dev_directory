@@ -35,7 +35,6 @@
     </div>
 
     <div class="block companyInfo">
-      <div>
       <h3><%= t('provider.about') %></h3>
       <ul>
         <%- if @provider.languages.not.empty? -%>
@@ -51,7 +50,6 @@
         <%- end -%>
 
       </ul>
-      </div>
     </div>
 
     <table class="services">
@@ -156,11 +154,12 @@
       <%- if @provider.quiz_results.empty? -%>
         <%= t('no_quizzes_taken') %>
       <%- else -%>
-        <%- @provider.first_name -%> <%= t('has_taken') %> <%= t('x_quizzes', :count => @provider.quiz_results.size) %>
+        <p><%- @provider.first_name -%> <%= t('has_taken') %> <%= t('x_quizzes', :count => @provider.quiz_results.size) %></p>
       <%- end -%>
       <%- if logged_in? and current_user.provider == @provider -%>
-        <%= link_to t('take_a_quiz'), my_quizzes_path %>
+        <br /><%= link_to t('take_a_quiz'), my_quizzes_path %>
       <%- end -%>
+      <div class="clear"></div>
     </div>
     
     <div class="hidden">

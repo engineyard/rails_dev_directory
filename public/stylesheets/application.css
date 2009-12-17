@@ -77,6 +77,10 @@ dl.details dd {
 .rate {
   color: #999;
 }
+.block.companyInfo {
+  padding-top: 0;
+  margin-top: 0;
+}
 .companyInfo  ul {
   margin-bottom: 40px;
 }
@@ -237,6 +241,7 @@ li.username {
   line-height: 1.1em;
   padding-top: 0.2em;
   margin-bottom: 0.5em;
+  white-space: nowrap;
 }
 .welcome p {
   font-size: 1.1em;
@@ -461,7 +466,7 @@ li .check {
 }
 .sidebar .links {
   border-bottom: none;
-  height: 85px;
+  height: 82px;
 }
 .narrow {
   float: left;
