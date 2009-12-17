@@ -29,6 +29,7 @@ class ProvidersController < ApplicationController
     @provider.users.first.password_confirmation = params['provider']['users_attributes']['0']['password_confirmation']
     @page_content = Page.find_by_url('provider-signup')
     if verify_recaptcha(:model => @provider) && @provider.save
+      @provider.update_attribute(:slug, @provider.user.slugged_name) if @provider.slug[0,7] == 'unnamed'
       UserSession.create(@provider.user)
       Notification.deliver_provider_welcome(@provider.user)
       redirect_to my_dashboard_url
