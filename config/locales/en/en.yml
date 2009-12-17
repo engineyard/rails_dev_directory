@@ -9,7 +9,7 @@ en:
     "yes": "Yes"
     "no": "No"
     access_denied: You don't have permission to do that
-    copyright: 'Created by <a href="http://www.engineyard.com" class="engineyard">Engine Yard, Ruby on Rails Hosting</a>. Runs on <a href="http://www.engineyard.com/products/cloud">Engine Yard Cloud</a>.'
+    copyright: 'Created by <a href="http://www.engineyard.com" class="logo"><img src="/images/logo-ey-horiz.png" /></a>. Runs on <a href="http://www.engineyard.com/products/cloud">Engine Yard Cloud</a>.'
     contact_us: 'Contact Us'
     terms: 'Terms and Conditions'
     
