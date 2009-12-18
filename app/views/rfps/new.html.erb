@@ -8,14 +8,14 @@
       
         <%- @providers.each do |provider| -%>
         <div class="currentDev">
-          <%- if provider.logo_file_name.not.blank? -%>
-            <%= image_tag(provider.logo.url(:thumb), :class=>'avatar') %>
+          <%- if provider.avatar? -%>
+            <%= image_tag(provider.avatar.thumb.url, :class=>'avatar') %>
           <%- else -%>
             <img src="/images/profile-default.png" class='avatar' />
           <%- end -%>
           
           <%= hidden_field_tag "rfp[provider_ids][]", provider.id %>
-          <h4><%= provider.company_name %></h4>
+          <h4><%= provider.name %></h4>
           <p><%= provider.private_address.join(", ") %></p>
         </div>
         <%- end -%>
