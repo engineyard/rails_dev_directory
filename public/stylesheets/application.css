@@ -297,7 +297,7 @@ li.username {
   display: block;
   float: left;
   clear: both;
-  padding: 5px 15px;
+  padding: 0;
   border: 1px solid #DDD;
   margin: 10px 0 -1px;
 }
@@ -310,10 +310,13 @@ li.username {
   color: #333;
 }
 .provider.search h4 a {
-  background: none;
-  padding: 0;
+  background: url(/images/icon-close.png) no-repeat right center;
+  padding: 5px 30px 5px 15px;
   width: auto;
   font-size: 1em;
+}
+.provider.search h4.active a {
+  background: url(/images/icon-open.png) no-repeat right center;
 }
 .provider.search form {
   text-align: left;
