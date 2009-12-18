@@ -24,5 +24,19 @@ describe RfpsHelper do
       rfp_hours('2-4').should == "2-4 Hours/Week"
     end
   end
+  
+  describe "#rfp_duration" do
+    it "should accept a minimum" do
+      rfp_duration('1-').should == 'More Than 1 Week'
+    end
+    
+    it "should accept a maximum" do
+      rfp_duration('-2').should == "Less Than 2 Weeks"
+    end
+    
+    it "should accept a range" do
+      rfp_duration('2-4').should == "2-4 Weeks"
+    end
+  end
 
 end

@@ -12,7 +12,8 @@ class Rfp < ActiveRecord::Base
   after_create :add_checked_requested_services
   
   audit
-  format_dates [:timestamps, :start_date, :due_date]
+  format_dates [:timestamps, :due_date]
+  format_dates :start_date, :format => "%B %Y"
   
   accepts_nested_attributes_for :requested_services, :allow_destroy => true, :reject_if => proc { |attrs| attrs['add'] != "1" }
   

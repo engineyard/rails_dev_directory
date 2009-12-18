@@ -26,10 +26,10 @@
       <h4><%= t('rfp.company_name') %></h4>
       <p><%= @rfp.company_name %></p>
   
-      <h4><%= t('address') %></h4>
+      <h4><%= t('location') %></h4>
       <address>
-      <%= @rfp.office_location %>
-      <%= @rfp.postal_code %>
+      <%= State.by_code(@rfp.state) %>
+      <%= t("countries.#{@rfp.country}") %>
       </address>
       
       <h4><%= t('rfp.time_zone') %></h4>
@@ -44,13 +44,18 @@
     <div class="column">
       
       <h4><%= t('rfp.duration') %></h4>
-      <%= @rfp.duration %>
+      <%= rfp_duration(@rfp.duration) %>
+      
+      <h4><%= t('hours_per_week') %></h4>
+      <%= rfp_hours(@rfp.hours_per_week) %>
     </div>
 
     <div class="column">
       <h4><%= t('rfp.start_date') %></h4>
       <%= @rfp.start_date_formatted %>
-
+      
+      <h4><%= t('location_of_work') %></h4>
+      <%= t("#{@rfp.location_of_work}") %>
     </div>
     
     <div class="column">
