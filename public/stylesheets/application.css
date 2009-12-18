@@ -309,6 +309,12 @@ li.username {
   border: none;
   color: #333;
 }
+.provider.search h4 a {
+  background: none;
+  padding: 0;
+  width: auto;
+  font-size: 1em;
+}
 .provider.search form {
   text-align: left;
 }
