@@ -23,8 +23,12 @@
               <br/>
               <%= provider.private_address.join(', ') %>
             </td>
-            <td></td>
-            <td></td>
+            <td>
+              <%= provider.languages.collect(&:name).to_sentence %>
+            </td>
+            <td>
+              <%= provider.soonest_availability.strftime("%B") %>
+            </td>
             <td><a href="" class="favorite hidden">Add to Favorites</a></td>
           </tr>
         <%- end -%>

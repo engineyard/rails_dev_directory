@@ -276,6 +276,12 @@ class Provider < ActiveRecord::Base
     bookings.count(:conditions => ["DATE_FORMAT(date, '%m') = ?", month.strftime("%m")]) == days_in_month.to_i
   end
   
+  def soonest_availability
+    [Date.today, 1.month.from_now, 2.months.from_now].each do |month|
+      return month if !booked_for(month)
+    end
+  end
+  
   def languages
     category = ServiceCategory.find_by_name(Behavior.config[:language_service])
     return [] unless category
