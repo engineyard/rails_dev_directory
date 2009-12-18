@@ -88,7 +88,7 @@ module ProvidersHelper
     end   
   end
   
-  def hours_per_week_select(model, method)
+  def hours_per_week_select(model = nil, method = nil)
     select_options = [
       [t('any'), ''],
       ["#{t('less_than')} 15 #{t('hours')}", "0-15"],

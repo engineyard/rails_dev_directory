@@ -91,7 +91,7 @@ Feature: Provider directory
     Then I should see "Paul Campbell"
       And the "Hours Per Week" field should contain "15-25"
 
-    When I select "<15 Hours/Week" from "Hours Per Week"
+    When I select "Less Than 15 Hours/Week" from "Hours Per Week"
       And I press "Update"
     Then I should not see "Paul Campbell"
 
