@@ -119,7 +119,9 @@
               <td>
                 <%= provider.languages.collect(&:name).to_sentence %>
               </td>
-              <td><!-- December (TODO) --></td>
+              <td>
+                <%= provider.soonest_availability.strftime("%B") %>
+              </td>
               <td><%= link_to "Add to Favorites (TODO)", '#', :class=>'favorite hidden' %></td>
             </tr>
           <%- end -%>
