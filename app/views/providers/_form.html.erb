@@ -2,7 +2,7 @@
   <fieldset>
     <%= f.label :hourly_rate, t('hourly_rate') %> <%= f.text_field :hourly_rate %> <br />
     
-    <%= image_tag(@provider.avatar.url) if @provider.avatar? %>
+    <%= image_tag(@provider.avatar.thumb.url) if @provider.avatar? %>
     <%= f.label :avatar, t('profile_photo') %> <%= f.file_field :avatar %> <br />
     <%= f.hidden_field :avatar_cache %>
   </fieldset>

@@ -103,8 +103,8 @@
           <%- @providers.each do |provider| -%>
             <tr class="<%= cycle('odd', 'even') %>">
               <td>
-                <%- if provider.logo_file_name.not.blank? -%>
-                  <%= image_tag(provider.logo.url(:thumb), :class=>'avatar') %>
+                <%- if provider.avatar? -%>
+                  <%= image_tag(provider.avatar.thumb.url, :class=>'avatar') %>
                 <%- else -%>
                   <img src="/images/profile-default.png" class='avatar' />
                 <%- end -%>
