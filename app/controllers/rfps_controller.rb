@@ -1,4 +1,6 @@
 class RfpsController < ApplicationController
+  
+  before_filter :get_services, :only => [:new, :create]
 
   def new
     @rfp = Rfp.new(:provider_ids => params[:provider_ids], :budget => params[:budget])

@@ -551,12 +551,6 @@ en:
   csvs:
     rfps: Export Requests
     providers: Export Providers
-
-  country:
-    providers_in: "Rails Developers in {{country}}"
-    
-  state:
-    providers_in: "US Rails Developers in {{state}}"
     
   email:
     subject: Subject

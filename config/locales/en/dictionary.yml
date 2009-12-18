@@ -11,6 +11,7 @@ en:
   answer: Answer
   answers: Answers
   any: Any
+  any_time: Any Time
   anywhere: Anywhere
   availability: Availability
   availability_by_hours: General availability by hours per week
@@ -24,6 +25,7 @@ en:
   
   cancel: Cancel
   change_your_search_criteria: Change Your Search Criteria
+  choose_country: Choose Country
   code: Code
   code_sample_introduction: Here you can post code samples.
   code_sample_label: Paul has uploaded 4 code samples
@@ -33,6 +35,7 @@ en:
   contact_a_developer: Contact a Developer
   contact_a_developer_introduction: "You're sending a note to this developer about your project:"
   contact_developer: Contact Developer
+  country: Country
   create_a_rails_freelance_account: Create a Rails Freelance Account
   
   doing_business_as: Doing Business as
@@ -73,6 +76,7 @@ en:
   minimum_hours_per_week: Minimum Hours Per Week
   minimum_project_length: Minimum Hours in Project
   minutes: Minutes
+  more_than: More Than
   my_upcoming_availability: "My Upcoming Availability &mdash; 3 month view"
 
   name: Name
@@ -86,6 +90,7 @@ en:
   
   optional: Optional
   or: or
+  outside_us: Outside US
   
   paste_code_sample_here: Paste your code sample here
   please_answer_all_questions: "Please answer all questions"
@@ -94,6 +99,8 @@ en:
   professional: Professional
   profile_photo: Profie Photo
   project_length: Project Length
+  providers_in_country: "Rails Developers in {{country}}"
+  providers_in_state: "US Rails Developers in {{state}}"
   
   questions: Questions
   quizzes: Quizzes
@@ -110,6 +117,7 @@ en:
   save_changes: Save Changes
   score: Score
   send: Send
+  services: Services
   set_your_availability: Set Your Availability
   set_your_hourly_rate: Set Your Hourly Rate
   show_more_results: Show 20 More Results
@@ -117,6 +125,7 @@ en:
   soonest_availability: Soonest Availability
   speaks: Speaks
   start: Start
+  state: State
   
   take_a_quiz: Take a Quiz
   take_the_basic_rails_quiz: Take the Basic Rails Quiz

@@ -1,5 +1,5 @@
 <%- content_for :title do -%><%= t("state.providers_in", :state => State.from_slug(params[:state]).name) %> | <%- end -%>
 
-<h2><%= t("state.providers_in", :state => State.from_slug(params[:state]).name) %></h2>
+<h2><%= t("providers_in_state", :state => State.from_slug(params[:state]).name) %></h2>
 
 <%= render :partial => 'providers/providers' %>

@@ -63,7 +63,7 @@ module ProvidersHelper
   def availability_select
     select_tag 'availability', options_for_select(
       [
-        [t('any'), ''],
+        [t('any_time'), ''],
         ["#{Date.today.strftime("%B")}",Time.now.to_date.beginning_of_month],
         [1.month.from_now.strftime("%B"), 1.month.from_now.to_date.beginning_of_month],
         [2.months.from_now.strftime("%B"), 2.months.from_now.to_date.beginning_of_month]
@@ -76,7 +76,7 @@ module ProvidersHelper
         [t('any'), ''],
         ["1-4 #{t('weeks')}", '0-4'],
         ["4-8 #{t('weeks')}", '4-8'],
-        [">8 #{t('weeks')}", '8-']
+        ["#{t('more_than')} 8 #{t('weeks')}", '8-']
         ],
         params[:weeks]
     )    

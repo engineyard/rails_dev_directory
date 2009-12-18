@@ -35,7 +35,11 @@
       <%= f.label :email, t("rfp.email") %> <%= f.text_field :email %> <br />
       <%= f.label :phone_number, t("rfp.phone_number") %> <%= f.text_field :phone_number %> <br />
       <%= f.label :office_location, t("rfp.office_location") %> <%= f.text_field :office_location %> <br />
-      <%= f.label :postal_code, t("rfp.postal_code") %> <%= f.text_field :postal_code %> <br />
+      
+      <%= f.label :state, t("state") %> <%= f.select :state, ([[t('outside_us'), "NA"]] + State::NAMES), :include_blank => true %> <br />
+      <%= f.label :country, t('country') %> <%= f.localized_country_select :country, [:US, :CA, :FR, :DE,  :IE, :ES, :GB], :include_blank => t('choose_country') %> <br />
+      
+      
       <%= f.label :time_zone, t("rfp.time_zone") %> <%= f.time_zone_select :time_zone %> <br />
 
     </fieldset>
@@ -49,27 +53,44 @@
       <table>
         <tr>
           <td>
-            <%= f.label :start_date, t("rfp.start_date") %> <%= f.text_field :start_date, :class => "date" %>
+            <%= f.label :start_date, t("rfp.start_date") %> <%= availability_select %>
           </td>
-          <td><%= f.label :duration, t("rfp.duration") %> <%= f.text_field :duration %></td>
+          <%- @top_services.group_by(&:category).sort_by { |c,services| c.position }.each do |category, services| -%>
+          <td>
+            <%= label_tag dom_id(category), category.name -%><br />
+            <%= select_tag("service_ids[]", options_for_select(services.sort_by(&:name).collect{ |s| [s.name, s.id]}), :id => dom_id(category)) -%>
+          </td>
+          <%- end -%>
         </tr>
       </table>
     
       <fieldset class="rfpservices">
       <label><%= t('rfp.services') %></label>
       <ul>
-        <%- f.fields_for :requested_services do |rf| -%>
-          <li>
-            <%- if rf.object.checked -%>
-              <%= image_tag '/images/icon-check.png', :class=>"check"%>
-              <!-- <%= check_box_tag "dummy-#{dom_id(rf.object)}", 0, true, :disabled => true %> -->
-              <%= label_tag "dummy-#{dom_id(rf.object)}", rf.object.name %>
-            <%- else -%>
-              <%= rf.check_box :add %>
-              <%= rf.label :add, rf.object.name %>
-              <%= rf.hidden_field :name %>
+        <li class="group">
+          <h4><%= t('services') %></h4>
+          <ul>
+          <li class="ror"><%= image_tag '/images/icon-check.png', :class=>"check"%> <label><%= t('provider.directory.default_service') %></label></li>
+          <%- @general_services.each do |service| -%>
+            <li>
+              <%= check_box_tag "service_ids[]", service.id, false, :id => dom_id(service) %>
+              <%= label_tag dom_id(service), service.name %>
+            </li>
+          <%- end -%>
+          </ul>
+        </li>
+        <%- @mid_services.group_by(&:category).sort_by { |c,services| c.position }.each do |category, services| -%>
+        <li class="group">
+          <h4><%= category.name %>:</h4>
+          <ul>
+            <%- services.each do |service| -%>
+            <li>
+              <%= check_box_tag "service_ids[]", service.id, false, :id => dom_id(service) %>
+              <%= label_tag dom_id(service), service.name %>
+            </li>
             <%- end -%>
-          </li>
+          </ul>
+        </li>
         <%- end -%>
       </ul>
       </fieldset>
@@ -85,7 +106,7 @@
       </div>
     
       <br />
-      
+      <%= f.label :duration, t("rfp.duration") %> <%= project_length_select %>
       <%= f.label :additional_services, t("rfp.additional_services") %> <%= f.text_area :additional_services %> <br />
     </fieldset>
   
