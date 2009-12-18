@@ -1,4 +1,5 @@
 require 'exportable'
+require 'carrierwave/orm/activerecord'
 class Provider < ActiveRecord::Base
   include AASM
   
@@ -12,6 +13,7 @@ class Provider < ActiveRecord::Base
   
   audit
   has_attached_file :logo, :styles => { :medium => "300x300>", :thumb => "64x64>" }
+  mount_uploader :avatar, AvatarUploader
   xss_terminate :sanitize => [:marketing_description]
   format_dates :timestamps
   
