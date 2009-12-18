@@ -22,12 +22,12 @@
               params[:hourly_rate]
               ) %>
         </li>
+        <%- @top_services.group_by(&:category).sort_by { |c,services| c.position }.each do |category, services| -%>
         <li>
-          <label><%= t('speaks') %></label><br />
-          <select id="language">
-            <option>Any Language</option>
-          </select>            
+          <%= label_tag dom_id(category), category.name -%><br />
+          <%= select_tag("service_ids[]", options_for_select(services.sort_by(&:name).collect{ |s| [s.name, s.id]}), :id => dom_id(category)) -%>
         </li>
+        <%- end -%>
         <li class="hidden">
           <%= label_tag 'travel', t('will_travel') %><br />
           <%= select_tag 'travel', options_for_select(

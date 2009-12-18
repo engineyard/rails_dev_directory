@@ -11,6 +11,7 @@ class ProvidersController < ApplicationController
   end
   
   def search
+    @top_services = Service.priority(1).reject_category(@general_category)
     @providers = Provider.search(params)
   end
   
