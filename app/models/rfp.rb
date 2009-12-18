@@ -1,7 +1,7 @@
 require 'exportable'
 class Rfp < ActiveRecord::Base
 
-  validates_presence_of :project_name, :first_name, :last_name, :email
+  validates_presence_of :first_name, :last_name, :email
   validate :budget_fits
   validates_acceptance_of :terms_of_service
   

@@ -41,13 +41,21 @@
     </fieldset>
     <fieldset>
     <h3><%= t('rfp.about_your_project') %></h3>
-
+      
+      <div class="hidden">
       <%= f.label :project_name, t("rfp.project_name") %> <%= f.text_field :project_name %> <br />
-      <%= f.label :budget, t("rfp.budget") %> <%= f.select :budget, Rfp.options_for_budget %> <br />
+      <%= f.label :budget, t("rfp.budget") %> <%= f.select :budget, Rfp.options_for_budget %> <br /></div>
     
-      <%= f.label :start_date, t("rfp.start_date") %> <%= f.text_field :start_date, :class => "date" %> <br />
-      <%= f.label :duration, t("rfp.duration") %> <%= f.text_field :duration %> <br />
+      <table>
+        <tr>
+          <td>
+            <%= f.label :start_date, t("rfp.start_date") %> <%= f.text_field :start_date, :class => "date" %>
+          </td>
+          <td><%= f.label :duration, t("rfp.duration") %> <%= f.text_field :duration %></td>
+        </tr>
+      </table>
     
+      <fieldset class="rfpservices">
       <label><%= t('rfp.services') %></label>
       <ul>
         <%- f.fields_for :requested_services do |rf| -%>
@@ -64,7 +72,9 @@
           </li>
         <%- end -%>
       </ul>
-  
+      </fieldset>
+    
+      <div class="hidden">
       <br />
       <label><%= t('rfp.insurance_requirements_headline') %></label>
       <p><%= t('rfp.insurance_requirements_description') %></p>
@@ -72,7 +82,8 @@
         <li><%= f.check_box :general_liability_insurance %><%= f.label :general_liability_insurance, t("rfp.general_liability") %></li>
         <li><%= f.check_box :professional_liability_insurance %><%= f.label :professional_liability_insurance, t("rfp.professional_liability") %></li>
       </ul>
-      
+      </div>
+    
       <br />
       
       <%= f.label :additional_services, t("rfp.additional_services") %> <%= f.text_area :additional_services %> <br />

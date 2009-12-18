@@ -499,6 +499,22 @@ li .check {
 .services li {
   list-style: inside url(/images/img-bullet.png);
 }
+.rfpservices {
+  margin: 0.75em 0 0.5em;
+  padding-bottom: 0;
+}
+.rfpservices li {
+  display: inline-block;
+  width: 30%;
+  margin: 0;
+  margin-right: 2%;
+}
+.rfpservices input[type="checkbox"] {
+  margin-top: 2px;
+}
+.rfpservices label {
+  margin-top: 0;
+}
 .column {
   width: 45%;
   padding-right: 5%;
