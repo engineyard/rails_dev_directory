@@ -17,7 +17,7 @@ module RfpsHelper
     min, max = amount.to_s.split('-')
     return "#{min}-#{max} #{t("weeks")}" if min.not.blank? and max.not.blank?
     return "#{t('less_than')} #{max} #{t('weeks')}" if max and min.blank?
-    return "#{t('more_than')} #{min} #{t('week')}" if min == 1 and max.blank?
+    return "#{t('more_than')} #{min} #{t('week')}" if min.to_i == 1 and max.blank?
     return "#{t('more_than')} #{min} #{t('weeks')}" if min and max.blank?
   end
 end
