@@ -30,8 +30,8 @@
           
       </ul>
 
-      <h4><%= t('filter_by_services_skills') %></h4>
-      <ul class="filters">
+      <h4><%= link_to t('filter_by_services_skills'), '#', :class => 'filter' %></h4>
+      <ul class="filters hidden">
         <li>
           <h4><%= t('provider.directory.services') %>:</h4>
           <ul>
@@ -60,9 +60,9 @@
       </ul>
 
       
-      <h4><%= t('filter_by_project_requirements') %></h4>
+      <h4><%= link_to t('filter_by_project_requirements'), '#', :class => 'filter' %></h4>
       
-      <ul class="filters">
+      <ul class="filters hidden">
         <li>
           <%= label_tag 'weeks', t('project_length') %><br />
           <%= project_length_select %>

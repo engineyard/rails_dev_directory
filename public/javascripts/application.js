@@ -145,6 +145,11 @@ $(document).ready(function(){
     return false
   })
   
+  $('a.filter').click(function(){
+    $(this).parents('h4:first').next('.filters:first').toggleClass('hidden')
+    return false
+  })
+  
 })
 
 var RecaptchaOptions = {
