@@ -157,8 +157,8 @@ class Provider < ActiveRecord::Base
     end
 
     if params[:service_ids].not.blank? and params[:service_ids].is_a?(Array)
-      conditions[0] << " and (select count(*) from provided_services where provider_id = providers.id and service_id IN (?)) = #{params[:service_ids].size}"
-      conditions << params[:service_ids].collect { |t| t.to_i }
+      conditions[0] << " and (select count(*) from provided_services where provider_id = providers.id and service_id IN (?)) = #{params[:service_ids].reject { |s| s.blank? }.size}"
+      conditions << params[:service_ids].reject { |s| s.blank? }.collect { |s| s.to_i }
     end
     
     if params[:location].not.blank?
