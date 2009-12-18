@@ -29,6 +29,7 @@ Rails::Initializer.run do |config|
   config.gem 'flay'
   config.gem 'flog'
   config.gem 'roodi'
+  config.gem "carrierwave", :version => '0.4.2'
 
   # Only load the plugins named here, in the order given (default is alphabetical).
   # :all can be used as a placeholder for all plugins not explicitly named

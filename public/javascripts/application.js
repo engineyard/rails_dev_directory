@@ -146,7 +146,8 @@ $(document).ready(function(){
   })
   
   $('a.filter').click(function(){
-    $(this).parents('h4:first').next('.filters:first').toggleClass('hidden')
+    parent_element = $(this).parents('h4:first')
+    parent_element.toggleClass('active').next('.filters:first').toggleClass('hidden')
     return false
   })
   
