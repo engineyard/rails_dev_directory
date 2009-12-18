@@ -18,10 +18,10 @@ Feature: Provider directory
   Scenario: Finding a Freelancer by hourly rate
     When I am on the homepage
       And I press "Find a freelance developer"
-      And I select "<$75" from "Hourly Rate"
+      And I select "$" from "Hourly Rate"
       And I press "Update"
     Then I should not see "Paul Campbell"
-    When I select ">$150" from "Hourly Rate"
+    When I select "$$$" from "Hourly Rate"
       And I press "Update"
     Then I should see "Paul Campbell"
 
