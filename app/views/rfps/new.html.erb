@@ -41,13 +41,19 @@
     </fieldset>
     <fieldset>
     <h3><%= t('rfp.about_your_project') %></h3>
-
-      <%= f.label :project_name, t("rfp.project_name") %> <%= f.text_field :project_name %> <br />
       
-      <div class="hidden"><%= f.label :budget, t("rfp.budget") %> <%= f.select :budget, Rfp.options_for_budget %> <br /></div>
+      <div class="hidden">
+      <%= f.label :project_name, t("rfp.project_name") %> <%= f.text_field :project_name %> <br />
+      <%= f.label :budget, t("rfp.budget") %> <%= f.select :budget, Rfp.options_for_budget %> <br /></div>
     
-      <%= f.label :start_date, t("rfp.start_date") %> <%= f.text_field :start_date, :class => "date" %> <br />
-      <%= f.label :duration, t("rfp.duration") %> <%= f.text_field :duration %> <br />
+      <table>
+        <tr>
+          <td>
+            <%= f.label :start_date, t("rfp.start_date") %> <%= f.text_field :start_date, :class => "date" %>
+          </td>
+          <td><%= f.label :duration, t("rfp.duration") %> <%= f.text_field :duration %></td>
+        </tr>
+      </table>
     
       <fieldset class="rfpservices">
       <label><%= t('rfp.services') %></label>
