@@ -15,7 +15,7 @@
     <%- setup_services(@provider) -%>
     <ul>
     
-    <%- @provider.provided_services.group_by(&:category).each do |category, services| -%>
+    <%- @provider.provided_services.sort_by { |s| [s.category.position, s.service.position] }.group_by(&:category).each do |category, services| -%>
       <li>
         <h4 class="service_category"><%= category.name %></h4>
         <ul>

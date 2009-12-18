@@ -42,6 +42,10 @@ payment_service:
   default: Accepted Payment Methods
   name: Name of Service for Accepted Payment Methods
   
+general_service:
+  default: Services
+  name: Name of Service for General Services
+  
 cheap_hourly_rate:
   default: '0-75'
   name: Cheap Hourly Rate

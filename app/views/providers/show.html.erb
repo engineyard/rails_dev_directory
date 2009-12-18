@@ -65,7 +65,7 @@
             <td colspan="2"><%= t('provider.no_services') %></td>
           </tr>
         <%- else -%>
-          <%- @provider.services.priority(2).group_by(&:category).each do |category, services| -%>
+          <%- @provider.services.priority(2).sort_by { |s| [s.category.position, s.position] }.group_by(&:category).each do |category, services| -%>
             <tr>
               <th colspan="2"><%= category.name %></th>
             </tr>
