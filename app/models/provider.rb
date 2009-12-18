@@ -111,6 +111,9 @@ class Provider < ActiveRecord::Base
     end
 
     if params[:hourly_rate].not.blank?
+      params[:hourly_rate] = Behavior.config[:cheap_hourly_rate] if params[:hourly_rate] == '$'
+      params[:hourly_rate] = Behavior.config[:medium_hourly_rate] if params[:hourly_rate] == '$$'
+      params[:hourly_rate] = Behavior.config[:high_hourly_rate] if params[:hourly_rate] == '$$$'
       min,max = params[:hourly_rate].split('-')
       if min and min.not.empty?
         conditions[0] << " and hourly_rate >= ?"

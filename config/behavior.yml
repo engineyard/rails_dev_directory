@@ -41,3 +41,15 @@ language_service:
 payment_service:
   default: Accepted Payment Methods
   name: Name of Service for Accepted Payment Methods
+  
+cheap_hourly_rate:
+  default: '0-75'
+  name: Cheap Hourly Rate
+  
+medium_hourly_rate:
+  default: '75-120'
+  name: Medium Hourly Rate
+  
+high_hourly_rate:
+  default: '120-'
+  name: High Hourly Rate
