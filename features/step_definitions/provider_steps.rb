@@ -81,3 +81,9 @@ end
 Given /^provider "([^\"]*)" likes to work between "([^\"]*)" and "([^\"]*)" hours per week$/ do |provider_name, min, max|
   Provider.find_by_company_name(provider_name).update_attributes(:min_hours => min, :max_hours => max)
 end
+
+Then /^the provider "([^\"]*)" should belong to "([^\"]*)"$/ do |provider_name, email|
+  user = User.find_by_email(email)
+  provider = Provider.find_by_company_name(provider_name)
+  provider.user.should == user
+end

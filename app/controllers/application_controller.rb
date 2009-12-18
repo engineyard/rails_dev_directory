@@ -1,3 +1,5 @@
+{"city"=>"Barcelona", "postal_code"=>"08903", "state_province"=>"NA", "further_street_address"=>"", "company_url"=>"http://www.hashref.com", "company_name"=>"", "country"=>"ES", "phone_number"=>"+34 616 44 49 48", "terms_of_service"=>"1", "street_address"=>"Travesser de les Corts, 48, Sobreatic 2a", "users_attributes"=>{"0"=>{"password_confirmation"=>"xavier", "first_name"=>"Xavier", "password"=>"xavier", "last_name"=>"Noria", "email"=>"fxn@hashref.com"}}}
+
 # Filters added to this controller apply to all controllers in the application.
 # Likewise, all the methods added will be available for all controllers.
 

@@ -7,6 +7,7 @@ class My::UsersController < ApplicationController
   end
   
   def update
+    @user = current_user
     if current_user.update_attributes(params[:user].merge({:password_confirmation => params[:user][:password]}))
       flash[:notice] = I18n.t("company_profile.users.saved_successfully", :user => current_user.email)
       redirect_to my_dashboard_path

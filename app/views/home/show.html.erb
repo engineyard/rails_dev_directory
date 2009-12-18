@@ -76,7 +76,7 @@
         <%- @bottom_services.group_by(&:category).sort_by { |c,services| c.position }.each do |category, services| -%>
         <li>
           <%= label_tag dom_id(category), category.name -%><br />
-          <%= select_tag("service_ids[]", options_for_select(services.collect{ |s| [s.name, s.id]}), :id => dom_id(category)) -%>
+          <%= select_tag("service_ids[]",  options_for_select([[t('any'),'']] + services.collect{ |s| [s.name, s.id]}), :id => dom_id(category)) -%>
         </li>
         <%- end -%>
       </ul>

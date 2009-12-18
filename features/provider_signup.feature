@@ -49,8 +49,10 @@ So that I can can receive Rails project referrals
     When I am on the homepage
       And I follow "Create an account"
       And I fill in the provider sign up form for "Pivotpaul Labs"
+      And I fill in "Email" with "paul@rslw.com"
       And I fill in "First Name" with "Paul"
       And I fill in "Last Name" with "Campbell"
       And I check "provider[terms_of_service]"
       And I press "Sign up"
     Then I should see "Almost There"
+      And the provider "Pivotpaul Labs" should belong to "paul@rslw.com"

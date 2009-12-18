@@ -11,6 +11,7 @@ class ProvidersController < ApplicationController
   end
   
   def search
+    @top_services = Service.priority(1).reject_category(@general_category)
     @providers = Provider.search(params)
   end
   
@@ -30,6 +31,7 @@ class ProvidersController < ApplicationController
     @page_content = Page.find_by_url('provider-signup')
     if verify_recaptcha(:model => @provider) && @provider.save
       @provider.update_attribute(:slug, @provider.user.slugged_name) if @provider.slug[0,7] == 'unnamed'
+      @provider = @provider.reload
       @provider.update_attribute(:user, @provider.users.first)
       UserSession.create(@provider.user)
       Notification.deliver_provider_welcome(@provider.user)
