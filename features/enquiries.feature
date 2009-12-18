@@ -10,3 +10,4 @@ Feature: Enquiries
       And I follow "Paul Campbell"
       And I follow "Contact Developer"
     Then I should see "Paul Campbell"
+    

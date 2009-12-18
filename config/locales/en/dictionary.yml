@@ -58,6 +58,8 @@ en:
   hour_per_week: Hour/Week
   hours_per_week: Hours Per Week
   
+  i_need_someone_who_can_work_roughly: I Will Need Someone Who Can Work Roughly
+  i_want_the_work_performed: I Want the Work Performed
   info_account: First we need to get your account contact information.
   info_business_address: Your business location is needed to allow potential customers to search for you by your location.
   info_captcha: "We hate spam, so we're going to ask you to prove you're human."
@@ -68,6 +70,7 @@ en:
   just_a_few_more_things: There are just a few more things you need to do to get your developer profile listed in the directory.
   
   length: Length
+  less_than: Less Than
   located_in: Located in
   location: Location
 
@@ -88,6 +91,7 @@ en:
   no_quizzes_taken: No Quizzes Taken Yet
   number_of_weeks: Number of Weeks
   
+  on_site: On Site
   optional: Optional
   or: or
   outside_us: Outside US
@@ -111,6 +115,7 @@ en:
   
   recent_enquiries: Recent Enquiries
   reliable: Reliable
+  remote_ok: Remote OK
   review_code: Review Code
   review_your_code: Review Your Code
   

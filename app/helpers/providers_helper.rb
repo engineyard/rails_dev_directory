@@ -60,39 +60,46 @@ module ProvidersHelper
         )
   end
   
-  def availability_select
-    select_tag 'availability', options_for_select(
-      [
+  def availability_select(model = nil, method = nil, options = {})
+    select_options = [
         [t('any_time'), ''],
         ["#{Date.today.strftime("%B")}",Time.now.to_date.beginning_of_month],
         [1.month.from_now.strftime("%B"), 1.month.from_now.to_date.beginning_of_month],
         [2.months.from_now.strftime("%B"), 2.months.from_now.to_date.beginning_of_month]
-        ])
+      ]
+    if model and method
+      select model, method, select_options, options
+    else
+      select_tag 'availability', options_for_select( select_options , params[:availability])
+    end
   end
   
-  def project_length_select
-    select_tag 'weeks', options_for_select(
-      [
-        [t('any'), ''],
-        ["1-4 #{t('weeks')}", '0-4'],
-        ["4-8 #{t('weeks')}", '4-8'],
-        ["#{t('more_than')} 8 #{t('weeks')}", '8-']
-        ],
-        params[:weeks]
-    )    
+  def project_length_select(model = nil, method = nil)
+    select_options = [
+      [t('any'), ''],
+      ["1-4 #{t('weeks')}", '0-4'],
+      ["4-8 #{t('weeks')}", '4-8'],
+      ["#{t('more_than')} 8 #{t('weeks')}", '8-']
+      ]
+    if model and method
+      select model, method, select_options
+    else
+      select_tag 'weeks', options_for_select(select_options, params[:weeks])
+    end   
   end
   
-  def hours_per_week_select
-    select_tag 'hours', options_for_select(
-      [
-        [t('any'), ''],
-        ["<15 #{t('hours')}", "0-15"],
-        ["15-25 #{t('hours')}", "15-25"],
-        ["25-35 #{t('hours')}", "25-35"],
-        [">35 #{t('hours')}", "35-"]
-        ],
-        params[:hours]
-    )
-    
+  def hours_per_week_select(model, method)
+    select_options = [
+      [t('any'), ''],
+      ["#{t('less_than')} 15 #{t('hours')}", "0-15"],
+      ["15-25 #{t('hours')}", "15-25"],
+      ["25-35 #{t('hours')}", "25-35"],
+      ["#{t('more_than')} 35 #{t('hours')}", "35-"]
+      ]
+    if model and method
+      select model, method, select_options
+    else
+      select_tag 'hours', options_for_select(select_options,params[:hours])
+    end
   end
 end

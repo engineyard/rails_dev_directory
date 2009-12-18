@@ -53,12 +53,25 @@
       <table>
         <tr>
           <td>
-            <%= f.label :start_date, t("rfp.start_date") %> <%= availability_select %>
+            <%= f.label :location_of_work, "#{t('i_want_the_work_performed')}:" %>
+            <%= f.select :location_of_work,
+                options_for_select([
+                  [t('remote_ok'), 'remote'],
+                  [t('on_site'), 'onsite']
+                  ])
+                %> <br />
+          </td>
+          <td>
+            <%= f.label :start_date, t("rfp.start_date") %> <%= availability_select(:rfp, :start_date) %>
           </td>
           <%- @top_services.group_by(&:category).sort_by { |c,services| c.position }.each do |category, services| -%>
           <td>
             <%= label_tag dom_id(category), category.name -%><br />
-            <%= select_tag("service_ids[]", options_for_select(services.sort_by(&:name).collect{ |s| [s.name, s.id]}), :id => dom_id(category)) -%>
+            <%= select_tag("service_ids[]",
+                            options_for_select(services.sort_by(&:name).collect{ |s| [s.name, s.id]},
+                            (Service.priority(1).all(:conditions => ["id in (?)", params[:service_ids]]).first || Service.new).id
+                            ),
+                            :id => dom_id(category)) -%>
           </td>
           <%- end -%>
         </tr>
@@ -73,7 +86,10 @@
           <li class="ror"><%= image_tag '/images/icon-check.png', :class=>"check"%> <label><%= t('provider.directory.default_service') %></label></li>
           <%- @general_services.each do |service| -%>
             <li>
-              <%= check_box_tag "service_ids[]", service.id, false, :id => dom_id(service) %>
+              <%= check_box_tag "service_ids[]",
+                                service.id,
+                                params[:service_ids] && params[:service_ids].include?(service.id.to_s), 
+                                :id => dom_id(service) %>
               <%= label_tag dom_id(service), service.name %>
             </li>
           <%- end -%>
@@ -85,7 +101,10 @@
           <ul>
             <%- services.each do |service| -%>
             <li>
-              <%= check_box_tag "service_ids[]", service.id, false, :id => dom_id(service) %>
+              <%= check_box_tag "service_ids[]",
+                                service.id,
+                                params[:service_ids] && params[:service_ids].include?(service.id.to_s),
+                                :id => dom_id(service) %>
               <%= label_tag dom_id(service), service.name %>
             </li>
             <%- end -%>
@@ -105,8 +124,15 @@
       </ul>
       </div>
     
-      <br />
-      <%= f.label :duration, t("rfp.duration") %> <%= project_length_select %>
+      <table>
+        <tr>
+          <td>
+            <%= f.label :duration, t("rfp.duration") %> <%= project_length_select(:rfp, :duration) %>
+          </td>
+          <td><%= f.label :hours_per_week, t('i_need_someone_who_can_work_roughly') %> <%= hours_per_week_select(:rfp, :hours_per_week) %></td>
+        </tr>
+      </table>
+      
       <%= f.label :additional_services, t("rfp.additional_services") %> <%= f.text_area :additional_services %> <br />
     </fieldset>
   

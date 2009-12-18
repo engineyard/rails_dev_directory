@@ -25,6 +25,9 @@ class RfpsController < ApplicationController
     @rfp = Rfp.new(params[:rfp])
     @providers = @rfp.providers
     if verify_recaptcha(:model => @rfp) && @rfp.save
+      params[:service_ids].each do |service_id|
+        @rfp.requested_services.create!(:name => Service.find(service_id).name)
+      end
       redirect_to @rfp
     else
       render :new

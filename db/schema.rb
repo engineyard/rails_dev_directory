@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20091218133437) do
+ActiveRecord::Schema.define(:version => 20091218144109) do
 
   create_table "answers", :force => true do |t|
     t.integer  "question_id"
@@ -277,6 +277,9 @@ ActiveRecord::Schema.define(:version => 20091218133437) do
     t.string   "duration"
     t.string   "state"
     t.string   "country"
+    t.string   "location_of_work"
+    t.string   "hours_per_week"
+    t.string   "availability"
   end
 
   create_table "service_categories", :force => true do |t|
