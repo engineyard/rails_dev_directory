@@ -11,3 +11,8 @@ Feature: Enquiries
       And I follow "Contact Developer"
     Then I should see "Paul Campbell"
     
+    When I fill in "First Name" with "Joe"
+      And I fill in "Last Name" with "Drumgoole"
+      And I fill in "Email" with "joe@putplace.com"
+      And I check "I accept the Terms of Use"
+      And I press "Send"

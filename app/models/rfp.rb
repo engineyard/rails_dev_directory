@@ -33,6 +33,10 @@ class Rfp < ActiveRecord::Base
   def to_param
     shortcode_url
   end
+
+  def name
+    "#{first_name} #{last_name}" + (company_name.not.blank? ? " (#{company_name})" : '')
+  end
   
   def budget=(price)
     price = BigDecimal.new(price.to_s)

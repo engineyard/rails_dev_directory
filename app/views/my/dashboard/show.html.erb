@@ -43,10 +43,10 @@
           <tbody>
             <% @provider.requests.recent.each do |req| %>
               <tr class="<%= req.unread? ? 'unread' : nil %> <%= cycle('odd', 'even') %>">
-                <td><%= link_to req.rfp.company_name, [:my, req] %></td>
-                <td></td>
-                <td></td>
-                <td></td>
+                <td><%= link_to req.rfp.name, [:my, req] %></td>
+                <td><%= req.rfp.start_date.strftime("%B %Y") %></td>
+                <td><%= rfp_hours(req.rfp.hours_per_week) %></td>
+                <td><%= rfp_duration(req.rfp.duration) %></td>
                 <td><%= req.rfp.created_at_formatted %></td>
               </tr>
             <%- end -%>
