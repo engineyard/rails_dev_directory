@@ -30,7 +30,7 @@ Rails::Initializer.run do |config|
   config.gem 'flog'
   config.gem 'roodi'
   config.gem "carrierwave", :version => '0.4.2'
-  config.gem 'rmagick', :version => '2.12.2'
+  config.gem 'rmagick', :lib => 'RMagick', :version => '2.12.2'
 
   # Only load the plugins named here, in the order given (default is alphabetical).
   # :all can be used as a placeholder for all plugins not explicitly named
