@@ -6,7 +6,7 @@ class ActiveRecord::Base
   end
   
   def export_columns(format = nil, methods = nil)
-    methods.to_a + self.class.content_columns.map(&:name) - ['created_at', 'updated_at']
+    methods.to_a + self.class.content_columns.map(&:name) - ['created_at', 'updated_at', 'avatar']
   end
   
   def to_row(format = nil, methods = nil)

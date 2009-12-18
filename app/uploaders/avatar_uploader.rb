@@ -3,8 +3,8 @@
 class AvatarUploader < CarrierWave::Uploader::Base
 
   # Include RMagick or ImageScience support
-      include CarrierWave::RMagick
-      # include CarrierWave::ImageScience
+  include CarrierWave::RMagick
+  # include CarrierWave::ImageScience
 
   # Choose what kind of storage to use for this uploader
   storage :file
@@ -18,6 +18,10 @@ class AvatarUploader < CarrierWave::Uploader::Base
   
   def extension_white_list
     %w(jpg jpeg gif png)
+  end
+  
+  def to_s
+    url
   end
 
   # Provide a default URL as a default if there hasn't been a file uploaded
