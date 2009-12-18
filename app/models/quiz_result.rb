@@ -7,7 +7,7 @@ class QuizResult < ActiveRecord::Base
   
   after_save :activate_provider_if_full_marks
   
-  named_scope :passed, :conditions => {:score => 100}
+  named_scope :passed, :conditions => ['score = questions']
   
   def activate_provider_if_full_marks
     if provider.aasm_state == 'inactive'

@@ -116,7 +116,9 @@
                 <%- end -%>
                 <%= provider.private_address.join(', ') %>
               </td>
-              <td><!-- English (TODO) --></td>
+              <td>
+                <%= provider.languages.collect(&:name).to_sentence %>
+              </td>
               <td><!-- December (TODO) --></td>
               <td><%= link_to "Add to Favorites (TODO)", '#', :class=>'favorite hidden' %></td>
             </tr>
