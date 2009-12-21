@@ -120,7 +120,7 @@
                 <%= provider.languages.collect(&:name).to_sentence %>
               </td>
               <td>
-                <%- if provider.soonest_availabilty -%>
+                <%- if provider.soonest_availability -%>
                   <%= t('not_available') %>
                 <%- else -%>
                   <%= provider.soonest_availability.strftime("%B") %>
