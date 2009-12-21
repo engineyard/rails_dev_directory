@@ -282,6 +282,7 @@ class Provider < ActiveRecord::Base
     [Date.today, 1.month.from_now, 2.months.from_now].each do |month|
       return month if !booked_for(month)
     end
+    return nil
   end
   
   def languages
