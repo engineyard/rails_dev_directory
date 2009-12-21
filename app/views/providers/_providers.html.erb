@@ -33,7 +33,11 @@
               <%= provider.languages.collect(&:name).to_sentence %>
             </td>
             <td>
-              <%= provider.soonest_availability.strftime("%B") %>
+              <%- if provider.soonest_availability -%>
+                <%= t('not_available') %>
+              <%- else -%>
+                <%= provider.soonest_availability.strftime("%B") %>
+              <%- end -%>
             </td>
             <td><a href="" class="favorite hidden">Add to Favorites</a></td>
           </tr>
