@@ -34,9 +34,9 @@
             </td>
             <td>
               <%- if provider.soonest_availability -%>
-                <%= t('not_available') %>
-              <%- else -%>
                 <%= provider.soonest_availability.strftime("%B") %>
+              <%- else -%>
+                <%= t('not_available') %>
               <%- end -%>
             </td>
             <td><a href="" class="favorite hidden">Add to Favorites</a></td>

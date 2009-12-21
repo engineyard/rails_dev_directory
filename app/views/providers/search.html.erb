@@ -121,9 +121,9 @@
               </td>
               <td>
                 <%- if provider.soonest_availability -%>
-                  <%= t('not_available') %>
-                <%- else -%>
                   <%= provider.soonest_availability.strftime("%B") %>
+                <%- else -%>
+                  <%= t('not_available') %>
                 <%- end -%>
               </td>
               <td><%= link_to "Add to Favorites (TODO)", '#', :class=>'favorite hidden' %></td>
