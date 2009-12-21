@@ -123,9 +123,10 @@ $(document).ready(function(){
     }
     $(this).click(function() {
       if ($(this).is(':checked')) {
-        $(this).siblings('ul.testability').show()
+        console.log($(this).siblings('ul.testability'))
+        $(this).siblings('ul.testability').removeClass('hidden')
       } else {
-        $(this).siblings('ul.testability').hide()
+        $(this).siblings('ul.testability').addClass('hidden')
       }
     })
   })
