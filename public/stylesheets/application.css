@@ -423,6 +423,7 @@ li .check {
   margin: 0 -30px 30px;
   padding: 20px 30px 15px;
   border: 2px solid #FFF;
+  display: none;
 }
 .panel #search-form label {
   margin-top: 0;
