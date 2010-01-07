@@ -92,7 +92,7 @@ class Bootstrapper
       email = default_email if email.blank?
       password = ask("Enter your password[#{default_password}]: ") { |q| q.echo = "*" }
       password = default_password if password.blank?
-      user = User.new(:email => email)
+      user = User.make_unsaved(:email => email)
       user.password = password
       user.password_confirmation = password
       user.admin = true

@@ -19,8 +19,8 @@ Sham.city { Faker::Address.city }
 Sham.position { ['CEO', 'Developer', 'Manager'].rand }
 
 User.blueprint do
-  first_name Sham.name
-  last_name Sham.name
+  first_name {Sham.name}
+  last_name {Sham.name}
   email
   password 'xxxxxx'
   password_confirmation 'xxxxxx'
