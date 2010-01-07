@@ -423,6 +423,7 @@ li .check {
   margin: 0 -30px 30px;
   padding: 20px 30px 15px;
   border: 2px solid #FFF;
+  display: none;
 }
 .panel #search-form label {
   margin-top: 0;
@@ -517,9 +518,9 @@ li .check {
 }
 .rfpservices li.group {
   display: inline-block;
-  margin: 0;
+  margin: 0 0 1em;
   margin-right: 0;
-  width: 18%;
+  width: 24%;
   vertical-align: top;
 }
 .rfpservices li.group h4 {
@@ -534,10 +535,9 @@ li .check {
   margin-top: 2px;
 }
 .rfpservices label {
-  margin-top: 0.2em;
-  font-size: 0.8em;
-  line-height: 1em;
+  margin-top: 0;
   margin-right: 0;
+  width: 85%;
 }
 .column {
   width: 45%;

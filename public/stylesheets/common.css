@@ -393,6 +393,7 @@ div.notice {
 }
 #recaptcha_widget_div table {
   width: auto;
+  display: table;
 }
 
 /* Complex Layout */
