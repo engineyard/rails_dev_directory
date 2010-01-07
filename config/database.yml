@@ -18,7 +18,7 @@ development:
   adapter: mysql
   encoding: utf8
   reconnect: false
-  database: ey_development
+  database: freelancers_development
   pool: 5
   username: root
   password:
@@ -31,7 +31,7 @@ test: &TEST
   adapter: mysql
   encoding: utf8
   reconnect: false
-  database: ey_test
+  database: freelancers_test
   pool: 5
   username: root
   password:
@@ -41,7 +41,7 @@ production:
   adapter: mysql
   encoding: utf8
   reconnect: false
-  database: ey_production
+  database: freelancers_production
   pool: 5
   username: root
   password: 
