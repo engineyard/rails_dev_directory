@@ -23,7 +23,7 @@
           <%- f.fields_for :provided_services, service do |ps| -%>
             <%- if ps.object.category == category -%>
               <li>
-                <%= ps.check_box :_delete, { :class => 'service' }, 'false', 'true' %>
+                <%= ps.check_box :_delete, { :checked => ps.object.not.new_record?, :class => 'service' }, 'false', 'true' %>
                 <%= ps.hidden_field :service_id %>
             
                 <%= ps.label :_delete, ps.object.name %>

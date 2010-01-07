@@ -6,38 +6,8 @@ module ProvidersHelper
   end
   
   def setup_services(provider)
-    # NOTE: This is a hack to invert the behaviour of :allow_destroy. We want
-    # models to persist unless they are unchecked, rather than deleting when
-    # they are checked. To achieve this unfortunately we need to re-implement
-    # the _delete method which the accepts_nested_attributes_for code hides from
-    # us. Ideally rails would be patched to have :allow_destroy => :keep, which
-    # would implement this behaviour natively.
     Service.each do |service|
-      # NOTE: We have to force loading of the provided services proxy here so
-      # that the singleton method we add to the objects is visible to the
-      # template code. This is brittle.
-
-      if provided_service = provider.provided_services.detect { |ps| ps.service_id == service.id }
-        # If a provided service record exists, then we don't want to delete it,
-        # so _delete should return false and the check box should be checked.
-        def provided_service._delete
-          'false'
-        end
-      else
-        provided_service = provider.provided_services.build(:service_id => service.id)
-        # If there isn't an existing record then we assume we don't want to
-        # build it unless a prior page submission says we do. The only way to
-        # infer this is to dig the information out of params by hand.
-        def provided_service._delete
-          begin
-            params[:provider][:provided_services_attributes].find { |k, v|
-              v[:service_id] == self.service_id.to_s
-            }[1][:_delete]
-          rescue
-            'true'
-          end
-        end
-      end
+      provider.provided_services.build(:service => service) unless provider.provided_services.find_by_service_id(service.id)
     end
   end
   
