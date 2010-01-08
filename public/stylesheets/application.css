@@ -70,11 +70,13 @@ dl.details dd {
 }
 .providerHead p {
   margin: 5px 0 8px;
+  color: #666;
 }
 .providerHead p img:last-child {
   margin-right: 6px;
 }
-.rate {
+.providerHead p.rate {
+  font-size: 0.9em;
   color: #999;
 }
 .block.companyInfo {
@@ -462,11 +464,10 @@ li .check {
   width: 510px;
 }
 .box {
-  width: 640px;
+  width: 560px;
   background: #FFF;
   border: 10px solid #9EDBF7;
   padding: 30px;
-  margin-left: -50px;
 }
 .block {
   clear: both;
@@ -711,12 +712,23 @@ ul.testList li {
 .request .block:first-child {
   padding-top: 0;
 }
+.request dl {
+  margin-top: 0;
+}
+.request ul {
+  margin-top: 5px;
+}
 .request .block h3 {
   margin-top: 0;
   padding-top: 0;
 }
-.request h4 {
-  margin-top: 1em;
+.request h4, dt {
+  color: #666;
+  margin: 1em 0 0 0;
+  font-size: 0.9em;
+}
+.request dd {
+  margin-left: 0;
 }
 .sidebar .edit_request input {
   background: url(/images/icon-delete.png) no-repeat left center;
@@ -790,7 +802,7 @@ tbody th {
   border-top: 1px solid #EDEDED;
 }
 td {
-  padding: 10px 0;
+  padding: 5px 0;
   vertical-align: top;
   border-bottom: 1px solid #CACACA;
 }
@@ -921,6 +933,8 @@ fieldset {
 }
 fieldset.terms {
   border-top: 1px solid #CACACA;
+  border-bottom: 1px solid #CACACA;
+  margin-bottom: 40px;
 }
 input[type="submit"] {
   font-size: 1em;
@@ -983,9 +997,10 @@ textarea#code_sample_code {
   margin-left: 0;
 }
 .box .info {
-  font-size: 0.9em;
+  font-size: 0.85em;
+  line-height: 1.4em;
   position: absolute;
-  margin-left: 680px;
+  margin-left: 600px;
   width: 300px;
   padding: 20px;
   background: #E8E8E8;
@@ -1377,7 +1392,7 @@ div#sorting-endorsements ul li strong { cursor: move; }
 }
 
 td.Beginner, td.Intermediate, td.Advanced {
-  background: url(/images/sprite-graphics.png) no-repeat 0 -1120px;
+  background: url(/images/sprite-graphics.png) no-repeat 0 -1125px;
   text-transform: capitalize;
 }
 div.proficiency {

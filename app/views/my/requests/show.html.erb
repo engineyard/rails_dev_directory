@@ -11,61 +11,58 @@
   
     <h3><%= t('rfp.project_owner') %></h3>
   
-    <div class="column">
-      <h4><%= t('rfp.submitted_by') %></h4>
-      <%= @rfp.first_name %> <%= @rfp.last_name %>
+
+      <dl class="column">
+        <dt><%= t('name') %></dt>
+        <dd><%= @rfp.first_name %> <%= @rfp.last_name %></dd>
   
-      <h4><%= t('rfp.email') %></h4>
-      <%= mail_to @rfp.email %>
+        <dt><%= t('rfp.email') %></dt>
+        <dd><%= mail_to @rfp.email %></dd>
   
-      <h4><%= t('rfp.phone_number') %></h4>
-      <%= @rfp.phone_number %>
-    </div>
+        <dt><%= t('rfp.phone_number') %></dt>
+        <dd><%= @rfp.phone_number %></dd>
+      </dl>
+
+      <dl class="column">
+        <dt><%= t('company') %></dt>
+        <dd><%= @rfp.company_name %></dd>
   
-    <div class="column">
-      <h4><%= t('rfp.company_name') %></h4>
-      <p><%= @rfp.company_name %></p>
-  
-      <h4><%= t('location') %></h4>
-      <address>
-      <%= State.by_code(@rfp.state) %>
-      <%= t("countries.#{@rfp.country}") %>
-      </address>
+        <dt><%= t('location') %></dt>
+        <dd>
+        <%= State.by_code(@rfp.state) %>
+        <%= t("countries.#{@rfp.country}") %>
+        </dd>
       
-      <h4><%= t('rfp.time_zone') %></h4>
-      <%= @rfp.time_zone %>
-    </div>
+        <dt><%= t('rfp.time_zone') %></dt>
+        <dd><%= @rfp.time_zone %></dd>
+      </dl>
   </div>
 
   <div class="block">
   
     <h3><%= t('rfp.project_details') %></h3>
 
-    <div class="column">
+    <dl class="column">
+      <dt><%= t('location_of_work') %></dt>
+      <dd><%= t("#{@rfp.location_of_work}") %></dd>
+      <dt><%= t('rfp.duration') %></dt>
+      <dd><%= rfp_duration(@rfp.duration) %></dd>
+    </dl>
       
-      <h4><%= t('rfp.duration') %></h4>
-      <%= rfp_duration(@rfp.duration) %>
-      
-      <h4><%= t('hours_per_week') %></h4>
-      <%= rfp_hours(@rfp.hours_per_week) %>
-    </div>
-
-    <div class="column">
-      <h4><%= t('rfp.start_date') %></h4>
-      <%= @rfp.start_date_formatted %>
-      
-      <h4><%= t('location_of_work') %></h4>
-      <%= t("#{@rfp.location_of_work}") %>
-    </div>
+    <dl class="column">
+      <dt><%= t('rfp.start_date') %></dt>
+      <dd><%= @rfp.start_date_formatted %></dd>
+      <dt><%= t('hours_per_week') %></dt>
+      <dd><%= rfp_hours(@rfp.hours_per_week) %></dd>
+    </dl>
     
-    <div class="column">
-
-      <%= t('rfp.nda_required') if @rfp.nda_required? %>
-      <%= @rfp.project_description %>
-
-      <h4><%= t('rfp.additional_services') %></h4>
-      <%= @rfp.additional_services %>
-    </div>
+    <dl class="column">
+      <dt><%= t('rfp.additional_services') %></dt>
+      </dd><%= @rfp.additional_services %></dd>
+      
+      <dt><%= t('rfp.nda_required') if @rfp.nda_required? %></dt>
+      </dd><%= @rfp.project_description %></dd>
+    </dl>
     
     <div class="column services hidden">
       <h4><%= t('rfp.insurance_requirements') %></h4>

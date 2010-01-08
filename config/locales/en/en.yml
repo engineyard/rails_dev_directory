@@ -392,8 +392,8 @@ en:
     
     deleted_successfully: Request deleted successfully
     
-    project_owner: Project Owner
-    submitted_by: Submitted By
+    project_owner: Contact Details
+    submitted_by: Name
     submitted_on: Submitted On
     details: Details
     insurance_requirements: Insurance Requirements
