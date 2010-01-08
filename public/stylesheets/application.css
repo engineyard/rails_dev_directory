@@ -177,6 +177,10 @@ li.username {
   margin: -10px 0;
   min-height: 2.3em;
 }
+.subnav.home {
+  padding-bottom: 0;
+  border-bottom: 1px solid #DDD;
+}
 .subnav h2 {
   font: 1em Lucida Grande, Verdana, sans-serif;
   float: left;
@@ -237,15 +241,15 @@ li.username {
 }
 .welcome h1 {
   color: #B22022;
-  font-size: 2.4em;
+  font-size: 2.2em;
   line-height: 1.1em;
   padding-top: 0.2em;
   margin-bottom: 0.5em;
   white-space: nowrap;
 }
 .welcome p {
-  font-size: 1.1em;
   line-height: 1.3em;
+  color: #000;
 }
 /* Home Search Wizard */
 .searchWizard {
@@ -284,36 +288,34 @@ li.username {
   padding: 0;
 }
 .provider.search h3 {
-  font-size: 1.3em;
+  font-size: 1.25em;
   text-align: left;
   color: #069;
   border-bottom: 1px solid #069;
   padding-bottom: 6;
   padding-top: 0;
-  margin-bottom: 1.2em;
 }
 .provider.search h4 {
-  font-size: 0.9em;
   display: block;
   float: left;
   clear: both;
   padding: 0;
   border: 1px solid #DDD;
-  margin: 10px 0 -1px;
+  margin: 20px 0 -1px;
 }
 .provider.search ul h4 {
-  font-size: 0.9em;
   display: block;
   padding: 0;
-  margin: 5px 0;
+  margin: 5px 0 0;
   border: none;
-  color: #333;
+  color: #000;
 }
 .provider.search h4 a {
   background: url(/images/icon-close.png) no-repeat right center;
-  padding: 5px 30px 5px 15px;
+  padding: 3px 40px 3px 10px;
   width: auto;
-  font-size: 1em;
+  font-size: 0.9em;
+  color: #999;
 }
 .provider.search h4.active a {
   background: url(/images/icon-open.png) no-repeat right center;
@@ -322,8 +324,7 @@ li.username {
   text-align: left;
 }
 .provider.search label {
-  font-size: 0.9em;
-  color: #333;
+  color: #000;
   margin: 0;
 }
 .provider.search p, .provider.search ul ul, .provider.search li {
@@ -334,11 +335,15 @@ li.username {
   clear: both;
   display: block;
   border-top: 1px solid #DDD;
-  margin: 0 0 10px;
-  
+  margin: 0;
+  padding-top: 10px;
 }
 .provider.search ul.first {
   border-top: none;
+}
+.provider.search ul.last {
+  border-bottom: 1px solid #DDD;
+  padding-bottom: 30px;
 }
 .provider.search ul ul {
   border-top: none;
@@ -346,11 +351,10 @@ li.username {
 .provider.search li {
   display: inline-block;
   vertical-align: top;
-  margin-right: 10px;
+  margin-right: 20px;
 }
 .provider.search li li {
   display: block;
-  font-size: 0.8em;
   height: 1.6em;
 }
 li .check {
@@ -363,17 +367,15 @@ li .check {
   margin-top: 0;
 }
 .provider.search li li label {
-  font-size: 1.1em;
   color: #666;
   line-height: 1.2em;
 }
-
 .provider.search input[type="submit"] {
   font-size: 1.2em;
   font-weight: normal;
   display: block;
   padding: 0 0 4px;
-  margin: 40px auto 0;
+  margin: 20px auto 0;
   background:  url(/images/sprite-graphics.png) no-repeat 0px -150px;
   color: #FFF;
   border: none;
@@ -381,29 +383,6 @@ li .check {
   height: 42px;
   text-shadow: 1px 1px 1px #666;
 }
-
-
-/*.provider.search table {
-  margin: 0;
-  clear: both;
-}
-.provider.search table.filters {
-  border-top: 1px solid #DBDBDB;
-}
-.provider.search table.filters td {
-  padding-top: 1.5em;
-}
-.provider.search table td:hover, .provider.search table tr:hover {
-  background: none;
-}
-.provider.search form td {
-  border: none;
-  padding: 0 0 20px 20px;
-}
-.provider.search form td:first-child {
-  padding-left: 0;
-}*/
-
 .provider.search input[type="text"] {
   display: inline;
   margin-left: 0;
@@ -761,7 +740,6 @@ ul.testList li {
 }
 .footer a {
   color: #A83C44;
-  border-bottom: 1px dotted #A83C44;
 }
 .footer a:hover {
   color: #A83C44;
@@ -770,21 +748,13 @@ ul.testList li {
 .footer ul {
   height: 1.5em;
 }
-.footer ul li {
-  float: left;
-}
 .footer .nav {
   float: left;
+  margin-right: 60px;
 }
 .footer .nav li {
-  margin-left: 1em;
-  padding-left: 1em;
-  border-left: 1px solid #666;
-}
-.footer .nav li:first-child {
-  margin-left: 0;
-  padding-left: 0;
-  border: none;
+  display: block;
+  margin-bottom: 1em;
 }
 .footer .attribution {
   float: right;
@@ -1468,4 +1438,20 @@ td.Intermediate div.proficiency {
 
 .hidden {
   display: none !important;
+}
+
+/* Beta Stuff */
+.beta-tag {
+  height: 161px;
+  width: 161px;
+  position: absolute;
+  margin-left: -41px;
+  background: url(/images/img-beta.png) no-repeat;
+  top: 79px
+}
+.beta-tag.drop {
+  top: 139px;
+}
+.welcome {
+  margin-left: 30px;
 }
