@@ -490,7 +490,7 @@ li .check {
   list-style: inside url(/images/img-bullet.png);
 }
 .rfpservices {
-  margin: 0.75em 0 0.5em;
+  margin: 2em 0 0.5em;
   padding-bottom: 0;
 }
 .rfpservices ul {
@@ -505,11 +505,13 @@ li .check {
 }
 .rfpservices li.group h4 {
   border:medium none;
-  color:#333333;
+  color:#000;
   display:block;
-  font-size:0.9em;
   margin:5px 0;
   padding:0;
+}
+.rfpservices li li label {
+  margin-bottom: 5px;
 }
 .rfpservices input[type="checkbox"] {
   margin-top: 2px;
@@ -816,7 +818,6 @@ ul.testList li {
 }
 /* Table Styles */
 table {
-  font-size: 0.9em;
   border-collapse: separate;
 }
 thead th {
@@ -1018,9 +1019,15 @@ form table, form table td {
   margin: 0 0 10px;
   padding: 0;
 }
+form table td {
+  padding-right: 20px;
+}
 form table input {
   margin-top: 5px;
   margin-right: 1em;
+}
+form table select {
+  width: 220px;
 }
 textarea { 
   width: 30em;

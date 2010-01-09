@@ -395,6 +395,9 @@ div.notice {
   width: auto;
   display: table;
 }
+table.recaptchatable {
+  border: none !important;
+}
 
 /* Complex Layout */
 .halfColumn {

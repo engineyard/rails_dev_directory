@@ -36,11 +36,19 @@
       <%= f.label :phone_number, t("rfp.phone_number") %> <%= f.text_field :phone_number %> <br />
       <%= f.label :office_location, t("rfp.office_location") %> <%= f.text_field :office_location %> <br />
       
-      <%= f.label :state, t("state") %> <%= f.select :state, ([[t('outside_us'), "NA"]] + State::NAMES), :include_blank => true %> <br />
-      <%= f.label :country, t('country') %> <%= f.localized_country_select :country, [:US, :CA, :FR, :DE,  :IE, :ES, :GB], :include_blank => t('choose_country') %> <br />
-      
-      
-      <%= f.label :time_zone, t("rfp.time_zone") %> <%= f.time_zone_select :time_zone %> <br />
+      <table>
+        <tr>
+          <td>
+            <%= f.label :state, t("state") %> <%= f.select :state, ([[t('outside_us'), "NA"]] + State::NAMES), :include_blank => true %>
+          </td>
+          <td>
+            <%= f.label :country, t('country') %> <%= f.localized_country_select :country, [:US, :CA, :FR, :DE,  :IE, :ES, :GB], :include_blank => t('choose_country') %>
+          </td>
+          <td>
+            <%= f.label :time_zone, t("rfp.time_zone") %> <%= f.time_zone_select :time_zone %>
+          </td>
+        </tr>
+      </table>
 
     </fieldset>
     <fieldset>
@@ -78,7 +86,6 @@
       </table>
     
       <fieldset class="rfpservices">
-      <label><%= t('rfp.services') %></label>
       <ul>
         <li class="group">
           <h4><%= t('services') %></h4>
