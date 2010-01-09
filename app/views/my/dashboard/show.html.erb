@@ -16,27 +16,21 @@
     
     <div class="pageHead">
       <h2><%= t('navigation.dashboard') %></h2>
-      <h2 class="status"><%= t('your_profile_is_x_complete', :score => current_user.provider.percent_complete.to_i) %></h2>
       <%= link_to t('edit_your_profile'), edit_my_provider_path, :class=>"button" %>
+      <h2 class="status"><%= t('your_profile_is_x_complete', :score => current_user.provider.percent_complete.to_i) %></h2>
     </div>
     
-    <div>
-      <h3><%= t('recent_enquiries') %></h3>
+    <div class="narrow">
     
-      <ul class="utility">
-        <li><%= link_to t('all_enquiries'), my_requests_path %></li>
-      </ul>
     
       <%- if @provider.requests.recent.empty? -%>
         <p><%= t('no_enquiries') %></p>
       <%- else -%>
-        <table class="requests">
+        <table class="requests listTable">
           <thead>
             <tr>
-              <th><%= t('rfp.submitted_by') %></th>
+              <th><%= t('recent_enquiries') %></th>
               <th><%= t('start') %></th>
-              <th><%= t('hours') %></th>
-              <th><%= t('length') %></th>
               <th><%= t('rfp.submitted_on') %></th>
             </tr>
           </thead>
@@ -45,17 +39,17 @@
               <tr class="<%= req.unread? ? 'unread' : nil %> <%= cycle('odd', 'even') %>">
                 <td><%= link_to req.rfp.name, [:my, req] %></td>
                 <td><%= req.rfp.start_date.strftime("%B %Y") %></td>
-                <td><%= rfp_hours(req.rfp.hours_per_week) %></td>
-                <td><%= rfp_duration(req.rfp.duration) %></td>
                 <td><%= req.rfp.created_at_formatted %></td>
               </tr>
             <%- end -%>
           </tbody>
         </table>
       <%- end -%>
+      
+      <%= link_to t('all_enquiries'), my_requests_path, :class=>"button" %>
     </div>
 
-    <div>
+    <div class="hidden">
       <h3><%= t('dashboard.endorsements') %></h3>
     
       <ul class="utility">
@@ -66,7 +60,7 @@
       <%- if @provider.endorsements.recent.empty? -%>
         <p><%= t('provider.no_endorsements')%></p>
       <%- else -%>
-        <table class="endorsements">
+        <table class="endorsements listTable">
           <thead>
             <tr>
               <th><%= t('endorsement.admin.name') %></th>
@@ -88,12 +82,19 @@
         </table>
       <%- end -%>
     </div>
-    
-    <div>
+  
+    <div class="sidebar">
       <h3><%= t('activity') %></h3>
-      <ul>
-        <li> <%= t('your_profile_has_been_viewed_x_times', :count => @provider.views || 0) %></li>
+      <ul class="highlights">
+        <li class="views"><%= t('your_profile_has_been_viewed_x_times', :count => @provider.views || 0) %></li>
+      </ul>
+      <ul class="hidden">
+        <li class="favorite">You've been marked as a Favorite 4 times</li>
+        <li class="unread">You've received 10,078 new Enquiries</li>
+        <li class="responded">You've responded to 2 Enquiries</li>
       </ul>
     </div>
+  
+  <div class="clear"></div>
   </div>
 <%- end -%>

@@ -621,11 +621,15 @@ li.flagged {
   height: 40px;
 }
 .pageHead h2 {
-  font: 1.2em Lucida Grande, Verdana, sans-serif;
+  font: 1.4em Lucida Grande, Verdana, sans-serif;
   color: #666;
   float: left;
   text-align: left;
-  margin: 0px 0 0;
+  margin: -3px 0 0;
+}
+.pageHead h2.status {
+  float: right;
+  margin-right: 1em;
 }
 .pageHead .button {
   float: right;
@@ -660,6 +664,10 @@ li.flagged {
 .pageHead .summary {
   padding-top: 20px;
 }
+.request .pageHead .summary {
+  padding-top: 0;
+  margin-top: 0;
+}
 .pageHead .summary li{
   color: #666;
   font-size: 1em;
@@ -674,6 +682,30 @@ li.flagged {
 }
 .pageHead .summary li.unread, .pageHead .summary li.flagged {
   padding-left: 30px;
+}
+ul.highlights {
+  border: 1px solid #DDD;
+  margin-top: -1px;
+  padding: 0;
+}
+.highlights li {
+  display: block;
+  float: none;
+  padding: 14px 10px 14px 40px;
+  border-top: 1px solid #EDEDED;
+  background: url(/images/sprite-graphics.png) no-repeat 10px -1325px;
+}
+.highlights li:first-child {
+  border-top: none;
+}
+.highlights li.unread {
+  background-position: 10px -1145px;
+}
+.highlights li.favorite {
+  background-position: 10px -1425px;
+}
+.highlights li.responded {
+  background-position: 10px -1515px;
 }
 .userEdit {
   margin-bottom: 0;
@@ -823,7 +855,7 @@ td {
   font-size: 1.3em;
   line-height: 1.4em;
 }
-.listTable tr:hover td {
+.listTable tbody tr:hover {
   background: #F3FAFE;
 }
 .listTable a.favorite {
@@ -852,15 +884,26 @@ td {
 td input, td input[type="checkbox"] {
   margin: 0;
 }
+.requests {
+  margin-top: 3em;
+}
+.requests td {
+  padding: 10px 0;
+  line-height: 1.5em;
+}
 .requests td:first-child {
   padding-left: 25px;
+  width: auto;
+/*  background: url(/images/sprite-graphics.png) no-repeat 4px -1240px;*/
+}
+.requests .flagged td:first-child {
+  background: url(/images/sprite-graphics.png) no-repeat 4px -1195px;
 }
 .requests a {
   color: #000;
-  font-size: 1.2em;
 }
 .unread td:first-child {
-  background: url(/images/sprite-graphics.png) no-repeat 4px -1151px;
+  background: url(/images/sprite-graphics.png) no-repeat 4px -1148px;
 }
 .endorsements td:first-child, .endorsements th:first-child {
   min-width: 1em;
@@ -1417,7 +1460,7 @@ td.Intermediate div.proficiency {
   width: 800px;
   position: absolute;
   left: 50%;
-  top: 30%;
+  top: 240px;
   margin-left: -400px;
 }
 .almost-there.popup {
@@ -1430,7 +1473,7 @@ td.Intermediate div.proficiency {
   width: auto;
 }
 .almost-there h2 {
-  font: 2em Lucida Grande, Verdana, sans-serif;
+  font: 1.9em Lucida Grande, Verdana, sans-serif;
   margin: 0;
   text-align: left;
 }
@@ -1443,6 +1486,9 @@ td.Intermediate div.proficiency {
 }
 .almost-there li {
   margin-bottom: 1em;
+}
+.almost-there a {
+  text-decoration: underline;
 }
 
 

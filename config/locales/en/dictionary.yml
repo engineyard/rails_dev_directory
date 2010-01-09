@@ -6,7 +6,7 @@ en:
   account_information: Account Information
   activity: Activity
   address: Address
-  all_enquiries: See All Enquiries
+  all_enquiries: Show All Enquiries
   almost_there: Almost There!
   answer: Answer
   answers: Answers
@@ -18,6 +18,7 @@ en:
   availability_by_project_size: General availability by project size
   availability_updated: Thanks for Updating Your Availability
   avg_score: AVG. SCORE
+  awaiting_response: Awaiting Response
 
   booked: Booked
   business_address: Business Address
@@ -50,6 +51,8 @@ en:
   find_a_freelancer: Find a freelance developer
   finished: Finished!
   find_a_provider: Find a provider
+  flag_this: Flag This Content
+  flagged: Flagged
   
   go_back_and_edit: "Go Back &amp; Edit"
   
@@ -145,6 +148,7 @@ en:
   this_month: This Month
   time_limit: Time Limit
   
+  unread: Unread
   update: Update
   upload_your_code: Upload Your Code
   upload_a_code_sample: Upload a Code Sample

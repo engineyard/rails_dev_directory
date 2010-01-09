@@ -1,10 +1,12 @@
 <div class="dashboard"> 
   <div class="pageHead">
     <h2><%= t('enquiries') %></h2>
+    
+    <!-- Hiding Page Head Counts -->
     <ul class="summary">
-      <li class="unread">Unread</li>
-      <li class="flagged">Flagged</li>
-      <li>Awaiting Response</li>
+      <li class="unread">## <%= t('unread') %></li>
+      <li class="flagged">## <%= t('flagged') %></li>
+      <li>## <%= t('awaiting_response') %></li>
     </ul>
   </div>
   
@@ -14,24 +16,24 @@
   <%- if @requests.empty? -%>
     <p><%= t('no_enquiries') %></p>
   <%- else -%>
-    <table class="requests">
+    <table class="requests listTable">
       <thead>
         <tr>
-          <th><%= t('request.submitted_by') %></th>
+          <th><%= t('recent_enquiries') %></th>
           <th><%= t('start') %></th>
           <th><%= t('hours') %></th>
           <th><%= t('length') %></th>
-          <th><%= t('request.submitted_on') %></th>
+          <th><%= t('rfp.submitted_on') %></th>
         </tr>
       </thead>
       <tbody>
         <% @requests.each do |req| %>
         <tr class="<%= 'unread' if req.unread? %> <%= cycle('odd', 'even') %>">
           <td><%= link_to req.rfp.company_name, [:my, req] %></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td><%= t('general.ago', :date => time_ago_in_words(req.created_at)) %></td>
+          <td><%= req.rfp.start_date.strftime("%B %Y") %></td>
+          <td><%= rfp_hours(req.rfp.hours_per_week) %></td>
+          <td><%= rfp_duration(req.rfp.duration) %></td>
+          <td><%= req.rfp.created_at_formatted %></td>
         </tr>
         <%- end -%>
       </tbody>

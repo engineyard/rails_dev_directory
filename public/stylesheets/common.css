@@ -276,7 +276,7 @@ table {
 th, table td {
   line-height: 1.2em;
 }
-.even td {
+tr.even {
   background: url(/images/sprite-layout.png) repeat-x 0 -235px;
 }
 
