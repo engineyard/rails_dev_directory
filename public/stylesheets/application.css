@@ -104,12 +104,6 @@ h3 {
   margin-top: 2em;
   color: #666;
 }
-.favorites h3 {
-  background: url(/images/sprite-graphics.png) no-repeat 0 -713px;
-  padding: 0 0 0 16px;
-  margin: 0 0 8px;
-  border: none;
-}
 .sidebar h3, .calendar h3 {
   margin-bottom: -1px;
 }
@@ -172,6 +166,7 @@ li.username {
   padding: 0px;
   margin: 0 auto;
 }
+/* Subnav when logged in */
 .subnav {
   background: #DDD;
   margin: 0 auto;
@@ -231,6 +226,7 @@ li.username {
   margin: auto;
   padding: 0 50px 40px;
 }
+/* Home */
 .welcome {
   background: url(/images/sprite-graphics.png) no-repeat 0px 20px;
   font-size: 1.1em;
@@ -489,6 +485,7 @@ li .check {
 .services li {
   list-style: inside url(/images/img-bullet.png);
 }
+/* Services Form List */
 .rfpservices {
   margin: 2em 0 0.5em;
   padding-bottom: 0;
@@ -526,6 +523,7 @@ li .check {
   padding-right: 5%;
   float: left;
 }
+/* Sidebar */
 .sidebar {
   width: 300px;
   float: right;
@@ -547,6 +545,7 @@ li.requestRFP {
   padding-left: 0;
   font-weight: bold;
 }
+/* Icons */
 li.email {
   background: url(/images/icon-email.png) no-repeat left center;
 }
@@ -568,6 +567,7 @@ li.unread {
 li.flagged {
   background: url(/images/sprite-graphics.png) no-repeat 10px -1206px;
 }
+/* Favorites */
 .favorites {
   width: 840px;
   margin: 0 auto 60px;
@@ -585,6 +585,12 @@ li.flagged {
   border-right: 1px solid #DDD;
   font-size: 0.8em;
 }
+.favorites h3 {
+  background: url(/images/sprite-graphics.png) no-repeat 0 -713px;
+  padding: 0 0 0 16px;
+  margin: 0 0 8px;
+  border: none;
+}
 .favorites h4 {
   color: #333;
   margin: 5px 0 0;
@@ -601,6 +607,22 @@ li.flagged {
   background: url(/images/sprite-graphics.png) no-repeat 0 -754px;
   padding-left: 16px;
 }
+.favorites .navigation {
+  float: left;
+  position: absolute;
+  width: 840px;
+}
+.favorites .navigation a {
+  background: #DDD;
+  height: 61px;
+  width: 40px;
+}
+.favorites .previous {
+  float: left;
+}
+.favorites .next {
+  float: right;
+}
 /* Dashboard */
 .utility {
   color: #666;
@@ -616,6 +638,7 @@ li.flagged {
 .utility li:first-child {
   border-left: none;
 }
+/* Page Head */
 .pageHead {
   background: #F9F4E2;
   padding: 20px 30px 0;
@@ -685,6 +708,7 @@ li.flagged {
 .pageHead .summary li.unread, .pageHead .summary li.flagged {
   padding-left: 30px;
 }
+/* Highlights Block */
 ul.highlights {
   border: 1px solid #DDD;
   margin-top: -1px;
@@ -709,6 +733,7 @@ ul.highlights {
 .highlights li.responded {
   background-position: 10px -1515px;
 }
+/* Inline Editing */
 .userEdit {
   margin-bottom: 0;
 }
@@ -772,7 +797,48 @@ ul.testList li {
   font-weight: normal;
   margin: 0;
 }
-
+/* Quiz & Questions */
+.quiz .narrow {
+  width: 600px;
+}
+.quiz .sidebar {
+  width: 200px;
+}
+.quiz .timer {
+  position: fixed;
+  width: 170px;
+  text-align: right;
+  text-transform: uppercase;
+  font-size: 0.8em;
+  color: #666;
+}
+.quiz .timer strong {
+  display: block;
+  font-size: 3em;
+  margin-bottom: 0.3em;
+  font-weight: normal;
+}
+.quiz .timer.low strong {
+  color: #900;
+}
+.questions li {
+  display: list-item;
+  list-style: decimal;
+}
+.questions ul {
+  padding: 0;
+  margin: 0 0 3em;
+}
+.questions ul li {
+  height: 2em;
+  margin: 0;
+  float: none;
+  list-style: none;
+}
+.quiz .formactions {
+  border-top: 1px solid #DDD;
+  text-align: left;
+}
 /* Footer */
 .footer {
   height: 5em;
@@ -839,13 +905,19 @@ td {
   vertical-align: top;
   border-bottom: 1px solid #CACACA;
 }
+table .last {
+  width: 130px;
+}
 /* Custom Table Styles */
 .listTable {
   margin-bottom: 20px;
   display: table;
 }
+.listTable thead th {
+  font-size: 0.8em;
+}
 .listTable td {
-  font-size: 0.9em;
+  font-size: 0.8em;
   padding: 15px 15px 15px 0;
   vertical-align: bottom;
   height: 39px;
@@ -871,6 +943,9 @@ td {
 .listTable .avatar {
   height: 40px;
   width: 40px;
+}
+.services, .availability {
+  font-size: 0.9em;
 }
 .services td {
   border-bottom: none;

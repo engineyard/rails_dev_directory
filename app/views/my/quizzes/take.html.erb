@@ -1,25 +1,35 @@
-<div class="panel">
+<div class="panel quiz">
   <div class="pageHead"><h2><%= t('take_a_quiz') %></h2></div>
 
-  <%= render 'details' %>
+  <div class="narrow">
+    <%= render 'details' %>
 
-  <h3><%= t('questions') %></h3>
-
-  <%- form_tag(submit_my_quiz_path(@quiz)) do -%>
-    <%- @quiz.questions.each_with_index do |question, index| -%>
-      <fieldset>
-      <h4><%= index + 1 %>. <%= question.text %></h4>
-      <ul>
-        <%- question.answers.each do |answer| -%>
-          <li><%= radio_button_tag "answers[#{question.id}]",
-                                   answer.id,
-                                   (params[:answers] and params[:answers][question.id.to_s].to_i == answer.id),
-                                   :id => dom_id(answer) %> <%= label_tag dom_id(answer), answer.text %></li>
-        <%- end -%>
-      </ul>
-      </fieldset>
-    <%- end -%>
+    <h3><%= t('questions') %></h3>
   
-    <%= submit_tag(t('finished')) %>
-  <%- end -%>
+    <%- form_tag(submit_my_quiz_path(@quiz)) do -%>
+      <ol class="questions">
+      <%- @quiz.questions.each_with_index do |question, index| -%>
+        <li>
+          <strong><% index + 1 %> <%= question.text %></strong>
+          <ul>
+            <%- question.answers.each do |answer| -%>
+              <li><%= radio_button_tag "answers[#{question.id}]",
+                                       answer.id,
+                                       (params[:answers] and params[:answers][question.id.to_s].to_i == answer.id),
+                                       :id => dom_id(answer) %> <%= label_tag dom_id(answer), answer.text %></li>
+            <%- end -%>
+          </ul>
+        </li>
+      <%- end -%>
+      </ol>
+      <div class="formactions"><%= submit_tag(t('finished')) %></div>
+    <%- end -%>
+  </div>
+  <div class="sidebar hidden">
+    <h3>Timer</h3>
+    <div class="timer widget low">
+      <strong>5:00</strong> Minutes Left
+    </div>
+  </div>
+  <div class="clear"></div>
 </div>

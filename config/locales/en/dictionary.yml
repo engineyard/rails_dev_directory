@@ -37,6 +37,7 @@ en:
   contact_a_developer: Contact a Developer
   contact_a_developer_introduction: "You're sending a note to this developer about your project:"
   contact_developer: Contact Developer
+  correct: Correct
   country: Country
   create_a_rails_freelance_account: Create a Rails Freelance Account
   
@@ -89,7 +90,7 @@ en:
   my_upcoming_availability: "My Upcoming Availability &mdash; 3 month view"
 
   name: Name
-  name_and_location: Name and Location
+  name_and_location: Name &amp; Location
   name_your_sample_code: Name your sample code
   no_code_samples: You haven't added any code samples yet.
   no_enquiries: You have no enquiries
@@ -140,8 +141,9 @@ en:
   state: State
   
   take_a_quiz: Take a Quiz
+  take_another_quiz: Take Another Quiz
   take_the_basic_rails_quiz: Take the Basic Rails Quiz
-  take_this_quiz: Take this quiz
+  take_this_quiz: Take this quiz &rarr;
   tell_us_about_your_business: Tell us about your business
   test_code: Test Code
   test_your_code: Test Your Code

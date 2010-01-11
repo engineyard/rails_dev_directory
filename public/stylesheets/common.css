@@ -335,6 +335,12 @@ table.layout tr:hover {
 .alignright {
   float: right;
 }
+.left {
+  text-align: left;
+}
+.right {
+  text-align: right;
+}
 .aligncenter {
   text-align: center;
   margin: inherit auto;

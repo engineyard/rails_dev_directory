@@ -1,11 +1,20 @@
 <div class="panel">
+
   <div class="pageHead">
     <h2><%= t('quiz_result') %></h2>
   </div>
 
-  <%= render 'details' %>
+  <div class="narrow">
+    <%= render 'details' %>
+  </div>
+  
+  <div class="sidebar">
+    <h3><%= t('your_score') %></h3>
 
-  <h3><%= t('your_score') %></h3>
-
-  <div class="score"><strong><%= @quiz.correct_responses_for(current_user.provider) %></strong> / <%= @quiz.questions.size %>
+    <div class="score widget"><%= @quiz.correct_responses_for(current_user.provider) %>/<%= @quiz.questions.size %> <%= t('correct') %></div>
+    
+    <div class="aligncenter"><%= link_to t('take_another_quiz'), my_quizzes_path, :class=>"button" %></div>
+  </div>
+  
+  <div class="clear"></div>
 </div>
