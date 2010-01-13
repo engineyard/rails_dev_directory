@@ -11,7 +11,7 @@ class QuizResult < ActiveRecord::Base
   
   def activate_provider_if_full_marks
     if provider.aasm_state == 'inactive'
-      provider.activate! if score == quiz.questions.size
+      provider.activate! if quiz and provider and score == quiz.questions.size
     end
   end
 

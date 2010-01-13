@@ -17,6 +17,7 @@ class My::QuizzesController < ApplicationController
     params[:answers] ||= {}
     params[:answers].each do |question, answer|
       questions_answered << @quiz.questions.find(question)
+      current_user.provider.responses.find_all_by_question_id(question.id).each(&:destroy)
       responses << Response.new(
         :question_id => question,
         :provider => current_user.provider,
@@ -25,9 +26,8 @@ class My::QuizzesController < ApplicationController
     end
     if questions_answered.size == @quiz.questions.size
       responses.each(&:save)
-      current_user.provider.quiz_results.create!(
-        :quiz => @quiz,
-        :score => @quiz.correct_responses_for(current_user.provider),
+      quiz = current_user.provider.quiz_results.find_or_create_by_quiz_id(@quiz.id)
+      quiz.update_attributes(:score => @quiz.correct_responses_for(current_user.provider),
         :questions => @quiz.questions.size)
       current_user.provider.save
       redirect_to(results_my_quiz_path(@quiz))

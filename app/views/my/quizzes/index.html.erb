@@ -24,6 +24,7 @@
           <td>
             <%- if current_user.provider.quiz_results.find_by_quiz_id(quiz.id) -%>
               <%= t('your_score') %>: <%= current_user.provider.quiz_results.find_by_quiz_id(quiz.id).score %> / <%= quiz.questions.count %>
+              <%= link_to t('retake_quiz'), take_my_quiz_path(quiz) %>
             <%- else -%>
               <%= link_to t('take_this_quiz'), take_my_quiz_path(quiz) %>
             <%- end -%>
