@@ -1,6 +1,6 @@
 class Response < ActiveRecord::Base
   
-  validates_uniqueness_of :question_id, :scope => :provider_id
+  validates_uniqueness_of :question_id, :scope => :sitting_id
   validates_presence_of :answer_id
   
   belongs_to :question
