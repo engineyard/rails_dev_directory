@@ -67,6 +67,7 @@ Quiz.blueprint do
   name
   total_questions 2
   questions_per_quiz 1
+  options_per_question 2
 end
 
 Question.blueprint do

@@ -190,7 +190,7 @@ class Provider < ActiveRecord::Base
       end
     end
 
-    paginate(:joins => joins, :group => group, :conditions => conditions, :order => "aasm_state asc, if(endorsements_count >= 3,endorsements_count,0) desc, RAND()", :limit => 10, :page => params[:page], :per_page => 1)
+    paginate(:joins => joins, :group => group, :conditions => conditions, :order => "aasm_state asc, if(endorsements_count >= 3,endorsements_count,0) desc, RAND()", :limit => 10, :page => params[:page])
   end
   
   def self.locations_for_select
