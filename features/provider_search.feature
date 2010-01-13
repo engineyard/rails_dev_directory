@@ -14,6 +14,13 @@ Feature: Provider directory
       And "Paul Campbell" provides "AJAX"
       And "Paul Campbell" provides "UI"
       And an "inactive" provider "Boolio"
+  
+  Scenario:
+    When I am on the homepage
+      And I press "Find a freelance developer"
+    Then I should see "Paul Campbell"
+    When I press "Update"
+    Then I should see "Paul Campbell"
 
   Scenario: Finding a Freelancer by hourly rate
     When I am on the homepage

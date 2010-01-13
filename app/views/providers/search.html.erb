@@ -57,7 +57,7 @@
       
       <%= hidden_field_tag 'budget', params[:budget] %>
       <%- if params[:service_ids] -%>
-        <%- params[:service_ids].each do |service_id| -%>
+        <%- params[:service_ids].reject{ |s| s.blank? }.each do |service_id| -%>
           <%= hidden_field_tag 'service_ids[]', service_id %>
         <%- end -%>
       <%- end -%>
