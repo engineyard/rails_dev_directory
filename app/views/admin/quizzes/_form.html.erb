@@ -7,21 +7,41 @@
     <%= f.text_field :name %> <br />
     
     <%= f.label :skill_level %> <%= f.select :skill_level, [['Beginner', 'beginner'], ['Intermediate', 'intermediate'], ['Advanced', 'advanced']] %> <br />
-    <%= f.label :time_limit %> <%= f.text_field :time_limit %> (in minutes)<br />
+    <%= f.label :time_limit %> <%= f.text_field :time_limit, :class => 'number' %> (in minutes)<br />
+    <%= f.label :total_questions, t('total_questions') %> <%= f.text_field :total_questions, :class => 'number' %> <br />
+    <%= f.label :questions_per_quiz, t('questions_per_quiz') %> <%= f.text_field :questions_per_quiz, :class => 'number' %> <br />
+    <%= f.label :options_per_question, t('options_per_question') %> <%= f.text_field :options_per_question, :class => 'number' %>
   </fieldset>
   
-  
+  <%- if @quiz.not.new_record? -%>
   <h2><%= t('questions') %></h2>
-  <%- n = 0; f.fields_for :questions do |q| n = n.next -%>
+    
+    <%- n = 0; f.fields_for :questions do |q| n = n.next -%>
     <h3><%= q.label :text, "Question #{n}" %></h3> <%= q.text_field :text %> <br />
-    <%= q.label :correct_answer_id %> <%= q.select :correct_answer_id, q.object.answers.collect { |a| [a.text, a.id] } %>
-    <h3><%= t('answers') %></h3>
-    <%- n1 = 0; q.fields_for :answers do |a| n1 = n1.next -%>
-      <%= a.label :text, "Answer #{n1}" %> <%= a.text_field :text %> <br />
+    <table>
+      <thead>
+        <tr>
+          <th><%= t('answer') %></th>
+          <th><%= t('correct?') %></th>
+        </tr>
+        
+        <%- n1 = 0; q.fields_for :answers do |a| n1 = n1.next -%>
+          <tr>
+            <td>
+              <%= a.label :text, "Answer #{n1}" %> <%= a.text_field :text %>
+            </td>
+            <td>
+              <%- if a.object.not.new_record? -%>
+                <%= q.radio_button :correct_answer_id, a.object.id %>
+              <%- end -%>
+            </td>
+          </tr>
+        <%- end -%>
+      </thead>
+    </table>
+    
     <%- end -%>
-    <hr/>
   <%- end -%>
-  
   
 
   <%= f.submit t('forms.save') %> <%= t('forms.or') %> <%= link_to t('forms.cancel'), admin_quizzes_path %>

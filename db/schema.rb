@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20091218144109) do
+ActiveRecord::Schema.define(:version => 20100113130950) do
 
   create_table "answers", :force => true do |t|
     t.integer  "question_id"
@@ -207,6 +207,9 @@ ActiveRecord::Schema.define(:version => 20091218144109) do
     t.datetime "updated_at"
     t.string   "skill_level"
     t.integer  "time_limit"
+    t.integer  "total_questions"
+    t.integer  "questions_per_quiz"
+    t.integer  "options_per_question"
   end
 
   create_table "reference_requests", :force => true do |t|

@@ -1,6 +1,6 @@
 class Quiz < ActiveRecord::Base
 
-  validates_presence_of :name
+  validates_presence_of :name, :total_questions, :questions_per_quiz, :options_per_question
   
   has_many :questions, :order => 'id asc'
   has_many :results, :class_name => 'QuizResult'

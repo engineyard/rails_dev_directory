@@ -15,7 +15,7 @@ class Admin::QuizzesController < ApplicationController
     @quiz = Quiz.new(params[:quiz])
     if @quiz.save
       flash[:notice] = t('quiz.saved_successfully')
-      redirect_to admin_quizzes_path
+      redirect_to edit_admin_quiz_path(@quiz)
     else
       render :new
     end

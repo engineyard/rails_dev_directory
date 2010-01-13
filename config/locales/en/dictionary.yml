@@ -35,6 +35,7 @@ en:
   contact_a_developer: Contact a Developer
   contact_a_developer_introduction: "You're sending a note to this developer about your project:"
   contact_developer: Contact Developer
+  'correct?': Correct?
   country: Country
   create_a_rails_freelance_account: Create a Rails Freelance Account
   
@@ -97,6 +98,7 @@ en:
   
   onsite: On Site
   optional: Optional
+  options_per_question: Options Per Question
   or: or
   outside_us: Outside US
   
@@ -111,6 +113,7 @@ en:
   providers_in_state: "US Rails Developers in {{state}}"
   
   questions: Questions
+  questions_per_quiz: Questions per Quiz
   quizzes: Quizzes
   quiz_details: Quiz Details
   quiz_name: Quiz Name
@@ -144,6 +147,7 @@ en:
   test_your_code: Test Your Code
   this_month: This Month
   time_limit: Time Limit
+  total_questions: Total Questions
   
   update: Update
   upload_your_code: Upload Your Code

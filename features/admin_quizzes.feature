@@ -10,10 +10,20 @@ So that developers can prove they know a thing or two about rails
       And I press "Save"
     Then I should see "Name can't be blank"
     When I fill in "Name" with "ActiveRecord callbacks"
+      And I fill in "Total Questions" with "5"
+      And I fill in "Questions per Quiz" with "5"
+      And I fill in "Options per Question" with "5"
       And I press "Save"
-    Then I should see "ActiveRecord callbacks"
+    Then I should see "Question 1"
+      And I should see "Question 5"
+      And I should see "Answer 1"
+      And I should see "Answer 5"
     
-    When I follow "Edit"
+  Scenario: Editing
+    Given a quiz "ActiveRecord callbacks"
+    When I am on the admin dashboard
+      And I follow "Quizzes"
+      And I follow "Edit"
       And I fill in "Name" with "ActiveRecord observers"
       And I press "Save"
       And I follow "Quizzes"
