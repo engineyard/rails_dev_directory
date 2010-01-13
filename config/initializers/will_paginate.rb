@@ -3,3 +3,5 @@ class ActiveRecord::Base
     50
   end
 end
+
+WillPaginate::ViewHelpers.pagination_options[:renderer] = 'CursorPaginationRenderer'

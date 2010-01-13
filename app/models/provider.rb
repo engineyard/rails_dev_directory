@@ -190,7 +190,7 @@ class Provider < ActiveRecord::Base
       end
     end
 
-    all(:joins => joins, :group => group, :conditions => conditions, :order => "aasm_state asc, if(endorsements_count >= 3,endorsements_count,0) desc, RAND()", :limit => 10)
+    paginate(:joins => joins, :group => group, :conditions => conditions, :order => "aasm_state asc, if(endorsements_count >= 3,endorsements_count,0) desc, RAND()", :limit => 10, :page => params[:page], :per_page => 1)
   end
   
   def self.locations_for_select
@@ -199,6 +199,10 @@ class Provider < ActiveRecord::Base
       out << [I18n.t("countries.#{provider.country}"), provider.country]
     end
     out
+  end
+  
+  def self.options_for_select
+    all(:order => 'company_name').collect{ |p| [p.company_name, p.id]}
   end
   
   def first_name

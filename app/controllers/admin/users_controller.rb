@@ -20,7 +20,7 @@ class Admin::UsersController < ApplicationController
   
   def create
     @user = User.new(params[:user])
-    @user.provider = Provider.find_by_slug(params[:user][:provider_id]) if params[:user][:provider_id]
+    @user.provider_id = params[:user][:provider_id]
     @user.password = params[:user][:password]
     @user.password_confirmation = @user.password
     @user.reset_perishable_token!
@@ -41,8 +41,10 @@ class Admin::UsersController < ApplicationController
   
   def update
     @user = User.find(params[:id])
-    @user.admin = params[:user][:admin] unless current_user == @user
     if @user.update_attributes(params[:user].merge({:password_confirmation => params[:user][:password]}))
+      @user.admin = params[:user][:admin] unless current_user == @user
+      @user.provider = Provider.find_by_id(params[:user][:provider_id])
+      @user.save!
       flash[:notice] = t('user.saved_successfully')
       redirect_to [:admin, @user]
     else

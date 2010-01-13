@@ -152,6 +152,15 @@ $(document).ready(function(){
     return false
   })
   
+  $('a[rel=next]').livequery(function(){
+    $(this).click(function(){
+      $.getJSON($(this).attr('href').replace('/search', '/search.json'), function(data){
+        $('tbody#providers-list').append(data.providers)
+        $('#pagination').replaceWith(data.pagination)
+      })
+      return false
+    })
+  })
 })
 
 var RecaptchaOptions = {

@@ -13,6 +13,14 @@ class ProvidersController < ApplicationController
   def search
     @top_services = Service.priority(1).reject_category(@general_category)
     @providers = Provider.search(params)
+    respond_to do |wants|
+      wants.html
+      wants.json { render :json => {
+        :providers => render_to_string(:partial => 'provider.html', :collection => @providers),
+        :pagination => render_to_string(:partial => 'pagination.html')
+        }
+      }
+    end
   end
   
   def show

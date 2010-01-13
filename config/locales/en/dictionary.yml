@@ -38,6 +38,7 @@ en:
   country: Country
   create_a_rails_freelance_account: Create a Rails Freelance Account
   
+  developer: Developer
   doing_business_as: Doing Business as
   
   edit_your_profile: Edit Your Profile
@@ -88,6 +89,7 @@ en:
   name_your_sample_code: Name your sample code
   no_code_samples: You haven't added any code samples yet.
   no_enquiries: You have no enquiries
+  no_more_results: No More Results
   no_quizzes: No Quizzes Have Been Added Yet
   no_quizzes_taken: No Quizzes Taken Yet
   not_available: Not Available

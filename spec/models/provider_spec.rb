@@ -30,7 +30,7 @@ describe Provider do
   
   describe "searching" do
     it "should search on budget" do
-      Provider.should_receive(:all).with(:joins => nil, :group => nil, :conditions => ["aasm_state = 'active' and min_budget <= ?", 20000], :order => "aasm_state asc, if(endorsements_count >= 3,endorsements_count,0) desc, RAND()", :limit => 10)
+      Provider.should_receive(:paginate).with(:joins => nil, :group => nil, :conditions => ["aasm_state = 'active' and min_budget <= ?", 20000], :order => "aasm_state asc, if(endorsements_count >= 3,endorsements_count,0) desc, RAND()", :limit => 10)
       Provider.search({:budget => "20000"})
     end
     
@@ -40,7 +40,7 @@ describe Provider do
     end
     
     it "should search on services provided" do
-      Provider.should_receive(:all).with(
+      Provider.should_receive(:paginate).with(
         :joins => nil,
         :group => nil,
         :conditions => [
@@ -51,27 +51,27 @@ describe Provider do
     end
     
     it "should search on country" do
-      Provider.should_receive(:all).with(:joins => nil, :group => nil, :conditions => ["aasm_state = 'active' and country = ?", 'IE'], :order => "aasm_state asc, if(endorsements_count >= 3,endorsements_count,0) desc, RAND()", :limit => 10)
+      Provider.should_receive(:paginate).with(:joins => nil, :group => nil, :conditions => ["aasm_state = 'active' and country = ?", 'IE'], :order => "aasm_state asc, if(endorsements_count >= 3,endorsements_count,0) desc, RAND()", :limit => 10)
       Provider.search({:location => 'IE'})
     end
     
     it "should search on state" do
-      Provider.should_receive(:all).with(:joins => nil, :group => nil, :conditions => ["aasm_state = 'active' and state_province = ?", 'FL'], :order => "aasm_state asc, if(endorsements_count >= 3,endorsements_count,0) desc, RAND()", :limit => 10)
+      Provider.should_receive(:paginate).with(:joins => nil, :group => nil, :conditions => ["aasm_state = 'active' and state_province = ?", 'FL'], :order => "aasm_state asc, if(endorsements_count >= 3,endorsements_count,0) desc, RAND()", :limit => 10)
       Provider.search({:location => 'US-FL'})
     end
     
     it "should search on many countries" do
-      Provider.should_receive(:all).with(:joins => nil, :group => nil, :conditions => ["aasm_state = 'active' and country IN (?)", ['IE', 'US']], :order => "aasm_state asc, if(endorsements_count >= 3,endorsements_count,0) desc, RAND()", :limit => 10)
+      Provider.should_receive(:paginate).with(:joins => nil, :group => nil, :conditions => ["aasm_state = 'active' and country IN (?)", ['IE', 'US']], :order => "aasm_state asc, if(endorsements_count >= 3,endorsements_count,0) desc, RAND()", :limit => 10)
       Provider.search({:countries => ['IE', 'US']})
     end
     
     it "should search on many states" do
-      Provider.should_receive(:all).with(:joins => nil, :group => nil, :conditions => ["aasm_state = 'active' and state_province IN (?)", ['FL', 'NY']], :order => "aasm_state asc, if(endorsements_count >= 3,endorsements_count,0) desc, RAND()", :limit => 10)
+      Provider.should_receive(:paginate).with(:joins => nil, :group => nil, :conditions => ["aasm_state = 'active' and state_province IN (?)", ['FL', 'NY']], :order => "aasm_state asc, if(endorsements_count >= 3,endorsements_count,0) desc, RAND()", :limit => 10)
       Provider.search({:states => ['FL', 'NY']})
     end
     
     it "should search on many states and many countries" do
-      Provider.should_receive(:all).with(
+      Provider.should_receive(:paginate).with(
         :joins => nil,
         :group => nil,
         :conditions => [
@@ -84,7 +84,7 @@ describe Provider do
     
     context "hourly rate" do
       it "should search on for a limit" do
-        Provider.should_receive(:all).with(
+        Provider.should_receive(:paginate).with(
           :joins => nil,
           :group => nil,
           :conditions => ["aasm_state = 'active' and hourly_rate >= ? and hourly_rate <= ?", 0, 75],
@@ -96,7 +96,7 @@ describe Provider do
 
     context "project length" do
       it "should search on hours per week" do
-        Provider.should_receive(:all).with(
+        Provider.should_receive(:paginate).with(
           :joins => nil,
           :group => nil,
           :conditions => ["aasm_state = 'active' and min_hours <= ? and max_hours >= ?", 0, 10],
@@ -108,7 +108,7 @@ describe Provider do
     
     context "availability" do
       it "should search on availability" do
-        Provider.should_receive(:all).with(
+        Provider.should_receive(:paginate).with(
           :joins => nil,
           :group => nil,
           :conditions => ["aasm_state = 'active' and (select count(*) from bookings where provider_id = providers.id and DATE_FORMAT(date, '%m') = ?) != ?", 12, 31],
@@ -120,7 +120,7 @@ describe Provider do
     
     context "project length" do
       it "should search on project length" do
-        Provider.should_receive(:all).with(
+        Provider.should_receive(:paginate).with(
           :joins => nil,
           :group => nil,
           :conditions => ["aasm_state = 'active' and min_project_length >= ? and max_project_length <= ?", 0, 120],

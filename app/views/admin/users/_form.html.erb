@@ -5,6 +5,7 @@
   <fieldset>
     <%= f.label :first_name, t("user.first_name") %> <%= f.text_field :first_name %> <br />
     <%= f.label :last_name, t("user.last_name") %> <%= f.text_field :last_name %> <br />
+    <%= f.label :provider_id, t("developer") %> <%= f.select :provider_id, Provider.options_for_select, :include_blank => true %> <br />
   </fieldset>
   <fieldset>
     <%= f.label :email, t("user.email") %> <%= f.text_field :email %> <br />
