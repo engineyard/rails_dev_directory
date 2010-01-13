@@ -32,7 +32,7 @@
             </td>
             <td>
               <%- if a.object.not.new_record? -%>
-                <%= q.radio_button :correct_answer_id, a.object.id %>
+                <%= q.label :correct_answer_id, "Answer #{n1} is Correct", :class => 'hidden' %> <%= q.radio_button :correct_answer_id, a.object.id %>
               <%- end -%>
             </td>
           </tr>

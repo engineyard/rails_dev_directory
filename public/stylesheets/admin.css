@@ -149,3 +149,5 @@ table td, table th {
 }
 
 .sort-list { display: none; }
+
+.hidden { display: none;}

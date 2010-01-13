@@ -38,11 +38,11 @@ So that developers can prove they know a thing or two about rails
       And I am on the admin dashboard
     When I follow "Quizzes"
       And I follow "ActiveRecord callbacks"
-      And I fill in "Question" with "When is the before_save callback called?"
+      And I fill in "Question 1" with "When is the before_save callback called?"
       And I fill in "Answer 1" with "10am"
       And I press "Save"
       And I fill in "Answer 2" with "Another answer"
       And I press "Save"
-      And I select "10am" from "Correct Answer"
+      And I choose "Answer 2 is Correct"
       And I press "Save"
     Then I should see "Quiz saved"
