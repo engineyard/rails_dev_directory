@@ -14,6 +14,7 @@ So that my listing will show as confirmed
       | Never         |
       | after saving  |
       And the answer "after saving" is the correct answer for question "When is after_save called?"
+      And quiz "ActiveRecord callbacks" has "2" questions total, "2" at a time
     Given an inactive provider "HyperTiny" belonging to "paul@rslw.com"
 
   Scenario: Provider has no quiz results
@@ -29,7 +30,7 @@ So that my listing will show as confirmed
       And I follow "Quizzes"
       And I follow "Take this quiz"
     When I press "Finished!"
-    Then I should see "Please answer all questions"
+    Then I should see "Answer can't be blank"
     When I choose "Never"
       And I choose "after update"
       And I press "Finished!"

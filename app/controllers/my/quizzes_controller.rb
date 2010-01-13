@@ -6,10 +6,6 @@ class My::QuizzesController < ApplicationController
     @quizzes = Quiz.all
   end
   
-  def take
-    @quiz = Quiz.find(params[:id])
-  end
-  
   def submit
     @quiz = Quiz.find(params[:id])
     questions_answered = []

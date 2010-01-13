@@ -3,9 +3,9 @@
     <h2><%= t('quiz_result') %></h2>
   </div>
 
-  <%= render 'details' %>
+  <%= render 'my/quizzes/details' %>
 
   <h3><%= t('your_score') %></h3>
 
-  <div class="score"><strong><%= @quiz.correct_responses_for(current_user.provider) %></strong> / <%= @quiz.questions.size %>
+  <div class="score"><strong><%= @sitting.score %></strong> / <%= @quiz.questions.size %>
 </div>

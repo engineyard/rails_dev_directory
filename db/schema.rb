@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100113130950) do
+ActiveRecord::Schema.define(:version => 20100113183231) do
 
   create_table "answers", :force => true do |t|
     t.integer  "question_id"
@@ -253,6 +253,7 @@ ActiveRecord::Schema.define(:version => 20100113130950) do
     t.integer  "answer_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "sitting_id"
   end
 
   create_table "rfps", :force => true do |t|
@@ -304,6 +305,13 @@ ActiveRecord::Schema.define(:version => 20100113130950) do
   end
 
   add_index "services", ["service_category_id"], :name => "index_services_on_service_category_id"
+
+  create_table "sittings", :force => true do |t|
+    t.integer  "quiz_id"
+    t.integer  "provider_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "time_blocks", :force => true do |t|
     t.integer "provider_id"

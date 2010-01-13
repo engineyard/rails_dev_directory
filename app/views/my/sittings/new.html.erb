@@ -1,0 +1,29 @@
+<div class="panel">
+  <div class="pageHead"><h2><%= t('take_a_quiz') %></h2></div>
+
+  <%= render 'my/quizzes/details' %>
+
+  <h3><%= t('questions') %></h3>
+
+  <%- form_for([:my, @quiz, setup_sitting(@sitting)]) do |f| -%>
+  
+  <%= f.error_messages %>
+    
+    <%- index = 0; f.fields_for(:responses) do |r| n = index + 1; question = r.object.question -%>
+      <fieldset>
+        <h4><%= index + 1 %>. <%= question.text %></h4>
+        <%= r.hidden_field :question_id %>
+        <ul>
+          <%- question.answers.each_with_index do |answer, index| -%>
+            <li>
+              <%= r.radio_button :answer_id, answer.id, :id => dom_id(answer, "option-#{index}") %>
+              <%= label_tag dom_id(answer, "option-#{index}"), answer.text %>
+            </li>
+          <%- end -%>
+        </ul>
+      </fieldset>
+    <%- end -%>
+
+    <%= submit_tag(t('finished')) %>
+  <%- end -%>
+</div>

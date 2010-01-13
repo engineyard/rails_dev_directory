@@ -2,10 +2,12 @@ As an Engine Yard administrator
 I want to browse and create quizzes for providers
 So that developers can prove they know a thing or two about rails
 
-  Scenario: Managing quizzes
+  Background:
     Given a logged in admin user
-      And I am on the admin dashboard
-    When I follow "Quizzes"
+
+  Scenario: Managing quizzes    
+    When I am on the admin dashboard
+      And I follow "Quizzes"
       And I follow "Add a new Quiz"
       And I press "Save"
     Then I should see "Name can't be blank"
@@ -34,7 +36,6 @@ So that developers can prove they know a thing or two about rails
 
   Scenario: Adding a question to a quiz
     Given a quiz "ActiveRecord callbacks"
-      And a logged in admin user
       And I am on the admin dashboard
     When I follow "Quizzes"
       And I follow "ActiveRecord callbacks"

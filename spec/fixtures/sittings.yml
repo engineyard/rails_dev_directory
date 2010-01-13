@@ -1,0 +1,9 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  quiz_id: 1
+  provider_id: 1
+
+two:
+  quiz_id: 1
+  provider_id: 1
