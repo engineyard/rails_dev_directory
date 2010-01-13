@@ -11,7 +11,7 @@ class Admin::UsersController < ApplicationController
   
   def new
     @user = User.new
-    @user.provider = Provider.find(params[:provider_id])
+    @user.provider = Provider.find_by_id(params[:provider_id])
   end
   
   def show
