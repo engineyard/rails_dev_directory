@@ -6,7 +6,7 @@ Feature: Enquiries
   Scenario: Contacting a dev
     Given an "active" provider "Paul Campbell"
       And I am on the homepage
-      And I follow "Full Listing"
+      And I follow "View All"
       And I follow "Paul Campbell"
       And I follow "Contact Developer"
     Then I should see "Paul Campbell"

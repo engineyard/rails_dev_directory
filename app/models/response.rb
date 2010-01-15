@@ -7,5 +7,7 @@ class Response < ActiveRecord::Base
   belongs_to :answer
   belongs_to :provider
   
+  attr_protected :provider_id
+  
   named_scope :correct, :joins => :question, :conditions => "answer_id = questions.correct_answer_id"
 end

@@ -42,7 +42,7 @@ So that my listing will show as confirmed
     When I choose "Never"
       And I choose "after update"
       And I press "Finished!"
-    Then I should see "0 / 2"
+    Then I should see "0/2"
       And the provider "HyperTiny" should be inactive
 
   Scenario: Provider passes a quiz
@@ -53,7 +53,7 @@ So that my listing will show as confirmed
     When I choose "before saving"
       And I choose "after saving"
       And I press "Finished!"
-    Then I should see "2 / 2"
+    Then I should see "2/2"
       And the provider "HyperTiny" should be active
     When I follow "Profile"
       And I follow "Take a quiz"

@@ -11,7 +11,8 @@ class My::SittingsController < ApplicationController
   
   def update
     @sitting = current_user.provider.sittings.find(params[:id])
-    
+    @sitting.attributes = params[:sitting]
+
     if @sitting.expired?
       redirect_to [:my, @sitting]
       return
@@ -20,7 +21,12 @@ class My::SittingsController < ApplicationController
     @sitting.quiz = Quiz.find(params[:quiz_id])
     @sitting.provider = current_user.provider
     @quiz = @sitting.quiz
-    if @sitting.update_attributes(params[:sitting])
+    
+    @sitting.responses.each do |response|
+      response.provider = current_user.provider
+    end
+
+    if @sitting.save
       quiz = current_user.provider.quiz_results.find_or_create_by_quiz_id(@quiz.id)
       quiz.update_attributes(
         :score => @sitting.score,
