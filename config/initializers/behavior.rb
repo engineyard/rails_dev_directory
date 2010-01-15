@@ -1,0 +1,1 @@
+Behavior::Settings.before_filters << 'admin_required'

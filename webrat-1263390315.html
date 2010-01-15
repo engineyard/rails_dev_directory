@@ -1,0 +1,322 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+  "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+  <head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <title>Rails Freelance Directory Beta</title>
+    <link href="/stylesheets/emastic/reset-min.css?1259790993" media="screen" rel="stylesheet" type="text/css" />
+<link href="/stylesheets/emastic/type-min.css?1259790993" media="screen" rel="stylesheet" type="text/css" />
+<link href="/stylesheets/formy/form.css?1259790993" media="screen" rel="stylesheet" type="text/css" />
+<link href="/stylesheets/common.css?1262880634" media="screen" rel="stylesheet" type="text/css" />
+<link href="/stylesheets/admin.css?1262880312" media="screen" rel="stylesheet" type="text/css" />
+    <script src="/javascripts/jquery.js?1259790993" type="text/javascript"></script>
+<script src="/javascripts/jquery-ui.js?1259790993" type="text/javascript"></script>
+<script src="/javascripts/jrails.js?1259790993" type="text/javascript"></script>
+<script src="/javascripts/locales.js?1263390309" type="text/javascript"></script>
+<script src="/javascripts/datepicker.js?1259790993" type="text/javascript"></script>
+<script src="/javascripts/jquery.tooltip.js?1259790993" type="text/javascript"></script>
+<script src="/javascripts/application.js?1263386909" type="text/javascript"></script>
+    <!--[if IE]><link href="/stylesheets/emastic/ie-min.css?1262880312" media="screen" rel="stylesheet" type="text/css" /><![endif]-->
+    <script type="text/javascript" charset="utf-8">
+      AUTH_TOKEN = 'YNBBqXLlbYBmgwg8TStQ7GQdRSn9E8FABDbhOeYy8co%3D';
+    </script>
+  </head>
+  
+  <body>
+    <div class="header">
+      <h1 class="siteTitle">Rails Freelance Directory<sup>BETA</sup> Admin</h1>
+      
+      <ul class="globalNav">
+        <li class="username">Welcome, <strong>Paul</strong></li>
+        <li><a href="/developers">Developer directory</a></li>
+        <li><a href="/admin/change_password">Change Password</a></li>
+        <li><a href="/logout">Sign out</a></li>
+      </ul>
+    </div>
+    <div class="main">
+      <div class="dl10 navigation">
+        <h3>General</h3>
+        
+        <ul>
+          <li><a href="/admin/dashboard">Dashboard</a></li>
+          <li><a href="/admin/rfps">Requests</a></li>
+          <li><a href="/admin/endorsements">Endorsements</a></li>
+          <li><a href="/admin/providers">Developers</a></li>
+        </ul>
+        
+        <h3>System</h3>
+        
+        <ul>
+          <li><a href="/admin/config">Configuration</a></li>
+          <li><a href="/admin/pages">Pages</a></li>
+          <li><a href="/admin/services">Services</a></li>
+          <li><a href="/admin/users">Users</a></li>
+          <li><a href="/admin/quizzes">Quizzes</a></li>
+          <li><a href="/admin/csv">CSV exports</a></li>
+        </ul>
+      </div>
+      <div class="fluid">
+        <div class="content">
+          
+            <div class="flash notice">Quiz saved</div>
+                    <h2>Edit Quiz</h2>
+
+<form action="/admin/quizzes/17" class="edit_quiz" id="edit_quiz_17" method="post"><div style="margin:0;padding:0;display:inline"><input name="_method" type="hidden" value="put" /></div>  
+  
+
+  <fieldset>
+    <label for="quiz_name">Name</label>
+    <input id="quiz_name" name="quiz[name]" size="30" type="text" value="ActiveRecord callbacks" /> <br />
+    
+    <label for="quiz_skill_level">Skill level</label> <select id="quiz_skill_level" name="quiz[skill_level]"><option value="beginner" selected="selected">Beginner</option>
+<option value="intermediate">Intermediate</option>
+<option value="advanced">Advanced</option></select> <br />
+    <label for="quiz_time_limit">Time limit</label> <input class="number" id="quiz_time_limit" name="quiz[time_limit]" size="30" type="text" /> (in minutes)<br />
+    <label for="quiz_total_questions">Total Questions</label> <input class="number" id="quiz_total_questions" name="quiz[total_questions]" size="30" type="text" value="5" /> <br />
+    <label for="quiz_questions_per_quiz">Questions per Quiz</label> <input class="number" id="quiz_questions_per_quiz" name="quiz[questions_per_quiz]" size="30" type="text" value="5" /> <br />
+    <label for="quiz_options_per_question">Options Per Question</label> <input class="number" id="quiz_options_per_question" name="quiz[options_per_question]" size="30" type="text" value="5" />
+  </fieldset>
+  
+  <h2>Questions</h2>
+    
+    <h3><label for="quiz_questions_attributes_0_text">Question 1</label></h3> <input id="quiz_questions_attributes_0_text" name="quiz[questions_attributes][0][text]" size="30" type="text" /> <br />
+    <table>
+      <thead>
+        <tr>
+          <th>Answer</th>
+          <th>Correct?</th>
+        </tr>
+        
+          <tr>
+            <td>
+              <label for="quiz_questions_attributes_0_answers_attributes_0_text">Answer 1</label> <input id="quiz_questions_attributes_0_answers_attributes_0_text" name="quiz[questions_attributes][0][answers_attributes][0][text]" size="30" type="text" />
+            </td>
+            <td>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <label for="quiz_questions_attributes_0_answers_attributes_1_text">Answer 2</label> <input id="quiz_questions_attributes_0_answers_attributes_1_text" name="quiz[questions_attributes][0][answers_attributes][1][text]" size="30" type="text" />
+            </td>
+            <td>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <label for="quiz_questions_attributes_0_answers_attributes_2_text">Answer 3</label> <input id="quiz_questions_attributes_0_answers_attributes_2_text" name="quiz[questions_attributes][0][answers_attributes][2][text]" size="30" type="text" />
+            </td>
+            <td>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <label for="quiz_questions_attributes_0_answers_attributes_3_text">Answer 4</label> <input id="quiz_questions_attributes_0_answers_attributes_3_text" name="quiz[questions_attributes][0][answers_attributes][3][text]" size="30" type="text" />
+            </td>
+            <td>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <label for="quiz_questions_attributes_0_answers_attributes_4_text">Answer 5</label> <input id="quiz_questions_attributes_0_answers_attributes_4_text" name="quiz[questions_attributes][0][answers_attributes][4][text]" size="30" type="text" />
+            </td>
+            <td>
+            </td>
+          </tr>
+      </thead>
+    </table>
+    
+    <h3><label for="quiz_questions_attributes_1_text">Question 2</label></h3> <input id="quiz_questions_attributes_1_text" name="quiz[questions_attributes][1][text]" size="30" type="text" /> <br />
+    <table>
+      <thead>
+        <tr>
+          <th>Answer</th>
+          <th>Correct?</th>
+        </tr>
+        
+          <tr>
+            <td>
+              <label for="quiz_questions_attributes_1_answers_attributes_0_text">Answer 1</label> <input id="quiz_questions_attributes_1_answers_attributes_0_text" name="quiz[questions_attributes][1][answers_attributes][0][text]" size="30" type="text" />
+            </td>
+            <td>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <label for="quiz_questions_attributes_1_answers_attributes_1_text">Answer 2</label> <input id="quiz_questions_attributes_1_answers_attributes_1_text" name="quiz[questions_attributes][1][answers_attributes][1][text]" size="30" type="text" />
+            </td>
+            <td>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <label for="quiz_questions_attributes_1_answers_attributes_2_text">Answer 3</label> <input id="quiz_questions_attributes_1_answers_attributes_2_text" name="quiz[questions_attributes][1][answers_attributes][2][text]" size="30" type="text" />
+            </td>
+            <td>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <label for="quiz_questions_attributes_1_answers_attributes_3_text">Answer 4</label> <input id="quiz_questions_attributes_1_answers_attributes_3_text" name="quiz[questions_attributes][1][answers_attributes][3][text]" size="30" type="text" />
+            </td>
+            <td>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <label for="quiz_questions_attributes_1_answers_attributes_4_text">Answer 5</label> <input id="quiz_questions_attributes_1_answers_attributes_4_text" name="quiz[questions_attributes][1][answers_attributes][4][text]" size="30" type="text" />
+            </td>
+            <td>
+            </td>
+          </tr>
+      </thead>
+    </table>
+    
+    <h3><label for="quiz_questions_attributes_2_text">Question 3</label></h3> <input id="quiz_questions_attributes_2_text" name="quiz[questions_attributes][2][text]" size="30" type="text" /> <br />
+    <table>
+      <thead>
+        <tr>
+          <th>Answer</th>
+          <th>Correct?</th>
+        </tr>
+        
+          <tr>
+            <td>
+              <label for="quiz_questions_attributes_2_answers_attributes_0_text">Answer 1</label> <input id="quiz_questions_attributes_2_answers_attributes_0_text" name="quiz[questions_attributes][2][answers_attributes][0][text]" size="30" type="text" />
+            </td>
+            <td>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <label for="quiz_questions_attributes_2_answers_attributes_1_text">Answer 2</label> <input id="quiz_questions_attributes_2_answers_attributes_1_text" name="quiz[questions_attributes][2][answers_attributes][1][text]" size="30" type="text" />
+            </td>
+            <td>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <label for="quiz_questions_attributes_2_answers_attributes_2_text">Answer 3</label> <input id="quiz_questions_attributes_2_answers_attributes_2_text" name="quiz[questions_attributes][2][answers_attributes][2][text]" size="30" type="text" />
+            </td>
+            <td>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <label for="quiz_questions_attributes_2_answers_attributes_3_text">Answer 4</label> <input id="quiz_questions_attributes_2_answers_attributes_3_text" name="quiz[questions_attributes][2][answers_attributes][3][text]" size="30" type="text" />
+            </td>
+            <td>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <label for="quiz_questions_attributes_2_answers_attributes_4_text">Answer 5</label> <input id="quiz_questions_attributes_2_answers_attributes_4_text" name="quiz[questions_attributes][2][answers_attributes][4][text]" size="30" type="text" />
+            </td>
+            <td>
+            </td>
+          </tr>
+      </thead>
+    </table>
+    
+    <h3><label for="quiz_questions_attributes_3_text">Question 4</label></h3> <input id="quiz_questions_attributes_3_text" name="quiz[questions_attributes][3][text]" size="30" type="text" /> <br />
+    <table>
+      <thead>
+        <tr>
+          <th>Answer</th>
+          <th>Correct?</th>
+        </tr>
+        
+          <tr>
+            <td>
+              <label for="quiz_questions_attributes_3_answers_attributes_0_text">Answer 1</label> <input id="quiz_questions_attributes_3_answers_attributes_0_text" name="quiz[questions_attributes][3][answers_attributes][0][text]" size="30" type="text" />
+            </td>
+            <td>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <label for="quiz_questions_attributes_3_answers_attributes_1_text">Answer 2</label> <input id="quiz_questions_attributes_3_answers_attributes_1_text" name="quiz[questions_attributes][3][answers_attributes][1][text]" size="30" type="text" />
+            </td>
+            <td>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <label for="quiz_questions_attributes_3_answers_attributes_2_text">Answer 3</label> <input id="quiz_questions_attributes_3_answers_attributes_2_text" name="quiz[questions_attributes][3][answers_attributes][2][text]" size="30" type="text" />
+            </td>
+            <td>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <label for="quiz_questions_attributes_3_answers_attributes_3_text">Answer 4</label> <input id="quiz_questions_attributes_3_answers_attributes_3_text" name="quiz[questions_attributes][3][answers_attributes][3][text]" size="30" type="text" />
+            </td>
+            <td>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <label for="quiz_questions_attributes_3_answers_attributes_4_text">Answer 5</label> <input id="quiz_questions_attributes_3_answers_attributes_4_text" name="quiz[questions_attributes][3][answers_attributes][4][text]" size="30" type="text" />
+            </td>
+            <td>
+            </td>
+          </tr>
+      </thead>
+    </table>
+    
+    <h3><label for="quiz_questions_attributes_4_text">Question 5</label></h3> <input id="quiz_questions_attributes_4_text" name="quiz[questions_attributes][4][text]" size="30" type="text" /> <br />
+    <table>
+      <thead>
+        <tr>
+          <th>Answer</th>
+          <th>Correct?</th>
+        </tr>
+        
+          <tr>
+            <td>
+              <label for="quiz_questions_attributes_4_answers_attributes_0_text">Answer 1</label> <input id="quiz_questions_attributes_4_answers_attributes_0_text" name="quiz[questions_attributes][4][answers_attributes][0][text]" size="30" type="text" />
+            </td>
+            <td>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <label for="quiz_questions_attributes_4_answers_attributes_1_text">Answer 2</label> <input id="quiz_questions_attributes_4_answers_attributes_1_text" name="quiz[questions_attributes][4][answers_attributes][1][text]" size="30" type="text" />
+            </td>
+            <td>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <label for="quiz_questions_attributes_4_answers_attributes_2_text">Answer 3</label> <input id="quiz_questions_attributes_4_answers_attributes_2_text" name="quiz[questions_attributes][4][answers_attributes][2][text]" size="30" type="text" />
+            </td>
+            <td>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <label for="quiz_questions_attributes_4_answers_attributes_3_text">Answer 4</label> <input id="quiz_questions_attributes_4_answers_attributes_3_text" name="quiz[questions_attributes][4][answers_attributes][3][text]" size="30" type="text" />
+            </td>
+            <td>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <label for="quiz_questions_attributes_4_answers_attributes_4_text">Answer 5</label> <input id="quiz_questions_attributes_4_answers_attributes_4_text" name="quiz[questions_attributes][4][answers_attributes][4][text]" size="30" type="text" />
+            </td>
+            <td>
+            </td>
+          </tr>
+      </thead>
+    </table>
+    
+  
+
+  <input id="quiz_submit" name="commit" type="submit" value="Save" /> or <a href="/admin/quizzes">Cancel</a>
+</form>
+        </div>
+      </div>
+    </div>
+    
+    
+  </body>
+</html>

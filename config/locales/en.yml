@@ -49,6 +49,7 @@ en:
     admin: Admin
     pages: Pages
     csvs: CSV exports
+    config: Site Config
     
     #admin
     top_cities: Top Cities
