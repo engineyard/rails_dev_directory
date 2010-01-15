@@ -12,7 +12,8 @@ class User < ActiveRecord::Base
   acts_as_authentic
   can_has?
   
-  attr_protected :admin, :provider_id, :password, :password_confirmation
+  attr_protected :admin, :password, :password_confirmation
+  attr_protected :provider_id
   
   def full_name
     "#{first_name} #{last_name}".strip

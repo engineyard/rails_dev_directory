@@ -11,7 +11,7 @@ class Admin::UsersController < ApplicationController
   
   def new
     @user = User.new
-    @user.provider = Provider.find_by_id(params[:provider_id])
+    @user.provider = Provider.find_by_slug(params[:provider_id])
   end
   
   def show
@@ -20,7 +20,7 @@ class Admin::UsersController < ApplicationController
   
   def create
     @user = User.new(params[:user])
-    @user.provider_id = params[:user][:provider_id]
+    @user.provider = Provider.find_by_id(params[:user][:provider_id])
     @user.password = params[:user][:password]
     @user.password_confirmation = @user.password
     @user.reset_perishable_token!
