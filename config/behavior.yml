@@ -23,8 +23,12 @@
 #   type: string
 #   
 tracking_code:
-  name: Tracking Code
-  default: <!-- TRACKING CODE -->
+  name: Tracking script
+  default: <!-- Tracking Code -->
+  type: text
+provider_traking_code:
+  name: Tracking script for users
+  default: <!-- Tracking Code -->
   type: text
 #   
 # secret:

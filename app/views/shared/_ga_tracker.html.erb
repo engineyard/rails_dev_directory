@@ -1,3 +1,7 @@
 <%- if Rails.production? -%>
-  <%= config[:tracking_code] %>
+  <%- if logged_in? -%>
+    <%= config[:provider_tracking_code] %>
+  <%- else -%>
+    <%= config[:tracking_code] %>
+  <%- end -%>
 <%- end -%>
