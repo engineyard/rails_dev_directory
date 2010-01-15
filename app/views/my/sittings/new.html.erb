@@ -14,7 +14,7 @@
         <%- index = 0; f.fields_for(:responses) do |r| n = index + 1; question = r.object.question -%>
           
           <li>
-            <strong><%= index + 1 %>. <%= question.text %></strong>
+            <strong><%= question.text %></strong>
             <%= r.hidden_field :question_id %>
             <ul>
               <%- question.answers.each_with_index do |answer, index| -%>
