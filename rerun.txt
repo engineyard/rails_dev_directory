@@ -1,1 +1,1 @@
-features/admin_provider_users.feature:5 features/enquiries.feature:6 features/provider_quizzes.feature:36:48
+features/provider_quizzes.feature:36:48
