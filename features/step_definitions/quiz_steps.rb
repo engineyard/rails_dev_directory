@@ -27,3 +27,11 @@ end
 Given /^quiz "([^\"]*)" has "([^\"]*)" questions total, "([^\"]*)" at a time$/ do |quiz, total_questions, questions_per_quiz|
   Quiz.find_by_name(quiz).update_attributes(:total_questions => total_questions, :questions_per_quiz => questions_per_quiz)
 end
+
+Given /^the quiz "([^\"]*)" should be completed in "([^\"]*)" minutes$/ do |quiz, time_limit|
+  Quiz.find_by_name(quiz).update_attributes(:time_limit => time_limit )
+end
+
+Given /^the time is "([^\"]*)"$/ do |time|
+  Time.stub!(:now).and_return(Time.parse(time))
+end

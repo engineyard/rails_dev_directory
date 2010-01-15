@@ -11,4 +11,8 @@ class Sitting < ActiveRecord::Base
   def score
     responses.correct.count
   end
+  
+  def expired?
+    ((Time.now - created_at) / 60) > quiz.time_limit.to_i
+  end
 end

@@ -100,6 +100,7 @@ en:
   optional: Optional
   options_per_question: Options Per Question
   or: or
+  out_of_time: You have run out of time!
   outside_us: Outside US
   
   paste_code_sample_here: Paste your code sample here

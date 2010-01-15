@@ -6,6 +6,10 @@
   <%= render 'my/quizzes/details' %>
 
   <h3><%= t('your_score') %></h3>
-
-  <div class="score"><strong><%= @sitting.score %></strong> / <%= @quiz.questions.size %>
+  
+  <%- if @sitting.responses.empty? -%>
+    <p><%= t('out_of_time') %></p>
+  <%- else -%>
+    <div class="score"><strong><%= @sitting.score %></strong> / <%= @quiz.questions.size %>
+  <%- end -%>
 </div>

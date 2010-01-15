@@ -57,6 +57,7 @@ class Provider < ActiveRecord::Base
   has_many :requests, :dependent => :destroy, :order => 'created_at desc'
   has_many :responses
   has_many :rfps, :through => :requests
+  has_many :sittings
   has_many :uncompleted_quizzes, :class_name => 'Quiz',
              :finder_sql => 'NOT EXISTS (SELECT * FROM quiz_results WHERE quiz_results.quiz_id = quizzes.id AND quiz_results.provider_id = #{self.id} AND quiz_results.passed = 1)'
   has_many :users, :dependent => :destroy
