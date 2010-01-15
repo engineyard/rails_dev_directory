@@ -1,6 +1,8 @@
 <%- content_for :keywords do -%><meta name="keywords" content="<%= @page.keywords if @page %>"><%- end -%>
 <%- content_for :description do -%><meta name="description" content="<%= @page.description if @page %>"><%- end -%>
 
+<div class="beta-tag<%= ' drop' if logged_in? %>"></div>
+
 <div class="welcome">
   <h1><%= t('home.welcome') %></h1>
   <div><%= t('home.description') %></div>
@@ -61,8 +63,8 @@
 
       
       <h4><%= link_to t('filter_by_project_requirements'), '#', :class => 'filter' %></h4>
-      
-      <ul class="filters hidden">
+
+      <ul class="filters last hidden">
         <li>
           <%= label_tag 'weeks', t('project_length') %><br />
           <%= project_length_select %>

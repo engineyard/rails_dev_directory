@@ -1,29 +1,43 @@
-<div class="panel">
+<div class="panel quiz">
   <div class="pageHead"><h2><%= t('take_a_quiz') %></h2></div>
 
-  <%= render 'my/quizzes/details' %>
+  <div class="narrow">
+    <%= render 'my/quizzes/details' %>
 
-  <h3><%= t('questions') %></h3>
-
-  <%- form_for([:my, @quiz, setup_sitting(@sitting)]) do |f| -%>
+    <h3><%= t('questions') %></h3>
   
-  <%= f.error_messages %>
-    
-    <%- index = 0; f.fields_for(:responses) do |r| n = index + 1; question = r.object.question -%>
-      <fieldset>
-        <h4><%= index + 1 %>. <%= question.text %></h4>
-        <%= r.hidden_field :question_id %>
-        <ul>
-          <%- question.answers.each_with_index do |answer, index| -%>
-            <li>
-              <%= r.radio_button :answer_id, answer.id, :id => dom_id(answer, "option-#{index}") %>
-              <%= label_tag dom_id(answer, "option-#{index}"), answer.text %>
-            </li>
-          <%- end -%>
-        </ul>
-      </fieldset>
+    <%- form_for([:my, @quiz, setup_sitting(@sitting)]) do |f| -%>
+
+    <%= f.error_messages %>
+
+      <ol class="questions">
+        <%- index = 0; f.fields_for(:responses) do |r| n = index + 1; question = r.object.question -%>
+          
+          <li>
+            <strong><%= index + 1 %>. <%= question.text %></strong>
+            <%= r.hidden_field :question_id %>
+            <ul>
+              <%- question.answers.each_with_index do |answer, index| -%>
+                <li>
+                  <%= r.radio_button :answer_id, answer.id, :id => dom_id(answer, "option-#{index}") %>
+                  <%= label_tag dom_id(answer, "option-#{index}"), answer.text %>
+                </li>
+              <%- end -%>
+            </ul>
+          </li>
+        <%- end -%>
+      </ol>
+      
+
+      <div class="formactions"><%= submit_tag(t('finished')) %></div>
     <%- end -%>
 
-    <%= submit_tag(t('finished')) %>
-  <%- end -%>
+  </div>
+  <div class="sidebar hidden">
+    <h3>Timer</h3>
+    <div class="timer widget low">
+      <strong>5:00</strong> Minutes Left
+    </div>
+  </div>
+  <div class="clear"></div>
 </div>

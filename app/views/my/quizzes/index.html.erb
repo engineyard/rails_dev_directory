@@ -2,7 +2,16 @@
   <div class="pageHead">
     <h2><%= t('quizzes') %></h2>
   </div>
-
+  
+  <form class="hidden">
+    <fieldset>
+      <label>Skill Level</label>
+      <select>
+        <option>All</option>
+      </select>
+    </fieldset>
+  </form>
+  
   <%- if @quizzes.empty? -%>
     <p><%= t('no_quizzes') %></p>
   <%- else -%>
@@ -11,7 +20,7 @@
         <tr>
           <th><%= t('quiz_name') %></th>
           <th><%= t('skill_level') %></th>
-          <th class="hidden"><%= t('time_limit') %></th>
+          <th><%= t('time_limit') %></th>
           <th></th>
         </tr>
       </thead>
@@ -20,8 +29,8 @@
         <tr>
           <td><%= quiz.name %></td>
           <td><%= quiz.skill_level %></td>
-          <td class="hidden"><%= quiz.time_limit %> <%= t('minutes') %></td>
-          <td>
+          <td><%= quiz.time_limit %> <%= t('minutes') %></td>
+          <td class="right">
             <%- if current_user.provider.quiz_results.find_by_quiz_id(quiz.id) -%>
               <%= t('your_score') %>: <%= current_user.provider.quiz_results.find_by_quiz_id(quiz.id).score %> / <%= quiz.questions.count %>
               <%- if current_user.provider.quiz_results.find_by_quiz_id(quiz.id).score < quiz.questions.count  -%>

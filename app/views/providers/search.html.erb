@@ -69,6 +69,10 @@
   
   <div class="favorites hidden">
     <h3><%= t('your_favorites') %></h3>
+    <div class="navigation hidden">
+      <a href="" class="previous"></a>
+      <a href="" class="next"></a>
+    </div>
     <ul>
       <li>
         <img src="/images/profile-default-sm.png" />
@@ -84,7 +88,7 @@
         <img src="/images/profile-default-sm.png" />
         <h4>Andy Delcambre</h4>
         <p>Portland, Oregon, USA</p>
-      </li>
+      </li>      
   </div>
 
   <%- if @providers.empty? -%>

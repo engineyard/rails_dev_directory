@@ -5,17 +5,13 @@
   </div>
 
   <div class="narrow">
-    <%= render 'my/quizzes/details' %>
+    <%= render 'details' %>
   </div>
   
   <div class="sidebar">
     <h3><%= t('your_score') %></h3>
 
-    <%- if @sitting.responses.empty? -%>
-      <p><%= t('out_of_time') %></p>
-    <%- else -%>
-      <div class="score widget"><%= @quiz.correct_responses_for(current_user.provider) %>/<%= @quiz.questions.size %> <%= t('correct') %></div>
-    <%- end -%>
+    <div class="score widget"><%= @quiz.correct_responses_for(current_user.provider) %>/<%= @quiz.questions.size %> <%= t('correct') %></div>
     
     <div class="aligncenter"><%= link_to t('take_another_quiz'), my_quizzes_path, :class=>"button" %></div>
   </div>

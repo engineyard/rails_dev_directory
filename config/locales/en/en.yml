@@ -95,8 +95,9 @@ en:
     welcome: "Looking for a Freelance Rails Developer?"
     description: "<p>We match your business with professional freelance Rails developers who want to build your app. It only takes seconds to find a qualified Rails developer, so start searching now!</p>"
     find_a_provider: Find a Rails Freelancer
-    full_listing: Full listing
-    by_location: Geographic listing
+    full_listing: View All
+    by_location: View By Location
+    by_top_cities: Top Cities
     provider_signup: Rails Freelancer? Get Listed...
     enter_budget: Please enter your budget
     everywhere: Everywhere
@@ -391,8 +392,8 @@ en:
     
     deleted_successfully: Request deleted successfully
     
-    project_owner: Project Owner
-    submitted_by: Submitted By
+    project_owner: Contact Details
+    submitted_by: Name
     submitted_on: Submitted On
     details: Details
     insurance_requirements: Insurance Requirements

@@ -276,7 +276,7 @@ table {
 th, table td {
   line-height: 1.2em;
 }
-.even td {
+tr.even {
   background: url(/images/sprite-layout.png) repeat-x 0 -235px;
 }
 
@@ -334,6 +334,12 @@ table.layout tr:hover {
 }
 .alignright {
   float: right;
+}
+.left {
+  text-align: left;
+}
+.right {
+  text-align: right;
 }
 .aligncenter {
   text-align: center;
@@ -394,6 +400,9 @@ div.notice {
 #recaptcha_widget_div table {
   width: auto;
   display: table;
+}
+table.recaptchatable {
+  border: none !important;
 }
 
 /* Complex Layout */

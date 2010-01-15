@@ -51,9 +51,8 @@
         </ul>
       </div>
     </div>
-
     <% if logged_in? and current_user.provider %>
-      <div class="subnav">
+      <div class="subnav<%= ' home' if params[:controller] == 'home' %>">
         <div class="content">
           <div class="navigation">
             <ul>
@@ -96,6 +95,8 @@
         <ul class="nav">
           <li><%= link_to t('general.contact_us'), '/pages/contact-us', :rel => "nofollow" %></li>
           <li><%= link_to t('general.terms'), '/pages/terms-of-use', :rel => "nofollow" %></li>
+        </ul>
+        <ul class="nav">
           <li><%= link_to t('home.full_listing'), providers_path %></li>
           <li><%= link_to t('home.by_location'), by_location_providers_path %></li>
         </ul>

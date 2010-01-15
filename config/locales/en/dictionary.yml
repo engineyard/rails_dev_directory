@@ -6,7 +6,7 @@ en:
   account_information: Account Information
   activity: Activity
   address: Address
-  all_enquiries: See All Enquiries
+  all_enquiries: Show All Enquiries
   almost_there: Almost There!
   answer: Answer
   answers: Answers
@@ -18,6 +18,7 @@ en:
   availability_by_project_size: General availability by project size
   availability_updated: Thanks for Updating Your Availability
   avg_score: AVG. SCORE
+  awaiting_response: Awaiting Response
 
   booked: Booked
   business_address: Business Address
@@ -30,12 +31,14 @@ en:
   code_sample_introduction: Here you can post code samples.
   code_sample_label: Paul has uploaded 4 code samples
   code_samples: Code Samples
+  company: Company
   configuration: Configuration
   contacts: Contacts
   contact_a_developer: Contact a Developer
   contact_a_developer_introduction: "You're sending a note to this developer about your project:"
   contact_developer: Contact Developer
-  'correct?': Correct?
+  'correct?': 'Correct?'
+  correct: Correct
   country: Country
   create_a_rails_freelance_account: Create a Rails Freelance Account
   
@@ -51,10 +54,13 @@ en:
   find_a_freelancer: Find a freelance developer
   finished: Finished!
   find_a_provider: Find a provider
+  flag_this: Flag This Content
+  flagged: Flagged
   
   go_back_and_edit: "Go Back &amp; Edit"
   
   has_taken: Has Taken
+  help: Help
   hourly_rate: Hourly Rate
   hours: Hours/Week
   hour_per_week: Hour/Week
@@ -86,7 +92,7 @@ en:
   my_upcoming_availability: "My Upcoming Availability &mdash; 3 month view"
 
   name: Name
-  name_and_location: Name and Location
+  name_and_location: Name &amp; Location
   name_your_sample_code: Name your sample code
   no_code_samples: You haven't added any code samples yet.
   no_enquiries: You have no enquiries
@@ -142,8 +148,9 @@ en:
   state: State
   
   take_a_quiz: Take a Quiz
+  take_another_quiz: Take Another Quiz
   take_the_basic_rails_quiz: Take the Basic Rails Quiz
-  take_this_quiz: Take this quiz
+  take_this_quiz: Take this quiz &rarr;
   tell_us_about_your_business: Tell us about your business
   test_code: Test Code
   test_your_code: Test Your Code
@@ -151,6 +158,7 @@ en:
   time_limit: Time Limit
   total_questions: Total Questions
   
+  unread: Unread
   update: Update
   upload_your_code: Upload Your Code
   upload_a_code_sample: Upload a Code Sample
