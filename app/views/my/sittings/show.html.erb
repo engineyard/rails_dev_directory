@@ -14,7 +14,7 @@
     <%- if @sitting.responses.empty? -%>
       <p><%= t('out_of_time') %></p>
     <%- else -%>
-      <div class="score widget"><%= @sitting.score %>/<%= @quiz.questions.size %> <%= t('correct') %></div>
+      <div class="score widget"><%= @sitting.score %>/<%= @quiz.total_questions %> <%= t('correct') %></div>
     <%- end -%>
     
     <div class="aligncenter"><%= link_to t('take_another_quiz'), my_quizzes_path, :class=>"button" %></div>

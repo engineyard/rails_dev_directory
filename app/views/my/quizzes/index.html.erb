@@ -32,7 +32,7 @@
           <td><%= quiz.time_limit %> <%= t('minutes') %></td>
           <td class="right">
             <%- if current_user.provider.quiz_results.find_by_quiz_id(quiz.id) -%>
-              <%= t('your_score') %>: <%= current_user.provider.quiz_results.find_by_quiz_id(quiz.id).score %> / <%= quiz.questions.count %>
+              <%= t('your_score') %>: <%= current_user.provider.quiz_results.find_by_quiz_id(quiz.id).score %> / <%= quiz.total_questions %>
               <%- if current_user.provider.quiz_results.find_by_quiz_id(quiz.id).score < quiz.questions.count  -%>
                 <%= link_to t('retake_quiz'), new_my_quiz_sitting_path(quiz) %>
               <%- end -%>
