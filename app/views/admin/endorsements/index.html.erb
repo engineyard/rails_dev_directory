@@ -1,7 +1,7 @@
 <%- if @provider.nil? -%>
   <h2><%= t('navigation.endorsements') %></h2>
 <%- else -%>
-  <h2><%= t('endorsement.endorsements_for', :company_name => @provider.company_name) %></h2>
+  <h2><%= t('endorsement.endorsements_for', :company_name => @provider.company_name.to_s) %></h2>
 <%- end -%>
 
 <%- if @endorsements.empty? -%>
