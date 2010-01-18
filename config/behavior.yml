@@ -21,6 +21,10 @@
 #   name: Site Title
 #   default: My Site
 #   type: string
+shooter_api_key:
+  name: Shooter API Key
+  default: ''
+  type: string
 #   
 provider_tracking_code:
   name: Tracking script for providers
