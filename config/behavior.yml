@@ -22,9 +22,13 @@
 #   default: My Site
 #   type: string
 #   
+provider_tracking_code:
+  name: Tracking script for providers
+  default: <!-- Tracking Code -->
+  type: text
 tracking_code:
-  name: Tracking Code
-  default: <!-- TRACKING CODE -->
+  name: Tracking script
+  default: <!-- Tracking Code -->
   type: text
 #   
 # secret:
