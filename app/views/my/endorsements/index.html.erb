@@ -1,5 +1,5 @@
 <div class="dashboard">
-  <h3><%= t('endorsement.endorsements_for', :company => @provider.company_name) %></h3>
+  <h3><%= t('endorsement.endorsements_for', :company_name => @provider.company_name) %></h3>
   <p>
     <%= link_to t('provider.request_endorsement'), new_my_endorsement_request_path %> |
     <%= link_to t('provider.sort_endorsements'), '#', :class => 'sort-endorsements' %>

@@ -456,10 +456,8 @@ en:
     thanks: Thanks for submitting your endorsement.
 
     recipient_company_name: Recipient
-    show_endorsement: Endorsement for {{company_name}}
-    endorsements_for: Endorsements for {{company_name}}
-
-    endorsements_for: "Endorsements for {{company}}"
+    show_endorsement: "Endorsement for {{company_name}}"
+    endorsements_for: "Endorsements for {{company_name}}"
     company_endorsements: "{{company}} Endorsements"
     
     at: at
