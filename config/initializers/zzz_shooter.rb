@@ -1,0 +1,1 @@
+ExceptionNotifier.api_key = Behavior.config[:shooter_api_key]
