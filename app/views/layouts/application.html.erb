@@ -26,7 +26,6 @@
     <%= stylesheet_link_tag "emastic/reset-min", "emastic/type-min", "formy/form.css", "common", "jquery", "jquery.tooltip", "application" %>
     <!--[if IE]><%= stylesheet_link_tag 'emastic/ie-min' %><![endif]-->
     <!--[if IE 7]><%= stylesheet_link_tag 'ie7' %><![endif]-->
-    <%= javascript_include_tag :defaults, 'datepicker', 'jquery.bgiframe', 'jquery.dimensions', 'jquery.delegate', 'jquery.tooltip', 'jquery.delay', 'jquery.livequery', 'locales' %>
     <script type="text/javascript" charset="utf-8">
       AUTH_TOKEN = '<%= u(form_authenticity_token) %>';
     </script>
@@ -106,6 +105,7 @@
       </div>
     </div>
     
+    <%= javascript_include_tag :defaults, 'datepicker', 'jquery.bgiframe', 'jquery.dimensions', 'jquery.delegate', 'jquery.tooltip', 'jquery.delay', 'jquery.livequery', 'locales' %>
     <%= render :partial => 'shared/ga_tracker' %>
   </body>
 </html>
