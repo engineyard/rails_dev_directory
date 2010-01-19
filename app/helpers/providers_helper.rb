@@ -8,6 +8,7 @@ module ProvidersHelper
   def setup_services(provider)
     Service.each do |service|
       provider.provided_services.build(:service => service) unless provider.provided_services.include?(service)
+
     end
   end
   
