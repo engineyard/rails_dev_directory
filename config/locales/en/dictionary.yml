@@ -88,6 +88,7 @@ en:
   minimum_hours_per_week: Minimum Hours Per Week
   minimum_project_length: Minimum Hours in Project
   minutes: Minutes
+  minutes_left: Minutes Left
   more_than: More Than
   my_upcoming_availability: "My Upcoming Availability &mdash; 3 month view"
 
@@ -136,6 +137,7 @@ en:
   
   save_changes: Save Changes
   score: Score
+  seconds_left: Seconds Left
   send: Send
   services: Services
   set_your_availability: Set Your Availability

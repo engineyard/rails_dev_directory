@@ -175,7 +175,11 @@ $(document).ready(function(){
         current_minute = Math.floor(current_second / 60)
         current_minute_second = (current_second % 60) + ''
         minute_timer.text(current_minute + ':' + (current_minute_second.length == 1 ? '0' + current_minute_second : current_minute_second))
-        current_second = current_second - 1 
+        if(current_second < 60)
+        {
+          $('#minutes-or-seconds').text(I18n.t('seconds_left'))
+        }
+        current_second = current_second - 1
       }
       else
       {

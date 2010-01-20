@@ -27,7 +27,6 @@
           </li>
         <%- end -%>
       </ol>
-      
 
       <div class="formactions"><%= submit_tag(t('finished')) %></div>
     <%- end -%>
@@ -41,7 +40,7 @@
     <div class="timer widget low">
       <strong id="timer-minutes">
         <%= @quiz.time_limit %>:00
-      </strong> Minutes Left
+      </strong> <span id="minutes-or-seconds"><%= t('minutes_left') %></span> 
     </div>
   </div>
   <div class="clear"></div>
