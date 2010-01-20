@@ -27,6 +27,16 @@ class Country
       end.flatten.last.to_s.downcase.gsub(/[^a-z0-9\s]/, '').gsub(/\s/,'_') + "_path"
     end
     
+    def order_sql
+      sql = ["country"]
+      I18n.t('countries').each do |code, country|
+        sql << code.to_s
+        sql << country.to_s
+        sql[0] = "IF(?, ?, \n #{sql.first})"
+      end
+      ActiveRecord::Base.sanitize_sql_array(sql)
+    end
+    
     
   end
 end

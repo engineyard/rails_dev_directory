@@ -13,4 +13,9 @@ describe Country do
     Country.from_slug('ireland').name.should == "Ireland"
     Country.from_slug('ireland').code.to_s.should == "IE"
   end
+  
+  it "should build me ordering SQL" do
+    I18n.stub!(:t).with('countries').and_return({:NA=>"Na'mibia", :AZ=>"Azerbaijan", :TV=>"Tuvalu"})
+    Country.order_sql.should == "IF('NA', 'Na\\'mibia', \n IF('AZ', 'Azerbaijan', \n IF('TV', 'Tuvalu', \n country)))"
+  end
 end
