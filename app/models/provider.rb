@@ -5,7 +5,6 @@ class Provider < ActiveRecord::Base
   
   validates_presence_of :city, :slug
   validates_uniqueness_of :slug
-  validate_on_create :first_user_has_email_matching_company_url
   validates_acceptance_of :terms_of_service
   validates_length_of :marketing_description, :maximum => 300, :allow_nil => true
   validate :name_is_not_a_reserved_country_name
@@ -321,17 +320,6 @@ private
       self.slug = "#{slug}-#{n}"
       n = n.next
     end
-  end
-  
-  def first_user_has_email_matching_company_url
-    return true unless users.first and company_url.not.blank? and users.first.email.not.blank?
-    company_url_host = URI.parse(cleaned_company_url).host
-    user_email_host = TMail::Address.parse(users.first.email).domain
-    if !company_url_host.match(/#{user_email_host}$/)
-      errors.add_to_base(I18n.t('provider.validations.user_email_cannot_be_different_domain'))
-    end
-  rescue
-    errors.add_to_base(I18n.t('provider.validations.valid_url'))
   end
   
   def set_first_user_as_owner

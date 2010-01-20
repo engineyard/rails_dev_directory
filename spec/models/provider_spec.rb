@@ -221,28 +221,6 @@ describe Provider do
       @provider.slug.should == @provider.slugged_company_name
     end
   end
-
-  describe "making sure that the email and url domain match" do
-    before do
-      @provider = Provider.new(@valid_attributes.merge(
-        :email => 'paul@rslw.com',
-        :company_url => 'http://www.hypertiny.net',
-        :users_attributes => {'0' => {
-          :first_name => "Paul",
-          :last_name => "Campbell",
-          :email => 'paul@rslw.com',
-          :password => 'password', 
-          :password_confirmation => 'password'}}))
-      @provider.users.first.password = 'password'
-      @provider.users.first.password_confirmation = 'password'
-    end
-    
-    it "should be invalid on the user email" do
-      @provider.valid?
-      @provider.should have(1).errors
-    end
-    
-  end
   
   describe "formatting prices" do
     before do

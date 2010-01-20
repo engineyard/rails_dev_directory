@@ -27,6 +27,53 @@ class Bootstrapper
       
       Endorsement.make(:provider => provider, :aasm_state => 'approved')
       
+      q = Quiz.make({"options_per_question"=>5, "name"=>"Rails Quiz", "skill_level"=>"beginner", "total_questions"=>5, "time_limit"=>5, "questions_per_quiz"=>5})
+
+      qu = Question.make({"text"=>"Who Made Rails?"})
+      q.questions << qu
+      qu.answers << Answer.make(:text => "DHH")
+      qu.update_attributes(:correct_answer => qu.answers.first)
+      qu.answers << Answer.make(:text => "PC")
+      qu.answers << Answer.make(:text => "NF")
+      qu.answers << Answer.make(:text => "BDJ")
+      qu.answers << Answer.make(:text => "JD")
+      
+      qu = Question.make({"text"=>"What's Rails Written In?"})
+      q.questions << qu
+      qu.answers << Answer.make(:text => "Ruby")
+      qu.update_attributes(:correct_answer => qu.answers.first)
+      qu.answers << Answer.make(:text => "Perl")
+      qu.answers << Answer.make(:text => "PHP")
+      qu.answers << Answer.make(:text => "Python")
+      qu.answers << Answer.make(:text => "Java")
+      
+      qu = Question.make({"text"=>"How do you get the number of items in an array?"})
+      q.questions << qu
+      qu.answers << Answer.make(:text => "Array#size")
+      qu.update_attributes(:correct_answer => qu.answers.first)
+      qu.answers << Answer.make(:text => "Array#pick")
+      qu.answers << Answer.make(:text => "Array#fill")
+      qu.answers << Answer.make(:text => "Array#inspect")
+      qu.answers << Answer.make(:text => "Array#items")
+      
+      qu = Question.make({"text"=>"What's quirky about the Rails logo?"})
+      q.questions << qu
+      qu.answers << Answer.make(:text => "It's trademarked")
+      qu.update_attributes(:correct_answer => qu.answers.first)
+      qu.answers << Answer.make(:text => "It's red")
+      qu.answers << Answer.make(:text => "It's blue")
+      qu.answers << Answer.make(:text => "It's a ruby on rails")
+      qu.answers << Answer.make(:text => "It's lovely")
+      
+      qu = Question.make({"text"=>"When was Rails released?"})
+      q.questions << qu
+      qu.answers << Answer.make(:text => "2004")
+      qu.update_attributes(:correct_answer => qu.answers.first)
+      qu.answers << Answer.make(:text => "1970")
+      qu.answers << Answer.make(:text => "1980")
+      qu.answers << Answer.make(:text => "1990")
+      qu.answers << Answer.make(:text => "2000")
+      
       provider.services << Service.find_by_name('Ruby')
     end
     

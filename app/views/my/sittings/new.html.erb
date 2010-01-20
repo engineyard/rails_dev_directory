@@ -6,7 +6,7 @@
 
     <h3><%= t('questions') %></h3>
   
-    <%- form_for([:my, @quiz, setup_sitting(@sitting)]) do |f| -%>
+    <%- form_for([:my, @quiz, setup_sitting(@sitting)], :html => {:id => 'quiz-form'}) do |f| -%>
 
     <%= f.error_messages %>
 
@@ -33,10 +33,10 @@
     <%- end -%>
 
   </div>
-  <div class="sidebar hidden">
+  <div class="sidebar">
     <h3>Timer</h3>
     <div class="timer widget low">
-      <strong>5:00</strong> Minutes Left
+      <strong id="timer"><%= @quiz.time_limit * 60 %></strong> Seconds Left
     </div>
   </div>
   <div class="clear"></div>

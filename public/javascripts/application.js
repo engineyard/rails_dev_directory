@@ -161,6 +161,24 @@ $(document).ready(function(){
       return false
     })
   })
+  
+  $('#timer').each(function(){
+    field = $(this)
+    start_at = field.text()
+    current = start_at
+    end_at = 0
+    setInterval(function(){
+      if(current >= 0)
+      {
+        field.text(current)
+        current = current - 1 
+      }
+      else
+      {
+        document.location.href = $('form#quiz-form').attr('action')
+      }
+    }, 1000)    
+  })
 })
 
 var RecaptchaOptions = {
