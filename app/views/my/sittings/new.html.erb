@@ -35,8 +35,13 @@
   </div>
   <div class="sidebar">
     <h3>Timer</h3>
-    <div class="timer widget low">
+    <div class="timer widget low hidden">
       <strong id="timer"><%= @quiz.time_limit * 60 %></strong> Seconds Left
+    </div>
+    <div class="timer widget low">
+      <strong id="timer-minutes">
+        <%= @quiz.time_limit %>:00
+      </strong> Minutes Left
     </div>
   </div>
   <div class="clear"></div>
