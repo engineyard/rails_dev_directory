@@ -29,7 +29,7 @@ class Provider < ActiveRecord::Base
   
   define_completeness_scoring do
     check :name, lambda { |provider| provider.company_name.not.blank? or (provider.user and provider.user.name.not.blank?) }, 10
-    check :hourly_rate, lambda { |provider| provider.hourly_rate.not.zero? }, 5
+    check :hourly_rate, lambda { |provider| provider.hourly_rate.to_i.not.zero? }, 5
     check :project_length, lambda { |provider| provider.min_project_length.not.blank? and provider.max_project_length.not.blank? }, 5
     check :hours, lambda { |provider| provider.min_hours.not.blank? and provider.max_hours.not.blank? }, 5
     check :one_quiz_taken, lambda { |provider| provider.quiz_results.any? }, 5
