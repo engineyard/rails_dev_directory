@@ -430,7 +430,7 @@ li .check {
 .panel #search-form input[type="submit"] {
   padding: 2px 0;
   margin: 0;
-  width: 200px;
+  width: 120px;
 }
 #search-form #location {
   width: 300px;
