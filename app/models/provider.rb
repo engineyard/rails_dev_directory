@@ -270,8 +270,12 @@ class Provider < ActiveRecord::Base
   def activate_if_criteria_passed
     return unless quiz_results.passed.any?
     return unless hourly_rate.not.blank?
-    return unless min_hours.not.blank? or max_hours.not.blank?
+    return unless availability_set?
     activate! if aasm_state == 'inactive'
+  end
+  
+  def availability_set?
+    min_hours.not.blank? and max_hours.not.blank?
   end
 
   def has_enough_portfolio_items?

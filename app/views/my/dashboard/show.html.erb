@@ -5,9 +5,27 @@
       <p><%= t('just_a_few_more_things') %></p>
     
       <ol>
-        <li><%= link_to t('set_your_hourly_rate'), edit_my_provider_path %></li>
-        <li><%= link_to t('set_your_availability'), my_availability_path %></li>
-        <li><%= link_to t('take_the_basic_rails_quiz'), my_quizzes_path %></li>
+        <li>
+          <%- if current_user.provider.hourly_rate.to_i.zero? -%>
+            <%= link_to t('set_your_hourly_rate'), edit_my_provider_path %>
+          <%- else -%>
+            <strike><%= t('set_your_hourly_rate') %></strike> <span class="done"><%= t('done') %></span>
+          <%- end -%>
+        </li>
+        <li>
+          <%- if current_user.provider.availability_set? -%>
+            <strike><%= t('set_your_availability') %></strike> <span class="done"><%= t('done') %></span>
+          <%- else -%>
+            <%= link_to t('set_your_availability'), my_availability_path %>
+          <%- end -%>
+        </li>
+        <li>
+          <%- if current_user.provider.quiz_results.passed.any? -%>
+            <strike><%= t('take_the_basic_rails_quiz') %></strike> <span class="done"><%= t('done') %></span>
+          <%- else -%>
+            <%= link_to t('take_the_basic_rails_quiz'), my_quizzes_path %>
+          <%- end -%>
+        </li>
       </ol>
     </div>
   </div>
