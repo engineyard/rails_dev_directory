@@ -113,10 +113,13 @@ h3 {
 /* Header */
 .header {
   padding: 20px 0 12px;
-  margin-bottom: 10px;
+  margin-bottom: 30px;
   background: #2F3738 url(/images/sprite-layout.png) repeat-x;
   height: 48px;
 	width: 100%;
+}
+.user {
+  margin-bottom: 10px;
 }
 .header h1 {
   padding: 9px 0 0;
@@ -422,6 +425,7 @@ li .check {
 .panel #search-form li {
   display: inline-block;
   margin-right: 10px;
+  margin-bottom: 15px;
 }
 .panel #search-form input[type="submit"] {
   padding: 2px 0;
@@ -575,6 +579,9 @@ li.flagged {
   border: 1px solid #DDD;
   background: #FCFCFC;
   padding: 0;
+  overflow: hidden;
+  height: 60px;
+  white-space: nowrap;
 }
 .favorites li {
   background: #FFF;
@@ -613,14 +620,21 @@ li.flagged {
 }
 .favorites .navigation a {
   background: #DDD;
-  height: 61px;
+  height: 58px;
   width: 40px;
+  margin-top: 1px;
+  
+  border: 1px solid #FFF;
 }
-.favorites .previous {
+.favorites a.previous {
+  margin-left: 1px;
   float: left;
+  background: #DDD url(/images/sprite-graphics.png) no-repeat 8px -1680px;
 }
-.favorites .next {
+.favorites a.next {
+  margin-right: 1px;
   float: right;
+  background: #DDD url(/images/sprite-graphics.png) no-repeat 9px -1600px;
 }
 /* Dashboard */
 .utility {

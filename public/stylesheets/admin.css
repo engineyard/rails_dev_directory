@@ -147,6 +147,9 @@ table td, table th {
   vertical-align: top;
   border-bottom: 1px solid #DDD;
 }
+table td:last-child a {
+  text-align: right;
+}
 
 .sort-list { display: none; }
 
