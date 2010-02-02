@@ -1436,6 +1436,8 @@ hr {
   margin: -10px -50px -1px;
   padding: 10px 30px;
   border: 1px solid #E4E4E4;
+  position: relative;
+  z-index: 1;
 }
 .provider.search ul.location { width: 100px;}
 .provider.search ul.location li { float: none; }
