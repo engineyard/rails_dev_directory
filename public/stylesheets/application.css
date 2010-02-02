@@ -435,7 +435,7 @@ li .check {
 #search-form #location {
   width: 300px;
 }
-#search-form #hourly_rate {
+#search-form #hourly_rate, #search-form #service_category_1 {
   width: 100px;
 }
 #search-form #language, #search-form #travel, #search-form #availability, #search-form #hours, #search-form #weeks {
