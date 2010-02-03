@@ -56,11 +56,6 @@
     <div class="info">
       <p><%= t('info_captcha') %></p>
     </div>
-    <script type="text/javascript" charset="utf-8">
-      var RecaptchaOptions = {
-        theme : 'clean'
-      };
-    </script>
     <%= recaptcha_tags(:ssl => true) %>
 
     <%= f.submit t('forms.signup'), :class=>'callout' %>
