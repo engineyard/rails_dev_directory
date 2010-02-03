@@ -18,11 +18,11 @@ class CodeSample < ActiveRecord::Base
   
   def run_tests!
     update_attributes(
-      :reek_result => reek,
-      :flay_result => flay,
-      :flog_result => flog,
-      :roodi_result => roodi,
-      :saikuro_result => saikuro)
+      :reek_result => reek.to_i,
+      :flay_result => flay.to_i,
+      :flog_result => flog.to_i,
+      :roodi_result => roodi.to_i,
+      :saikuro_result => saikuro.to_i)
     analyze!
   end
   
@@ -47,13 +47,17 @@ class CodeSample < ActiveRecord::Base
   end
   
   def saikuro
-    @saikuro ||= with_tmp_file do |file|
-      tmp_dir = "/tmp/d_#{code.to_sha1}"
-      system("saikuro -f text -c -p #{file} -o #{tmp_dir}")
-      output = File.read("#{tmp_dir}#{file}_cyclo.html")
-      result = output.scan(/Complexity:(\d*)/).flatten.map{|i| i.to_i}.mean
-      FileUtils.rm_f(tmp_dir)
-      result
+    begin
+      @saikuro ||= with_tmp_file do |file|
+        tmp_dir = "/tmp/d_#{code.to_sha1}"
+        system("saikuro -f text -c -p #{file} -o #{tmp_dir}")
+        output = File.read("#{tmp_dir}#{file}_cyclo.html")
+        result = output.scan(/Complexity:(\d*)/).flatten.map{|i| i.to_i}.mean
+        FileUtils.rm_f(tmp_dir)
+        return result
+      end
+    rescue
+      return 0
     end
   end
   
