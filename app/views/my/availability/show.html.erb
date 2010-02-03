@@ -6,7 +6,7 @@
   <% form_for [:my, setup_availability(current_user.provider)], :url => my_availability_path, :html => {:class => 'calendar'} do |f| -%>
   <h3><%= t('my_upcoming_availability') %></h3>
 
-    <%- months = []; f.fields_for(:bookings, current_user.provider.bookings.sort_by { |b| b.date }) do |bookings_form| -%>
+    <%- months = []; f.fields_for(:future_bookings, current_user.provider.future_bookings.sort_by { |b| b.date }) do |bookings_form| -%>
       
         <%- month = bookings_form.object.date.strftime("%B") -%>
         <%= "<div class=\"month\"><h4>#{month}</h4>" if months.not.include?(month) %>

@@ -47,6 +47,7 @@ class Provider < ActiveRecord::Base
   attr_protected :aasm_state, :slug, :user_id, :endorsements_count
   
   has_many :bookings, :order => "date asc"
+  has_many :future_bookings, :order => "date asc", :conditions => "date >= #{Date.today}", :class_name => "Booking"
   has_many :code_samples
   has_many :endorsement_requests
   has_many :endorsements, :order => "sort_order asc"
@@ -75,6 +76,7 @@ class Provider < ActiveRecord::Base
   accepts_nested_attributes_for :provided_services,
                                 :allow_destroy => true
   accepts_nested_attributes_for :bookings, :allow_destroy => true
+  accepts_nested_attributes_for :future_bookings, :allow_destroy => true
 
   before_validation_on_create :save_slug
   before_validation :filter_carraige_returns
