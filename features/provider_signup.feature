@@ -62,7 +62,6 @@ So that I can can receive Rails project referrals
     When I follow "Set Your Hourly Rate"
       And I fill in "Hourly Rate" with "100"
       And I press "Save"
-      And I follow "Dashboard"
     
     Then I should see "Set Your Hourly Rate Done"
       
@@ -70,6 +69,5 @@ So that I can can receive Rails project referrals
       And I fill in "Minimum Hours in Project" with "1"
       And I fill in "Maximum Hours in Project" with "99"
       And I press "Save Changes"
-      And I follow "Dashboard"
     
     Then I should see "Set Your Availability Done"
