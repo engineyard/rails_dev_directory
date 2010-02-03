@@ -47,7 +47,7 @@ class Provider < ActiveRecord::Base
   attr_protected :aasm_state, :slug, :user_id, :endorsements_count
   
   has_many :bookings, :order => "date asc"
-  has_many :future_bookings, :order => "date asc", :conditions => "date >= #{Date.today}", :class_name => "Booking"
+  has_many :future_bookings, :order => "date asc", :conditions => ["date >= ?", Date.today], :class_name => "Booking"
   has_many :code_samples
   has_many :endorsement_requests
   has_many :endorsements, :order => "sort_order asc"
