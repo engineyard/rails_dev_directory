@@ -1,0 +1,22 @@
+<%- if @providers.empty? -%>
+  <p><%= t('provider.no_providers') %></p>
+<%- else -%>
+
+    <table class="listTable">
+      <thead>
+        <tr>
+          <th>&nbsp;</th>
+          <th><%= t('name_and_location') %></th>
+          <th><%= t('speaks') %></th>
+          <th><%= t('soonest_availability')%></th>
+          <th>&nbsp;</th>
+        </tr>
+      </thead>
+      <tbody id="providers-list">
+        <%= render :partial => 'providers/provider', :collection => @providers %>
+      </tbody>
+    </table>
+
+    <%= render :partial => 'providers/pagination' %>
+
+<%- end -%>

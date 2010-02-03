@@ -15,6 +15,7 @@ class ProvidersController < ApplicationController
     @providers = Provider.search(params)
     respond_to do |wants|
       wants.html
+      wants.js { render :partial => 'providers/search_results.html' }
       wants.json { render :json => {
         :providers => render_to_string(:partial => 'provider.html', :collection => @providers),
         :pagination => render_to_string(:partial => 'pagination.html')

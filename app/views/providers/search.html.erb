@@ -91,29 +91,8 @@
       </li>      
   </div>
 
-  <%- if @providers.empty? -%>
-    <p><%= t('provider.no_providers') %></p>
-  <%- else -%>
-
-    <%- form_for :rfp, :url => new_rfp_path, :html => {:method => :get} do |f| -%>
+  <div id="search-results">
+    <%= render :partial => 'providers/search_results' %>
+  </div>
   
-      <table class="listTable">
-        <thead>
-          <tr>
-            <th>&nbsp;</th>
-            <th><%= t('name_and_location') %></th>
-            <th><%= t('speaks') %></th>
-            <th><%= t('soonest_availability')%></th>
-            <th>&nbsp;</th>
-          </tr>
-        </thead>
-        <tbody id="providers-list">
-          <%= render :partial => 'providers/provider', :collection => @providers %>
-        </tbody>
-      </table>
-
-      <%= render :partial => 'providers/pagination' %>
-    <%- end -%>
-
-  <%- end -%>
 </div>

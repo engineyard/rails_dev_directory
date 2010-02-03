@@ -217,4 +217,11 @@ $(document).ready(function(){
     editor.find('a.inline-editor-toggle').show()
     return false
   })
+  
+  $('form#search-form select').change(function(){
+    $.get($('form#search-form').attr('action'), $('form#search-form').serialize(), function(data){
+      $('div#search-results').html(data)
+    })
+    return false
+  })
 })
