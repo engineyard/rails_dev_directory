@@ -175,6 +175,7 @@ en:
   will_travel: Will Travel
   willing_to_travel: Willing to travel <strong>anywhere in the world</strong>
   
+  you_still_need_to: You Still Need To...
   your_favorites: Your favorites (3)
   your_profile_has_been_viewed_x_times:
     other: "Your profile has been viewed {{count}} times"

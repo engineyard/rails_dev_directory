@@ -1,0 +1,26 @@
+en:
+  completeness_scoring:
+    models:
+      provider:
+        name:
+          description: <a href="/my/developer/edit" class="edit-name">Enter your name</a>
+        hourly_rate:
+          description: <a hef="/my/developer/edit" class="edit-hourly-rate">Enter an hourly rate</a>
+        project_length:
+          description: <a href="/my/availability">Set your project availability</a>
+        hours:
+          description: <a href="/my/availability">Set your availabile hours</a>
+        one_quiz_taken:
+          description: <a href="/my/quizzes">Take at least one quiz</a>
+        languages:
+          description: <a href="/my/developer/edit" class="choose-language">Choose the language(s) you speak</a>
+        payment_method:
+          description: <a href="/my/developer/edit" class="choose-payment">Enter the payment method(s) you accept</a>
+        photo:
+          description: <a href="/my/developer/edit" class="upload-photo">Upload a photo</a>
+        code_sample:
+          description: <a href="/my/code_samples">Upload a code sample</a>
+        many_quizzes:
+          description: <a href="/my/quizzes">Take another quiz</a>
+        services:
+          description: <a href="/my/developer/edit" class="choose-services">Select your services</a>
