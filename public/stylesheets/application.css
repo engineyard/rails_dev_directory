@@ -113,10 +113,13 @@ h3 {
 /* Header */
 .header {
   padding: 20px 0 12px;
-  margin-bottom: 10px;
+  margin-bottom: 30px;
   background: #2F3738 url(/images/sprite-layout.png) repeat-x;
   height: 48px;
 	width: 100%;
+}
+.user {
+  margin-bottom: 10px;
 }
 .header h1 {
   padding: 9px 0 0;
@@ -422,16 +425,17 @@ li .check {
 .panel #search-form li {
   display: inline-block;
   margin-right: 10px;
+  margin-bottom: 15px;
 }
 .panel #search-form input[type="submit"] {
   padding: 2px 0;
   margin: 0;
-  width: 200px;
+  width: 120px;
 }
 #search-form #location {
   width: 300px;
 }
-#search-form #hourly_rate {
+#search-form #hourly_rate, #search-form #service_category_1 {
   width: 100px;
 }
 #search-form #language, #search-form #travel, #search-form #availability, #search-form #hours, #search-form #weeks {
@@ -575,6 +579,9 @@ li.flagged {
   border: 1px solid #DDD;
   background: #FCFCFC;
   padding: 0;
+  overflow: hidden;
+  height: 60px;
+  white-space: nowrap;
 }
 .favorites li {
   background: #FFF;
@@ -613,14 +620,21 @@ li.flagged {
 }
 .favorites .navigation a {
   background: #DDD;
-  height: 61px;
+  height: 58px;
   width: 40px;
+  margin-top: 1px;
+  
+  border: 1px solid #FFF;
 }
-.favorites .previous {
+.favorites a.previous {
+  margin-left: 1px;
   float: left;
+  background: #DDD url(/images/sprite-graphics.png) no-repeat 8px -1680px;
 }
-.favorites .next {
+.favorites a.next {
+  margin-right: 1px;
   float: right;
+  background: #DDD url(/images/sprite-graphics.png) no-repeat 9px -1600px;
 }
 /* Dashboard */
 .utility {
@@ -1422,6 +1436,8 @@ hr {
   margin: -10px -50px -1px;
   padding: 10px 30px;
   border: 1px solid #E4E4E4;
+  position: relative;
+  z-index: 10;
 }
 .provider.search ul.location { width: 100px;}
 .provider.search ul.location li { float: none; }
@@ -1589,7 +1605,8 @@ td.Intermediate div.proficiency {
   position: absolute;
   margin-left: -41px;
   background: url(/images/img-beta.png) no-repeat;
-  top: 79px
+  top: 79px;
+  z-index: 1;
 }
 .beta-tag.drop {
   top: 139px;

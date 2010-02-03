@@ -1,11 +1,4 @@
-<div class="panel">
-  <!-- <h2><%= t('provider.directory_headline') %></h2> -->
-  <!-- <p class="description"><%= t('provider.directory_results_description') %></p> -->
-  
-  <h2><%= t('provider.directory_headline') %></h2>
-
-  <p class="description"><%= t('provider.directory_results_description') %></p>
-  
+<div class="panel">  
   <% form_tag search_providers_path, :method => :get, :id => 'search-form', :class=>'searchFilters' do -%>
     <h3><%= t('change_your_search_criteria') %></h3>
     <fieldset>
@@ -69,7 +62,7 @@
   
   <div class="favorites hidden">
     <h3><%= t('your_favorites') %></h3>
-    <div class="navigation hidden">
+    <div class="navigation">
       <a href="" class="previous"></a>
       <a href="" class="next"></a>
     </div>
@@ -88,7 +81,12 @@
         <img src="/images/profile-default-sm.png" />
         <h4>Andy Delcambre</h4>
         <p>Portland, Oregon, USA</p>
-      </li>      
+      </li>
+      <li>
+        <img src="/images/profile-default-sm.png" />
+        <h4>Andy Delcambre</h4>
+        <p>Portland, Oregon, USA</p>
+      </li>
   </div>
 
   <div id="search-results">

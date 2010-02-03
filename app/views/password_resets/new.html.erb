@@ -1,9 +1,9 @@
-<h1><%= t('user.reset_password') %></h1>
+<div class="panel">
+  <h1><%= t('user.reset_password') %></h1>
 
-<p><%= t('user.reset_password_instructions') %></p>
-<% form_tag password_resets_path do -%>
-  <fieldset>
-    <%= label_tag :email, t("user.email") %> <%= text_field_tag :email %> <br />
-  </fieldset>
-  <%= submit_tag t('user.send_new_password') %>
-<% end -%>
+  <p><%= t('user.reset_password_instructions') %></p>
+  <% form_tag password_resets_path do -%>
+    <%= label_tag :email, t("user.email") %> <%= text_field_tag :email %><br />
+    <%= submit_tag t('user.send_new_password') %>
+  <% end -%>
+</div>
