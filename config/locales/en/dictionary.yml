@@ -48,6 +48,7 @@ en:
   doing_business_as: Doing Business as
   done: Done
   
+  edit_your_information: Edit Your Information
   edit_your_profile: Edit Your Profile
   enquiries: Enquiries
   experience: Experience
@@ -139,6 +140,7 @@ en:
   review_code: Review Code
   review_your_code: Review Your Code
   
+  save: Save
   save_changes: Save Changes
   score: Score
   seconds_left: Seconds Left
@@ -168,6 +170,8 @@ en:
   update: Update
   upload_your_code: Upload Your Code
   upload_a_code_sample: Upload a Code Sample
+  
+  view_your_profile: View Your Profile
   
   website: Website
   week: Week

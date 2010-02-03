@@ -187,4 +187,34 @@ $(document).ready(function(){
       }
     }, 1000)    
   })
+  
+  $('a.edit-profile').click(function(){
+    if($(this).text() == I18n.t('edit_your_profile'))
+    {
+      $('.editing').show()
+      $(this).text(I18n.t('view_your_profile'))
+    }
+    else
+    {
+      $('.editing').hide()
+      $(this).text(I18n.t('edit_your_profile'))
+    }
+    return false
+  })
+  
+  $('a.inline-editor-toggle').click(function(){
+    editor = $(this).parents('.inline-editor:first')
+    editor.find('.data-display').hide()
+    editor.find('.data-edit').show()
+    $(this).hide()
+    return false
+  })
+  
+  $('.inline-editor a.cancel').click(function(){
+    editor = $(this).parents('.inline-editor:first')
+    editor.find('.data-display').show()
+    editor.find('.data-edit').hide()
+    editor.find('a.inline-editor-toggle').show()
+    return false
+  })
 })
