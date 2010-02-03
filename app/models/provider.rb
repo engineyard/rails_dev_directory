@@ -35,7 +35,7 @@ class Provider < ActiveRecord::Base
     check :one_quiz_taken, lambda { |provider| provider.quiz_results.any? }, 5
     
     check :languages, lambda { |provider| provider.languages.not.empty? }, 5
-    check :photo, lambda { |provider| false }, 5
+    check :photo, lambda { |provider| provider.avatar.not.blank? }, 5
     check :payment_method, lambda { |provider| provider.accepted_payment_methods }, 5
     
     check :code_sample, lambda { |provider| provider.code_samples.any? }, 10
