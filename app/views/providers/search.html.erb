@@ -52,7 +52,7 @@
           <%= label_tag 'weeks', t('project_length') %><br />
           <%= project_length_select %>
         </li>
-        <li><%= submit_tag t('update') %></li>
+        <li class="hidden"><%= submit_tag t('update') %></li>
       </ul>
       
       <%= hidden_field_tag 'budget', params[:budget] %>
