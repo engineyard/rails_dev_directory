@@ -1437,7 +1437,7 @@ hr {
   padding: 10px 30px;
   border: 1px solid #E4E4E4;
   position: relative;
-  z-index: 1;
+  z-index: 10;
 }
 .provider.search ul.location { width: 100px;}
 .provider.search ul.location li { float: none; }
@@ -1605,7 +1605,8 @@ td.Intermediate div.proficiency {
   position: absolute;
   margin-left: -41px;
   background: url(/images/img-beta.png) no-repeat;
-  top: 79px
+  top: 79px;
+  z-index: 1;
 }
 .beta-tag.drop {
   top: 139px;
