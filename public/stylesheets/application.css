@@ -443,21 +443,6 @@ li .check {
 }
 
 /* Content Elements */
-.links {
-  margin: 2em 0 0 0;
-}
-.links li {
-  display: block;
-  margin: 0em;
-}
-.links li.request {
-  float: right;
-  margin: 0.4em 0 0 5px;
-}
-.sidebar .links {
-  border-bottom: none;
-  height: 82px;
-}
 .narrow {
   float: left;
   width: 510px;
@@ -531,14 +516,33 @@ li .check {
   width: 300px;
   float: right;
 }
-
 .sidebar a {
   font-size: 0.95em;
 }
 .sidebar ul {
   border-bottom: 1px solid #CCC;
   padding-bottom: 1em;
+  padding-left: 20px;
+  margin-top: 0.75em;
   margin-bottom: 1.5em;
+}
+.sidebar li {
+  margin-bottom: 0.5em;
+  list-style: square;
+  color: #999;
+}
+.sidebar .links {
+  margin: 30px 0 0 0;
+  border-bottom: none;
+  height: 97px;
+}
+.sidebar .links li {
+  display: block;
+  margin: 0em;
+}
+.sidebar .links li.request {
+  float: right;
+  margin: 0.4em 0 0 5px;
 }
 .actions li {
   padding-left: 1.7em;
@@ -1068,6 +1072,12 @@ fieldset.terms {
   border-bottom: 1px solid #CACACA;
   margin-bottom: 40px;
 }
+#new_provider fieldset.terms label {
+  margin-top: 20px;
+}
+#new_provider fieldset.terms input {
+  margin-top: 22px;
+}
 input[type="submit"] {
   font-size: 1em;
   font-weight: normal;
@@ -1116,6 +1126,9 @@ form table input {
 }
 form table select {
   width: 220px;
+}
+form#new_provider table td {
+  padding-right: 0;
 }
 textarea { 
   width: 30em;
@@ -1228,7 +1241,7 @@ hr {
   margin-bottom: 3em;
 }
 .widget p {
-  margin: 5px 0 0;
+  margin: 0;
   float: left;
   width: 50%;
 }
