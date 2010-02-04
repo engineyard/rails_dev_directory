@@ -341,3 +341,13 @@ describe Provider, "with services" do
   
   
 end
+
+describe Provider do
+  before do
+    @provider = Provider.make(:country => 'IE')
+  end
+  
+  it "should store the full country name" do
+    @provider.full_country_name.should == 'Ireland'
+  end
+end

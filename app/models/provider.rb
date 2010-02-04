@@ -82,6 +82,7 @@ class Provider < ActiveRecord::Base
   before_validation :filter_carraige_returns
   before_create :set_first_user_provider
   before_save :activate_if_criteria_passed
+  before_save :set_full_country_name
   after_create :set_first_user_as_owner
   after_create :set_default_services
   
@@ -359,5 +360,9 @@ private
     if Country.slugs.include?(slugged_company_name) or State.slugs.include?(slugged_company_name)
       errors.add(:company_name, I18n.t('provider.validations.reserved_name'))
     end
+  end
+  
+  def set_full_country_name
+    self.full_country_name = I18n.t("countries.#{country}")
   end
 end

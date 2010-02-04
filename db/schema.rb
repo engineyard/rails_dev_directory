@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100204172129) do
+ActiveRecord::Schema.define(:version => 20100204180306) do
 
   create_table "answers", :force => true do |t|
     t.integer  "question_id"
@@ -171,6 +171,7 @@ ActiveRecord::Schema.define(:version => 20100204172129) do
     t.integer  "max_project_length"
     t.integer  "views",                                                 :default => 0
     t.string   "avatar"
+    t.string   "full_country_name"
   end
 
   add_index "providers", ["slug"], :name => "index_providers_on_slug"
