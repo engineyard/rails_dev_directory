@@ -5,8 +5,12 @@ class My::SittingsController < ApplicationController
   def new
     @sitting = Sitting.new(:provider => current_user.provider)
     @sitting.quiz = Quiz.find(params[:quiz_id])
-    @sitting.save
-    @quiz = @sitting.quiz
+    if @sitting.save
+      @quiz = @sitting.quiz
+    else
+      flash[:notice] = t('cannot_take_quiz')
+      redirect_to my_quizzes_path
+    end
   end
   
   def update

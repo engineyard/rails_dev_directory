@@ -5,6 +5,7 @@ So that my listing will show as confirmed
   Background:
     Given a quiz "ActiveRecord callbacks"
       And the quiz "ActiveRecord callbacks" should be completed in "5" minutes
+      And the quiz "ActiveRecord callbacks" can be taken "1" time
       And the quiz "ActiveRecord callbacks" has a question "When is before_save called?" with the following answers:
       | answer        |
       | after update  |
@@ -33,7 +34,7 @@ So that my listing will show as confirmed
       And I press "Finished!"
     Then I should see "You have run out of time!"
 
-  Scenario: Provider fails a quiz
+  Scenario: Provider fails a quiz and is not allowed retake
     When I follow "Profile"
       And I follow "Quizzes"
       And I follow "Take this quiz"
@@ -44,6 +45,10 @@ So that my listing will show as confirmed
       And I press "Finished!"
     Then I should see "0/2"
       And the provider "HyperTiny" should be inactive
+    
+    When I follow "Quizzes"
+    Then I should see "Cannot Retake"
+    
 
   Scenario: Provider passes a quiz
     When I follow "Profile"

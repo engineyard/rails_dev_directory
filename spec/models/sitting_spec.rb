@@ -1,14 +1,14 @@
 require 'spec_helper'
 
 describe Sitting do
-  before(:each) do
-    @valid_attributes = {
-      :quiz_id => 1,
-      :provider_id => 1
-    }
+  before do
+    @quiz = mock_model(Quiz, :attempts => 1)
+    @provider = Provider.make
+    @sitting = Sitting.make(:quiz => @quiz, :provider => @provider)
   end
-
-  it "should create a new instance given valid attributes" do
-    Sitting.create!(@valid_attributes)
+  
+  it "shouldn't allow a new sitting" do
+    @sitting = Sitting.new(:quiz => @quiz, :provider => @provider)
+    @sitting.should_not be_valid
   end
 end

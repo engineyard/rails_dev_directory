@@ -14,6 +14,7 @@ en:
   any: Any
   any_time: Any Time
   anywhere: Anywhere
+  attempts: Attempts
   availability: Availability
   availability_by_hours: General availability by hours per week
   availability_by_project_size: General availability by project size
@@ -27,6 +28,8 @@ en:
   business_name: Business Name <em>(optional)</em>
   
   cancel: Cancel
+  cannot_retake: Cannot Retake
+  cannot_take_quiz: Cannot Take Quiz
   change_your_search_criteria: Change Your Search Criteria
   choose_country: Choose Country
   code: Code

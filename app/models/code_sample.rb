@@ -18,11 +18,11 @@ class CodeSample < ActiveRecord::Base
   
   def run_tests!
     update_attributes(
-      :reek_result => reek.to_i,
-      :flay_result => flay.to_i,
-      :flog_result => flog.to_i,
-      :roodi_result => roodi.to_i,
-      :saikuro_result => saikuro.to_i)
+      :reek_result => reek,
+      :flay_result => flay,
+      :flog_result => flog,
+      :roodi_result => roodi,
+      :saikuro_result => saikuro)
     analyze!
   end
   

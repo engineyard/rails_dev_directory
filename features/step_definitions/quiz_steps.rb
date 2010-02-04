@@ -35,3 +35,7 @@ end
 Given /^the time is "([^\"]*)"$/ do |time|
   Time.stub!(:now).and_return(Time.parse(time))
 end
+
+Given /^the quiz "([^\"]*)" can be taken "([^\"]*)" time$/ do |quiz, attempts|
+  Quiz.find_by_name(quiz).update_attribute(:attempts, attempts)
+end

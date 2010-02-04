@@ -11,6 +11,7 @@
     <%= f.label :total_questions, t('total_questions') %> <%= f.text_field :total_questions, :class => 'number' %> <br />
     <%= f.label :questions_per_quiz, t('questions_per_quiz') %> <%= f.text_field :questions_per_quiz, :class => 'number' %> <br />
     <%= f.label :options_per_question, t('options_per_question') %> <%= f.text_field :options_per_question, :class => 'number' %>
+    <%= f.label :attempts, t('attempts') %> <%= f.text_field :attempts %> <br />
   </fieldset>
   
   <%- if @quiz.not.new_record? -%>

@@ -34,7 +34,11 @@
             <%- if current_user.provider.quiz_results.find_by_quiz_id(quiz.id) -%>
               <%= t('your_score') %>: <%= current_user.provider.quiz_results.find_by_quiz_id(quiz.id).score %> / <%= quiz.questions_per_quiz %>
               <%- if current_user.provider.quiz_results.find_by_quiz_id(quiz.id).score < quiz.questions.count  -%>
-                <%= link_to t('retake_quiz'), new_my_quiz_sitting_path(quiz) %>
+                <%- if current_user.provider.sittings.count(:conditions => {:quiz_id => quiz.id}) >= quiz.attempts -%>
+                  <%= t('cannot_retake') %>
+                <%- else -%>
+                  <%= link_to t('retake_quiz'), new_my_quiz_sitting_path(quiz) %>
+                <%- end -%>
               <%- end -%>
             <%- else -%>
               <%= link_to t('take_this_quiz'), new_my_quiz_sitting_path(quiz) %>

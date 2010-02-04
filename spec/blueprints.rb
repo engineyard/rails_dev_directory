@@ -68,6 +68,7 @@ Quiz.blueprint do
   total_questions 2
   questions_per_quiz 1
   options_per_question 2
+  skill_level 'beginner'
 end
 
 Question.blueprint do
@@ -101,3 +102,5 @@ CodeSample.blueprint do
 end
 
 Booking.blueprint {}
+
+Sitting.blueprint {}
