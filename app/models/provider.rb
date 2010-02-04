@@ -93,7 +93,7 @@ class Provider < ActiveRecord::Base
   named_scope :by_country, :group => :country, :order => :country, :select => :country, :conditions => "country != ''"
   named_scope :by_state, :conditions => "state_province != 'NA' and state_province != ''", :group => :state_province, :order => :state_province, :select => :state_province
   named_scope :us_based, :conditions => {:country => 'US'}
-  named_scope :all_by_location, :order => Country.order_sql + ", state_province", :conditions => "country != ''"
+  named_scope :all_by_location, :order => "full_country_name, state_province", :conditions => "country != ''"
   named_scope :from_country, lambda { |country| {:conditions => {:country => country.to_s}}}
   named_scope :from_state, lambda { |state| {:conditions => {:state_province => state.to_s}}}
   
