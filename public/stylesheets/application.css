@@ -1090,12 +1090,11 @@ td input, td input[type="checkbox"] {
 /* Form Styles */
 fieldset {
   border-bottom: none;
-  padding: 0;
 }
 fieldset.terms {
   border-top: 1px solid #CACACA;
   border-bottom: 1px solid #CACACA;
-  margin-bottom: 40px;
+  margin-bottom: 20px;
 }
 #new_provider fieldset.terms label {
   margin-top: 20px;
