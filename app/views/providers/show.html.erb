@@ -58,7 +58,7 @@
             <%= f.label :state_province, t("provider.state") %> <%= f.select :state_province, ([[t('provider.outside_us'), "NA"]] + State::NAMES), :include_blank => true %> <br />
             <%= f.label :postal_code, t("provider.postal_code") %> <%= f.text_field :postal_code %> <br />
             <%= f.label :country, t('provider.country') %> <%= f.localized_country_select :country, [:US, :CA, :FR, :DE,  :IE, :ES, :GB], :include_blank => t('provider.choose_country') %> <br />
-            <%= f.label :hourly_rate, t('hourly_rate') %> <%= f.text_field :hourly_rate %> <br />
+            <%= f.label :hourly_rate, t('hourly_rate') %><%= f.text_field :hourly_rate %> <br />
 
             <%= f.submit t('save') %> <%= t('or') %> <%= link_to t('cancel'), edit_my_provider_path, :class => "cancel" %>
           </fieldset>

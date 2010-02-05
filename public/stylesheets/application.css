@@ -1238,7 +1238,7 @@ textarea#code_sample_code {
 }
 .data-edit fieldset {
   background: #FBF8EC;
-  padding: 0 10px 10px;
+  padding: 1px 10px 10px;
 }
 
 /* Reusable Elements */
