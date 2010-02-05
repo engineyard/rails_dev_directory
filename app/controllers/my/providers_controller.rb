@@ -17,7 +17,7 @@ class My::ProvidersController < ApplicationController
     if @provider.update_attributes(params[:provider])
       flash[:notice] = I18n.t('company_profile.updated_successfully')
       if @provider.active?
-        redirect_to @provider
+        redirect_to edit_my_provider_path
       else
         redirect_to my_dashboard_path
       end
