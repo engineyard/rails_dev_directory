@@ -84,6 +84,7 @@ dl.details dd {
 .providerHead p.rate {
   font-size: 0.9em;
   color: #999;
+  margin-bottom: 10px;
 }
 .block.companyInfo {
   padding-top: 0;
