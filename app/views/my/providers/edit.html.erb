@@ -299,7 +299,7 @@
           <h3><%= t('you_still_need_to') %></h3>
           <ul>
           <%- current_user.provider.failed_checks.each do |check| -%>
-            <li><%= check[:description] %></li>
+            <li><%= check[:description] if check[:name] != 'code_sample' %></li>
           <%- end -%>
           </ul>
         </div>
