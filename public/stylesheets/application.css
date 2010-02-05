@@ -54,11 +54,17 @@ dl.details dt {
 dl.details dd {
   margin-right: 40px;
 }
+.providerHead {
+  padding-top: 30px;
+}
 .providerHead .sidebar ul.links {
   border-bottom: none;
 }
 .providerHead img {
   margin: 0 2px 0 0;
+}
+.providerHead h2 {
+  margin-top: 0;
 }
 .providerHead img.avatar {
   height: 100px;
@@ -163,7 +169,6 @@ li.username {
 }
 .panel h2.name {
   font: 2em Lucida Grande, Verdana, sans-serif;
-  margin-top: 30px;
 }
 .shadow {
   padding: 0px;
@@ -522,14 +527,7 @@ li .check {
 .sidebar ul {
   border-bottom: 1px solid #CCC;
   padding-bottom: 1em;
-  padding-left: 20px;
-  margin-top: 0.75em;
   margin-bottom: 1.5em;
-}
-.sidebar li {
-  margin-bottom: 0.5em;
-  list-style: square;
-  color: #999;
 }
 .sidebar .links {
   margin: 30px 0 0 0;
@@ -551,6 +549,23 @@ li .check {
 li.requestRFP {
   padding-left: 0;
   font-weight: bold;
+}
+.todo {
+  background: #FBF8EC;
+  padding: 15px 20px;
+}
+.todo h3, .todo ul {
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+.todo h3 {
+  margin-bottom: 1em;
+}
+.todo a {
+  display: block;
+  background: url(/images/sprite-graphics.png) no-repeat left -582px;
+  padding: 1px 0 1px 20px;
 }
 /* Icons */
 li.email {
@@ -658,7 +673,7 @@ li.flagged {
 /* Page Head */
 .pageHead {
   background: #F9F4E2;
-  padding: 20px 30px 0;
+  padding: 20px 28px 0;
   margin: 2px -28px 20px;
   height: 40px;
 }
@@ -761,6 +776,14 @@ ul.highlights {
   float: right;
   font-size: 1.4em;
   color: #666;
+  margin-bottom: 0;
+  margin-right: 0;
+  width: 300px;
+  padding-top: 20px;
+  margin-top: -20px;
+  height: 40px;
+  text-align: center;
+  background: #F6EED2;
 }
 .userEdit .status strong {
   font-weight: normal;
@@ -1066,6 +1089,7 @@ td input, td input[type="checkbox"] {
 /* Form Styles */
 fieldset {
   border-bottom: none;
+  padding: 0;
 }
 fieldset.terms {
   border-top: 1px solid #CACACA;
@@ -1085,7 +1109,7 @@ input[type="submit"] {
   background: #EBECEE;
   padding: 8px 20px;
 	border: 1px solid #BCBCBC;
-	margin-right: 1em;
+	margin-right: 0.5em;
   -moz-border-radius: 4px;
   -webkit-border-radius: 4px;
 }
@@ -1198,6 +1222,23 @@ textarea#code_sample_code {
 /* Homepage Form */
 .provider form p, .provider form ul, .provider form p, .provider form li, .provider form input {
   margin-left: 1em;
+}
+
+/* Inline Editing */
+.inline-editor-toggle {
+  font-size: 0.9em;
+  background: #FBF8EC url(/images/sprite-graphics.png) no-repeat 8px -535px;
+  padding: 4px 10px 4px 28px;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+  border-radius: 4px;
+}
+.inline-editor-toggle:hover {
+  background-color: #F6EED2;
+}
+.data-edit fieldset {
+  background: #FBF8EC;
+  padding: 0 10px 10px;
 }
 
 /* Reusable Elements */
