@@ -98,20 +98,7 @@
         <li class="request"><%= link_to t('contact_developer'), new_rfp_path(:provider_id => @provider.id), :onClick=>"pageTracker._trackEvent('Request', 'Create Proposal', 'Profile');", :class=>'button' %></li>
       </ul>
     <%- end -%>
-    
-    <%- if logged_in? -%>
-      <%- if current_user.provider.percent_complete.to_i < 100 -%>
-        <div class="todo">
-          <h3><%= t('you_still_need_to') %></h3>
-          <ul>
-          <%- current_user.provider.failed_checks.each do |check| -%>
-            <li><%= check[:description] %></li>
-          <%- end -%>
-          </ul>
-        </div>
-      <%- end -%>
-    <%- end -%>
-    
+        
     <h3><%= t('availability') %></h3>
     <table class="availability">
       <tbody>

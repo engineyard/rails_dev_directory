@@ -293,13 +293,17 @@
       </ul>
     <%- end -%>
     
-    <%- if current_user.provider.percent_complete.to_i < 100 -%>
-      <h3><%= t('you_still_need_to') %></h3>
-      <ul>
-      <%- current_user.provider.failed_checks.each do |check| -%>
-        <li><%= check[:description] %></li>
+    <%- if logged_in? -%>
+      <%- if current_user.provider.percent_complete.to_i < 100 -%>
+        <div class="todo">
+          <h3><%= t('you_still_need_to') %></h3>
+          <ul>
+          <%- current_user.provider.failed_checks.each do |check| -%>
+            <li><%= check[:description] %></li>
+          <%- end -%>
+          </ul>
+        </div>
       <%- end -%>
-      </ul>
     <%- end -%>
       
     <h3><%= t('availability') %> <%= link_to t('update_your_schedule'), my_availability_path, :class => 'edit-link' %></h3>
