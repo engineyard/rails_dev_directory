@@ -18,8 +18,6 @@
     
   <div class="narrow">
     <div class="providerHead inline-editor">
-      
-      <div class="data-display">
         <%- if @provider.avatar? -%>
           <%= image_tag(@provider.avatar.thumb.url, :class=>'avatar') %>
         <%- else -%>
@@ -37,37 +35,6 @@
           <img src="/images/icon-money-<%= @provider.hourly_rate.to_i >= 150 ? 'on' : 'off' %>.png" />
           <%= t('hourly_rate') %>
         </p>
-      </div>
-      
-      <div class="data-edit">
-        <% form_for [:my, @provider] do |f| -%>
-          <%= f.error_messages  -%>
-          <fieldset>
-            <%- if @provider.avatar? -%>
-              <%= image_tag(@provider.avatar.thumb.url, :class=>'avatar') %>
-            <%- else -%>
-              <img src="/images/profile-default.png" class='avatar' />
-            <%- end -%>
-            <%= f.label :company_name, t('business_name') %> <%= f.text_field :company_name %> <br />
-
-            <%= f.label :street_address, t("provider.street_address") %> <%= f.text_field :street_address %><br />
-            <%= f.text_field :further_street_address %> <br />
-            <%= f.label :city, t("provider.city") %> <%= f.text_field :city %> <br />
-            <%= f.label :state_province, t("provider.state") %> <%= f.select :state_province, ([[t('provider.outside_us'), "NA"]] + State::NAMES), :include_blank => true %> <br />
-            <%= f.label :postal_code, t("provider.postal_code") %> <%= f.text_field :postal_code %> <br />
-            <%= f.label :country, t('provider.country') %> <%= f.localized_country_select :country, [:US, :CA, :FR, :DE,  :IE, :ES, :GB], :include_blank => t('provider.choose_country') %> <br />
-
-            <%= f.label :hourly_rate, t('hourly_rate') %> <%= f.text_field :hourly_rate %> <br />
-          </fieldset>
-          
-          <%= f.submit t('save') %> <%= t('or') %> <%= link_to t('cancel'), edit_my_provider_path, :class => "cancel" %>
-        <% end -%>
-      </div>
-      
-      <p class="editing">
-        <%= link_to t('edit_your_information'), '#', :id => 'edit-information', :class => 'inline-editor-toggle' %>
-      </p>
-      
     </div>
 
     <div class="block companyInfo">

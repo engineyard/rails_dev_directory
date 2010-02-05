@@ -1,3 +1,256 @@
+<div class="panel">
+  <% 
+    # Title: <name> Developer Profile | Rails Developer in <city> <state> | Rails Development Directory
+    # Meta Description: View the Rails developer profile for <name>, located in <city>, <state>, <country>, providing <services offered>.
+   %>
+
+  <%- content_for :title do -%><%= @provider.name %> <%= t('provider.developer_profile') %> | <%= t('provider.rails_developer_in') %> <%= [@provider.city, @provider.state_province].reject { |a| a.blank? or a == 'NA' }.join(', ') %> | <%- end %>
+  <%- content_for :description do -%><meta name="description" content="<%= t('provider.developer_description', :name => @provider.company_name, :address => @provider.private_address.join(', '), :services_offered => (Service.checked + @provider.services).collect{ |t| t.name }.join(', ')) %>"><%- end -%>
+
+  
+    
+      <% if logged_in? and current_user.can_edit?(@provider) %>
+      <div class="pageHead userEdit">
+        <%= link_to t('view_your_profile'), provider_path(@provider), :class=>"button edit-profile" %>
+        <p class="status"><%= t('your_profile_is_x_complete', :score => current_user.provider.percent_complete.to_i) %></p>
+      </div>
+      <%- end -%>
+    
+  <div class="narrow">
+    <div class="providerHead inline-editor">
+      
+      <div class="data-display">
+        <%- if @provider.avatar? -%>
+          <%= image_tag(@provider.avatar.thumb.url, :class=>'avatar') %>
+        <%- else -%>
+          <img src="/images/profile-default.png" class='avatar' />
+        <%- end -%>
+        <h2 class="name"><%= @provider.name %></h2>
+        <%- if @provider.company_name.not.blank? and @provider.company_name != @provider.name -%>
+          <p>(<%= t('doing_business_as') %> <%= @provider.company_name %>)</p>
+        <%- end -%>
+
+        <p><%= t('located_in') %> <%= @provider.private_address.join(", ") %></p>
+        <p class="rate">
+          <img src="/images/icon-money-on.png" />
+          <img src="/images/icon-money-<%= @provider.hourly_rate.to_i >= 75 ? 'on' : 'off' %>.png" />
+          <img src="/images/icon-money-<%= @provider.hourly_rate.to_i >= 150 ? 'on' : 'off' %>.png" />
+          <%= t('hourly_rate') %>
+        </p>
+      </div>
+      
+      <div class="data-edit">
+        <% form_for [:my, @provider] do |f| -%>
+          <%= f.error_messages  -%>
+          <fieldset>
+            <%- if @provider.avatar? -%>
+              <%= image_tag(@provider.avatar.thumb.url, :class=>'avatar') %>
+            <%- else -%>
+              <img src="/images/profile-default.png" class='avatar' />
+            <%- end -%>
+            <%= f.label :company_name, t('business_name') %> <%= f.text_field :company_name %> <br />
+
+            <%= f.label :street_address, t("provider.street_address") %> <%= f.text_field :street_address %><br />
+            <%= f.text_field :further_street_address %> <br />
+            <%= f.label :city, t("provider.city") %> <%= f.text_field :city %> <br />
+            <%= f.label :state_province, t("provider.state") %> <%= f.select :state_province, ([[t('provider.outside_us'), "NA"]] + State::NAMES), :include_blank => true %> <br />
+            <%= f.label :postal_code, t("provider.postal_code") %> <%= f.text_field :postal_code %> <br />
+            <%= f.label :country, t('provider.country') %> <%= f.localized_country_select :country, [:US, :CA, :FR, :DE,  :IE, :ES, :GB], :include_blank => t('provider.choose_country') %> <br />
+
+            <%= f.label :hourly_rate, t('hourly_rate') %> <%= f.text_field :hourly_rate %> <br />
+          </fieldset>
+          
+          <%= f.submit t('save') %> <%= t('or') %> <%= link_to t('cancel'), edit_my_provider_path, :class => "cancel" %>
+        <% end -%>
+      </div>
+      
+      <p class="editing">
+        <%= link_to t('edit_your_information'), '#', :id => 'edit-information', :class => 'inline-editor-toggle' %>
+      </p>
+      
+    </div>
+
+    <div class="block companyInfo">
+      <h3><%= t('provider.about') %></h3>
+      <ul>
+        <%- if @provider.languages.not.empty? -%>
+          <li class="language">
+            <%= t('speaks') %> <strong><%= @provider.languages.collect(&:name).to_sentence %></strong>
+          </li>
+        <%- end -%>
+        <li class="location hidden"><%= t('willing_to_travel') %></li>
+        <%- if @provider.accepted_payment_methods.not.empty? -%>
+          <li class='payment'>
+            <%= t('accepts_as_payment', :types => @provider.accepted_payment_methods.collect(&:name).to_sentence ) %>
+          </li>
+        <%- end -%>
+
+      </ul>
+    </div>
+    <table class="services">
+      <thead>
+        <tr><th><%= t('provider.services') %></th><th><%= t('provider.experience') %></th></tr>
+      </thead>
+      <tbody>
+        <%- if @provider.services.empty? -%>
+          <tr>
+            <td colspan="2"><%= t('provider.no_services') %></td>
+          </tr>
+        <%- else -%>
+          <%- @provider.services.priority(2).sort_by { |s| [s.category.position, s .position] }.group_by(&:category).each do |category, services| -%>
+            <tr>
+              <th colspan="2"><%= category.name %></th>
+            </tr>
+            <%- services.each do |service| -%>
+              <tr>
+                <td>
+                  <%= service.name %>
+                </td>
+                <%- if proficiency = @provider.provided_services.for_service(service).proficiency -%>
+                  <td class="<%= t("service.proficiency_#{proficiency}") %>">
+                    <div class="proficiency"></div><%= t("service.proficiency_#{proficiency}") %>
+                  </td>
+                <%- end -%>
+              </tr>
+            <%- end -%>
+          <%- end -%>
+        <%- end -%>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="sidebar">  
+    <!-- <% form_for :provider, :url => new_rfp_path, :html => {:method => :get} do |f| -%>
+        <%= hidden_field_tag "provider_id", @provider.id %>
+        <%= f.submit t('provider.send_rfp') %>
+      <% end -%> -->
+  
+    <% unless logged_in? and current_user.can_edit?(@provider) %>
+      <ul class="links">
+        <li class="request"><%= link_to 'Save As Favorite', '', :class=>'button hidden' %></li>
+        <li class="request"><%= link_to t('contact_developer'), new_rfp_path(:provider_id => @provider.id), :onClick=>"pageTracker._trackEvent('Request', 'Create Proposal', 'Profile');", :class=>'button' %></li>
+      </ul>
+    <%- end -%>
+    
+    <%- if current_user.provider.percent_complete.to_i < 100 -%>
+      <h3><%= t('you_still_need_to') %></h3>
+      <ul>
+      <%- current_user.provider.failed_checks.each do |check| -%>
+        <li><%= check[:description] %></li>
+      <%- end -%>
+      </ul>
+    <%- end -%>
+      
+    <h3><%= t('availability') %></h3>
+    <table class="availability">
+      <tbody>
+        <tr>
+          <%- [Date.today,1.month.from_now,2.months.from_now].each do |date| -%>
+            <th><%= date.strftime("%B") %></th>
+          <%- end -%>
+        </tr>
+        <tr>
+          <%- [Date.today,1.month.from_now,2.months.from_now].each do |date| -%>
+            <td id="<%= date.strftime("%B") %>">
+              <%- if @provider.booked_for(date) -%>
+                <%= t('booked') %>
+              <%- else -%>
+                <%= link_to t('accepting_work'), new_rfp_path(:provider_id => @provider.id) %>
+              <%- end -%>
+            </td>
+        <%- end -%>
+        </tr>
+      </tbody>
+    </table>
+    
+    <div class="hidden">
+      <h3><%= t('code_samples') %></h3>
+      <div class="widget codesamples">
+        <p><%= t('code_sample_label') %></p>
+        <p class="score"><strong>80</strong>/100 <span class="label"><%= t('avg_score') %></span></p>
+        <div class="clear"></div>
+      </div>
+    </div>
+  
+    <!-- <h3><%= t('provider.feedback_headline') %></h3>
+      
+        <%- if @provider.feedbacks.accepted.empty? -%>
+          <p><%= t('provider.no_feedback') %></p>
+        <%- else -%>
+          <%- @provider.feedbacks.accepted.each do |feedback| -%>
+            <div>
+              <blockquote>&#8220;<%= h feedback.message %>&#8221;</blockquote>
+              <cite>
+                <% # This part needs to get cleaned up %>
+                <%=h feedback.name %>, <%=h feedback.position %>
+                <%= t('feedback.at') %> <%=h feedback.company %><br />
+                <%= t('feedback.hired') %> <%=h @provider.company_name %>
+                <%= t('feedback.in') %> <%=h feedback.year_hired %>
+              </cite>
+            </div>
+          <%- end -%>
+        <%- end -%>
+      
+        <%= link_to t('provider.feedback'), new_provider_feedback_path(@provider) %> -->
+  
+    <h3><%= t('provider.quiz_results_headline') %></h3>
+    <div class="widget">
+      <%- if @provider.quiz_results.empty? -%>
+        <%= t('no_quizzes_taken') %>
+      <%- else -%>
+        <p><%- @provider.first_name -%> <%= t('has_taken') %> <%= t('x_quizzes', :count => @provider.quiz_results.size) %></p>
+      <%- end -%>
+      <%- if logged_in? and current_user.provider == @provider -%>
+        <br /><%= link_to t('take_a_quiz'), my_quizzes_path %>
+      <%- end -%>
+      <div class="clear"></div>
+    </div>
+    
+    <div class="hidden">
+    <h3><%= t('provider.endorsements_headline') %></h3>
+  
+    <%- if @provider.endorsements.approved.empty? -%>
+      <p><%= t('provider.no_endorsements') %></p>
+    <%- else -%>
+      <% @provider.endorsements.recent.approved.each do |endorsement| %>
+        <div>
+          <blockquote>&#8220;<%= h endorsement.endorsement %>&#8221;</blockquote>
+          
+          <dl class="ratings">
+            <dt>Reliable</dt>
+            <dd><img src="/images/icon-ratestar-on.png" /><img src="/images/icon-ratestar-on.png" /><img src="/images/icon-ratestar-on.png" /><img src="/images/icon-ratestar-off.png" /><img src="/images/icon-ratestar-off.png" /></dd>
+            <dt>Experience</dt>
+            <dd><img src="/images/icon-ratestar-on.png" /><img src="/images/icon-ratestar-on.png" /><img src="/images/icon-ratestar-on.png" /><img src="/images/icon-ratestar-off.png" /><img src="/images/icon-ratestar-off.png" /></dd>
+            <dt>Professional</dt>
+            <dd><img src="/images/icon-ratestar-on.png" /><img src="/images/icon-ratestar-on.png" /><img src="/images/icon-ratestar-on.png" /><img src="/images/icon-ratestar-off.png" /><img src="/images/icon-ratestar-off.png" /></dd>
+          </dl>
+          
+          <cite>
+            <% # This part needs to get cleaned up %>
+            <%=h endorsement.name %>, <%=h endorsement.position %>
+            <%= t('endorsement.at') %> <%=h endorsement.company %><br />
+            <%= t('endorsement.hired') %> <%=h @provider.company_name %>
+            <%= t('endorsement.in') %> <%=h endorsement.year_hired %>
+          </cite>
+          
+          <%= link_to t('provider.request_a_reference'),
+                      new_endorsement_reference_request_path(endorsement) %>
+        </div>
+      <%- end -%> 
+    <%- end -%>
+    
+    <%- if @provider.endorsements.approved.count > 3 -%>
+      <%= link_to t('provider.more_endorsements'), provider_endorsements_path(@provider), :id => 'more-endorsements' %>
+      | 
+    <%- end -%>
+    <% if logged_in? and current_user.provider == @provider %>
+      <%= link_to t('endorsement.ask_for_endorsement'), new_my_endorsement_request_path %>
+    <%- end -%>
+    </div>
+  </div>
+  <div class="clear"></div>
+</div>
+
 <div class="dashboard">
 
   <div class="pageHead">
