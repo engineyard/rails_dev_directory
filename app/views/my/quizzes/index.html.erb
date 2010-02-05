@@ -29,7 +29,7 @@
         <tr>
           <td><%= quiz.name %></td>
           <td><%= t("#{quiz.skill_level}") %></td>
-          <td><%= quiz.time_limit %> <%= t('minutes') %></td>
+          <td><%= t('n_minutes', :count => quiz.time_limit) %></td>
           <td class="right">
             <%- if current_user.provider.quiz_results.find_by_quiz_id(quiz.id) -%>
               <%= t('your_score') %>: <%= current_user.provider.quiz_results.find_by_quiz_id(quiz.id).score %> / <%= quiz.questions_per_quiz %>

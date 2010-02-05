@@ -104,6 +104,9 @@ en:
   more_than: More Than
   my_upcoming_availability: "My Upcoming Availability &mdash; 3 month view"
 
+  n_minutes:
+    other: "{{count}} minutes"
+    one: "{{count}} minute"
   name: Name
   name_and_location: Name &amp; Location
   name_your_sample_code: Name your sample code
