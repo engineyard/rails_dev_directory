@@ -273,7 +273,7 @@
 
             </ul>
           </fieldset>
-          <%= f.submit t('save') %> <%= t('or') %> <%= link_to t('cancel'), edit_my_provider_path, :class => "cancel" %>
+          <%= f.submit t('save_services') %> <%= t('or') %> <%= link_to t('cancel'), edit_my_provider_path, :class => "cancel" %>
         <% end -%>
         
       </div>
@@ -410,22 +410,4 @@
     </div>
   </div>
   <div class="clear"></div>
-</div>
-
-<div class="dashboard">
-
-  <div class="pageHead">
-    <h2><%= t('edit_your_profile') %></h2>
-  </div>
-
-  <% form_for @provider, :url => my_provider_path, :html => {:multipart => true} do |f| -%>
-  
-    <%= f.error_messages %>
-  
-    <%= render :partial => 'providers/form', :locals => {:f => f} %>
-    
-    <div class="clear"></div>
-    <%= f.submit t('forms.save') %> <%= t('forms.or')%> <%= link_to t('forms.cancel'), @provider %>
-
-  <% end -%>
 </div>

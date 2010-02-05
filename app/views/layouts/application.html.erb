@@ -59,7 +59,7 @@
     <% if logged_in? and current_user.provider %>
       <div class="subnav<%= ' home' if params[:controller] == 'home' %>">
         <div class="content">
-          <div class="navigation">
+          <div class="navigation" id="provider-nav">
             <ul>
               <li class="alignleft<%= ' active' if controller_name == 'dashboard' %>">
                 <%= link_to t('navigation.dashboard'), my_dashboard_path %><sup>12</sup>
