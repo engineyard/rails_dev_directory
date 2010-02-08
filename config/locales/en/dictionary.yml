@@ -129,7 +129,7 @@ en:
   priority: Priority
   priority_notes: Priority affects where in the search form this category will appear
   professional: Professional
-  profile_photo: Profie Photo
+  profile_photo: Profile Photo
   project_length: Project Length
   providers_in_country: "Rails Developers in {{country}}"
   providers_in_state: "US Rails Developers in {{state}}"
