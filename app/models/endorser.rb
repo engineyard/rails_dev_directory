@@ -1,7 +1,7 @@
 class Endorser < ActiveRecord::Base
   validates_presence_of :email
   validate_on_create :valid_email_address
-  
+
   before_create :create_validation_token
   
   belongs_to :endorsement_request
