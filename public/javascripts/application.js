@@ -5,7 +5,6 @@ $(document).ready(function(){
   
   function textarea_maxlength(){
     remaining = $(this).attr('data-count') - $(this).val().length
-    console.log(remaining)
     $('.number').html(remaining + '')
     if(remaining >= 0)
     {
@@ -123,7 +122,6 @@ $(document).ready(function(){
     }
     $(this).click(function() {
       if ($(this).is(':checked')) {
-        console.log($(this).siblings('ul.testability'))
         $(this).siblings('ul.testability').removeClass('hidden')
       } else {
         $(this).siblings('ul.testability').addClass('hidden')
