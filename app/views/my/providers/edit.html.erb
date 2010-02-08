@@ -126,10 +126,10 @@
                       </ul>
                     </li>
                   <%- end -%>
-
                   </ul>
-                </fieldset>
+                
                 <%= f.submit t('save') %> <%= t('or') %> <%= link_to t('cancel'), edit_my_provider_path, :class => "cancel" %>
+                </fieldset>
               <% end -%>
 
             </div>
@@ -137,12 +137,12 @@
         <%- end -%>
         <li class="location hidden"><%= t('willing_to_travel') %></li>
         <%- if @provider.accepted_payment_methods.not.empty? -%>
-          <li class="payment inline-editor">
-            <span class="data-display">
-            <%= t('accepts_as_payment', :types => @provider.accepted_payment_methods.collect(&:name).to_sentence ) %>
+          <li class="inline-editor">
+            <div class="data-display">
+            <span class="payment"><%= t('accepts_as_payment', :types => @provider.accepted_payment_methods.collect(&:name).to_sentence ) %></span>
             
             <%= link_to t('edit_payment_types'), '#',  :class => 'inline-editor-toggle edit-link' %>
-            </span>
+            </div>
             <div class="data-edit">
               <% form_for [:my, @provider] do |f| -%>
                 <%= f.error_messages  -%>
@@ -185,10 +185,11 @@
                       </ul>
                     </li>
                   <%- end -%>
-
                   </ul>
+                  <br />
+                  <%= f.submit t('save') %> <%= t('or') %> <%= link_to t('cancel'), edit_my_provider_path, :class => "cancel" %>
                 </fieldset>
-                <%= f.submit t('save') %> <%= t('or') %> <%= link_to t('cancel'), edit_my_provider_path, :class => "cancel" %>
+                
               <% end -%>
 
             </div>
@@ -202,7 +203,7 @@
       <div class="data-display">
         <table class="services">
           <thead>
-            <tr><th><%= t('provider.services') %></th><th><%= link_to t('edit_your_services'), '#',  :class => 'inline-editor-toggle edit-link' %></th></tr>
+            <tr><th><%= t('provider.services') %></th><th class="right"><%= link_to t('add_services'), '#',  :class => 'add inline-editor-toggle edit-link' %></th></tr>
           </thead>
           <tbody>
             <%- if @provider.services.empty? -%>
@@ -234,9 +235,9 @@
       
       <div class="data-edit">
         <% form_for [:my, @provider] do |f| -%>
+          <h3><%= t('provider.services') %></h3>
           <%= f.error_messages  -%>
           <fieldset>
-            <h3><%= t('provider.services') %></h3>
 
             <%- setup_services(@provider) -%>
             <ul>
@@ -276,8 +277,9 @@
             <%- end -%>
 
             </ul>
-          </fieldset>
+          <br />
           <%= f.submit t('save_services') %> <%= t('or') %> <%= link_to t('cancel'), edit_my_provider_path, :class => "cancel" %>
+          </fieldset>
         <% end -%>
         
       </div>
@@ -297,20 +299,18 @@
       </ul>
     <%- end -%>
     
-    <%- if logged_in? -%>
-      <%- if current_user.provider.percent_complete.to_i < 100 -%>
-        <div class="todo">
-          <h3><%= t('you_still_need_to') %></h3>
-          <ul>
-          <%- current_user.provider.failed_checks.each do |check| -%>
-            <li><%= check[:description] if check[:name] != 'code_sample' %></li>
-          <%- end -%>
-          </ul>
-        </div>
-      <%- end -%>
+    <%- if current_user.provider.percent_complete.to_i < 100 -%>
+      <div class="todo">
+        <h3><%= t('you_still_need_to') %></h3>
+        <ul>
+        <%- current_user.provider.failed_checks.each do |check| -%>
+          <li><%= check[:description] %></li>
+        <%- end -%>
+        </ul>
+      </div>
     <%- end -%>
       
-    <h3><%= t('availability') %> <%= link_to t('update_your_schedule'), my_availability_path, :class => 'edit-link' %></h3>
+    <h3><%= t('availability') %> <%= link_to t('update_your_schedule'), my_availability_path, :class => 'edit-link alignright' %></h3>
     <table class="availability">
       <tbody>
         <tr>
@@ -362,7 +362,7 @@
       
         <%= link_to t('provider.feedback'), new_provider_feedback_path(@provider) %> -->
   
-    <h3><%= t('provider.quiz_results_headline') %> <%= link_to t('take_a_quiz'), my_quizzes_path, :class => 'edit-link' %></h3>
+    <h3><%= t('provider.quiz_results_headline') %> <%= link_to t('take_a_quiz'), my_quizzes_path, :class => ' add edit-link alignright' %></h3>
     <div class="widget">
       <%- if @provider.quiz_results.empty? -%>
         <%= t('no_quizzes_taken') %>

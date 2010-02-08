@@ -95,8 +95,10 @@ dl.details dd {
 }
 .companyInfo li {
   color: #666;
-  padding-left: 20px;
   margin-bottom: 10px;
+}
+.companyInfo li span {
+  padding-left: 20px;
 }
 .companyInfo strong {
   font-weight: normal;
@@ -114,6 +116,7 @@ h3 {
 .sidebar h3, .calendar h3 {
   margin-bottom: -1px;
 }
+
 .provider.search h3 {
   text-transform: none;
 }
@@ -1232,13 +1235,61 @@ textarea#code_sample_code {
   -moz-border-radius: 4px;
   -webkit-border-radius: 4px;
   border-radius: 4px;
+  text-transform: none;
+  font-size: 12px;
+  width: 160px;
+  white-space: nowrap;
+}
+.edit-link.add {
+  background: #FBF8EC url(/images/sprite-graphics.png) no-repeat 8px -581px;
 }
 .edit-link:hover {
   background-color: #F6EED2;
 }
+.companyInfo .edit-link {
+  margin-left: 20px;
+}
+th .edit-link.add {
+  color: #390;
+}
 .data-edit fieldset {
   background: #FBF8EC;
   padding: 1px 10px 10px;
+}
+.data-edit li {
+  margin-top: 10px;
+  padding-top: 10px;
+}
+.data-edit ul, .data-edit li:first-child, .data-edit li:first-child h4.service_category {
+  margin: 0;
+  border: none;
+}
+.data-edit li:first-child {
+  padding-top: 0;
+}
+.data-edit li li {
+  padding-top: 0;
+  border: none;
+}
+.data-edit ul ul ul {
+  float: right;
+  margin-left: -20px;
+}
+.data-edit li label {
+  font-size: 0.9em;
+}
+.data-edit h4.service_category {
+  margin-top: 0;
+  padding-top: 10px;
+  color: #333;
+  border-top: 1px solid #DDD;
+}
+.data-edit input[type="submit"] {
+  margin-top: 10px;
+}
+.sidebar h3 .edit-link {
+  font-size: 12px;
+  margin-top: -5px;
 }
 
 /* Reusable Elements */
