@@ -7,6 +7,7 @@ class My::SittingsController < ApplicationController
     @sitting.quiz = Quiz.find(params[:quiz_id])
     if @sitting.save
       @quiz = @sitting.quiz
+      redirect_to "#{@sitting.peer_test.url}#p=#{@sitting.id}"
     else
       flash[:notice] = t('cannot_take_quiz')
       redirect_to my_quizzes_path
