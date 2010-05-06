@@ -116,6 +116,21 @@ textarea.email {
   width: 100%;
   height: 30em;
 }
+form[action="/admin/config"] label {
+  width: auto;
+  text-align: left;
+}
+form[action="/admin/config"] textarea {
+  width: 100%;
+  height: 15em;
+  font: 10px Monaco, Courier New, monospace;
+  padding: 0;
+  margin-bottom: 2em;
+}
 label {
   width: 16em;
 }
+label.inline { display: inline; width: inherit; float: none;}
+
+ul.sortable { display: none; }
+ul.sortable li { cursor: move; }

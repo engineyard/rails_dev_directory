@@ -1,0 +1,13 @@
+<% form_for [:admin, @top_city] do |f| -%>
+
+  <%= f.error_messages %>
+
+  <fieldset>
+    <%= f.label :slug, t('top_city.slug') %> <%= f.text_field :slug %> <br/>
+    <%= f.label :city %> <%= f.text_field :city %> <br/>
+    <%= f.label :state %> <%= f.select :state, ([[t('provider.outside_us')]] + State::NAMES), :include_blank => true %> <br/>
+    <%= f.label :country, t('provider.country') %> <%= f.localized_country_select :country, [:US, :CA, :FR, :DE,  :IE, :ES, :GB], :include_blank => t('provider.choose_country') %> <br />
+  </fieldset>
+  
+  <%= f.submit t('forms.save') %> <%= t('forms.or') %> <%= link_to t('forms.cancel'), admin_top_cities_path %>
+<% end -%>

@@ -23,6 +23,8 @@ Rails::Initializer.run do |config|
   config.gem "RedCloth", :lib => 'redcloth'
   config.gem "authlogic", :version => '2.1.2'
   config.gem "fastercsv"
+  config.gem "nokogiri", :version => '>= 1.3.3'
+  config.gem 'behavior', :version => '0.1.1'
 
   # Only load the plugins named here, in the order given (default is alphabetical).
   # :all can be used as a placeholder for all plugins not explicitly named

@@ -46,8 +46,8 @@ describe Provider do
     end
     
     it "should search on services provided" do
-      Provider.should_receive(:all).with(:joins => :provided_services, :group => 'provider_id', :conditions => ["aasm_state != 'flagged' and provided_services.technology_type_id IN (?)", [1,2,3]], :order => "aasm_state asc, if(endorsements_count >= 3,endorsements_count,0) desc, RAND()", :limit => 10)
-      Provider.search({:technology_type_ids => [1,2,3]})
+      Provider.should_receive(:all).with(:joins => :provided_services, :group => 'provider_id', :conditions => ["aasm_state != 'flagged' and provided_services.service_id IN (?)", [1,2,3]], :order => "aasm_state asc, if(recommendations_count >= 3,recommendations_count,0) desc, RAND()", :limit => 10)
+      Provider.search({:service_ids => [1,2,3]})
     end
     
     it "should search on country" do
@@ -78,16 +78,16 @@ describe Provider do
     
   describe "default tech types" do
     before do
-      @tech_type = TechnologyType.create!(:name => "Default", :checked => true)
+      @tech_type = Service.create!(:name => "Default", :checked => true)
       @provider = Provider.create!(@valid_attributes)
     end
     
     it "should have Default as tech type" do
-      @provider.technology_types.include?(@tech_type).should be_true
+      @provider.services.include?(@tech_type).should be_true
     end
     
     after do
-      TechnologyType.destroy_all
+      Service.destroy_all
     end
   end
 
@@ -226,7 +226,7 @@ describe Provider, "receiving email on signup" do
     @provider.should be_valid
     
     Notification.should_not_receive(:create_user_welcome)
-    Notification.should_receive(:create_provider_welcome)
+    Notification.should_receive(:deliver_provider_welcome)
     
     @provider.save
   end

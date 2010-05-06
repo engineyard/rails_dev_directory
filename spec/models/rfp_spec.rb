@@ -2,14 +2,14 @@ require File.expand_path(File.dirname(__FILE__) + '/../spec_helper')
 
 describe Rfp do
   before(:each) do
-    TechnologyType.destroy_all
-    @technology_type = Factory.create(:technology_type)
+    Service.destroy_all
+    @service = Service.make(:checked => true)
     @rfp = Factory.build(:rfp)
   end
 
   it "should create a new instance given valid attributes" do
     @rfp.save!
-    @rfp.requested_services.collect { |c| c.name }.should == [@technology_type.name]
+    @rfp.requested_services.collect { |c| c.name }.should == [@service.name]
   end
   
   describe "setting the budget" do

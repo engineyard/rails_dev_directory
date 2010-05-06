@@ -25,6 +25,16 @@ Service.blueprint do
   name
 end
 
+
+Page.blueprint do
+  title Sham.name
+end
+
+TopCity.blueprint do
+  city "Dublin"
+  country "IE"
+end
+
 Provider.blueprint do
   email
   company_url { Sham.url }
@@ -51,4 +61,3 @@ end
 EndorsementRequestRecipient.blueprint do
   email
 end
-

@@ -22,6 +22,9 @@ en:
     next: Fill out request
     sign_out: Sign out
     
+    sort_list: Sort List
+    done_sorting: Done Sorting
+    
   signin:
     failed: "Couldn't log you in as '{{user}}'"
     
@@ -46,8 +49,10 @@ en:
     admin: Admin
     pages: Pages
     csvs: CSV exports
+    config: Site Config
     
     #admin
+    top_cities: Top Cities
     general_admin: General
     system_admin: System
     services: Services
@@ -89,6 +94,7 @@ en:
     provider_signup: Rails Developer? Get Listed...
     enter_budget: Please enter your budget
     everywhere: Everywhere
+    top_cities: Top Cities
     
   company_profile:
     users:
@@ -212,7 +218,7 @@ en:
     administrator_password_description: "The administrator can edit company details and add additional users to the account."
     company_details_headline: Please enter some details about your company
     company_details_description: "The more information that you provide about your company, the easier it will be for other businesses looking for your services to find you."
-
+  
   user:
     add_new: Add a new user
     add_new_to: Add a new user to {{provider}}
@@ -304,6 +310,13 @@ en:
     
     submission:
       thanks_for_requesting: "Your request has been sent to the following recipients: "
+    
+  top_city:
+    add_new: Add Top City
+    no_cities: No top cities have been set
+    
+    city: City
+    slug: URL Slug
 
   rfp:
     validations:
@@ -443,10 +456,9 @@ en:
     thanks: Thanks for submitting your endorsement.
 
     recipient_company_name: Recipient
-    show_endorsement: Endorsement for {{company_name}}
-    endorsements_for: Endorsements for {{company_name}}
-
-    endorsements_for: Endorsements for {{company}}
+    show_endorsement: "Endorsement for {{company_name}}"
+    endorsements_for: "Endorsements for {{company_name}}"
+    company_endorsements: "{{company}} Endorsements"
     
     at: at
     hired: Hired
@@ -478,7 +490,15 @@ en:
     title: Title
     url: URL
     maps_to: Maps to /pages/example
+    global_keywords: Use Global
+    custom_keywords: Use Custom
     keywords: Keywords
+    
+    robots: Robots
+    noindex: No-index
+    nofollow: No-follow
+    canonical: Canonical
+    
     description: Description
     content: Content
     accepts_textile: Accepts <a href="http://www.textism.com/tools/textile/">Textile</a>

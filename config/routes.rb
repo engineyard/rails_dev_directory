@@ -9,6 +9,8 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :password_resets
   
   # Country and state routes
+  map.resources :top_cities
+  
   Country.slugs.each do |slug|
     map.send(slug.gsub('-', '_'), "/developers/#{slug}", :controller => "countries", :action => "show", :country => slug)
   end
@@ -57,6 +59,7 @@ ActionController::Routing::Routes.draw do |map|
     end
     admin.resources :pages
     admin.resource :csv
+    admin.resources :top_cities, :collection => {:sort => :put}
   end
 
   # The priority is based upon order of creation: first created -> highest priority.

@@ -9,5 +9,9 @@
   <fieldset>
     <%= f.label :email, t("user.email") %> <%= f.text_field :email %> <br />
   </fieldset>
+  <fieldset>
+    <%= f.label :password, t("user.password") %> <%= f.password_field :password %> <br />
+    <%= f.label :password_confirmation, t("user.password_again") %> <%= f.password_field :password_confirmation %> <br />
+  </fieldset>
   <%= f.submit t('forms.save') %> <%= t('forms.or') %> <%= link_to t('forms.cancel'), my_users_path %>
 <% end -%>

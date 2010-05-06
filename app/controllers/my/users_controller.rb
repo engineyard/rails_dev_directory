@@ -35,7 +35,12 @@ class My::UsersController < ApplicationController
   end
   
   def update
-    if @user.update_attributes(params[:user].merge({:password_confirmation => params[:user][:password]}))
+    @user.attributes = params[:user].merge({:password_confirmation => params[:user][:password]})
+    if @user == current_user
+      @user.password = params[:user][:password]
+      @user.password_confirmation = params[:user][:password]
+    end
+    if @user.save
       flash[:notice] = I18n.t("company_profile.users.saved_successfully", :user => @user.email)
       redirect_to my_users_path
     else

@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20091103093719) do
+ActiveRecord::Schema.define(:version => 20091210164854) do
 
   create_table "audits", :force => true do |t|
     t.string   "auditable_type"
@@ -24,6 +24,15 @@ ActiveRecord::Schema.define(:version => 20091103093719) do
   add_index "audits", ["auditable_type", "auditable_id"], :name => "auditable_object"
   add_index "audits", ["user_id", "auditable_type"], :name => "auditable_user_index"
   add_index "audits", ["user_id"], :name => "index_audits_on_user_id"
+
+  create_table "behavior_configs", :force => true do |t|
+    t.string   "key"
+    t.text     "value"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "behavior_configs", ["key"], :name => "index_behavior_configs_on_key"
 
   create_table "endorsement_request_recipients", :force => true do |t|
     t.integer "endorsement_request_id"
@@ -71,6 +80,11 @@ ActiveRecord::Schema.define(:version => 20091103093719) do
     t.text     "content"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "noindex"
+    t.boolean  "nofollow"
+    t.string   "canonical"
+    t.boolean  "enable_canonical"
+    t.boolean  "enable_keywords"
   end
 
   create_table "portfolio_items", :force => true do |t|
@@ -116,6 +130,23 @@ ActiveRecord::Schema.define(:version => 20091103093719) do
 
   add_index "providers", ["slug"], :name => "index_providers_on_slug"
 
+  create_table "recommendations", :force => true do |t|
+    t.string   "name"
+    t.string   "company"
+    t.string   "email"
+    t.string   "url"
+    t.integer  "provider_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "year_hired"
+    t.string   "position"
+    t.text     "endorsement"
+    t.string   "aasm_state"
+    t.integer  "sort_order"
+  end
+
+  add_index "recommendations", ["aasm_state"], :name => "index_recommendations_on_aasm_state"
+
   create_table "requested_services", :force => true do |t|
     t.integer  "rfp_id"
     t.string   "name"
@@ -159,13 +190,34 @@ ActiveRecord::Schema.define(:version => 20091103093719) do
     t.string   "duration"
   end
 
+  create_table "service_categories", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "services", :force => true do |t|
     t.string   "name"
     t.integer  "position"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "checked",    :default => false, :null => false
+    t.boolean  "checked",             :default => false, :null => false
+    t.integer  "service_category_id"
   end
+
+  add_index "services", ["service_category_id"], :name => "index_services_on_service_category_id"
+
+  create_table "top_cities", :force => true do |t|
+    t.string   "city"
+    t.string   "country"
+    t.integer  "position"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "state"
+    t.string   "slug"
+  end
+
+  add_index "top_cities", ["slug"], :name => "index_top_cities_on_slug"
 
   create_table "users", :force => true do |t|
     t.string   "email",             :limit => 100

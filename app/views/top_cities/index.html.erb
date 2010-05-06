@@ -1,0 +1,15 @@
+<h2><%= t('navigation.top_cities') %></h2>
+
+<%- if @top_cities.empty? -%>
+  
+<%- else -%>
+  <ul>
+    <%- @top_cities.each do |top_city| -%>
+      <li>
+        <%= link_to top_city.city, top_city_path(top_city.slug) %>,
+        <%= "#{State.by_code(top_city.state)}, " if top_city.state.not.blank? %>
+        <%= t("countries.#{top_city.country}") %>
+      </li>
+    <%- end -%>
+  </ul>
+<%- end -%>
