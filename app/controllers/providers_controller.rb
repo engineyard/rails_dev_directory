@@ -27,7 +27,7 @@ class ProvidersController < ApplicationController
     @provider.users.first.password = params['provider']['users_attributes']['0']['password']
     @provider.users.first.password_confirmation = params['provider']['users_attributes']['0']['password_confirmation']
     @page_content = Page.find_by_url('provider-signup')
-    if verify_recaptcha(:model => @provider) && @provider.save
+    if @provider.save
       UserSession.create(@provider.user)
       redirect_to my_dashboard_url
     else
