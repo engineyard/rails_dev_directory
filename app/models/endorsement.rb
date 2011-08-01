@@ -32,7 +32,7 @@ class Endorsement < ActiveRecord::Base
   after_destroy :update_provider_counter_cache
   
   named_scope :recent, :order => "created_at desc", :limit => 3
-  named_scope :approved, :conditions => {:aasm_state => 'approved'}
+  named_scope :approved, :order => "year_hired desc", :conditions => {:aasm_state => 'approved'}
 
   def activate_provider
     provider.check_endorsements_and_activate if provider and provider.status == 'inactive'
